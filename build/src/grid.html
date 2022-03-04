@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Instance Picker - Machine Types - Google Compute Engine - Google Cloud Platform</title>
+	<script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+	<link rel=icon href="/favicon.ico">
+	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
+	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
+	<style>
+		html {
+			width: 100%;
+			height: 100%;
+		}
+		body {
+			width: 100%;
+			height: 100%;
+			margin: 0;
+			padding: 0;
+		}
+		.frequency::after { content: " GHz"; }
+		.currency         { font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace !important; }
+		.currency::before { content: "$"; }
+		.bandwidth::after { content: " Gbps"; }
+		.diskSize::after  { content: " TB"; }
+		.memory::after    { content: " GB"; }
+	</style>
+</head>
+<body class="ag-theme-balham">
+	<div id="myGrid" style="height: 100%; width:100%"></div>
+	<script src="main.js?[% timestamp %]"></script>
+</body>
+</html>

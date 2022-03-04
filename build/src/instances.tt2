@@ -1,0 +1,59 @@
+[% META title = 'Google Compute Engine Machine Types' %]
+[%- PROCESS header.tt2 -%]
+<h1>[% template.title %]</h1>
+<div class="table-responsive">
+<table class="table table-sm table-hover table-striped table-bordered">
+<thead>
+	<tr>
+		<th scope="col" colspan="5">Machine-Type</th>
+		<th scope="col">Regions</th>
+		<th scope="col" colspan="4">Costs (Avg. Region)</th>
+		<th scope="col" colspan="3">OS</th>
+	</tr>
+	<tr>
+		<th scope="row">Name</th>
+		<th scope="col">vCPU ⬇️</th>
+		<th scope="col">Base Clock</th>
+		<th scope="col">Memory</th>
+		<th scope="col"></th>
+		<th scope="col">#</th>
+		<!-- Costs -->
+		<th scope="col">Hour</th>
+		<th scope="col">Month</th>
+		<th scope="col">1Y CUD</th>
+		<th scope="col">3Y CUD</th>
+		<!-- OS -->
+		<th scope="col">SLES</th>
+		<th scope="col">RHEL</th>
+		<th scope="col">Windows</th>
+	</tr>
+</thead>
+<tbody>
+	[% FOREACH instance IN instances %]
+	<tr>
+		<td><a href="[% instance.name %].html">[% instance.name %]</a></td>
+		<td>[% instance.vCpus %][% IF instance.sharedCpu == 'true' %] <span class="badge bg-warning text-dark">Shared</span>[% END %]</td>
+		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
+		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
+		<td>
+			[% IF instance.intel == 'true' %]<span class="badge bg-primary">Intel</span>[% END %]
+			[% IF instance.amd   == 'true' %]<span class="badge bg-success">AMD</span>[% END %]
+			[% IF instance.sap   == 'true' %]<span class="badge bg-warning text-dark">SAP</span>[% END %]
+			[% IF instance.hana  == 'true' %]<span class="badge bg-warning text-dark">HANA</span>[% END %]
+		</td>
+		<td>[% instance.regionCount %]</td>
+		<!-- Costs -->
+		<td class="currency" title="Avg. Hour: [% instance.avgHour %] USD">[% instance.avgHour %]</td>
+		<td class="currency" title="Avg. Month: [% instance.avgMonth %] USD">[% instance.avgMonth %]</td>
+		<td class="currency" title="Avg. Month w. 1Y CUD: [% instance.avgMonth1yCud %] USD">[% instance.avgMonth1yCud %]</td>
+		<td class="currency" title="Avg. Month w. 3Y CUD: [% instance.avgMonth3yCud %] USD">[% instance.avgMonth3yCud %]</td>
+		<!-- OS -->
+		<td class="currency" title="SUSE Linux Enterprise Server: [% instance.monthSles %] USD">[% instance.monthSles %]</td>
+		<td class="currency" title="Red Hat Enterprise Linux: [% instance.monthRhel %] USD">[% instance.monthRhel %]</td>
+		<td class="currency" title="Microsoft Windows Server: [% instance.monthWindows %] USD">[% instance.monthWindows %]</td>
+	</tr>
+	[% END %]
+</tbody>
+</table>
+</div> <!-- // table-responsive -->
+[% PROCESS footer.tt2 %]

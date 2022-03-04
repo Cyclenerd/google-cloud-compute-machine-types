@@ -1,0 +1,58 @@
+[% META title = 'Google Cloud Regions' %]
+[%- PROCESS header.tt2 -%]
+<h1>[% template.title %]</h1>
+<div class="table-responsive">
+<table class="table table-sm table-hover table-striped table-bordered">
+<thead>
+	<tr>
+		<th scope="col" colspan="2">Region</th>
+		<th scope="col">Zones</th>
+		<th scope="col" colspan="10">Machine Series</th>
+		<th scope="col" colspan="2">Costs (e2-standard-8)</th>
+	</tr>
+	<tr>
+		<th scope="row">Name ⬇️</th>
+		<th scope="row">Location</th>
+		<th scope="col" >#</th>
+		<!-- Machine Series -->
+		<th scope="col">A2</th>
+		<th scope="col">C2</th>
+		<th scope="col">C2D</th>
+		<th scope="col">E2</th>
+		<th scope="col">M1</th>
+		<th scope="col">M2</th>
+		<th scope="col">N1</th>
+		<th scope="col">N2</th>
+		<th scope="col">N2D</th>
+		<th scope="col">T2D</th>
+		<!-- e2-standard-8 -->
+		<th scope="col" class="currancy">Hour</th>
+		<th scope="col" class="currancy">Month</th>
+	</tr>
+</thead>
+<tbody>
+	[% FOREACH region IN regions %]
+	<tr>
+		<td><a href="[% region.name %].html">[% region.name %]</a></td>
+		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td>[% region.zoneCount %]</td>
+		<!-- Machine Series -->
+		<td [% IF region.a2  == '0' %]class="table-danger"[% END %]>[% region.a2 %]</td>
+		<td [% IF region.c2  == '0' %]class="table-danger"[% END %]>[% region.c2 %]</td>
+		<td [% IF region.c2d == '0' %]class="table-danger"[% END %]>[% region.c2d %]</td>
+		<td [% IF region.e2  == '0' %]class="table-danger"[% END %]>[% region.e2 %]</td>
+		<td [% IF region.m1  == '0' %]class="table-danger"[% END %]>[% region.m1 %]</td>
+		<td [% IF region.m2  == '0' %]class="table-danger"[% END %]>[% region.m2 %]</td>
+		<td [% IF region.n1  == '0' %]class="table-danger"[% END %]>[% region.n1 %]</td>
+		<td [% IF region.n2  == '0' %]class="table-danger"[% END %]>[% region.n2 %]</td>
+		<td [% IF region.n2d == '0' %]class="table-danger"[% END %]>[% region.n2d %]</td>
+		<td [% IF region.t2d == '0' %]class="table-danger"[% END %]>[% region.t2d %]</td>
+		<!-- e2-standard-8 -->
+		<td class="currency" title="e2-standard-8 Hour: [% region.e2Standard8Hour %] USD">[% region.e2Standard8Hour %]</td>
+		<td class="currency" title="e2-standard-8 Month: [% region.e2Standard8Month %] USD">[% region.e2Standard8Month %]</td>
+	</tr>
+	[% END %]
+</tbody>
+</table>
+</div><!-- table-responsive -->
+[% PROCESS footer.tt2 %]

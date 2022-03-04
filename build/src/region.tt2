@@ -1,0 +1,54 @@
+[%- PROCESS header.tt2 -%]
+<h1>
+	Region [% region.name %]
+	[% IF region.regionLocation %]<small class="text-muted">[% region.regionLocation %]</small>[% END %]
+</h1>
+<div class="table-responsive">
+<table class="table table-sm table-hover table-striped table-bordered">
+<thead>
+	<tr>
+		<th scope="col" colspan="4">Machine-Type</th>
+		<th scope="col">Zones</th>
+		<th scope="col" colspan="4">Costs</th>
+		<th scope="col" colspan="3">OS</th>
+	</tr>
+	<tr>
+		<th scope="row">Name</th>
+		<th scope="col">vCPU ⬇️</th>
+		<th scope="col">Base Clock</th>
+		<th scope="col">Memory</th>
+		<th scope="col">#</th>
+		<!-- Costs -->
+		<th scope="col" >Hour</th>
+		<th scope="col" >Month</th>
+		<th scope="col" >1Y CUD</th>
+		<th scope="col" >3Y CUD</th>
+		<!-- OS -->
+		<th scope="col">SLES</th>
+		<th scope="col">RHEL</th>
+		<th scope="col">Windows</th>
+	</tr>
+</thead>
+<tbody>
+	[% FOREACH instance IN instances %]
+	<tr>
+		<td><a href="./[% region.name %]/[% instance.name %].html">[% instance.name %]</a></td>
+		<td>[% instance.vCpus %][% IF instance.sharedCpu == 'true' %] <span class="badge bg-warning text-dark">Shared</span>[% END %]</td>
+		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
+		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
+		<td title="Available in [% instance.zoneCount %] zone[% IF instance.zoneCount != '1' %]s[% END %]">[% instance.zoneCount %]</td>
+		<!-- Costs -->
+		<td class="currency" title="Hour: [% instance.hour %] USD">[% instance.hour %]</td>
+		<td class="currency" title="Month: [% instance.month %] USD">[% instance.month %]</td>
+		<td class="currency" title="Month w. 1Y CUD: [% instance.month1yCud %] USD">[% instance.month1yCud %]</td>
+		<td class="currency" title="Month w. 3Y CUD: [% instance.month3yCud %] USD">[% instance.month3yCud %]</td>
+		<!-- OS -->
+		<td class="currency" title="SUSE Linux Enterprise Server: [% instance.monthSles %] USD">[% instance.monthSles %]</td>
+		<td class="currency" title="Red Hat Enterprise Linux: [% instance.monthRhel %] USD">[% instance.monthRhel %]</td>
+		<td class="currency" title="Microsoft Windows Server: [% instance.monthWindows %] USD">[% instance.monthWindows %]</td>
+	</tr>
+	[% END %]
+</tbody>
+</table>
+</div><!-- table-responsive -->
+[% PROCESS footer.tt2 %]

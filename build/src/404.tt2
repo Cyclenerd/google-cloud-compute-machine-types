@@ -1,0 +1,14 @@
+[% META title = '404 - Page Not Found' %]
+[%- PROCESS header.tt2 -%]
+
+<h1>[% template.title %]</h1>
+
+<blockquote class="blockquote">
+	<p>Sorry, the page you are looking for could not be found.</p>
+</blockquote>
+
+<p>
+	<a class="btn btn-primary btn-lg" href="/" role="button">Start</a>
+</p>
+
+[% PROCESS footer.tt2 %]

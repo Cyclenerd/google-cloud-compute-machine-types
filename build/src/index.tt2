@@ -1,0 +1,189 @@
+[%- PROCESS header.tt2 -%]
+
+</div> <!-- // container-fluid -->
+<div class="container">
+
+<h1>Welcome</h1>
+
+<p>
+To help you choose the right Google Compute Engine machine type or instance in the many GCP regions, this webapp was created.
+A lot of information has been collected from various Google Cloud websites: 
+</p>
+
+<div class="row">
+<div class="col-xl-6">
+<ul>
+	<li>
+		<a href="https://cloud.google.com/compute/docs/machine-types#machine_type_comparison" rel="nofollow">Machine series comparison</a>
+		<ul>
+			<li><a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#a2_vms" rel="nofollow">A2</a> accelerator optimized machines</li>
+			<li>
+				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types" rel="nofollow">C2</a> and
+				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2d-standard" rel="nofollow">C2D</a> compute optimized machine series
+			</li>
+			<li>
+				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types" rel="nofollow">M1</a> and
+				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types" rel="nofollow">M2</a> memory optimized machine series
+			</li>
+			<li>
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines" rel="nofollow">N1</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_machines" rel="nofollow">N2</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2d_machines" rel="nofollow">N2D</a> and
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2d_machines" rel="nofollow">T2D</a> general purpose machine series
+			</li>
+		</ul>
+	</li>
+</ul>
+</div>
+<div class="col-xl-6">
+<ul>
+	<li><a href="https://cloud.google.com/compute/docs/cpu-platforms" rel="nofollow">CPU Platform</a></li>
+	<li><a href="https://cloud.google.com/compute/docs/benchmarks-linux" rel="nofollow">Benchmarks for Linux VM instances</a></li>
+	<li><a href="https://cloud.google.com/solutions/sap/docs/certifications-sap-apps#sap-certified-vms" rel="nofollow">Certified SAP applications on Google Cloud</a></li>
+	<li><a href="https://cloud.google.com/solutions/sap/docs/certifications-sap-hana#hana-cert-table-vms" rel="nofollow">Certified machine types for SAP HANA</a></li>
+</ul>
+</div> <!-- // col -->
+</div> <!-- // row -->
+<h2>Machines</h2>
+
+[%
+intel = 0;
+amd   = 0;
+sap   = 0;
+hana  = 0;
+FOREACH instance IN instances;
+	IF instance.intel == 'true'; intel = intel + 1; END;
+	IF instance.amd   == 'true'; amd   = amd   + 1; END;
+	IF instance.sap   == 'true'; sap   = sap   + 1; END;
+	IF instance.hana  == 'true'; hana  = hana  + 1; END;
+END;
+%]
+
+<p>
+<a href="/instances.html">Here</a> you can find an overview of all <mark>[% instances.size %] different Google Compute Engine machine types</mark>.
+You can also find the average costs per GCE machine type across all Google Cloud regions in this overview.
+</p>
+
+<p>
+You have the choice between <mark>[% intel %] machine types with Intel CPU</mark> and <mark>[% amd %] machine types with AMD CPU</mark>.
+[% sap %] machine types are certified for SAP application and [% hana %] machine types are certified for SAP HANA on Google Cloud.
+</p>
+
+<h2>Regions</h2>
+
+<p>
+<a href="/regions.html">Here</a> you can find an overview of all <mark>[% regions.size %] Google Cloud regions</mark> and the corresponding zones.
+You can also find the available Google Compute Engine machine types per GCE machine series (CPU type and CPU plattform) in this overview.
+</p>
+
+<p>
+In total, you have the freedom to choose between <mark>[% instances_in_regions.size %] different combinations</mark> of Google Compute Engine machine types and Google Cloud regions.
+For each combination the cost per hour, month with sustained use discounts (SUD), month with 1 year commitment (CUD) and price per month with 3 year commitment (CUD) was calculated.
+The cost of paid "premium" operating system licenses, such as SUSE Linux Enterprise Server (SLES), Red Hat Enterprise Linux (RHEL) and Microsoft Windows Server, was also calculated.
+</p>
+
+<h2>Instance Picker</h2>
+
+<p>
+With the <a href="/grid.html">Instance Picker</a> you can quickly and easily compare all possible Google Compute Engine machine types and instances in all Google Cloud Platform regions.
+</p>
+
+<p>
+You can set filters for each column and sort them.
+Filters can be combined.
+</p>
+
+<p>
+A good first filter is to set the preferred region.
+You can also filter by parts of the region. Example <code>europe</code> to filter all machine types in Europe.
+</p>
+
+<h3>Filter</h3>
+<div class="row">
+	<div class="col-xl-6">
+		<p>
+			Filter on region <code>europe-west4</code> and CPU base clock frequency greater than <code>3 GHz</code>:
+			<img src="./img/filter.png" alt="Screenshot" class="img-fluid rounded">
+		</p>
+	</div>
+	<div class="col-xl-6">
+		<p>
+			Filter on region <code>europe-west4</code> and Memory greater than <code>30 GB</code> but also less than <code>60 GB</code>:
+			<img src="./img/combine-filter.png" alt="Screenshot" class="img-fluid rounded">
+		</p>
+	</div>
+</div>
+
+<h3>Sort and more</h3>
+<div class="row">
+	<div class="col-xl-6">
+		<p>
+			Click header title to sort column:
+			<img src="./img/sort.png" alt="Screenshot" class="img-fluid rounded">
+		</p>
+	</div>
+	<div class="col-xl-6">
+		<p>
+			Click group header title icon to show more colums:
+			<img src="./img/show-more.png" alt="Screenshot" class="img-fluid rounded">
+		</p>
+	</div>
+</div>
+
+<h3>Keyboard shortcuts</h3>
+
+<p>
+You can navigate the Instance Picker with your keyboard.
+Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>) to move focus up, down, left and right.
+<kbd>Tab</kbd> will move the focus horizontally until the last cell and then move on to the next row.
+<p>
+
+<p>
+Pressing the <kbd>Space</kbd> key on a cell will select the cells row, or deselect the row if already selected.
+</p>
+
+<p>
+With the following keyboard shortcuts you can copy selected data from the table in CSV format to your clipboard:
+</p>
+
+<ul>
+	<li><kbd>Ctrl</kbd> + <kbd>c</kbd> : Copy selected rows with shown column to clipboard</li>
+	<li><kbd>Ctrl</kbd> + <kbd>a</kbd> : Copy selected rows with all   column to clipboard</li>
+	<li><kbd>Alt</kbd>  + <kbd>c</kbd> : Copy selected rows with shown column and headers to clipboard</li>
+	<li><kbd>Alt</kbd>  + <kbd>a</kbd> : Copy selected rows with all   column and headers to clipboard</li>
+</ul>
+
+<p>
+The grid header also supports full keyboard navigation:
+</p>
+
+<ul>
+	<li>Press <kbd>Enter</kbd> to toggle the sorting state of that column.</li>
+	<li>Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to open the menu for the focused header.</li>
+	<li>When a menu is open, simply press <kbd>Esc</kbd> to close it and the focus will return to the header.</li>
+</ul>
+
+<h2>Download</h2>
+
+You can download a <a href="/machine-types-regions.csv">CSV export</a> with all machine types and regions.
+You can then import and handle the CSV file in your favorite spreadsheet program (MS Excel, LibreOffice or Google Sheets).
+
+<div class="row">
+	<div class="col-xl-6">
+		<p>
+			Imported CSV file in LibreOffice spreadsheet program:
+			<img src="./img/spreadsheet.png" alt="Screenshot" class="img-fluid rounded">
+		</p>
+	</div>
+</div>
+
+<h2>Open Source</h2>
+
+<p>
+	Everything you see here is published as Open Source and licensed under the Apache License (Version 2.0).
+	You can find the source code on <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types">GitHub</a>.
+	Any improvements and pull requests are welcome 👍.
+</p>
+
+[% PROCESS footer.tt2 %]

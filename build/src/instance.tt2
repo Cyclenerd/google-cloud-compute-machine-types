@@ -1,0 +1,181 @@
+[%- PROCESS header.tt2 -%]
+<h1>
+	Machine-Type [% instance.name %]
+</h1>
+
+<blockquote class="blockquote">
+	<p>[% instance.description %]</p>
+</blockquote>
+
+<div class="row">
+<div class="col-xxl-6">
+<h2>Instance</h2>
+<table class="table table-hover table-striped table-bordered">
+	<tr>
+		<th>Series</th>
+		<td>[% instance.series %]</td>
+	</tr>
+	<tr>
+		<th>Family</th>
+		<td>[% instance.family %]</td>
+	</tr>
+	<tr>
+		<th>vCPU</th>
+		<td>[% instance.vCpus %][% IF instance.sharedCpu == 'true' %] <span class="badge bg-warning text-dark">Shared</span>[% END %]</td>
+	</tr>
+	<tr>
+		<th>Memory</th>
+		<td>[% instance.memoryGiB %] GB</td>
+	</tr>
+	<tr>
+		<th>CPU Manufactur</th>
+		<td>
+			[% IF instance.intel == 'true' %]<span class="badge bg-primary">Intel</span>[% END %]
+			[% IF instance.amd   == 'true' %]<span class="badge bg-success">AMD</span>[% END %]
+		</td>
+	</tr>
+	<tr>
+		<th>CPU Platform</th>
+		<td>[% instance.cpuPlatform %]</td>
+	</tr>
+	<tr>
+		<th>CPU Base Frequency</th>
+		<td>[% instance.cpuBaseClock %] GHz</td>
+	</tr>
+	<tr>
+		<th>CPU Turbo Frequency</th>
+		<td>[% instance.cpuTurboClock %] GHz</td>
+	</tr>
+	<tr>
+		<th>CPU Max. Turbo Frequency</th>
+		<td>[% instance.cpuSingleMaxTurboClock %] GHz</td>
+	</tr>
+	[% IF instance.acceleratorCount %]
+	<tr>
+		<th>Accelerator (GPUs)</th>
+		<td>[% instance.acceleratorCount %]</td>
+	</tr>
+	<tr>
+		<th>Accelerator Type</th>
+		<td>[% instance.acceleratorType %]</td>
+	</tr>
+	[% END %]
+	<tr>
+		<th>EEMBC CoreMark Benchmark (<a href="https://www.eembc.org/coremark">?</a>)</th>
+		<td>[% IF instance.coremarkScore %][% instance.coremarkScore %][% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+	</tr>
+	<tr>
+		<th>EEMBC CoreMark Standard Deviation</th>
+		<td>[% IF instance.standardDeviation %][% instance.standardDeviation %] %[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+	</tr>
+	<tr>
+		<th>EEMBC CoreMark Sample Count</th>
+		<td>[% IF instance.sampleCount %][% instance.sampleCount %][% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+	</tr>
+	<tr>
+		<th>SAP Standard Benchmark (<a href="https://www.sap.com/about/benchmark.html">?</a>)</th>
+		<td>[% IF instance.saps %][% instance.saps %][% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+	</tr>
+	<tr>
+		<th>Network Bandwidth</th>
+		<td>[% instance.bandwidth %] Gbps</td>
+	</tr>
+	<tr>
+		<th>Network Tier 1</th>
+		<td>[% IF instance.tier1 %][% instance.tier1 %] Gbps[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+	</tr>
+	<tr>
+		<th title="Disk usage is charged separately from machine type pricing!">Max. Disk Size</th>
+		<td>[% instance.diskSizeTiB %] TB</td>
+	</tr>
+	<tr>
+		<th title="Disk usage is charged separately from machine type pricing!">Max. Number of Disks</th>
+		<td>[% instance.disks %]</td>
+	</tr>
+	<tr>
+		<th>Local SSD</th>
+		<td>[% IF instance.localSsd  == 'true' %]✔️[% ELSE %]❌[% END %]</td>
+	</tr>
+	<tr>
+		<th>SAP Application</th>
+		<td>[% IF instance.sap  == 'true' %]<span class="badge bg-warning text-dark">Certified for SAP</span>[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+	</tr>
+	<tr>
+		<th>SAP HANA</th>
+		<td>[% IF instance.hana  == 'true' %]<span class="badge bg-warning text-dark">Certified for SAP HANA</span>[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+	</tr>
+	<tr>
+		<th>Spot Provisioning Mode (Spot VM)</th>
+		<td>[% IF instance.spot  == 'true' %]✔️[% ELSE %]❌[% END %]</td>
+	</tr>
+	<tr>
+		<th>Sustained Use Discount (SUD)</th>
+		<td>[% IF instance.sud  == 'true' %]✔️[% ELSE %]❌[% END %]</td>
+	</tr>
+</table>
+</div> <!-- // col -->
+<div class="col-xxl-6">
+<h2>Costs</h2>
+<div class="table-responsive">
+<table class="table table-sm table-hover table-striped table-bordered">
+<thead>
+	<tr>
+		<th scope="row">Name</th>
+		<th scope="row">Location</th>
+		<!-- Costs -->
+		<th scope="col">Hour ⬇️</th>
+		<th scope="col">Month</th>
+		<th scope="col">1Y CUD</th>
+		<th scope="col">3Y CUD</th>
+	</tr>
+</thead>
+<tbody>
+	[% FOREACH region IN regions %]
+	<tr>
+		<td scope="row"><a href="./[% region.name %]/[% instance.name %].html">[% region.name %]</td>
+		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<!-- Costs -->
+		<td class="currency" title="Hour: [% region.hour %] USD">[% region.hour %]</td>
+		<td class="currency" title="Month: [% region.month %] USD">[% region.month %]</td>
+		<td class="currency" title="Month w. 1Y CUD: [% region.month1yCud %] USD">[% region.month1yCud %]</td>
+		<td class="currency" title="Month w. 3Y CUD: [% region.month3yCud %] USD">[% region.month3yCud %]</td>
+	</tr>
+	[% END %]
+</tbody>
+</table>
+</div><!-- table-responsive -->
+<h2>Operating System Licenses Costs (Month)</h2>
+<table class="table table-hover table-striped table-bordered">
+	<tr>
+		<th>SUSE Linux Enterprise Server</th>
+		<td>$[% instance.monthSles %]</td>
+	</tr>
+	<tr>
+		<th>Red Hat Enterprise Linux</th>
+		<td>$[% instance.monthRhel %]</td>
+	</tr>
+	<tr>
+		<th>Microsoft Windows Server</th>
+		<td>$[% instance.monthWindows %]</td>
+	</tr>
+	<tr>
+		<th>SUSE Linux Enterprise Server for SAP</th>
+		<td>$[% instance.monthSlesSap %]</td>
+	</tr>
+	<tr>
+		<th>SUSE Linux Enterprise Server for SAP w. 1 Year CUD</th>
+		<td>$[% instance.monthSlesSap1yCud %]</td>
+	</tr>
+	<tr>
+		<th>SUSE Linux Enterprise Server for SAP w. 3 Year CUD</th>
+		<td>$[% instance.monthSlesSap3yCud %]</td>
+	</tr>
+	<tr>
+		<th>Red Hat Enterprise Linux for SAP</th>
+		<td>$[% instance.monthRhelSap %]</td>
+	</tr>
+</table>
+</div> <!-- // col -->
+</div> <!-- // row -->
+
+[% PROCESS footer.tt2 %]

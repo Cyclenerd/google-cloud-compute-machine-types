@@ -1,0 +1,2 @@
+[% FOREACH file IN files %]https://gcloud-compute.com/[% file %]
+[% END %]
