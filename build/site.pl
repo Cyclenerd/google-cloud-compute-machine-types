@@ -283,6 +283,9 @@ open(FH, '>', '../site/instance_in_region.json') or die $!;
 print FH encode_json \@instances_in_regions;
 close FH;
 
+# CSV
+copy('./machine-types-regions.csv', '../site/machine-types-regions.csv');
+
 # Images
 mkdir(                                '../site/img/');
 copy( './src/img/combine-filter.png', '../site/img/combine-filter.png');

@@ -16,7 +16,7 @@ you need the following requirements.
 
 ### Requirements
 
-+ Google Cloud SDK (`gcloud`)
+* Google Cloud SDK (`gcloud`)
 * SQLite3 (`sqlite3`)
 * Perl 5 (`perl`)
 * Perl modules:
