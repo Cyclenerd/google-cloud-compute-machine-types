@@ -1,7 +1,9 @@
-# Google Cloud Platform - Google Compute Engine - Machine Types
+<h1><center><a href="https://gcloud-compute.com/">gcloud-compute.com</a></center></h1>
 
-To help you choose the right Google Compute Engine machine type or instance in the many Google Cloud Platform regions, this webapp was created.
+To help you choose the right Google Compute Engine machine type or instance in the many Google Cloud Platform regions, this [webapp](https://gcloud-compute.com/) was created.
 A lot of information has been collected from various Google Cloud websites.
+
+![Screenshot: gcloud-compute.com](./img/gcloud-compute_com-instance_picker.jpg)
 
 ## 🖊️ Add, edit or change machine type information
 
