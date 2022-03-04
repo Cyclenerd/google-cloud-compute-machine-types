@@ -26,7 +26,7 @@ jobs:
           GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY }}
           GOOGLE_CLOUD_PROJECT_ID: ${{ secrets.GOOGLE_CLOUD_PROJECT_ID }}
         run: |
-          cp "$GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY" "/tmp/service_account_key.json" && \
+          echo "$GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY" > "/tmp/service_account_key.json" && \
           gcloud auth activate-service-account --key-file="/tmp/service_account_key.json" && \
           gcloud config set project "$GOOGLE_CLOUD_PROJECT_ID"
 
