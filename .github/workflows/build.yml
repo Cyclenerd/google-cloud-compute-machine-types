@@ -22,14 +22,18 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Setup Google Cloud SDK
+        env:
+          GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY }}
+          GOOGLE_CLOUD_PROJECT_ID: ${{ secrets.GOOGLE_CLOUD_PROJECT_ID }}
         run: |
-          echo ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY }} > '/tmp/key.json' && \
-          gcloud auth activate-service-account --key-file='/tmp/key.json' || exit 9
+          cp "$GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY" "/tmp/service_account_key.json" && \
+          gcloud auth activate-service-account --key-file="/tmp/service_account_key.json" && \
+          gcloud config set project "$GOOGLE_CLOUD_PROJECT_ID"
 
       - name: Download pricing
         run: |
           cd build || exit 9
-          curl -OL 'https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator/raw/master/pricing.yml' || exit 9
+          curl -OL "https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator/raw/master/pricing.yml" || exit 9
 
       - name: Run build script
         run: |
