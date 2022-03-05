@@ -115,8 +115,8 @@ SELECT
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "n2")  AS n2,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "n2d") AS n2d,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "t2d") AS t2d,
-	(SELECT MIN(hour)   FROM instances WHERE region LIKE I.region AND name   LIKE "e2-standard-8") AS e2Standard8Hour,
-	(SELECT MIN(month)  FROM instances WHERE region LIKE I.region AND name   LIKE "e2-standard-8") AS e2Standard8Month
+	(SELECT ROUND(MIN(hour), 4)  FROM instances WHERE region LIKE I.region AND name LIKE "e2-standard-8") AS e2Standard8Hour,
+	(SELECT ROUND(MIN(month), 2) FROM instances WHERE region LIKE I.region AND name LIKE "e2-standard-8") AS e2Standard8Month
 FROM instances I
 GROUP BY region
 ORDER BY region
