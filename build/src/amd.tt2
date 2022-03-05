@@ -1,26 +1,32 @@
+[%- META title       = 'Google Compute Engine Machine Types with AMD CPU' -%]
+[%- META description = 'List of all Google Compute Engine machine types with AMD processor (CPU) in Google Cloud Platfrom.' -%]
 [%- PROCESS header.tt2 -%]
-<h1>Region [% region.name %][% IF region.regionLocation %] <small class="text-muted">[% region.regionLocation %]</small>[% END %]</h1>
+[%- PROCESS instances_header.tt2 -%]
+
+<h1>[% template.title %]</h1>
+
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
 	<tr>
-		<th scope="col" colspan="5">Machine Type</th>
-		<th scope="col">Zones</th>
-		<th scope="col" colspan="4">Costs</th>
+		<th scope="col" colspan="6">Machine Type</th>
+		<th scope="col">Regions</th>
+		<th scope="col" colspan="4">Costs (Avg. Region)</th>
 		<th scope="col" colspan="3">OS</th>
 	</tr>
 	<tr>
 		<th scope="row">Name</th>
 		<th scope="col">vCPU ⬇️</th>
 		<th scope="col">Base Clock</th>
+		<th scope="col">Platform</th>
 		<th scope="col">Memory</th>
 		<th scope="col"></th>
 		<th scope="col">#</th>
 		<!-- Costs -->
-		<th scope="col" >Hour</th>
-		<th scope="col" >Month</th>
-		<th scope="col" >1Y CUD</th>
-		<th scope="col" >3Y CUD</th>
+		<th scope="col">Hour</th>
+		<th scope="col">Month</th>
+		<th scope="col">1Y CUD</th>
+		<th scope="col">3Y CUD</th>
 		<!-- OS -->
 		<th scope="col">SLES</th>
 		<th scope="col">RHEL</th>
@@ -28,31 +34,30 @@
 	</tr>
 </thead>
 <tbody>
-	[% FOREACH instance IN instances %]
+	[% FOREACH instance IN instances; IF instance.amd == 'true'; %]
 	<tr>
-		<td><a href="./[% region.name %]/[% instance.name %].html">[% instance.name %]</a></td>
+		<td><a href="[% instance.name %].html">[% instance.name %]</a></td>
 		<td>[% instance.vCpus %][% IF instance.sharedCpu == 'true' %] <span class="badge bg-warning text-dark">Shared</span>[% END %]</td>
 		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
+		<td title="CPU Platform: [% instance.cpuPlatform %]">[% instance.cpuPlatform | replace('\[','') | replace('\]','') %]</td>
 		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
 		<td>
-			[% IF instance.intel == 'true' %]<span class="badge bg-primary">Intel</span>[% END %]
-			[% IF instance.amd   == 'true' %]<span class="badge bg-success">AMD</span>[% END %]
 			[% IF instance.sap   == 'true' %]<span class="badge bg-warning text-dark">SAP</span>[% END %]
 			[% IF instance.hana  == 'true' %]<span class="badge bg-warning text-dark">HANA</span>[% END %]
 		</td>
-		<td title="Available in [% instance.zoneCount %] zone[% IF instance.zoneCount != '1' %]s[% END %]">[% instance.zoneCount %]</td>
+		<td>[% instance.regionCount %]</td>
 		<!-- Costs -->
-		<td class="currency" title="Hour: [% instance.hour %] USD">[% instance.hour %]</td>
-		<td class="currency" title="Month: [% instance.month %] USD">[% instance.month %]</td>
-		<td class="currency" title="Month w. 1Y CUD: [% instance.month1yCud %] USD">[% instance.month1yCud %]</td>
-		<td class="currency" title="Month w. 3Y CUD: [% instance.month3yCud %] USD">[% instance.month3yCud %]</td>
+		<td class="currency" title="Avg. Hour: [% instance.avgHour %] USD">[% instance.avgHour %]</td>
+		<td class="currency" title="Avg. Month: [% instance.avgMonth %] USD">[% instance.avgMonth %]</td>
+		<td class="currency" title="Avg. Month w. 1Y CUD: [% instance.avgMonth1yCud %] USD">[% instance.avgMonth1yCud %]</td>
+		<td class="currency" title="Avg. Month w. 3Y CUD: [% instance.avgMonth3yCud %] USD">[% instance.avgMonth3yCud %]</td>
 		<!-- OS -->
 		<td class="currency" title="SUSE Linux Enterprise Server: [% instance.monthSles %] USD">[% instance.monthSles %]</td>
 		<td class="currency" title="Red Hat Enterprise Linux: [% instance.monthRhel %] USD">[% instance.monthRhel %]</td>
 		<td class="currency" title="Microsoft Windows Server: [% instance.monthWindows %] USD">[% instance.monthWindows %]</td>
 	</tr>
-	[% END %]
+	[% END; END; %]
 </tbody>
 </table>
-</div><!-- table-responsive -->
+</div> <!-- // table-responsive -->
 [% PROCESS footer.tt2 %]

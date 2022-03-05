@@ -100,6 +100,16 @@ $sth->finish;
 push(@files, 'instances.html');
 $template->process('instances.tt2', { 'instances' => \@instances }, '../site/instances.html') || die "Template process failed: ", $template->error(), "\n";
 
+push(@files, 'intel.html');
+$template->process('intel.tt2', { 'instances' => \@instances }, '../site/intel.html') || die "Template process failed: ", $template->error(), "\n";
+push(@files, 'amd.html');
+$template->process('amd.tt2', { 'instances' => \@instances }, '../site/amd.html') || die "Template process failed: ", $template->error(), "\n";
+
+push(@files, 'sap.html');
+$template->process('sap.tt2', { 'instances' => \@instances }, '../site/sap.html') || die "Template process failed: ", $template->error(), "\n";
+push(@files, 'hana.html');
+$template->process('hana.tt2', { 'instances' => \@instances }, '../site/hana.html') || die "Template process failed: ", $template->error(), "\n";
+
 my $sql_regions = qq ~
 SELECT
 	region AS name,
@@ -139,8 +149,9 @@ foreach my $region (@regions) {
 	my $sql_instances_in_region = qq ~
 		SELECT
 			UPPER(series) AS series, name, description, family,
-			vCpus, LOWER(sharedCpu) AS sharedCpu, cpuBaseClock,
+			vCpus, LOWER(sharedCpu) AS sharedCpu, intel, amd, cpuPlatform, cpuBaseClock, cpuTurboClock, cpuSingleMaxTurboClock,
 			memoryGiB,
+			sap, saps, hana,
 			zoneCount,
 			ROUND(hour, 4)              AS hour,
 			ROUND(month, 2)             AS month,
