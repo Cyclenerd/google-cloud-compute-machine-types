@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /img/
 Disallow: /index.html
-Disallow: /404.html
+Disallow: /grid.html
 Disallow: /*.csv
 Disallow: /*.json
+Disallow: /404.html
