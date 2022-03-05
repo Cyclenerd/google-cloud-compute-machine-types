@@ -2,8 +2,8 @@
 <h1><a href="https://gcloud-compute.com/">gcloud-compute.com</a></h1>
 </div>
 
-To help you choose the right Google Compute Engine machine type or instance in the many Google Cloud Platform regions, this [webapp](https://gcloud-compute.com/) was created.
-A lot of information has been collected from various Google Cloud websites.
+This [webapp](https://gcloud-compute.com/) helps to find the optimal Google Compute Engine (GCE) machine type or instance in the many Google Cloud Platfrom (GCP) regions.
+A lot of information has been collected from various Google Cloud websites and different sources.
 
 [![Screenshot: gcloud-compute.com](./img/gcloud-compute_com-instance_picker.jpg)](https://gcloud-compute.com/)
 

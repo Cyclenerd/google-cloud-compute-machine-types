@@ -5,48 +5,13 @@
 </div> <!-- // container-fluid -->
 <div class="container">
 
-<h1>Welcome to Google Compute Engine Machine Type Comparison</h1>
+<h1>Google Compute Engine Machine Type Comparison</h1>
 
 <p>
-To help you choose the right Google Compute Engine machine type or instance in the many GCP regions, this webapp was created.
-A lot of information has been collected from various Google Cloud websites: 
+This webapp helps to find the optimal Google Compute Engine (GCE) machine type or instance in the many Google Cloud Platfrom (GCP) regions.
+A lot of information has been collected from various Google Cloud websites and different sources.
 </p>
 
-<div class="row">
-<div class="col-xl-6">
-<ul>
-	<li>
-		<a href="https://cloud.google.com/compute/docs/machine-types#machine_type_comparison" rel="nofollow">Machine series comparison</a>
-		<ul>
-			<li><a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#a2_vms" rel="nofollow">A2</a> accelerator optimized machines</li>
-			<li>
-				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types" rel="nofollow">C2</a> and
-				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2d-standard" rel="nofollow">C2D</a> compute optimized machine series
-			</li>
-			<li>
-				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types" rel="nofollow">M1</a> and
-				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types" rel="nofollow">M2</a> memory optimized machine series
-			</li>
-			<li>
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines" rel="nofollow">N1</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_machines" rel="nofollow">N2</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2d_machines" rel="nofollow">N2D</a> and
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2d_machines" rel="nofollow">T2D</a> general purpose machine series
-			</li>
-		</ul>
-	</li>
-</ul>
-</div>
-<div class="col-xl-6">
-<ul>
-	<li><a href="https://cloud.google.com/compute/docs/cpu-platforms" rel="nofollow">CPU Platform</a></li>
-	<li><a href="https://cloud.google.com/compute/docs/benchmarks-linux" rel="nofollow">Benchmarks for Linux VM instances</a></li>
-	<li><a href="https://cloud.google.com/solutions/sap/docs/certifications-sap-apps#sap-certified-vms" rel="nofollow">Certified SAP applications on Google Cloud</a></li>
-	<li><a href="https://cloud.google.com/solutions/sap/docs/certifications-sap-hana#hana-cert-table-vms" rel="nofollow">Certified machine types for SAP HANA</a></li>
-</ul>
-</div> <!-- // col -->
-</div> <!-- // row -->
 <h2>Machines</h2>
 
 [%
@@ -179,6 +144,46 @@ You can then import and handle the CSV file in your favorite spreadsheet program
 		</p>
 	</div>
 </div>
+
+<h2>Resources of the Information</h2>
+
+<p>The information was obtained from the following different Google websites:</p>
+
+<div class="row">
+<div class="col-xl-6">
+<ul>
+	<li>
+		<a href="https://cloud.google.com/compute/docs/machine-types#machine_type_comparison" rel="nofollow">Machine series comparison</a>
+		<ul>
+			<li><a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#a2_vms" rel="nofollow">A2</a> accelerator optimized machines</li>
+			<li>
+				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types" rel="nofollow">C2</a> and
+				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2d-standard" rel="nofollow">C2D</a> compute optimized machine series
+			</li>
+			<li>
+				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types" rel="nofollow">M1</a> and
+				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types" rel="nofollow">M2</a> memory optimized machine series
+			</li>
+			<li>
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines" rel="nofollow">N1</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_machines" rel="nofollow">N2</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2d_machines" rel="nofollow">N2D</a> and
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2d_machines" rel="nofollow">T2D</a> general purpose machine series
+			</li>
+		</ul>
+	</li>
+</ul>
+</div>
+<div class="col-xl-6">
+<ul>
+	<li><a href="https://cloud.google.com/compute/docs/cpu-platforms" rel="nofollow">CPU Platform</a></li>
+	<li><a href="https://cloud.google.com/compute/docs/benchmarks-linux" rel="nofollow">Benchmarks for Linux VM instances</a></li>
+	<li><a href="https://cloud.google.com/solutions/sap/docs/certifications-sap-apps#sap-certified-vms" rel="nofollow">Certified SAP applications on Google Cloud</a></li>
+	<li><a href="https://cloud.google.com/solutions/sap/docs/certifications-sap-hana#hana-cert-table-vms" rel="nofollow">Certified machine types for SAP HANA</a></li>
+</ul>
+</div> <!-- // col -->
+</div> <!-- // row -->
 
 <h2>Open Source</h2>
 

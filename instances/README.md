@@ -7,7 +7,7 @@ Feel free to make changes if something is wrong or you want to expand it.
 
 The SQL files are read during the [build](../build/) process.
 
-Source of information:
+Resources of the Information:
 
 <ul>
 	<li>
