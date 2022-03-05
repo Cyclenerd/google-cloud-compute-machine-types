@@ -6,6 +6,10 @@
 <footer class="footer py-3 bg-light">
 	<div class="container">
 		<p class="text-muted text-center">Copyright 2022 <a href="https://www.nkn-it.de/">Nils Knieling</a>. All Rights Reserved.</p>
+		<p class="text-muted text-center">
+			This site is not maintained by or affiliated with Google.
+			Data and costs shown are not guaranteed to be accurate or current.
+			Please <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types/issues">report issues</a> you see.
 		[% IF gmttime %]<p class="text-muted text-center small">Last Update: [% gmttime %] (GMT)</p>[% END %]
 	</div>
 </footer>
