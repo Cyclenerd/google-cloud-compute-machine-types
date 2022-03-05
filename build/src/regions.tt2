@@ -1,4 +1,5 @@
-[% META title = 'Google Cloud Regions' %]
+[%- META title       = 'Google Cloud Regions' -%]
+[%- META description = 'List of all Google Cloud regions available in all Google Cloud Platfrom locations.' -%]
 [%- PROCESS header.tt2 -%]
 <h1>[% template.title %]</h1>
 <div class="table-responsive">

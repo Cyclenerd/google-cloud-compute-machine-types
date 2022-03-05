@@ -1,4 +1,4 @@
-[% META title = '404 - Page Not Found' %]
+[%- META title = '404 - Page Not Found' -%]
 [%- PROCESS header.tt2 -%]
 
 <h1>[% template.title %]</h1>

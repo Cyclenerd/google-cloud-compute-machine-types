@@ -1,11 +1,7 @@
 [%- PROCESS header.tt2 -%]
-<h1>
-	Machine-Type [% instance.name %]
-</h1>
+<h1>Machine Type [% instance.name %]</h1>
 
-<blockquote class="blockquote">
-	<p>[% instance.description %]</p>
-</blockquote>
+<blockquote class="blockquote"><p>[% instance.description %]</p></blockquote>
 
 <div class="row">
 <div class="col-xxl-6">

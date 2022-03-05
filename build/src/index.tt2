@@ -1,9 +1,11 @@
+[%- META title       = 'Machine Type Comparison' -%]
+[%- META description = 'Choose the right Google Compute Engine machine type available in Google Cloud Platfrom.' -%]
 [%- PROCESS header.tt2 -%]
 
 </div> <!-- // container-fluid -->
 <div class="container">
 
-<h1>Welcome</h1>
+<h1>Welcome to Google Compute Engine Machine Type Comparison</h1>
 
 <p>
 To help you choose the right Google Compute Engine machine type or instance in the many GCP regions, this webapp was created.

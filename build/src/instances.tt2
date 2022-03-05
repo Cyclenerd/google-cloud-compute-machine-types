@@ -1,11 +1,12 @@
-[% META title = 'Google Compute Engine Machine Types' %]
+[%- META title       = 'Google Compute Engine Machine Types' -%]
+[%- META description = 'List of all Google Compute Engine machine types available in Google Cloud Platfrom regions.' -%]
 [%- PROCESS header.tt2 -%]
 <h1>[% template.title %]</h1>
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
 	<tr>
-		<th scope="col" colspan="5">Machine-Type</th>
+		<th scope="col" colspan="5">Machine Type</th>
 		<th scope="col">Regions</th>
 		<th scope="col" colspan="4">Costs (Avg. Region)</th>
 		<th scope="col" colspan="3">OS</th>

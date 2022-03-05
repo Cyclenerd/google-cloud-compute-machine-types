@@ -1,13 +1,10 @@
 [%- PROCESS header.tt2 -%]
-<h1>
-	Region [% region.name %]
-	[% IF region.regionLocation %]<small class="text-muted">[% region.regionLocation %]</small>[% END %]
-</h1>
+<h1>Region [% region.name %][% IF region.regionLocation %] <small class="text-muted">[% region.regionLocation %]</small>[% END %]</h1>
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
 	<tr>
-		<th scope="col" colspan="4">Machine-Type</th>
+		<th scope="col" colspan="4">Machine Type</th>
 		<th scope="col">Zones</th>
 		<th scope="col" colspan="4">Costs</th>
 		<th scope="col" colspan="3">OS</th>
