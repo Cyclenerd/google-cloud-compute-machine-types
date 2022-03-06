@@ -1,5 +1,8 @@
 /site/**
 /build/*.csv
+/build/*.gz
 /build/*.json
 /build/*.conf
 /build/*.db
+/build/machine-types-regions.sql
+/build/machine-types-regions.sql.gz

@@ -71,13 +71,13 @@ You can also filter by parts of the region. Example <code>europe</code> to filte
 	<div class="col-xl-6">
 		<p>
 			Filter on region <code>europe-west4</code> and CPU base clock frequency greater than <code>3 GHz</code>:
-			<img src="./img/filter.png" alt="Screenshot" class="img-fluid rounded">
+			<img src="./img/filter.png?[% timestamp %]" alt="Screenshot: Filter" class="img-fluid rounded">
 		</p>
 	</div>
 	<div class="col-xl-6">
 		<p>
 			Filter on region <code>europe-west4</code> and Memory greater than <code>30 GB</code> but also less than <code>60 GB</code>:
-			<img src="./img/combine-filter.png" alt="Screenshot" class="img-fluid rounded">
+			<img src="./img/combine-filter.png?[% timestamp %]" alt="Screenshot: Filter combined" class="img-fluid rounded">
 		</p>
 	</div>
 </div>
@@ -87,13 +87,13 @@ You can also filter by parts of the region. Example <code>europe</code> to filte
 	<div class="col-xl-6">
 		<p>
 			Click header title to sort column:
-			<img src="./img/sort.png" alt="Screenshot" class="img-fluid rounded">
+			<img src="./img/sort.png?[% timestamp %]" alt="Screenshot: Sort colums" class="img-fluid rounded">
 		</p>
 	</div>
 	<div class="col-xl-6">
 		<p>
 			Click group header title icon to show more colums:
-			<img src="./img/show-more.png" alt="Screenshot" class="img-fluid rounded">
+			<img src="./img/show-more.png?[% timestamp %]" alt="Screenshot: Show more colums" class="img-fluid rounded">
 		</p>
 	</div>
 </div>
@@ -133,17 +133,47 @@ The grid header also supports full keyboard navigation:
 
 <h2>Download</h2>
 
-You can download a <a href="/machine-types-regions.csv">CSV export</a> with all machine types and regions.
-You can then import and handle the CSV file in your favorite spreadsheet program (MS Excel, LibreOffice or Google Sheets).
+<p>
+You can download a <a href="/machine-types-regions.csv">CSV</a> file ([% csvFileSize %] MB)
+and <a href="/machine-types-regions.sql.gz">SQL</a> export ([% sqlFileSize %] MB, gzip compressed) with all machine types and regions.
+You can import and edit the CSV file to your favorite spreadsheet program (MS Excel, LibreOffice or Google Sheets).
+You can import the SQL dump into your favorite database (like SQLite).
+</p>
 
 <div class="row">
 	<div class="col-xl-6">
 		<p>
 			Imported CSV file in LibreOffice spreadsheet program:
-			<img src="./img/spreadsheet.png" alt="Screenshot" class="img-fluid rounded">
+			<img src="./img/spreadsheet.png?[% timestamp %]" alt="Screenshot: LibreOffice" class="img-fluid rounded">
+		</p>
+	</div>
+	<div class="col-xl-6">
+		<p>
+			Imported SQL export in DB Browser for SQLite:
+			<img src="./img/dbbrowser.png?[% timestamp %]" alt="Screenshot: DB Browser for SQLite" class="img-fluid rounded">
 		</p>
 	</div>
 </div>
+
+<p>With the SQL export you can also do great queries using the command line (CLI).</p>
+<p>Command line:</p>
+<pre><code># Download SQL export
+curl -O https://gcloud-compute.com/machine-types-regions.sql.gz
+# Decompress SQL export
+gzip -d machine-types-regions.sql.gz
+# Import SQL dump
+sqlite3 gce.db &lt; machine-types-regions.sql
+# SQL query
+sqlite3 gce.db &#39;SELECT name, vCpus, hour FROM instances WHERE vCpus &gt;= 8 AND region LIKE &quot;europe-west4&quot; ORDER BY hour ASC LIMIT 5&#39;
+</code></pre>
+
+<p>Example SQL output:</p>
+<pre><code>e2-highcpu-8|8.0|0.21785232
+n2d-highcpu-8|8.0|0.274688
+e2-standard-8|8.0|0.29508816
+n1-highcpu-8|8.0|0.3119968
+n2-highcpu-8|8.0|0.315728
+</code></pre>
 
 <h2>Resources of the Information</h2>
 
@@ -188,9 +218,9 @@ You can then import and handle the CSV file in your favorite spreadsheet program
 <h2>Open Source</h2>
 
 <p>
-	Everything you see here is published as Open Source and licensed under the Apache License (Version 2.0).
+	Everything you see here is published as open source software and licensed under the Apache License (version 2.0).
 	You can find the source code on <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types">GitHub</a>.
-	Any improvements and pull requests are welcome 👍.
+	Any improvements and pull requests are welcome.
 </p>
 
 [% PROCESS footer.tt2 %]

@@ -45,11 +45,11 @@ Google Compute Engine</title>
 			<div class="text-end">
 				<div class="d-none d-lg-block">
 					<a class="btn btn-success" href="/grid.html" role="button">✅ Instance Picker</a>
-					<a class="btn btn-primary" href="/machine-types-regions.csv" role="button">💾 Download</a>
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#downloadModal">💾 Download</button>
 				</div>
 				<div class="d-lg-none">
 					<a class="btn btn-success" href="/grid.html" role="button">✅</a>
-					<a class="btn btn-primary" href="/machine-types-regions.csv" role="button">💾</a>
+					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#downloadModal">💾</button>
 				</div>
 			</div>
 		</div>

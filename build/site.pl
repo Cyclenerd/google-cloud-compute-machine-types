@@ -47,13 +47,24 @@ my $db_file  = 'gce.db';
 my $gmttime   = gmtime();
 my $timestamp = time();
 
+# Exports
+my $csv_export = 'machine-types-regions.csv';
+my $sql_export = 'machine-types-regions.sql.gz';
+my $filesize_csv_export = -s "$csv_export" || die "ERROR: Cannot get CSV '$csv_export' filesize!\n";
+my $filesize_sql_export = -s "$sql_export" || die "ERROR: Cannot get SQL '$sql_export' filesize!\n";
+# MiB
+$filesize_csv_export = sprintf '%.2f', $filesize_csv_export / 1048576;
+$filesize_sql_export = sprintf '%.2f', $filesize_sql_export / 1048576;
+
 my $dbh = DBI->connect("dbi:SQLite:dbname=$db_file","","") or die "ERROR: Cannot connect $DBI::errstr\n";
 
 my $template = Template->new(
 	INCLUDE_PATH => './src',
 	VARIABLES => {
 		'gmttime'   => $gmttime,
-		'timestamp' => $timestamp
+		'timestamp' => $timestamp,
+		'csvFileSize' => $filesize_csv_export,
+		'sqlFileSize' => $filesize_sql_export,
 	}
 );
 my @files = ();
@@ -294,8 +305,10 @@ open(FH, '>', '../site/instance_in_region.json') or die $!;
 print FH encode_json \@instances_in_regions;
 close FH;
 
+# SQL
+copy("$sql_export", '../site/machine-types-regions.sql.gz');
 # CSV
-copy('./machine-types-regions.csv', '../site/machine-types-regions.csv');
+copy("$csv_export", '../site/machine-types-regions.csv');
 
 # Images
 mkdir(                                '../site/img/');
@@ -304,4 +317,5 @@ copy( './src/img/filter.png',         '../site/img/filter.png');
 copy( './src/img/show-more.png',      '../site/img/show-more.png');
 copy( './src/img/sort.png',           '../site/img/sort.png');
 copy( './src/img/spreadsheet.png',    '../site/img/spreadsheet.png');
+copy( './src/img/dbbrowser.png',      '../site/img/dbbrowser.png');
 copy( './src/favicon.ico',            '../site/favicon.ico');

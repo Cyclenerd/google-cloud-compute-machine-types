@@ -17,6 +17,43 @@
 	</div>
 </footer>
 
+<div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg modal-fullscreen-lg-down">
+<div class="modal-content">
+<div class="modal-header">
+	<h5 class="modal-title" id="downloadModalLabel">Download all GCE Machine Types in Regions</h5>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+
+<p class="h4">CSV</p>
+<p><a href="/machine-types-regions.csv">Download CSV file</a> ([% csvFileSize %] MB)<p>
+<p class="h4">SQL</p>
+<p><a href="/machine-types-regions.csv">Download SQL export</a> ([% sqlFileSize %] MB, gzip compressed)<p>
+<p class="h4">CLI</p>
+<pre><code># Download CSV
+curl -O https://gcloud-compute.com/machine-types-regions.csv
+# Search CSV and count
+grep 'europe-west4' &lt; machine-types-regions.csv | wc -l
+# Download SQL
+curl -O https://gcloud-compute.com/machine-types-regions.sql.gz
+# Decompress SQL export
+gzip -d machine-types-regions.sql.gz
+# Import SQL dump
+sqlite3 gce.db &lt; machine-types-regions.sql
+# SQL query
+sqlite3 gce.db &#39;SELECT * FROM instances&#39;</code></pre>
+<p class="h4">Source Code</p>
+<p>
+	This website and software is published as open source and licensed under the Apache License (version 2.0).
+	You can find the source code on <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types">GitHub</a>.
+<p>
+</div> <!-- // modal-body -->
+<div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></div>
+</div> <!-- // modal-content -->
+</div> <!-- // modal-dialog -->
+</div> <!-- // modal -->
+
 <script src="https://unpkg.com/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
