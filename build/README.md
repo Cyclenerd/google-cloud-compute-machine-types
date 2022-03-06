@@ -1,5 +1,9 @@
 # Build
 
+The build process is handled by [GitHub Actions](https://github.com/Cyclenerd/google-cloud-compute-machine-types/actions/workflows/build.yml).
+
+[![Build](https://github.com/Cyclenerd/google-cloud-compute-machine-types/actions/workflows/build.yml/badge.svg)](https://github.com/Cyclenerd/google-cloud-compute-machine-types/actions/workflows/build.yml)
+
 ## Database and CSV
 
 Run:
@@ -24,4 +28,4 @@ Run:
 perl site.pl
 ```
 
-This Perl script creates the static webapp (Templates are located in the [src](./src/) folder). The webapp is saved in the directory [../site](../site/).
+This Perl script creates the static webapp (Templates are located in the [src](./src/) folder). The webapp is saved in the directory `../site`.
