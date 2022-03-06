@@ -15,7 +15,7 @@ These files can be found in the [instances](./instances/) folder.
 
 ## 🧑‍💻 Development
 
-If you want to customize the build process or run the webapp on your local computer,
+If you want to customize the [build](./build/) process or run the webapp on your local computer,
 you need the following requirements.
 
 ### Requirements
@@ -51,14 +51,14 @@ sudo apt install \
 
 Build:
 ```shell
-cd ../build/
+cd build/
 bash build.sh
 perl site.pl
-cd ../
 ```
 
 Run:
 ```shell
+cd ../
 plackup
 ```
 

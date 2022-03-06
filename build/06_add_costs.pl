@@ -15,7 +15,7 @@
 # limitations under the License.
 
 #
-# Add costs for instance in region from pricing (https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator)
+# Add costs for machine types in region from pricing (https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator)
 #
 
 use utf8;
