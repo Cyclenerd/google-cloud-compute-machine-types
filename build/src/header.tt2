@@ -15,7 +15,7 @@ Google Compute Engine</title>
 [%- ELSIF template.name == 'region.tt2'-%]
 <meta name="description" content="Google Cloud region [% region.name %][% IF region.regionLocation %] in [% region.regionLocation %][% END %].">
 [%- ELSIF template.name == 'instance_in_region.tt2'-%]
-<meta name="description" content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory in Google Cloud region [% region.name %].">
+<meta name="description" content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory in Google Cloud region [% instance.region %].">
 [%- ELSIF template.description -%]
 <meta name="description" content="[% template.description %]">
 [%- END -%]
