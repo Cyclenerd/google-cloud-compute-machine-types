@@ -4,10 +4,10 @@ echo "1. Create"
 bash "01_create_database.sh" || exit
 
 echo "2. Get"
-bash "02_get_machine-types.sh" || exit
+bash "02_get.sh" || exit
 
 echo "3. Copy"
-perl "03_copy_machine-types.pl" || exit
+perl "03_copy.pl" || exit
 
 echo "4. Clean up"
 bash "04_clean_up.sh" || exit
@@ -19,10 +19,16 @@ echo "6. Add costs"
 perl "06_add_costs.pl" || exit
 
 echo "7. Add informations"
-bash "07_add_information.sh" || exit
+bash "07_add.sh" || exit
 
-echo "8. Export"
-bash "08_export.sh" || exit
+echo "8. Add available CPU platforms"
+perl 08_cpu.pl || exit
 
-echo "9. Test"
-bash "09_test.sh" || exit
+echo "9. Add more"
+bash "09_more.sh" || exit
+
+echo "10. Export"
+bash "10_export.sh" || exit
+
+echo "11. Test"
+bash "11_test.sh" || exit

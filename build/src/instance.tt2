@@ -1,7 +1,22 @@
 [%- PROCESS header.tt2 -%]
 <h1>Machine Type [% instance.name %]</h1>
 
-<blockquote class="blockquote"><p>[% instance.description %]</p></blockquote>
+<blockquote class="blockquote">
+	<p>
+		[% IF instance.family %][% instance.family %][% END %]
+		Google Compute Engine machine type [% instance.name %] with [% instance.vCpus%] vCPU and [% instance.memoryGiB %] GB memory.
+		[%- IF instance.sap || instance.hana -%]
+			GCE machine type is certified for
+			[% IF instance.sap %]SAP applications[% END %]
+			[% IF instance.sap && instance.hana%]and[% END %]
+			[% IF instance.hana %]SAP HANA[% END %]
+			on Google Cloud Platform.
+		[%- END -%]
+		Available in [% regions.size %] Google Cloud region[% IF regions.size > 1 %]s[% END %].
+		[% notAllCpuPlatformsAvailable = 0; FOREACH region IN regions; IF region.availableCpuPlatformCount < instance.cpuPlatformCount; notAllCpuPlatformsAvailable = 1; END; END; %]
+		[% IF notAllCpuPlatformsAvailable %]<mark>Not all CPU platforms are available in all regions.</mark>[% END %]
+	</p>
+</blockquote>
 
 <div class="row">
 <div class="col-xxl-6">
@@ -17,7 +32,7 @@
 	</tr>
 	<tr>
 		<th>vCPU</th>
-		<td>[% instance.vCpus %][% IF instance.sharedCpu == 'true' %] <span class="badge bg-warning text-dark">Shared</span>[% END %]</td>
+		<td>[% instance.vCpus %][% IF instance.sharedCpu %] <span class="badge bg-warning text-dark">Shared</span>[% END %]</td>
 	</tr>
 	<tr>
 		<th>Memory</th>
@@ -26,13 +41,19 @@
 	<tr>
 		<th>CPU Manufactur</th>
 		<td>
-			[% IF instance.intel == 'true' %]<span class="badge bg-primary">Intel</span>[% END %]
-			[% IF instance.amd   == 'true' %]<span class="badge bg-success">AMD</span>[% END %]
+			[% IF instance.intel %]<span class="badge bg-primary">Intel</span>[% END %]
+			[% IF instance.amd %]<span class="badge bg-success">AMD</span>[% END %]
 		</td>
 	</tr>
 	<tr>
 		<th>CPU Platform</th>
-		<td>[% instance.cpuPlatform %]</td>
+		<td>
+			<ul class="list-unstyled">
+				[% FOREACH cpuPlatform IN instance.cpuPlatform.split(',').sort %]
+				<li>[% cpuPlatform %]</li>
+				[% END %]
+			</ul>
+		</td>
 	</tr>
 	<tr>
 		<th>CPU Base Frequency</th>
@@ -90,24 +111,29 @@
 	</tr>
 	<tr>
 		<th>Local SSD</th>
-		<td>[% IF instance.localSsd  == 'true' %]✔️[% ELSE %]❌[% END %]</td>
+		<td>[% IF instance.localSsd  %]✔️[% ELSE %]❌[% END %]</td>
 	</tr>
 	<tr>
 		<th>SAP Application</th>
-		<td>[% IF instance.sap  == 'true' %]<span class="badge bg-warning text-dark">Certified for SAP</span>[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+		<td>[% IF instance.sap %]<span class="badge bg-warning text-dark">Certified for SAP</span>[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
 	</tr>
 	<tr>
 		<th>SAP HANA</th>
-		<td>[% IF instance.hana  == 'true' %]<span class="badge bg-warning text-dark">Certified for SAP HANA</span>[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+		<td>[% IF instance.hana %]<span class="badge bg-warning text-dark">Certified for SAP HANA</span>[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
 	</tr>
 	<tr>
 		<th>Spot Provisioning Mode (Spot VM)</th>
-		<td>[% IF instance.spot  == 'true' %]✔️[% ELSE %]❌[% END %]</td>
+		<td>[% IF instance.spot %]✔️[% ELSE %]❌[% END %]</td>
 	</tr>
 	<tr>
 		<th>Sustained Use Discount (SUD)</th>
-		<td>[% IF instance.sud  == 'true' %]✔️[% ELSE %]❌[% END %]</td>
+		<td>[% IF instance.sud  %]✔️[% ELSE %]❌[% END %]</td>
 	</tr>
+	<tr>
+		<th title="Google Compute Engine API Description">GCE API Description</th>
+		<td>[% instance.description %]</td>
+	</tr>
+	
 </table>
 </div> <!-- // col -->
 <div class="col-xxl-6">
@@ -116,8 +142,10 @@
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
 	<tr>
-		<th scope="row">Name</th>
-		<th scope="row">Location</th>
+		<th scope="col">Name</th>
+		<th scope="col">Location</th>
+		<th scope="col">#Zones</th>
+		<th scope="col" title="CPU Platforms">#Platf.</th>
 		<!-- Costs -->
 		<th scope="col">Hour ⬇️</th>
 		<th scope="col">Month</th>
@@ -128,11 +156,16 @@
 <tbody>
 	[% FOREACH region IN regions %]
 	<tr>
-		<td scope="row"><a href="./[% region.name %]/[% instance.name %].html">[% region.name %]</td>
+		<td><a href="./[% region.name %]/[% instance.name %].html">[% region.name %]</a></td>
 		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td [% IF region.zoneCount < 1%]class="table-danger"[% END%] title="Available [% region.zoneCount %] zone[% IF region.zoneCount > 1 %]s[% END %] in region [% region.name %]">[% IF region.zoneCount %][% region.zoneCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td [% IF region.availableCpuPlatformCount < instance.cpuPlatformCount %]class="table-warning"[% END%] title="Available CPU platforms in region [% region.name %]">[% IF region.availableCpuPlatformCount %][% region.availableCpuPlatformCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<!-- Costs -->
 		<td class="currency" title="Hour: [% region.hour %] USD">[% region.hour %]</td>
-		<td class="currency" title="Month: [% region.month %] USD">[% region.month %]</td>
+		<td title="Month: [% region.month %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
+			<span class="currency">[% region.month %]</span>
+			[% IF instance.sud %]<span class="badge bg-info">SUD</span>[% END %]
+		</td>
 		<td class="currency" title="Month w. 1Y CUD: [% region.month1yCud %] USD">[% region.month1yCud %]</td>
 		<td class="currency" title="Month w. 3Y CUD: [% region.month3yCud %] USD">[% region.month3yCud %]</td>
 	</tr>
@@ -144,31 +177,31 @@
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>SUSE Linux Enterprise Server</th>
-		<td>$[% instance.monthSles %]</td>
+		<td class="currency">[% instance.monthSles %]</td>
 	</tr>
 	<tr>
 		<th>Red Hat Enterprise Linux</th>
-		<td>$[% instance.monthRhel %]</td>
+		<td class="currency">[% instance.monthRhel %]</td>
 	</tr>
 	<tr>
 		<th>Microsoft Windows Server</th>
-		<td>$[% instance.monthWindows %]</td>
+		<td class="currency">[% instance.monthWindows %]</td>
 	</tr>
 	<tr>
 		<th>SUSE Linux Enterprise Server for SAP</th>
-		<td>$[% instance.monthSlesSap %]</td>
+		<td class="currency">[% instance.monthSlesSap %]</td>
 	</tr>
 	<tr>
 		<th>SUSE Linux Enterprise Server for SAP w. 1 Year CUD</th>
-		<td>$[% instance.monthSlesSap1yCud %]</td>
+		<td class="currency">[% instance.monthSlesSap1yCud %]</td>
 	</tr>
 	<tr>
 		<th>SUSE Linux Enterprise Server for SAP w. 3 Year CUD</th>
-		<td>$[% instance.monthSlesSap3yCud %]</td>
+		<td class="currency">[% instance.monthSlesSap3yCud %]</td>
 	</tr>
 	<tr>
 		<th>Red Hat Enterprise Linux for SAP</th>
-		<td>$[% instance.monthRhelSap %]</td>
+		<td class="currency">[% instance.monthRhelSap %]</td>
 	</tr>
 </table>
 </div> <!-- // col -->

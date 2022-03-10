@@ -1,7 +1,36 @@
 [%- PROCESS header.tt2 -%]
 <h1>Machine Type [% instance.name %] in Region [% instance.region %][% IF instance.regionLocation %] <small class="text-muted">[% instance.regionLocation %]</small>[% END %]</h1>
 
-<blockquote class="blockquote"><p>[% instance.description %]</p></blockquote>
+<blockquote class="blockquote">
+	<p>
+		[% IF instance.family %][% instance.family %][% END %]
+		Google Compute Engine machine type [% instance.name %] with [% instance.vCpus%] vCPU and [% instance.memoryGiB %] GB memory
+		in Google Cloud region [% instance.region %].
+		[%- IF instance.sap || instance.hana -%]
+			GCE machine type is certified for
+			[% IF instance.sap %]SAP applications[% END %]
+			[% IF instance.sap && instance.hana%]and[% END %]
+			[% IF instance.hana %]SAP HANA[% END %]
+			on Google Cloud Platform.
+		[%- END -%]
+		Available in [% instance.zoneCount %] zone[% IF instance.zoneCount > 1 %]s[% END %].
+		[% IF instance.availableCpuPlatformCount < instance.cpuPlatformCount %]<mark>Not all CPU platforms are available in region [% instance.region %].</mark>[% END %]
+		[% notAllCpuPlatformsAvailableInZones = 0; FOREACH cpuPlatform IN instance.availableCpuPlatform.split(',').sort; cpu = cpuPlatform.remove('\s'); %]
+			<!-- cpu: '[% cpu %]' -->
+			[% FOREACH zone IN instance.zones.split(',').sort; %]
+				<!-- zone: '[% zone %]' -->
+				[% FOREACH z IN zones; IF z.name == zone; %]
+					[% available = z.availableCpuPlatforms.remove('\s') %]
+					[% IF available.search(cpu); notAllCpuPlatformsAvailableInZones = notAllCpuPlatformsAvailableInZones; ELSE; notAllCpuPlatformsAvailableInZones = notAllCpuPlatformsAvailableInZones + 1; END; %]
+					<!-- z.name: '[% z.name %]' -->
+					<!-- available: '[% available %]' -->
+					<!-- notAllCpuPlatformsAvailableInZones: [% notAllCpuPlatformsAvailableInZones %] -->
+				[% END; END; %]
+			[% END %]
+		[%END %]
+		[% IF notAllCpuPlatformsAvailableInZones %]<mark>Not all CPU platforms are available in all zones in region [% instance.region %].</mark>[% END %]
+	</p>
+</blockquote>
 
 <div class="row">
 <div class="col-xxl-6">
@@ -17,7 +46,7 @@
 	</tr>
 	<tr>
 		<th>vCPU</th>
-		<td>[% instance.vCpus %][% IF instance.sharedCpu == 'true' %] <span class="badge bg-warning text-dark">Shared</span>[% END %]</td>
+		<td>[% instance.vCpus %][% IF instance.sharedCpu %] <span class="badge bg-warning text-dark">Shared</span>[% END %]</td>
 	</tr>
 	<tr>
 		<th>Memory</th>
@@ -26,13 +55,31 @@
 	<tr>
 		<th>CPU Manufactur</th>
 		<td>
-			[% IF instance.intel == 'true' %]<span class="badge bg-primary">Intel</span>[% END %]
-			[% IF instance.amd   == 'true' %]<span class="badge bg-success">AMD</span>[% END %]
+			[% IF instance.intel %]<span class="badge bg-primary">Intel</span>[% END %]
+			[% IF instance.amd %]<span class="badge bg-success">AMD</span>[% END %]
 		</td>
 	</tr>
 	<tr>
 		<th>CPU Platform</th>
-		<td>[% instance.cpuPlatform %]</td>
+		<td>
+			<ul class="list-unstyled">
+			<!--
+				cpuPlatformCount:          [% instance.cpuPlatformCount %]
+				cpuPlatform:               [% instance.cpuPlatform %]
+				availableCpuPlatformCount: [% instance.availableCpuPlatformCount %]
+				availableCpuPlatform:      [% instance.availableCpuPlatform %]
+			-->
+			[% FOREACH cpuPlatform IN instance.cpuPlatform.split(',').sort; cpu = cpuPlatform.remove('\s'); available = instance.availableCpuPlatform.remove('\s'); %]
+				<!-- cpu:       '[% cpu %]' -->
+				<!-- available: '[% available %]' -->
+				[% IF available.search(cpu) %]
+				<li title="[% cpuPlatform %] is available in region [% instance.region %]">✔️ [% cpuPlatform %]</li>
+				[% ELSE %]
+				<li class="text-muted" title="[% cpuPlatform %] is not available in region [% instance.region %]">❌ [% cpuPlatform %]</li>
+				[% END %]
+			[% END %]
+			</ul>
+		</td>
 	</tr>
 	<tr>
 		<th>CPU Base Frequency</th>
@@ -90,84 +137,176 @@
 	</tr>
 	<tr>
 		<th>Local SSD</th>
-		<td>[% IF instance.localSsd  == 'true' %]✔️[% ELSE %]❌[% END %]</td>
+		<td>[% IF instance.localSsd %]✔️[% ELSE %]❌[% END %]</td>
 	</tr>
 	<tr>
 		<th>SAP Application</th>
-		<td>[% IF instance.sap  == 'true' %]<span class="badge bg-warning text-dark">Certified for SAP</span>[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+		<td>[% IF instance.sap %]<span class="badge bg-warning text-dark">Certified for SAP</span>[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
 	</tr>
 	<tr>
 		<th>SAP HANA</th>
-		<td>[% IF instance.hana  == 'true' %]<span class="badge bg-warning text-dark">Certified for SAP HANA</span>[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+		<td>[% IF instance.hana %]<span class="badge bg-warning text-dark">Certified for SAP HANA</span>[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
 	</tr>
 	<tr>
 		<th>Spot Provisioning Mode (Spot VM)</th>
-		<td>[% IF instance.spot  == 'true' %]✔️[% ELSE %]❌[% END %]</td>
+		<td>[% IF instance.spot %]✔️[% ELSE %]❌[% END %]</td>
 	</tr>
 	<tr>
 		<th>Sustained Use Discount (SUD)</th>
-		<td>[% IF instance.sud  == 'true' %]✔️[% ELSE %]❌[% END %]</td>
+		<td>[% IF instance.sud %]✔️[% ELSE %]❌[% END %]</td>
+	</tr>
+	<tr>
+		<th title="Google Compute Engine API Description">GCE API Description</th>
+		<td>[% instance.description %]</td>
 	</tr>
 </table>
+
+[% IF instance.zones %]
+<h2>Zones</h2>
+<div class="table-responsive">
+<table class="table table-sm table-hover table-striped table-bordered">
+<thead>
+	<tr>
+		<th scope="col">Name</th>
+		<th scope="col" title="CPU Platforms">CPU Platform</th>
+	</tr>
+</thead>
+<tbody>
+	[% FOREACH zone IN instance.zones.split(',').sort; %]
+	<tr>
+		<td>[% zone %]</td>
+		<td>
+		<ul class="list-inline">
+			[% FOREACH cpuPlatform IN instance.availableCpuPlatform.split(',').sort; cpu = cpuPlatform.remove('\s'); %]
+				<!-- zone: '[% zone %]' -->
+				<!-- cpu:  '[% cpu %]' -->
+				[% FOREACH z IN zones; IF z.name == zone; available = z.availableCpuPlatforms.remove('\s'); END; END; %]
+				<!-- z.name:    '[% z.name %]' -->
+				<!-- available: '[% available %]' -->
+				[% IF available.search(cpu) %]
+				<li class="list-inline-item" title="[% cpuPlatform %] is available in zone [% zone %]">✔️ [% cpuPlatform %]</li>
+				[% ELSE %]
+				<li class="list-inline-item text-muted" title="[% cpuPlatform %] is not available in zone [% zone %]">❌ [% cpuPlatform %]</li>
+				[% END %]
+			[% END %]
+		</ul>
+		</td>
+	</tr>
+	[% END %]
+</tbody>
+</table>
+</div>
+[% END %]
 </div> <!-- // col -->
 <div class="col-xxl-6">
 <h2>Costs</h2>
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>Costs per Hour</th>
-		<td>$[% instance.hour %]</td>
+		<td class="currency">[% instance.hour %]</td>
 	</tr>
 	<tr>
-		<th>Costs per Month</th>
-		<td>$[% instance.month %]</td>
+		<th>
+			Costs per Month
+			[% IF instance.sud %]with SUD[% END %]
+		</th>
+		<td class="currency">[% instance.month %]</td>
 	</tr>
 	<tr>
 		<th>Month with 1 Year CUD</th>
-		<td>$[% instance.month1yCud %]</td>
+		<td class="currency">[% instance.month1yCud %]</td>
 	</tr>
 	<tr>
 		<th>Month with 3 Year CUD</th>
-		<td>$[% instance.month3yCud %]</td>
+		<td class="currency">[% instance.month3yCud %]</td>
 	</tr>
 </table>
 <h2>Operating System Licenses Costs (Month)</h2>
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>SUSE Linux Enterprise Server</th>
-		<td>$[% instance.monthSles %]</td>
+		<td class="currency">[% instance.monthSles %]</td>
 	</tr>
 	<tr>
 		<th>Red Hat Enterprise Linux</th>
-		<td>$[% instance.monthRhel %]</td>
+		<td class="currency">[% instance.monthRhel %]</td>
 	</tr>
 	<tr>
 		<th>Microsoft Windows Server</th>
-		<td>$[% instance.monthWindows %]</td>
+		<td class="currency">[% instance.monthWindows %]</td>
 	</tr>
 	<tr>
 		<th>SUSE Linux Enterprise Server for SAP</th>
-		<td>$[% instance.monthSlesSap %]</td>
+		<td class="currency">[% instance.monthSlesSap %]</td>
 	</tr>
 	<tr>
 		<th>SUSE Linux Enterprise Server for SAP w. 1 Year CUD</th>
-		<td>$[% instance.monthSlesSap1yCud %]</td>
+		<td class="currency">[% instance.monthSlesSap1yCud %]</td>
 	</tr>
 	<tr>
 		<th>SUSE Linux Enterprise Server for SAP w. 3 Year CUD</th>
-		<td>$[% instance.monthSlesSap3yCud %]</td>
+		<td class="currency">[% instance.monthSlesSap3yCud %]</td>
 	</tr>
 	<tr>
 		<th>Red Hat Enterprise Linux for SAP</th>
-		<td>$[% instance.monthRhelSap %]</td>
+		<td class="currency">[% instance.monthRhelSap %]</td>
 	</tr>
 </table>
 [% IF instance.zones %]
-<h2>Zones</h2>
-<ul class="list-inline">
-	[% FOREACH zone IN instance.zones.split(',').sort %]
-	<li class="list-inline-item">[% zone %]</li>
-	[% END %]
+<h2>CLI <small class="text-muted">Google Cloud SDK</small></h2>
+
+<ul class="nav nav-tabs" id="zonesTab" role="tablist">
+[% firstZone = 0; FOREACH zone IN instance.zones.split(',').sort; firstZone = firstZone + 1; %]
+<li class="nav-item" role="presentation">
+	<button [% IF firstZone == 1%]class="nav-link active" aria-selected="true"[% ELSE %]class="nav-link"[% END %] id="[% zone %]-tab" data-bs-toggle="tab" data-bs-target="#[% zone %]" type="button" role="tab" aria-controls="[% zone %]">[% zone %]</button>
+</li>
+[% END %]
 </ul>
+<div class="tab-content" id="zonesTabContent">
+[% firstZone = 0; FOREACH zone IN instance.zones.split(',').sort; firstZone = firstZone + 1; %]
+<div class="tab-pane mt-2 fade [% IF firstZone == 1%]show active[% END%]" id="[% zone %]" role="tabpanel" aria-labelledby="[% zone %]-tab">
+<p>Create instance:</p>
+<script>
+function copy[% zone.remove('-') %]() {
+	var cli = document.getElementById("cli[% zone.remove('-') %]").innerHTML;
+	navigator.clipboard.writeText(cli);
+}
+</script>
+<div class="position-relative">
+<div class="position-absolute top-0 end-0"><button type="button" class="btn btn-outline-primary btn-sm" onclick="copy[% zone.remove('-') %]();">Copy to Clipboard</button></div>
+<pre><code id="cli[% zone.remove('-') %]"># Create Compute Engine virtual machine instance
+# called &#39;[% instance.name%]-[% zone %]&#39;
+# in the &#39;[% zone %]&#39; zone
+# with the latest &#39;Ubuntu 20.04 LTS&#39; image available.
+[% # do not remove this line %]
+[%- IF instance.sharedCpu < 1 -%]
+# To specify minimum CPU platform replace min-cpu-platform:
+[% # do not remove this line %]
+[%- FOREACH cpuPlatform IN instance.availableCpuPlatform.split(',').sort; cpu = cpuPlatform.remove('\s'); -%]
+[%- FOREACH z IN zones; IF z.name == zone; available = z.availableCpuPlatforms.remove('\s'); END; END; -%]
+[%- IF available.search(cpu) -%]
+#    --min-cpu-platform=&#39;[% cpuPlatform.remove('^\s').remove('\s$') %]&#39; \
+[% # do not remove this line %]
+[%- END; END; END -%]
+gcloud compute instances create [% instance.name%]-[% zone %] \
+--zone=[% zone %] \
+--machine-type=[% instance.name%] \
+--min-cpu-platform=&#39;AUTOMATIC&#39; \
+--image-project=ubuntu-os-cloud \
+--image-family=ubuntu-2004-lts</code></pre>
+</div> <!-- // position-relative -->
+
+<p>CPU platfroms:<p>
+<pre># List available CPU platforms
+gcloud compute zones describe [% zone %] --format=&#39;value(availableCpuPlatforms)&#39;</pre>
+</div>
+[% END %]
+</div>
+
+<p>Images:</p>
+<pre># List Google Compute Engine images
+gcloud compute images list</pre>
+
 [% END %]
 </div> <!-- // col -->
 </div> <!-- // row -->

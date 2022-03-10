@@ -1,0 +1,51 @@
+[%- META title       = 'CPU Platforms' -%]
+[%- META description = 'Available CPU platforms in Google Cloud regions.' -%]
+[%- PROCESS header.tt2 -%]
+[%- PROCESS regions_header.tt2 -%]
+
+<h1>Available CPU Platforms in Regions</h1>
+<div class="table-responsive">
+<table class="table table-sm table-hover table-striped table-bordered">
+<thead>
+	<tr>
+		<th scope="col" colspan="2">Region</th>
+		<th scope="col">Zones</th>
+		<th scope="col" colspan="7">Intel</th>
+		<th scope="col" colspan="2">AMD</th>
+	</tr>
+	<tr>
+		<th scope="row">Name ⬇️</th>
+		<th scope="row">Location</th>
+		<th scope="col" >#</th>
+		<th scope="col" title="Intel Xeon Scalable Processor (Ice Lake) 3rd Generation">Ice Lake</th>
+		<th scope="col" title="Intel Xeon Scalable Processor (Cascade Lake) 2nd Generation">Cascade Lake</th>
+		<th scope="col" title="Intel Xeon Scalable Processor (Skylake) 1st Generation">Skylake</th>
+		<th scope="col" title="Intel Xeon E5 (Broadwell E5)">Broadwell</th>
+		<th scope="col" title="Intel Xeon E5 v3 (Haswell)">Haswell</th>
+		<th scope="col" title="Intel Xeon E5 v2 (Ivy Bridge)">Ivy Bridge</th>
+		<th scope="col" title="Intel Xeon E5 (Sandy Bridge)">Sandy Bridge</th>
+		<th scope="col" title="AMD EPYC Milan 3rd Generation">Milan</th>
+		<th scope="col" title="AMD EPYC Rome 2nd Generation ">Rome</th>
+	</tr>
+</thead>
+<tbody>
+	[% FOREACH region IN regions %]
+	<tr>
+		<td><a href="[% region.name %].html">[% region.name %]</a></td>
+		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td>[% region.zoneCount %]</td>
+		<td [% IF region.intelIceLake      == '0' %]class="table-danger"[% END %] title="Machine types with Intel Ice Lake in region [% region.name %]">[% region.intelIceLake %]</td>
+		<td [% IF region.intelCascadeLake  == '0' %]class="table-danger"[% END %] title="Machine types with Intel Cascade Lake in region [% region.name %]">[% region.intelCascadeLake %]</td>
+		<td [% IF region.intelSkylake      == '0' %]class="table-danger"[% END %] title="Machine types with Intel Skylake in region [% region.name %]">[% region.intelSkylake %]</td>
+		<td [% IF region.intelBroadwell    == '0' %]class="table-danger"[% END %] title="Machine types with Intel Broadwell in region [% region.name %]">[% region.intelBroadwell %]</td>
+		<td [% IF region.intelHaswell      == '0' %]class="table-danger"[% END %] title="Machine types with Intel Haswell in region [% region.name %]">[% region.intelHaswell %]</td>
+		<td [% IF region.intelIvy          == '0' %]class="table-danger"[% END %] title="Machine types with Intel Ivy Bridge in region [% region.name %]">[% region.intelIvy %]</td>
+		<td [% IF region.intelSandy        == '0' %]class="table-danger"[% END %] title="Machine types with Intel Sandy Bridge in region [% region.name %]">[% region.intelSandy %]</td>
+		<td [% IF region.amdMilan          == '0' %]class="table-danger"[% END %] title="Machine types with AMD Milan in region [% region.name %]">[% region.amdMilan %]</td>
+		<td [% IF region.amdRome           == '0' %]class="table-danger"[% END %] title="Machine types with AMD Rome in region [% region.name %]">[% region.amdRome %]</td>
+	</tr>
+	[% END %]
+</tbody>
+</table>
+</div><!-- table-responsive -->
+[% PROCESS footer.tt2 %]

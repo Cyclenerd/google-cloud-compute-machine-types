@@ -1,6 +1,8 @@
 [%- META title       = 'Google Cloud Regions' -%]
 [%- META description = 'List of all Google Cloud regions available in all Google Cloud Platfrom locations.' -%]
 [%- PROCESS header.tt2 -%]
+[%- PROCESS regions_header.tt2 -%]
+
 <h1>[% template.title %]</h1>
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
@@ -38,16 +40,16 @@
 		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td>[% region.zoneCount %]</td>
 		<!-- Machine Series -->
-		<td [% IF region.a2  == '0' %]class="table-danger"[% END %]>[% region.a2 %]</td>
-		<td [% IF region.c2  == '0' %]class="table-danger"[% END %]>[% region.c2 %]</td>
-		<td [% IF region.c2d == '0' %]class="table-danger"[% END %]>[% region.c2d %]</td>
-		<td [% IF region.e2  == '0' %]class="table-danger"[% END %]>[% region.e2 %]</td>
-		<td [% IF region.m1  == '0' %]class="table-danger"[% END %]>[% region.m1 %]</td>
-		<td [% IF region.m2  == '0' %]class="table-danger"[% END %]>[% region.m2 %]</td>
-		<td [% IF region.n1  == '0' %]class="table-danger"[% END %]>[% region.n1 %]</td>
-		<td [% IF region.n2  == '0' %]class="table-danger"[% END %]>[% region.n2 %]</td>
-		<td [% IF region.n2d == '0' %]class="table-danger"[% END %]>[% region.n2d %]</td>
-		<td [% IF region.t2d == '0' %]class="table-danger"[% END %]>[% region.t2d %]</td>
+		<td [% IF region.a2  == '0' %]class="table-danger"[% END %] title="Machine type series A2  in region [% region.name %]">[% region.a2 %]</td>
+		<td [% IF region.c2  == '0' %]class="table-danger"[% END %] title="Machine type series C2  in region [% region.name %]">[% region.c2 %]</td>
+		<td [% IF region.c2d == '0' %]class="table-danger"[% END %] title="Machine type series C2D in region [% region.name %]">[% region.c2d %]</td>
+		<td [% IF region.e2  == '0' %]class="table-danger"[% END %] title="Machine type series E2  in region [% region.name %]">[% region.e2 %]</td>
+		<td [% IF region.m1  == '0' %]class="table-danger"[% END %] title="Machine type series M1  in region [% region.name %]">[% region.m1 %]</td>
+		<td [% IF region.m2  == '0' %]class="table-danger"[% END %] title="Machine type series M2  in region [% region.name %]">[% region.m2 %]</td>
+		<td [% IF region.n1  == '0' %]class="table-danger"[% END %] title="Machine type series N1  in region [% region.name %]">[% region.n1 %]</td>
+		<td [% IF region.n2  == '0' %]class="table-danger"[% END %] title="Machine type series N2  in region [% region.name %]">[% region.n2 %]</td>
+		<td [% IF region.n2d == '0' %]class="table-danger"[% END %] title="Machine type series N2D in region [% region.name %]">[% region.n2d %]</td>
+		<td [% IF region.t2d == '0' %]class="table-danger"[% END %] title="Machine type series T2D in region [% region.name %]">[% region.t2d %]</td>
 		<!-- e2-standard-8 -->
 		<td class="currency" title="e2-standard-8 Hour: [% region.e2Standard8Hour %] USD">[% region.e2Standard8Hour %]</td>
 		<td class="currency" title="e2-standard-8 Month: [% region.e2Standard8Month %] USD">[% region.e2Standard8Month %]</td>

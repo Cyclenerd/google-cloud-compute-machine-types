@@ -69,20 +69,30 @@ my $template = Template->new(
 );
 my @files = ();
 
+
+###############################################################################
+# INSTANCES
+###############################################################################
+
 my $sql_instances = qq ~
 SELECT
 	UPPER(series) AS series, name, description, family,
-	vCpus, LOWER(sharedCpu) AS sharedCpu, intel, amd, cpuPlatform, cpuBaseClock, cpuTurboClock, cpuSingleMaxTurboClock,
-	coremarkScore, standardDeviation, sampleCount,
+	vCpus, LOWER(sharedCpu) AS sharedCpu,
+	MAX(intel) AS intel,
+	MAX(amd) AS amd,
+	MAX(cpuPlatformCount) AS cpuPlatformCount,
+	(SELECT cpuPlatform FROM instances WHERE name LIKE I.name ORDER BY cpuPlatformCount) AS cpuPlatform,
+	MAX(cpuBaseClock) AS cpuBaseClock, MAX(cpuTurboClock) AS cpuTurboClock, MAX(cpuSingleMaxTurboClock) AS cpuSingleMaxTurboClock,
+	MAX(coremarkScore) AS coremarkScore, MAX(standardDeviation) AS standardDeviation, MAX(sampleCount) AS sampleCount,
 	memoryGiB,
 	bandwidth, tier1,
 	disks, disksSizeGb/1024 AS diskSizeTiB, localSsd,
 	acceleratorCount, acceleratorType,
-	sap, saps, hana,
-	spot,
+	MAX(sap) AS sap, MAX(saps) AS saps, MAX(hana) AS hana,
+	MAX(spot) AS spot,
 	COUNT(region) AS regionCount,
 	(SELECT GROUP_CONCAT(region) FROM instances WHERE name LIKE I.name ORDER BY region) AS regions,
-	sud,
+	MAX(sud) AS sud,
 	ROUND(MIN(hour), 4)         AS minHour,       ROUND(AVG(hour), 4)       AS avgHour,       ROUND(MAX(hour), 4)       AS maxHour,
 	ROUND(MIN(month), 2)        AS minMonth,      ROUND(AVG(month), 2)      AS avgMonth,      ROUND(MAX(month), 2)      AS maxMonth,
 	ROUND(MIN(month1yCud), 2)   AS minMonth1yCud, ROUND(AVG(month1yCud), 2) AS avgMonth1yCud, ROUND(MAX(month1yCud), 2) AS maxMonth1yCud,
@@ -111,21 +121,37 @@ $sth->finish;
 push(@files, 'instances.html');
 $template->process('instances.tt2', { 'instances' => \@instances }, '../site/instances.html') || die "Template process failed: ", $template->error(), "\n";
 
+# CPU
 push(@files, 'intel.html');
 $template->process('intel.tt2', { 'instances' => \@instances }, '../site/intel.html') || die "Template process failed: ", $template->error(), "\n";
 push(@files, 'amd.html');
 $template->process('amd.tt2', { 'instances' => \@instances }, '../site/amd.html') || die "Template process failed: ", $template->error(), "\n";
 
+# SAP
 push(@files, 'sap.html');
 $template->process('sap.tt2', { 'instances' => \@instances }, '../site/sap.html') || die "Template process failed: ", $template->error(), "\n";
 push(@files, 'hana.html');
 $template->process('hana.tt2', { 'instances' => \@instances }, '../site/hana.html') || die "Template process failed: ", $template->error(), "\n";
+
+
+###############################################################################
+# REGIONS
+###############################################################################
 
 my $sql_regions = qq ~
 SELECT
 	region AS name,
 	regionLocation,
 	MAX(zoneCount) AS zoneCount,
+	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Sandy%")        AS intelSandy,
+	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Ivy%")          AS intelIvy,
+	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Haswell%")      AS intelHaswell,
+	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Broadwell%")    AS intelBroadwell,
+	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Skylake%")      AS intelSkylake,
+	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Cascade Lake%") AS intelCascadeLake,
+	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Ice Lake%")     AS intelIceLake,
+	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Rome%")         AS amdRome,
+	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Milan%")        AS amdMilan,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "a2")  AS a2,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "c2")  AS c2,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "c2d") AS c2d,
@@ -152,18 +178,31 @@ while (my $region = $sth->fetchrow_hashref) {
 	$id++;
 }
 $sth->finish;
+# Regions
 push(@files, 'regions.html');
 $template->process('regions.tt2', { 'regions' => \@regions }, '../site/regions.html') || die "Template process failed: ", $template->error(), "\n";
+# CPU platforms in regions
+push(@files, 'platforms.html');
+$template->process('platforms.tt2', { 'regions' => \@regions }, '../site/platforms.html') || die "Template process failed: ", $template->error(), "\n";
 
+
+###############################################################################
+# REGION
+###############################################################################
+
+# Instances in Region
 foreach my $region (@regions) {
 	my $name = $region->{'name'} || 'missing';
 	my $sql_instances_in_region = qq ~
 		SELECT
 			UPPER(series) AS series, name, description, family,
-			vCpus, LOWER(sharedCpu) AS sharedCpu, intel, amd, cpuPlatform, cpuBaseClock, cpuTurboClock, cpuSingleMaxTurboClock,
+			vCpus, LOWER(sharedCpu) AS sharedCpu, 
+			intel, amd, availableCpuPlatformCount, cpuPlatformCount,
+			cpuBaseClock, cpuTurboClock, cpuSingleMaxTurboClock,
 			memoryGiB,
 			sap, saps, hana,
 			zoneCount,
+			sud,
 			ROUND(hour, 4)              AS hour,
 			ROUND(month, 2)             AS month,
 			ROUND(month1yCud, 2)        AS month1yCud,
@@ -194,23 +233,31 @@ foreach my $region (@regions) {
 	$template->process('region.tt2', { 'region' => $region, 'instances' => \@instances }, "$html_file") || die "Template process failed: ", $template->error(), "\n";
 }
 
+
+###############################################################################
+# INSTANCE
+###############################################################################
+
+# Instance in Regions
 foreach my $instance (@instances) {
 	my $name = $instance->{'name'} || 'missing';
 	my $sql_instance_regions = qq ~
 		SELECT
-			region                      AS name,
-			regionLocation,
-			ROUND(hour, 4)              AS hour,
-			ROUND(month, 2)             AS month,
-			ROUND(month1yCud, 2)        AS month1yCud,
-			ROUND(month3yCud, 2)        AS month3yCud,
-			ROUND(monthSles, 2)         AS monthSles,
-			ROUND(monthSlesSap, 2)      AS monthSlesSap,
-			ROUND(monthSlesSap1yCud, 2) AS monthSlesSap1yCud,
-			ROUND(monthSlesSap3yCud, 2) AS monthSlesSap3yCud,
-			ROUND(monthRhel, 2)         AS monthRhel,
-			ROUND(monthRhelSap, 2)      AS monthRhelSap,
-			ROUND(monthWindows, 2)      AS monthWindows
+			region                         AS name,
+			regionLocation                 AS regionLocation,
+			zoneCount                      AS zoneCount,
+			availableCpuPlatformCount      AS availableCpuPlatformCount,
+			ROUND(hour, 4)                 AS hour,
+			ROUND(month, 2)                AS month,
+			ROUND(month1yCud, 2)           AS month1yCud,
+			ROUND(month3yCud, 2)           AS month3yCud,
+			ROUND(monthSles, 2)            AS monthSles,
+			ROUND(monthSlesSap, 2)         AS monthSlesSap,
+			ROUND(monthSlesSap1yCud, 2)    AS monthSlesSap1yCud,
+			ROUND(monthSlesSap3yCud, 2)    AS monthSlesSap3yCud,
+			ROUND(monthRhel, 2)            AS monthRhel,
+			ROUND(monthRhelSap, 2)         AS monthRhelSap,
+			ROUND(monthWindows, 2)         AS monthWindows
 		FROM instances
 		WHERE name LIKE '$name'
 		ORDER BY hour, region;
@@ -231,10 +278,33 @@ foreach my $instance (@instances) {
 	$template->process('instance.tt2', { 'instance' => $instance, 'regions' => \@regions }, "$html_file") || die "Template process failed: ", $template->error(), "\n";
 }
 
+
+###############################################################################
+# INSTANCE in REGION
+###############################################################################
+
+# Zones
+my $sql_zones = "SELECT name, availableCpuPlatforms FROM zones";
+$sth = $dbh->prepare($sql_zones);
+$sth->execute();
+my @zones = ();
+$id = '1';
+while (my $zone = $sth->fetchrow_hashref) {
+	$zone->{'id'} = $id;
+	push(@zones, $zone);
+	$id++;
+}
+$sth->finish;
+
+# Instance in Region
 my $sql_instance_in_region = qq ~
 SELECT
 	UPPER(series) AS series, name, description, family,
-	vCpus, LOWER(sharedCpu) AS sharedCpu, intel, amd, cpuPlatform, cpuBaseClock, cpuTurboClock, cpuSingleMaxTurboClock,
+	vCpus, LOWER(sharedCpu) AS sharedCpu,
+	cpuPlatform, cpuPlatformCount,
+	intel, amd, availableCpuPlatform, availableCpuPlatformCount,
+	(cpuPlatformCount - availableCpuPlatformCount) AS notAvailableCpuPlatformCount,
+	cpuBaseClock, cpuTurboClock, cpuSingleMaxTurboClock,
 	coremarkScore, standardDeviation, sampleCount,
 	memoryGiB,
 	bandwidth, tier1,
@@ -275,12 +345,18 @@ while (my $instance = $sth->fetchrow_hashref) {
 		$template->process('instance_in_region.tt2', {
 			'gmttime'  => $gmttime,
 			'instance' => $instance,
-			'regions'  => \@regions
+			'regions'  => \@regions,
+			'zones'    => \@zones,
 		}, "$html_file") || die "Template process failed: ", $template->error(), "\n";
 	}
 	$id++;
 }
 $sth->finish;
+
+
+###############################################################################
+# MISC
+###############################################################################
 
 # Index
 $template->process('index.tt2', {

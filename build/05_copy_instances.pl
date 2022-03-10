@@ -28,7 +28,13 @@ my $db_file  = 'gce.db';
 # Open DB
 my $db = DBI->connect("dbi:SQLite:dbname=$db_file","","") or die "ERROR: Cannot connect $DBI::errstr\n";
 
-# Select machine types from CSV
+
+###############################################################################
+# Copy MACHINE TYPES to INSTANCES
+###############################################################################
+$db->do("DELETE FROM instances") or die "ERROR: Cannot delete table $DBI::errstr\n";
+
+# Select 'machinetypes'
 my $select = qq ~
 SELECT
 	name, description, location, region, 
@@ -41,7 +47,9 @@ SELECT
 FROM machinetypes M
 GROUP BY name, region;
 ~;
-my (
+my $sth = $db->prepare($select);
+$sth->execute;
+$sth->bind_columns ( \my (
 	$name, $description, $location, $region,
 	$zoneCount,
 	$zones,
@@ -49,25 +57,17 @@ my (
 	$memoryGiB,
 	$guestAcceleratorCount, $guestAcceleratorType,
 	$maximumPersistentDisks, $maximumPersistentDisksSizeGb
-);
-my $sth = $db->prepare($select);
-$sth->execute;
-$sth->bind_columns (undef,
-	\$name, \$description, \$location, \$region,
-	\$zoneCount,
-	\$zones,
-	\$guestCpus, \$isSharedCpu,
-	\$memoryGiB,
-	\$guestAcceleratorCount, \$guestAcceleratorType,
-	\$maximumPersistentDisks, \$maximumPersistentDisksSizeGb
-);
+));
 
-# Insert machine-type per region to DB
-printf("%-16s | %.32s\n", "Name", "Region");
-printf("%-17s+%.33s\n", "-"x17, "-"x33);
+# Insert machine type per region to instances table
 my @values = ();
 while ($sth->fetch) {
-	printf("%-16s | %.32s\n", $name, $region);
+	print "$name, $region\n";
+	if (lc($isSharedCpu) eq 'true') {
+		$isSharedCpu = '1';
+	} else {
+		$isSharedCpu = '0'
+	}
 	# Create value for SQL INSERT
 	my $value = qq ~
 		 (

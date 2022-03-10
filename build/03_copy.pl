@@ -23,7 +23,9 @@ binmode(STDOUT, ':encoding(utf8)');
 use strict;
 use DBI;
 
-my $csv_file = 'machinetypes'; # without .csv
+my $csv_gcloud_machine_types = 'machinetypes'; # without .csv
+my $csv_gcloud_zones         = 'zones'; # without .csv
+
 my $db_file  = 'gce.db';
 
 # Open CSV
@@ -37,6 +39,14 @@ my $csv = DBI->connect("dbi:CSV:", undef, undef, {
 # Open DB
 my $db = DBI->connect("dbi:SQLite:dbname=$db_file","","") or die "ERROR: Cannot connect $DBI::errstr\n";
 
+
+###############################################################################
+# MACHINE TYPES
+###############################################################################
+
+print "Machine types\n";
+$db->do("DELETE FROM machinetypes") or die "ERROR: Cannot delete table $DBI::errstr\n";
+
 # Select machine types from CSV
 my $select = qq ~
 SELECT 
@@ -46,34 +56,24 @@ SELECT
 	guestAcceleratorCount, guestAcceleratorType,
 	maximumPersistentDisks, maximumPersistentDisksSizeGb,
 	deprecated
-FROM $csv_file
+FROM $csv_gcloud_machine_types
 ~;
-my (
+my $sth = $csv->prepare($select);
+$sth->execute;
+$sth->bind_columns (\my (
 	$name, $description, $zone,
 	$guestCpus, $isSharedCpu,
 	$memoryGiB,
 	$guestAcceleratorCount, $guestAcceleratorType,
 	$maximumPersistentDisks, $maximumPersistentDisksSizeGb,
 	$deprecated
-);
-my $sth = $csv->prepare($select);
-$sth->execute;
-$sth->bind_columns (undef,
-	\$name, \$description, \$zone,
-	\$guestCpus, \$isSharedCpu,
-	\$memoryGiB,
-	\$guestAcceleratorCount, \$guestAcceleratorType,
-	\$maximumPersistentDisks, \$maximumPersistentDisksSizeGb,
-	\$deprecated
-);
+));
+# Create values for insert
 
-# Insert machine-type to DB
-printf("%-16s | %.32s\n", "Name", "Zone");
-printf("%-17s+%.33s\n", "-"x17, "-"x33);
 my @values = ();
 while ($sth->fetch) {
 	next if ($deprecated); # Skip deprecated machine-types
-	printf("%-16s | %.32s\n", $name, $zone);
+	print "$name, $zone\n";
 	# Location and region
 	my @zone_parts = split(/-/, $zone);
 	my $location   = "$zone_parts[0]";
@@ -93,7 +93,7 @@ while ($sth->fetch) {
 	push(@values, $value);
 }
 $sth->finish;
-
+# Insert machine types to database table
 my $insert = qq ~
 INSERT INTO machinetypes (
 	'name', 'description', 'location', 'region', 'zone',
@@ -105,6 +105,34 @@ INSERT INTO machinetypes (
 ~;
 $insert .= join(",", @values);
 $insert .= ";\n";
-$db->do($insert) or die "ERROR: Cannot insert $DBI::errstr\n";
+$db->do($insert) or die "ERROR: Cannot insert machine types $DBI::errstr\n";
+
+
+###############################################################################
+# ZONES
+###############################################################################
+
+print "Zones\n";
+$db->do("DELETE FROM zones") or die "ERROR: Cannot delete table $DBI::errstr\n";
+
+# Select machine types from CSV
+my $select_zones = "SELECT name, availableCpuPlatforms FROM $csv_gcloud_zones";
+$sth = $csv->prepare($select_zones);
+$sth->execute;
+$sth->bind_columns (\my ($name, $availableCpuPlatforms));
+# Create values for insert
+my @zones = ();
+while ($sth->fetch) {
+	print "$name\n";
+	# Create value for SQL INSERT
+	my $zone = "('$name', '$availableCpuPlatforms')";
+	push(@zones, $zone);
+}
+$sth->finish;
+
+my $insert_zones = "INSERT INTO zones ('name', 'availableCpuPlatforms') VALUES";
+$insert_zones .= join(",", @zones);
+$insert_zones .= ";\n";
+$db->do($insert_zones) or die "ERROR: Cannot insert zones $DBI::errstr\n";
 
 print "DONE\n";

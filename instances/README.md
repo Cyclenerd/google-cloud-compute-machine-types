@@ -1,13 +1,37 @@
-# Google Compute Engine - Machine Types
+# Google Compute Engine
 
 Here you can find the SQL files that add the different information from the Google websites.
-The information is in addition to the data of the Google Cloud Compute API (`gcloud compute machine-types list`).
+The information is in addition to the data of the Google Cloud Compute API.
 
 Feel free to make changes if something is wrong or you want to expand it.
 
 The SQL files are read during the [build](../build/) process.
 
-Resources of the Information:
+## Machine Types
+
+* [Series](./series/)
+	* [A2](./series/a2.sql)
+	* [C2](./series/c2.sql)
+	* [C2D](./series/c2d.sql)
+	* [E2](./series/e2.sql)
+	* [M1](./series/m1.sql)
+	* [M2](./series/m2.sql)
+	* [N1](./series/n1.sql)
+	* [N2](./series/n2.sql)
+	* [N2D](./series/n2d.sql)
+	* [T2D](./series/t2d.sql)
+* [CPU Platform](./series/cpu/)
+	* [Frequency (GHz)](./series/cpu/frequency.sql)
+	* [EEMBC CoreMark Benchmark](./series/cpu/coremark.sql)
+* [SAP](./series/sap/)
+	* [SAP certified machine types](./series/sap/sap.sql)
+	* [SAP HANA certified machine types](./series/sap/hana.sql)
+
+## Costs
+
+The cost per machine type in region and licenses are added with the [gcosts](https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator) program.
+
+## Resources of the Information
 
 <ul>
 	<li>
@@ -31,6 +55,7 @@ Resources of the Information:
 			</li>
 		</ul>
 	</li>
+	<li><a href="https://cloud.google.com/compute/docs/regions-zones#available">Available regions and zones</a></li>
 	<li><a href="https://cloud.google.com/compute/docs/cpu-platforms" rel="nofollow">CPU Platform</a></li>
 	<li><a href="https://cloud.google.com/compute/docs/benchmarks-linux" rel="nofollow">Benchmarks for Linux VM instances</a></li>
 	<li><a href="https://cloud.google.com/solutions/sap/docs/certifications-sap-apps#sap-certified-vms" rel="nofollow">Certified SAP applications on Google Cloud</a></li>

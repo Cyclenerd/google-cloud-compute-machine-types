@@ -4,10 +4,9 @@
 UPDATE instances SET
 series      = 'a2',
 family      = 'Accelerator-optimized',
-intel       = 'true',
-cpuPlatform = 'Cascade Lake', cpuBaseClock  = '2.2', cpuTurboClock  = '2.9', cpuSingleMaxTurboClock = '3.7',
-localSsd    = 'true',
-spot        = 'true'
+cpuPlatform = 'Cascade Lake',
+localSsd    = '1',
+spot        = '1'
 WHERE name LIKE 'a2-%';
 UPDATE instances SET bandwidth = '24'  WHERE name LIKE 'a2-%-1g';
 UPDATE instances SET bandwidth = '32'  WHERE name LIKE 'a2-%-2g';

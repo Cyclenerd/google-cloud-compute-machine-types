@@ -13,15 +13,9 @@ const filterParamsText = {
 	debounceMs: 100,
 };
 const filterParamsBoolean = {
-	filterOptions: ['contains'],
-	defaultOption: 'contains',
+	filterOptions: ['equals'],
+	defaultOption: 'equals',
 	suppressAndOrCondition: true,
-	textFormatter: function (r) {
-		if (r == null) return null;
-		return r
-			.toLowerCase()
-			.replace(/[yx1]/g, 'true');
-		},
 	debounceMs: 0,
 };
 
@@ -30,7 +24,15 @@ const filterParamsBoolean = {
  */
 
 function booleanFormatter(params) {
-	return (params.value === true || params.value === 'true') ? '✔️' : '❌';
+	return (params.value >= 1) ? '✔️' : '❌';
+}
+
+function notAvailableCpuPlatformCountFormatter(params) {
+	if (params.value >= 1) {
+		return '⚠️ ' + params.value;
+	} else {
+		return params.value;
+	};
 }
 
 /*
@@ -159,12 +161,21 @@ const gridOptions = {
 					cellClass: 'frequency',
 				},
 				{
+					headerName: 'Shared',
+					field: 'sharedCpu',
+					columnGroupShow: 'open',
+					filterParams: filterParamsBoolean,
+					valueFormatter: booleanFormatter,
+					headerTooltip: 'Fractional vCPU (1, 0) [Each vCPU can burst up to 100% of CPU time, for short periods, before returning to the time limitations]',
+					width: 90
+				},
+				{
 					headerName: 'Intel',
 					field: 'intel',
 					columnGroupShow: 'open',
 					filterParams: filterParamsBoolean,
 					valueFormatter: booleanFormatter,
-					headerTooltip: 'Intel CPU processors (true, false)',
+					headerTooltip: 'Intel CPU processors (1, 0)',
 					width: 90
 				},
 				{
@@ -173,24 +184,53 @@ const gridOptions = {
 					columnGroupShow: 'open',
 					filterParams: filterParamsBoolean,
 					valueFormatter: booleanFormatter,
-					headerTooltip: 'AMD CPU processors (true, false)',
+					headerTooltip: 'AMD CPU processors (1, 0)',
 					width: 90
 				},
 				{
-					headerName: 'Platform',
+					headerName: '#Div',
+					field: 'notAvailableCpuPlatformCount',
+					columnGroupShow: 'open',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					valueFormatter: notAvailableCpuPlatformCountFormatter,
+					headerTooltip: 'Not available CPU platforms for machine type in regions',
+					tooltipField: 'notAvailableCpuPlatformCount',
+					width: 90
+				},
+				{
+					headerName: '#Available',
+					field: 'availableCpuPlatformCount',
+					columnGroupShow: 'open',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					headerTooltip: 'Available CPU platforms for machine type in regions',
+					tooltipField: 'availableCpuPlatformCount',
+					width: 90
+				},
+				{
+					headerName: 'Available CPU Platform',
+					field: 'availableCpuPlatform',
+					columnGroupShow: 'open',
+					headerTooltip: 'Available CPU flatform for machine type in region',
+					tooltipField: 'availableCpuPlatform'
+				},
+				{
+					headerName: '#Platform',
+					field: 'cpuPlatformCount',
+					columnGroupShow: 'open',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					headerTooltip: 'Available CPU platforms for machine type in regions',
+					tooltipField: 'cpuPlatformCount',
+					width: 90
+				},
+				{
+					headerName: 'CPU Platform',
 					field: 'cpuPlatform',
 					columnGroupShow: 'open',
-					headerTooltip: 'CPU Platform',
+					headerTooltip: 'Available CPU platform for machine type',
 					tooltipField: 'cpuPlatform'
-				},
-				{
-					headerName: 'Shared',
-					field: 'sharedCpu',
-					columnGroupShow: 'open',
-					filterParams: filterParamsBoolean,
-					valueFormatter: booleanFormatter,
-					headerTooltip: 'Fractional vCPU (true, false) [Each vCPU can burst up to 100% of CPU time, for short periods, before returning to the time limitations]',
-					width: 90
 				},
 			]
 		},

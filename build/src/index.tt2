@@ -20,10 +20,10 @@ amd   = 0;
 sap   = 0;
 hana  = 0;
 FOREACH instance IN instances;
-	IF instance.intel == 'true'; intel = intel + 1; END;
-	IF instance.amd   == 'true'; amd   = amd   + 1; END;
-	IF instance.sap   == 'true'; sap   = sap   + 1; END;
-	IF instance.hana  == 'true'; hana  = hana  + 1; END;
+	IF instance.intel; intel = intel + 1; END;
+	IF instance.amd;   amd   = amd   + 1; END;
+	IF instance.sap;   sap   = sap   + 1; END;
+	IF instance.hana;  hana  = hana  + 1; END;
 END;
 %]
 
@@ -41,7 +41,7 @@ You have the choice between <mark>[% intel %] machine types with <a href="/intel
 
 <p>
 <a href="/regions.html">Here</a> you can find an overview of all <mark>[% regions.size %] Google Cloud regions</mark> and the corresponding zones.
-You can also find the available Google Compute Engine machine types per GCE machine series (CPU type and CPU plattform) in this overview.
+You can also find the available Google Compute Engine machine types per GCE machine series (<a href="/platforms.html">CPU type and CPU plattform</a>) in this overview.
 </p>
 
 <p>
@@ -164,16 +164,14 @@ gzip -d machine-types-regions.sql.gz
 # Import SQL dump
 sqlite3 gce.db &lt; machine-types-regions.sql
 # SQL query
-sqlite3 gce.db &#39;SELECT name, vCpus, hour FROM instances WHERE vCpus &gt;= 8 AND region LIKE &quot;europe-west4&quot; ORDER BY hour ASC LIMIT 5&#39;
-</code></pre>
+sqlite3 gce.db &#39;SELECT name, vCpus, hour FROM instances WHERE vCpus &gt;= 8 AND region LIKE &quot;europe-west4&quot; ORDER BY hour ASC LIMIT 5&#39;</code></pre>
 
 <p>Example SQL output:</p>
 <pre><code>e2-highcpu-8|8.0|0.21785232
 n2d-highcpu-8|8.0|0.274688
 e2-standard-8|8.0|0.29508816
 n1-highcpu-8|8.0|0.3119968
-n2-highcpu-8|8.0|0.315728
-</code></pre>
+n2-highcpu-8|8.0|0.315728</code></pre>
 
 <h2>Resources of the Information</h2>
 
@@ -207,6 +205,7 @@ n2-highcpu-8|8.0|0.315728
 </div>
 <div class="col-xl-6">
 <ul>
+	<li><a href="https://cloud.google.com/compute/docs/regions-zones#available">Available regions and zones</a></li>
 	<li><a href="https://cloud.google.com/compute/docs/cpu-platforms" rel="nofollow">CPU Platform</a></li>
 	<li><a href="https://cloud.google.com/compute/docs/benchmarks-linux" rel="nofollow">Benchmarks for Linux VM instances</a></li>
 	<li><a href="https://cloud.google.com/solutions/sap/docs/certifications-sap-apps#sap-certified-vms" rel="nofollow">Certified SAP applications on Google Cloud</a></li>
