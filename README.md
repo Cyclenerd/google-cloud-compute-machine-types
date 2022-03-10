@@ -9,7 +9,7 @@ A lot of information has been collected from various Google Cloud websites and d
 
 ## 🖊️ Add, edit or change machine type information
 
-The Google Compute Engine API is used to get all machine types in all regions.
+The Google Compute Engine API is used to get all machine types in all regions and zones.
 Additional information is read in via SQL files during the build process.
 These files can be found in the [instances](./instances/) folder.
 

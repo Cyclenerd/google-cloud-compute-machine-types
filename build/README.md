@@ -17,7 +17,12 @@ bash build.sh
 1. Clean up (Remove disconnected data centers...)
 1. Copy machine types per region to database table `instances`
 1. Add costs for machine types in region from [pricing](https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator)
-1. Add additional machine type informations
+1. Add [additional machine type informations](../instances/series/)
+1. Add available CPU platforms per instance in region
+1. Add even more
+	* Frequency (GHz)
+	* EEMBC CoreMark Benchmark
+	* SAP and HANA certified machine types
 1. Export CSV and SQL file
 1. Test
 
