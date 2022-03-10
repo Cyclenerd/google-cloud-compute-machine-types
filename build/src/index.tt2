@@ -12,6 +12,20 @@ This webapp helps to find the optimal Google Compute Engine (GCE) machine type o
 A lot of information has been collected from various Google Cloud websites and different sources.
 </p>
 
+<div class="p-5 mb-4 bg-light rounded-3">
+<figure>
+	<blockquote class="blockquote">
+		<p>
+			I was tired of switching between different Google documentations to get all the information
+			to find the best Google Compute Enigne machine for my needs or those of my clients.
+			I have therefore merged all important information into one place.
+			Hope it helps you too.
+		</p>
+	</blockquote>
+	<figcaption class="blockquote-footer">Nils (Cloud Architect)</figcaption>
+</figure>
+</div>
+
 <h2>Machines</h2>
 
 [%
