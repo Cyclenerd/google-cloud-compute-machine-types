@@ -13,7 +13,7 @@
 			Data and costs shown are not guaranteed to be accurate or current.
 			Please <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types/issues">report issues</a> you see.
 		</p>
-		[% IF gmttime %]<p class="text-muted text-center small">Last Update: [% gmttime %] (GMT)</p>[% END %]
+		[% IF gmttime %]<p class="text-muted text-center small">Last Update: <a href=[% IF gitHubRunId %]"[% gitHubServerUrl %]/[% gitHubRepository %]/actions/runs/[% gitHubRunId %]"[% ELSE %]"#"[% END %]>[% gmttime %]</a> (GMT)</p>[% END %]
 	</div>
 </footer>
 

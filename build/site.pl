@@ -61,10 +61,13 @@ my $dbh = DBI->connect("dbi:SQLite:dbname=$db_file","","") or die "ERROR: Cannot
 my $template = Template->new(
 	INCLUDE_PATH => './src',
 	VARIABLES => {
-		'gmttime'   => $gmttime,
-		'timestamp' => $timestamp,
-		'csvFileSize' => $filesize_csv_export,
-		'sqlFileSize' => $filesize_sql_export,
+		'gmttime'          => $gmttime,
+		'timestamp'        => $timestamp,
+		'csvFileSize'      => $filesize_csv_export,
+		'sqlFileSize'      => $filesize_sql_export,
+		'gitHubServerUrl'  => $ENV{'GITHUB_SERVER_URL'} || '',
+		'gitHubRepository' => $ENV{'GITHUB_REPOSITORY'} || '',
+		'gitHubRunId'      => $ENV{'GITHUB_RUN_ID'}     || '',
 	}
 );
 my @files = ();
