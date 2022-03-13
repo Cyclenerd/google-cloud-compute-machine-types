@@ -314,7 +314,17 @@ const gridOptions = {
 		{
 			headerName: 'Costs',
 			children: [
-				{ headerName: 'Hour',                   field: "hour",              width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'close' },
+				{
+					headerName: 'Hour',
+					field: "hour",
+					width: 120,
+					cellClass: 'currency',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					columnGroupShow: 'close',
+					// Default sorting on the hour column
+					sort: 'asc'
+				},
 				{ headerName: 'Month',                  field: 'month',             width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'close' },
 				{ headerName: '1Y CUD',                 field: "month1yCud",        width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open' },
 				{ headerName: '3Y CUD',                 field: "month3yCud",        width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open' },
