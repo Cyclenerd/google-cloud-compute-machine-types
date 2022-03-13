@@ -33,6 +33,7 @@
 <body>
 <div id="myGrid" class="ag-theme-balham" style="height: 100%; width:100%"></div>
 
+<!-- help -->
 <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
 <div class="modal-dialog modal-lg modal-fullscreen-lg-down modal-dialog-scrollable">
 <div class="modal-content">
@@ -75,7 +76,7 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 	Data and costs shown are not guaranteed to be accurate or current.
 	Please <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types/issues">report issues</a> you see.
 </p>
-[% IF gmttime %]<p>Last Update: <a href=[% IF gitHubRunId %]"[% gitHubServerUrl %]/[% gitHubRepository %]/actions/runs/[% gitHubRunId %]"[% ELSE %]"#"[% END %]>[% gmttime %]</a> (GMT)</p>[% END %]
+<p>Last Update: <a href=[% IF gitHubRunId %]"[% gitHubServerUrl %]/[% gitHubRepository %]/actions/runs/[% gitHubRunId %]"[% ELSE %]"#"[% END %]>[% gmttime %]</a> (GMT)</p>
 </div> <!-- // modal-body -->
 <div class="modal-footer">
 	<a class="btn btn-info" href="/" role="button">👋 Start</a>
@@ -84,6 +85,28 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 </div> <!-- // modal-content -->
 </div> <!-- // modal-dialog -->
 </div> <!-- // modal -->
+<!-- // help -->
+
+<!-- welcome toast -->
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+<div id="welcomeToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="8000">
+<div class="toast-header">
+	<strong class="me-auto">✅ Instance Picker</strong>
+	<small>Last update: [% USE date; date.format(timestamp, '%Y-%m-%d'); %]</small>
+	<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+</div>
+<div class="toast-body">
+	<p>You can navigate with your keyboard.</p>
+	<p>Press <kbd>Ctrl</kbd> + <kbd>/</kbd> to focus the vCPU filter.</p>
+	<p>Press <kbd>?</kbd> to see the help with all keyboard shortcuts.</p>
+	<div class="mt-2 pt-2 border-top">
+		<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#helpModal">Help</button>
+		<button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+	</div>
+</div> <!-- // toast-body -->
+</div> <!-- // toast -->
+</div> <!-- // position-fixed -->
+<!-- // welcome toast -->
 
 <script src="main.js?[% timestamp %]"></script>
 <script src="https://unpkg.com/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>

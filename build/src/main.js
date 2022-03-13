@@ -397,3 +397,11 @@ fetch('instance_in_region.json?[% timestamp %]')
 		gridOptions.api.setRowData(data);
 	}
 );
+
+// page has finished loading
+document.addEventListener('DOMContentLoaded', function () {
+	console.log('DOMContentLoaded');
+	var welcomeToast = document.getElementById('welcomeToast');
+	var toast = new bootstrap.Toast(welcomeToast)
+	toast.show()
+});
