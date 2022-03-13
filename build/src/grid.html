@@ -34,40 +34,51 @@
 <div id="myGrid" class="ag-theme-balham" style="height: 100%; width:100%"></div>
 
 <div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-lg modal-fullscreen-lg-down">
+<div class="modal-dialog modal-lg modal-fullscreen-lg-down modal-dialog-scrollable">
 <div class="modal-content">
 <div class="modal-header">
-	<h5 class="modal-title" id="helpModalLabel">Keyboard shortcuts</h5>
+	<h5 class="modal-title" id="helpModalLabel">Help</h5>
 	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-	<p>Press <kbd>Ctrl</kbd> + <kbd>/</kbd> to focus the vCPU filter.</p>
+<p class="h4">Keyboard shortcuts</p>
+<p>Press <kbd>Ctrl</kbd> + <kbd>/</kbd> to focus the vCPU filter.</p>
 
-	<p>
-	Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>) to move focus up, down, left and right.
-	<kbd>Tab</kbd> will move the focus horizontally until the last cell and then move on to the next row.
-	<kbd>Shift</kbd> + <kbd>Tab</kbd> will move the focus horizontal backward until the first cell and then move back to the previous row.
-	</p>
+<p>
+Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>) to move focus up, down, left and right.
+<kbd>Tab</kbd> will move the focus horizontally until the last cell and then move on to the next row.
+<kbd>Shift</kbd> + <kbd>Tab</kbd> will move the focus horizontal backward until the first cell and then move back to the previous row.
+</p>
 
-	<p>Pressing the <kbd>Space</kbd> key on a cell will select the cells row, or deselect the row if already selected.</p>
-		
-	<p>With the following keyboard shortcuts you can copy selected row from the table in CSV format to your clipboard:</p>
-	<ul>
-		<li><kbd>Ctrl</kbd> + <kbd>c</kbd> : Copy selected rows with shown column</li>
-		<li><kbd>Ctrl</kbd> + <kbd>a</kbd> : Copy selected rows with all   column</li>
-		<li><kbd>Alt</kbd>  + <kbd>c</kbd> : Copy selected rows with shown column and headers</li>
-		<li><kbd>Alt</kbd>  + <kbd>a</kbd> : Copy selected rows with all   column and headers</li>
-	</ul>
+<p>Pressing the <kbd>Space</kbd> key on a cell will select the cells row, or deselect the row if already selected.</p>
 
-	<p>The grid header also supports full keyboard navigation:</p>
-	<ul>
-		<li>Press <kbd>Enter</kbd> to toggle the sorting state of that column.</li>
-		<li>Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to open the menu for the focused header.</li>
-		<li>When a menu is open, simply press <kbd>Esc</kbd> to close it and the focus will return to the header.</li>
-	</ul>
+<p>With the following keyboard shortcuts you can copy selected row from the table in CSV format to your clipboard:</p>
+<ul>
+	<li><kbd>Ctrl</kbd> + <kbd>c</kbd> : Copy selected rows with shown column</li>
+	<li><kbd>Ctrl</kbd> + <kbd>a</kbd> : Copy selected rows with all   column</li>
+	<li><kbd>Alt</kbd>  + <kbd>c</kbd> : Copy selected rows with shown column and headers</li>
+	<li><kbd>Alt</kbd>  + <kbd>a</kbd> : Copy selected rows with all   column and headers</li>
+</ul>
+
+<p>The grid header also supports full keyboard navigation:</p>
+<ul>
+	<li>Press <kbd>Enter</kbd> to toggle the sorting state of that column.</li>
+	<li>Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to open the menu for the focused header.</li>
+	<li>When a menu is open, simply press <kbd>Esc</kbd> to close it and the focus will return to the header.</li>
+</ul>
+
+<p class="h4">About</p>
+<p>
+	This website and software is published as open source and licensed under the Apache License (version 2.0).
+	You can find the source code on <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types">GitHub</a>.
+	This site is not maintained by or affiliated with Google.
+	Data and costs shown are not guaranteed to be accurate or current.
+	Please <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types/issues">report issues</a> you see.
+</p>
+[% IF gmttime %]<p>Last Update: <a href=[% IF gitHubRunId %]"[% gitHubServerUrl %]/[% gitHubRepository %]/actions/runs/[% gitHubRunId %]"[% ELSE %]"#"[% END %]>[% gmttime %]</a> (GMT)</p>[% END %]
 </div> <!-- // modal-body -->
 <div class="modal-footer">
-	<a class="btn btn-info" href="/" role="button">👋 About</a>
+	<a class="btn btn-info" href="/" role="button">👋 Start</a>
 	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 </div> <!-- // modal-footer -->
 </div> <!-- // modal-content -->
