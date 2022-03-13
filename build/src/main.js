@@ -27,14 +27,6 @@ function booleanFormatter(params) {
 	return (params.value >= 1) ? '✔️' : '❌';
 }
 
-function notAvailableCpuPlatformCountFormatter(params) {
-	if (params.value >= 1) {
-		return '⚠️ ' + params.value;
-	} else {
-		return params.value;
-	};
-}
-
 /*
  * KEYBOARD
  */
@@ -188,17 +180,6 @@ const gridOptions = {
 					width: 90
 				},
 				{
-					headerName: '#Div',
-					field: 'notAvailableCpuPlatformCount',
-					columnGroupShow: 'open',
-					filter: 'agNumberColumnFilter',
-					filterParams: filterParamsNumber,
-					valueFormatter: notAvailableCpuPlatformCountFormatter,
-					headerTooltip: 'Not available CPU platforms for machine type in regions',
-					tooltipField: 'notAvailableCpuPlatformCount',
-					width: 90
-				},
-				{
 					headerName: '#Available',
 					field: 'availableCpuPlatformCount',
 					columnGroupShow: 'open',
@@ -214,6 +195,19 @@ const gridOptions = {
 					columnGroupShow: 'open',
 					headerTooltip: 'Available CPU flatform for machine type in region',
 					tooltipField: 'availableCpuPlatform'
+				},
+				{
+					headerName: '#Div',
+					field: 'notAvailableCpuPlatformCount',
+					columnGroupShow: 'open',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					cellClass: params => {
+						if (params.value >= 1) { return 'warning' }
+					},
+					headerTooltip: 'Not available CPU platforms for machine type in regions',
+					tooltipField: 'notAvailableCpuPlatformCount',
+					width: 90
 				},
 				{
 					headerName: '#Platform',
