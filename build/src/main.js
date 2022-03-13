@@ -217,7 +217,6 @@ const gridOptions = {
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
 					headerTooltip: 'Available CPU platforms for machine type in regions',
-					tooltipField: 'availableCpuPlatformCount',
 					width: 90
 				},
 				{
@@ -237,7 +236,6 @@ const gridOptions = {
 						if (params.value >= 1) { return 'warning' }
 					},
 					headerTooltip: 'Not available CPU platforms for machine type in regions',
-					tooltipField: 'notAvailableCpuPlatformCount',
 					width: 90
 				},
 				{
@@ -247,7 +245,6 @@ const gridOptions = {
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
 					headerTooltip: 'Available CPU platforms for machine type in regions',
-					tooltipField: 'cpuPlatformCount',
 					width: 90
 				},
 				{
@@ -265,7 +262,6 @@ const gridOptions = {
 				{ headerName: 'CoreMark', field: "coremarkScore",     columnGroupShow: 'close', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'EEMBC CoreMark Benchmark (please see www.eembc.org/coremark)', width: 120 },
 				{ headerName: 'StdDev%',  field: "standardDeviation", columnGroupShow: 'open',  filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'EEMBC CoreMark Standard Deviation (%)', width: 120 },
 				{ headerName: '#Samples', field: "sampleCount",       columnGroupShow: 'open',  filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'EEMBC CoreMark Sample Count', width: 120 },
-				{ headerName: 'SAPS',     field: 'saps',              columnGroupShow: 'open',  filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'SAP Standard Benchmark (please see SAP Note 1612283 and 2456432)', width: 120 },
 			]
 		},
 		{ headerName: 'Memory', field: "memoryGiB", cellClass: 'memory', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'Random-access memory (GiB)', width: 120, },
@@ -279,8 +275,25 @@ const gridOptions = {
 		{
 			headerName: 'Storage',
 			children: [
-				{ headerName: 'Disk Size', field: "diskSizeTiB", columnGroupShow: 'close', cellClass: 'diskSize', width: 120, filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'Max. total persistent disk size (TB) [Disk usage is charged separately from machine type pricing!]' },
-				{ headerName: '#Disks',    field: "disks",       columnGroupShow: 'open',  width: 110, filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'Max. number of persistent disks (PDs) [Disk usage is charged separately from machine type pricing!]' },
+				{
+					headerName: 'Disk Size',
+					field: "diskSizeTiB",
+					columnGroupShow: 'close',
+					cellClass: 'diskSize',
+					width: 100,
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					headerTooltip: 'Max. total persistent disk size (TB) [Disk usage is charged separately from machine type pricing!]'
+				},
+				{
+					headerName: '#Disks',
+					field: "disks",
+					columnGroupShow: 'open',
+					width: 90,
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					headerTooltip: 'Max. number of persistent disks (PDs) [Disk usage is charged separately from machine type pricing!]'
+				},
 				{
 					headerName: 'Local SSD',
 					field: "localSsd",
@@ -315,17 +328,20 @@ const gridOptions = {
 					width: 90,
 					headerTooltip: 'Instance with SUD (sustained use discounts are automatic discounts for running specific Compute Engine resources)'
 				},
-
-
 			]
 		},
 		{
-			headerName: 'More...',
+			headerName: 'SAP',
 			children: [
-				{ headerName: 'Family',         field: "family",          columnGroupShow: 'close', width: 180, tooltipField: 'family', headerTooltip: 'A curated set of processor and hardware configurations optimized for specific workloads' },
-				{ headerName: 'Series',         field: "series",          columnGroupShow: 'open',  width: 110, headerTooltip: 'Machine families are further classified by series and generation'},
-				{ headerName: 'GPUs',           field: "acceleratorCount",columnGroupShow: 'open', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, width: 100 },
-				{ headerName: 'GPU Type',       field: "acceleratorType", columnGroupShow: 'open' },
+				{
+					headerName: 'SAPS',
+					field: 'saps',
+					columnGroupShow: 'close',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					headerTooltip: 'SAP Standard Benchmark (please see SAP Note 1612283 and 2456432)',
+					width: 90
+				},
 				{
 					headerName: 'SAP',
 					field: "sap",
@@ -344,6 +360,15 @@ const gridOptions = {
 					width: 90,
 					headerTooltip: 'Certified for SAP HANA on Google Cloud'
 				},
+			]
+		},
+		{
+			headerName: 'More...',
+			children: [
+				{ headerName: 'Family',         field: "family",          columnGroupShow: 'close', width: 180, tooltipField: 'family', headerTooltip: 'A curated set of processor and hardware configurations optimized for specific workloads' },
+				{ headerName: 'Series',         field: "series",          columnGroupShow: 'open',  width: 110, headerTooltip: 'Machine families are further classified by series and generation'},
+				{ headerName: 'GPUs',           field: "acceleratorCount",columnGroupShow: 'open', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, width: 100 },
+				{ headerName: 'GPU Type',       field: "acceleratorType", columnGroupShow: 'open' },
 				{
 					headerName: 'Spot',
 					field: "spot",
