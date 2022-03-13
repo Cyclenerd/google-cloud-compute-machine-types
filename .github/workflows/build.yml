@@ -14,6 +14,7 @@ jobs:
             jq                   \
             sqlite3              \
             libapp-options-perl  \
+            libencode-perl       \
             libyaml-libyaml-perl \
             libdbd-csv-perl      \
             libdbd-sqlite3-perl  \

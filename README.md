@@ -25,6 +25,7 @@ you need the following requirements.
 * Perl 5 (`perl`)
 * Perl modules:
 	* [App::Options](https://metacpan.org/pod/App::Options)
+	* [Encode](https://metacpan.org/pod/Encode)
 	* [YAML::XS](https://metacpan.org/pod/YAML::XS) (and `libyaml`)
 	* [DBD::CSV](https://metacpan.org/pod/DBD::CSV)
 	* [DBD::SQLite](https://metacpan.org/pod/DBD::SQLite)
@@ -40,6 +41,7 @@ sudo apt install \
 	gnupg \
 	sqlite3 \
 	libapp-options-perl \
+	libencode-perl \
 	libyaml-libyaml-perl \
 	libdbd-csv-perl \
 	libdbd-sqlite3-perl \

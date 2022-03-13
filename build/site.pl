@@ -19,8 +19,10 @@
 #
 
 use utf8;
+binmode(STDOUT, ':encoding(utf8)');
 use strict;
 use DBI;
+use Encode qw(decode);
 use JSON::XS;
 use Template;
 use File::Copy;
@@ -378,11 +380,11 @@ $template->process('404.tt2', {}, '../site/404.html') || die "Template process f
 $template->process('robots.txt', {}, '../site/robots.txt')     || die "Template process failed: ", $template->error(), "\n";
 
 # Grid
-$template->process('main.js', {}, '../site/main.js')     || die "Template process failed: ", $template->error(), "\n";
-$template->process('grid.html', {}, '../site/grid.html') || die "Template process failed: ", $template->error(), "\n";
-open(FH, '>', '../site/instance_in_region.json') or die $!;
-print FH encode_json \@instances_in_regions;
-close FH;
+my $json = encode_json \@instances_in_regions;
+$json    = decode('UTF-8', $json); # force UTF-8
+$template->process('main.js',                 {},                  '../site/main.js')                 || die "Template process failed: ", $template->error(), "\n";
+$template->process('grid.html',               {},                  '../site/grid.html')               || die "Template process failed: ", $template->error(), "\n";
+$template->process('instance_in_region.json', { 'json' => $json }, '../site/instance_in_region.json') || die "Template process failed: ", $template->error(), "\n";
 
 # SQL
 copy("$sql_export", '../site/machine-types-regions.sql.gz');
