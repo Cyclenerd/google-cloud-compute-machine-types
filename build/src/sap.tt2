@@ -5,6 +5,8 @@
 
 <h1>[% template.title %]</h1>
 
+<p><a class="btn btn-success" href="/grid.html?sap=1" role="button">✅ Instance Picker with filter on SAP</a></p>
+
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>

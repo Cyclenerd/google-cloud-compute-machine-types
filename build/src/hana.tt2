@@ -5,6 +5,8 @@
 
 <h1>[% template.title %]</h1>
 
+<p><a class="btn btn-success" href="/grid.html?hana=1" role="button">✅ Instance Picker with filter on SAP HANA</a></p>
+
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
