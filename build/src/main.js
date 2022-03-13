@@ -82,7 +82,7 @@ const gridOptions = {
 						return '<a href="./'+ params.data.region +'/'+ params.value +'.html">'+ params.value + '</a>';
 					},
 					tooltipValueGetter: params => {
-						return params.value +' ('+ params.data.vCpus + ' vCPUs, '+ params.data.memoryGiB + ' GB, '+ params.data.bandwidth + ' Gbps) ['+ params.data.region + ']';
+						return 'Machine type '+  params.value +' ('+ params.data.vCpus + ' vCPUs, '+ params.data.memoryGiB + ' GB, '+ params.data.bandwidth + ' Gbps) in region '+ params.data.region;
 					},
 					pinned: 'left',
 					//rowDrag: true,
@@ -108,6 +108,25 @@ const gridOptions = {
 					tooltipField: 'regionLocation',
 					width: 180
 				},
+				{
+					headerName: '#Zones',
+					field: "zoneCount",
+					columnGroupShow: 'open',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					cellClass: params => {
+						if (params.value <= 1) { return 'warning' }
+					},
+					tooltipField: 'zoneCount',
+					width: 90
+				},
+				{
+					headerName: 'Zones',
+					field: "zones",
+					columnGroupShow: 'open',
+					tooltipField: 'zones',
+					width: 180
+				},
 			]
 		},
 		{
@@ -119,6 +138,9 @@ const gridOptions = {
 					columnGroupShow: 'close',
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
+					cellClass: params => {
+						if (params.data.sharedCpu >= 1) { return 'sharedCpu' }
+					},
 					headerTooltip: 'A vCPU represents a single logical CPU thread',
 					width: 90,
 				},
