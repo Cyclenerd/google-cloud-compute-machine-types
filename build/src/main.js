@@ -477,7 +477,14 @@ document.addEventListener('DOMContentLoaded', function () {
 	// Welcome toast
 	var welcomeToast = document.getElementById('welcomeToast');
 	var toast = new bootstrap.Toast(welcomeToast);
-	toast.show();
+	let cookie = decodeURIComponent(document.cookie); // Get cookie
+	if (cookie.search('instancePickerWelcomeToast') >= 0) {
+		console.log('welcome toast already shown');
+	} else {
+		console.log('welcome toast');
+		document.cookie = "instancePickerWelcomeToast=true;SameSite=Strict;Secure"; // Set session cookie, cookie is deleted when the browser is closed
+		toast.show();
+	}
 });
 
 // fist time data is rendered into the grid
