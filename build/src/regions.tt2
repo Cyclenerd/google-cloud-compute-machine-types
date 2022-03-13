@@ -65,7 +65,7 @@
 			<a href="/grid.html?region=[% region.name %]&amp;series=n1">[% region.n1 %]</a>
 		</td>
 		<td [% IF region.n2  == '0' %]class="table-danger"[% END %] title="Machine type series N2 in region [% region.name %]">
-			<a href="/grid.html?region=[% region.name %]&amp;series=n2]">[% region.n2 %]</a>
+			<a href="/grid.html?region=[% region.name %]&amp;series=n2">[% region.n2 %]</a>
 		</td>
 		<td [% IF region.n2d == '0' %]class="table-danger"[% END %] title="Machine type series N2D in region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;series=n2d">[% region.n2d %]</a>
