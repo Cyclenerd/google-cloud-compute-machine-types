@@ -42,22 +42,7 @@ function booleanFormatter(params) {
  */
 
 document.addEventListener('keydown', function(event) {
-	if (event.altKey && event.key === 'c') {
-		navigator.clipboard.writeText(gridOptions.api.getDataAsCsv({
-			skipColumnGroupHeaders: true,
-			skipColumnHeaders: false,
-			allColumns: false,
-			onlySelected: true,
-		}));
-	}
-	if (event.altKey && event.key === 'a') {
-		navigator.clipboard.writeText(gridOptions.api.getDataAsCsv({
-			skipColumnGroupHeaders: true,
-			skipColumnHeaders: false,
-			allColumns: true,
-			onlySelected: true,
-		}));
-	}
+	// Copy selected rows with shown column
 	if (event.ctrlKey && event.key === 'c') {
 		navigator.clipboard.writeText(gridOptions.api.getDataAsCsv({
 			skipColumnGroupHeaders: true,
@@ -66,7 +51,8 @@ document.addEventListener('keydown', function(event) {
 			onlySelected: true,
 		}));
 	}
-	if (event.ctrlKey && event.key === 'a') {
+	// Copy selected rows with all column
+	if (event.ctrlKey && event.key === 'x') {
 		navigator.clipboard.writeText(gridOptions.api.getDataAsCsv({
 			skipColumnGroupHeaders: true,
 			skipColumnHeaders: true,

@@ -134,9 +134,7 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 <p>With the following keyboard shortcuts you can copy selected row from the table in CSV format to your clipboard:</p>
 <ul>
 	<li><kbd>Ctrl</kbd> + <kbd>c</kbd> : Copy selected rows with shown column</li>
-	<li><kbd>Ctrl</kbd> + <kbd>a</kbd> : Copy selected rows with all   column</li>
-	<li><kbd>Alt</kbd>  + <kbd>c</kbd> : Copy selected rows with shown column and headers</li>
-	<li><kbd>Alt</kbd>  + <kbd>a</kbd> : Copy selected rows with all   column and headers</li>
+	<li><kbd>Ctrl</kbd> + <kbd>x</kbd> : Copy selected rows with all   column</li>
 </ul>
 
 <p>The grid header also supports full keyboard navigation:</p>

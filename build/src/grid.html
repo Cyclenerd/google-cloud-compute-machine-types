@@ -56,9 +56,7 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 <p>With the following keyboard shortcuts you can copy selected row from the table in CSV format to your clipboard:</p>
 <ul>
 	<li><kbd>Ctrl</kbd> + <kbd>c</kbd> : Copy selected rows with shown column</li>
-	<li><kbd>Ctrl</kbd> + <kbd>a</kbd> : Copy selected rows with all   column</li>
-	<li><kbd>Alt</kbd>  + <kbd>c</kbd> : Copy selected rows with shown column and headers</li>
-	<li><kbd>Alt</kbd>  + <kbd>a</kbd> : Copy selected rows with all   column and headers</li>
+	<li><kbd>Ctrl</kbd> + <kbd>x</kbd> : Copy selected rows with all   column</li>
 </ul>
 
 <p>The grid header also supports full keyboard navigation:</p>
@@ -90,7 +88,7 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 
 <!-- welcome toast -->
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-<div id="welcomeToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="6000">
+<div id="welcomeToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="10000">
 <div class="toast-header">
 	<strong class="me-auto">✅ Instance Picker</strong>
 	<small>Last update: [% USE date; date.format(timestamp, '%Y-%m-%d'); %]</small>
@@ -102,7 +100,7 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 	<p>Press <kbd>?</kbd> to see the help with all keyboard shortcuts.</p>
 	<div class="mt-2 pt-2 border-top">
 		<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#helpModal">Help</button>
-		<button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close <i>(6sec)</i></button>
+		<button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close <i>(10 sec)</i></button>
 	</div>
 </div> <!-- // toast-body -->
 </div> <!-- // toast -->
