@@ -32,6 +32,8 @@
 	</p>
 </blockquote>
 
+<p><a class="btn btn-success" href="/grid.html?region=[% instance.region %]&amp;name=[% instance.name %]" role="button">✅ Instance Picker with filter on [% instance.region %] and [% instance.name %]</a></p>
+
 <div class="row">
 <div class="col-xxl-6">
 <h2>Instance</h2>

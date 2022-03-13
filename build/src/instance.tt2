@@ -18,6 +18,8 @@
 	</p>
 </blockquote>
 
+<p><a class="btn btn-success" href="/grid.html?name=[% instance.name %]" role="button">✅ Instance Picker with filter on machine type [% instance.name %]</a></p>
+
 <div class="row">
 <div class="col-xxl-6">
 <h2>Instance</h2>

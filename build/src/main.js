@@ -456,11 +456,11 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 	let filterRegion = urlRegion.replace(/[^\w\d\-]/g,"");
 	var hardcodedFilter = {
 		name: {
-			type: 'contains',
+			type: 'equals',
 			filter: filterName,
 		},
 		region: {
-			type: 'contains',
+			type: 'equals',
 			filter: filterRegion,
 		},
 	};
