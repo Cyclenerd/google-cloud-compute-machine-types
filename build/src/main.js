@@ -4,11 +4,13 @@
 
 // URL params for initial filter
 const queryString = window.location.search;
-const urlParams = new URLSearchParams(queryString);
-const urlRegion = urlParams.get('region') || '';
-const urlName   = urlParams.get('name')   || '';
-const urlSAP    = urlParams.get('sap')    || '';
-const urlHANA   = urlParams.get('hana')   || '';
+const urlParams   = new URLSearchParams(queryString);
+const urlRegion   = urlParams.get('region')   || '';
+const urlName     = urlParams.get('name')     || '';
+const urlSAP      = urlParams.get('sap')      || '';
+const urlHANA     = urlParams.get('hana')     || '';
+const urlSeries   = urlParams.get('series')   || '';
+const urlPlatform = urlParams.get('platform') || '';
 
 const filterParamsNumber = {
 	filterOptions: ['equals', 'greaterThan', 'greaterThanOrEqual', 'lessThan', 'lessThanOrEqual'],
@@ -108,6 +110,7 @@ const gridOptions = {
 				},
 			]
 		},
+		// groupId: 1
 		{
 			headerName: 'Region',
 			children: [
@@ -116,36 +119,46 @@ const gridOptions = {
 					field: "region",
 					columnGroupShow: 'close',
 					tooltipField: 'region',
-					width: 140,
+					width: 180,
 				},
 				{
 					headerName: 'Location',
 					field: "regionLocation",
 					columnGroupShow: 'open',
 					tooltipField: 'regionLocation',
-					width: 180
+					width: 120
 				},
+			]
+		},
+		// groupId: 2
+		{
+			headerName: 'Zones',
+			children: [
 				{
 					headerName: '#Zones',
 					field: "zoneCount",
-					columnGroupShow: 'open',
+					columnGroupShow: 'close',
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
 					cellClass: params => {
 						if (params.value <= 1) { return 'warning' }
 					},
 					tooltipField: 'zoneCount',
-					width: 90
+					width: 90,
+					headerTooltip: 'Available in zones',
 				},
 				{
-					headerName: 'Zones',
+					headerName: 'Names',
 					field: "zones",
 					columnGroupShow: 'open',
 					tooltipField: 'zones',
-					width: 180
+					width: 180,
+					headerTooltip: 'Available in zone names',
 				},
 			]
 		},
+		// groupId: 2
+		// groupId is used in setColumnGroupState for inital filter
 		{
 			headerName: 'Prozessor',
 			children: [
@@ -349,7 +362,7 @@ const gridOptions = {
 			]
 		},
 		{
-			// groupId: 7
+			// groupId: 8
 			// groupId is used in setColumnGroupState for inital filter
 			headerName: 'SAP',
 			children: [
@@ -383,6 +396,8 @@ const gridOptions = {
 			]
 		},
 		{
+			// groupId: 9
+			// groupId is used in setColumnGroupState for inital filter
 			headerName: 'More...',
 			children: [
 				{ headerName: 'Family',         field: "family",          columnGroupShow: 'close', width: 180, tooltipField: 'family', headerTooltip: 'A curated set of processor and hardware configurations optimized for specific workloads' },
@@ -456,10 +471,13 @@ document.addEventListener('DOMContentLoaded', function () {
 gridOptions.api.addEventListener('firstDataRendered', function () {
 	console.log('firstDataRendered');
 	// Initial filter with URL params
-	let filterName   = urlName.replace(/[^\w\d\-]/g,"");
-	let filterRegion = urlRegion.replace(/[^\w\d\-]/g,"");
-	let filterSAP    = (urlSAP >= 1) ? '1' : '';
-	let filterHANA   = (urlHANA >= 1) ? '1' : '';
+	let filterName     = urlName.replace(/[^\w\d\-]/g,"");
+	let filterRegion   = urlRegion.replace(/[^\w\d\-]/g,"");
+	let filterPlatform = urlPlatform.replace(/[^\w\d]/g,"");
+	let filterSAP      = (urlSAP >= 1) ? '1' : '';
+	let filterHANA     = (urlHANA >= 1) ? '1' : '';
+	let filterSeries   = urlSeries.replace(/[^\w\d]/g,"");
+	// Set filter
 	var hardcodedFilter = {
 		name: {
 			type: 'equals',
@@ -469,6 +487,10 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 			type: 'equals',
 			filter: filterRegion,
 		},
+		availableCpuPlatform: {
+			type: 'contains',
+			filter: filterPlatform,
+		},
 		sap: {
 			type: 'equals',
 			filter: filterSAP,
@@ -477,12 +499,25 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 			type: 'equals',
 			filter: filterHANA,
 		},
+		series: {
+			type: 'equals',
+			filter: filterSeries,
+		},
 	};
+	// Open groups
+	var hardcodedGroupState = [];
+	if (filterSAP || filterHANA) {
+		hardcodedGroupState.push({ groupId: '8', open: true });
+	}
+	if (filterPlatform) {
+		hardcodedGroupState.push({ groupId: '3', open: true });
+	}
+	if (filterSeries) {
+		hardcodedGroupState.push({ groupId: '9', open: true });
+	}
 	// wait 500ms, because maybe the DOM isn't completely ready yet
 	setTimeout(function(){
-		if (filterSAP || filterHANA) {
-			gridOptions.columnApi.setColumnGroupState([ { groupId: 7, open: true } ]);
-		}
+		gridOptions.columnApi.setColumnGroupState(hardcodedGroupState);
 		gridOptions.api.setFilterModel(hardcodedFilter);
 	}, 500);
 });

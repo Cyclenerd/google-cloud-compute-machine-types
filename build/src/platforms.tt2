@@ -34,15 +34,33 @@
 		<td><a href="[% region.name %].html">[% region.name %]</a></td>
 		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td>[% region.zoneCount %]</td>
-		<td [% IF region.intelIceLake      == '0' %]class="table-danger"[% END %] title="Machine types with Intel Ice Lake in region [% region.name %]">[% region.intelIceLake %]</td>
-		<td [% IF region.intelCascadeLake  == '0' %]class="table-danger"[% END %] title="Machine types with Intel Cascade Lake in region [% region.name %]">[% region.intelCascadeLake %]</td>
-		<td [% IF region.intelSkylake      == '0' %]class="table-danger"[% END %] title="Machine types with Intel Skylake in region [% region.name %]">[% region.intelSkylake %]</td>
-		<td [% IF region.intelBroadwell    == '0' %]class="table-danger"[% END %] title="Machine types with Intel Broadwell in region [% region.name %]">[% region.intelBroadwell %]</td>
-		<td [% IF region.intelHaswell      == '0' %]class="table-danger"[% END %] title="Machine types with Intel Haswell in region [% region.name %]">[% region.intelHaswell %]</td>
-		<td [% IF region.intelIvy          == '0' %]class="table-danger"[% END %] title="Machine types with Intel Ivy Bridge in region [% region.name %]">[% region.intelIvy %]</td>
-		<td [% IF region.intelSandy        == '0' %]class="table-danger"[% END %] title="Machine types with Intel Sandy Bridge in region [% region.name %]">[% region.intelSandy %]</td>
-		<td [% IF region.amdMilan          == '0' %]class="table-danger"[% END %] title="Machine types with AMD Milan in region [% region.name %]">[% region.amdMilan %]</td>
-		<td [% IF region.amdRome           == '0' %]class="table-danger"[% END %] title="Machine types with AMD Rome in region [% region.name %]">[% region.amdRome %]</td>
+		<td [% IF region.intelIceLake      == '0' %]class="table-danger"[% END %] title="Machine types with Intel Ice Lake in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;platform=ice">[% region.intelIceLake %]</a>
+		</td>
+		<td [% IF region.intelCascadeLake  == '0' %]class="table-danger"[% END %] title="Machine types with Intel Cascade Lake in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;platform=cascade">[% region.intelCascadeLake %]</a>
+		</td>
+		<td [% IF region.intelSkylake      == '0' %]class="table-danger"[% END %] title="Machine types with Intel Skylake in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;platform=skylake">[% region.intelSkylake %]</a>
+		</td>
+		<td [% IF region.intelBroadwell    == '0' %]class="table-danger"[% END %] title="Machine types with Intel Broadwell in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;platform=broadwell">[% region.intelBroadwell %]</a>
+		</td>
+		<td [% IF region.intelHaswell      == '0' %]class="table-danger"[% END %] title="Machine types with Intel Haswell in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;platform=haswell">[% region.intelHaswell %]</a>
+		</td>
+		<td [% IF region.intelIvy          == '0' %]class="table-danger"[% END %] title="Machine types with Intel Ivy Bridge in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;platform=ivy">[% region.intelIvy %]</a>
+		</td>
+		<td [% IF region.intelSandy        == '0' %]class="table-danger"[% END %] title="Machine types with Intel Sandy Bridge in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;platform=sandy">[% region.intelSandy %]</a>
+		</td>
+		<td [% IF region.amdMilan          == '0' %]class="table-danger"[% END %] title="Machine types with AMD Milan in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;platform=milan">[% region.amdMilan %]</a>
+		</td>
+		<td [% IF region.amdRome           == '0' %]class="table-danger"[% END %] title="Machine types with AMD Rome in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;platform=rome">[% region.amdRome %]</a>
+		</td>
 	</tr>
 	[% END %]
 </tbody>

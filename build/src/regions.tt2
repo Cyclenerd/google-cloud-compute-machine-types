@@ -43,16 +43,36 @@
 		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td>[% region.zoneCount %]</td>
 		<!-- Machine Series -->
-		<td [% IF region.a2  == '0' %]class="table-danger"[% END %] title="Machine type series A2  in region [% region.name %]">[% region.a2 %]</td>
-		<td [% IF region.c2  == '0' %]class="table-danger"[% END %] title="Machine type series C2  in region [% region.name %]">[% region.c2 %]</td>
-		<td [% IF region.c2d == '0' %]class="table-danger"[% END %] title="Machine type series C2D in region [% region.name %]">[% region.c2d %]</td>
-		<td [% IF region.e2  == '0' %]class="table-danger"[% END %] title="Machine type series E2  in region [% region.name %]">[% region.e2 %]</td>
-		<td [% IF region.m1  == '0' %]class="table-danger"[% END %] title="Machine type series M1  in region [% region.name %]">[% region.m1 %]</td>
-		<td [% IF region.m2  == '0' %]class="table-danger"[% END %] title="Machine type series M2  in region [% region.name %]">[% region.m2 %]</td>
-		<td [% IF region.n1  == '0' %]class="table-danger"[% END %] title="Machine type series N1  in region [% region.name %]">[% region.n1 %]</td>
-		<td [% IF region.n2  == '0' %]class="table-danger"[% END %] title="Machine type series N2  in region [% region.name %]">[% region.n2 %]</td>
-		<td [% IF region.n2d == '0' %]class="table-danger"[% END %] title="Machine type series N2D in region [% region.name %]">[% region.n2d %]</td>
-		<td [% IF region.t2d == '0' %]class="table-danger"[% END %] title="Machine type series T2D in region [% region.name %]">[% region.t2d %]</td>
+		<td [% IF region.a2  == '0' %]class="table-danger"[% END %] title="Machine type series A2 in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;series=a2">[% region.a2 %]</a>
+		</td>
+		<td [% IF region.c2  == '0' %]class="table-danger"[% END %] title="Machine type series C2 in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;series=c2">[% region.c2 %]</a>
+		</td>
+		<td [% IF region.c2d == '0' %]class="table-danger"[% END %] title="Machine type series C2D in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;series=c2d">[% region.c2d %]</a>
+		</td>
+		<td [% IF region.e2  == '0' %]class="table-danger"[% END %] title="Machine type series E2 in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;series=e2">[% region.e2 %]</a>
+		</td>
+		<td [% IF region.m1  == '0' %]class="table-danger"[% END %] title="Machine type series M1 in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;series=m1">[% region.m1 %]</a>
+		</td>
+		<td [% IF region.m2  == '0' %]class="table-danger"[% END %] title="Machine type series M2 in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;series=m2">[% region.m2 %]</a>
+		</td>
+		<td [% IF region.n1  == '0' %]class="table-danger"[% END %] title="Machine type series N1 in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;series=n1">[% region.n1 %]</a>
+		</td>
+		<td [% IF region.n2  == '0' %]class="table-danger"[% END %] title="Machine type series N2 in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;series=n2]">[% region.n2 %]</a>
+		</td>
+		<td [% IF region.n2d == '0' %]class="table-danger"[% END %] title="Machine type series N2D in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;series=n2d">[% region.n2d %]</a>
+		</td>
+		<td [% IF region.t2d == '0' %]class="table-danger"[% END %] title="Machine type series T2D in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;series=t2d">[% region.t2d %]</a>
+		</td>
 		<!-- SAP -->
 		<td [% IF region.sap  == '0' %]class="table-danger"[% END %] title="Certified for SAP applications machine types region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;sap=1">[% region.sap %]</a>
