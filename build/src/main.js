@@ -285,7 +285,20 @@ const gridOptions = {
 				{ headerName: '#Samples', field: "sampleCount",       columnGroupShow: 'open',  filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'EEMBC CoreMark Sample Count', width: 120 },
 			]
 		},
-		{ headerName: 'Memory', field: "memoryGiB", cellClass: 'memory', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'Random-access memory (GiB)', width: 120, },
+		{
+			headerName: 'Memory',
+			children: [
+				{
+					headerName: 'RAM',
+					field: "memoryGiB",
+					cellClass: 'memory',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					headerTooltip: 'Random-access memory (GiB)',
+					width: 120,
+				},
+			]
+		},
 		{
 			headerName: 'Network',
 			children: [
@@ -362,7 +375,7 @@ const gridOptions = {
 			]
 		},
 		{
-			// groupId: 8
+			// groupId: 9
 			// groupId is used in setColumnGroupState for inital filter
 			headerName: 'SAP',
 			children: [
@@ -396,7 +409,7 @@ const gridOptions = {
 			]
 		},
 		{
-			// groupId: 9
+			// groupId: 10
 			// groupId is used in setColumnGroupState for inital filter
 			headerName: 'More...',
 			children: [
@@ -507,13 +520,13 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 	// Open groups
 	var hardcodedGroupState = [];
 	if (filterSAP || filterHANA) {
-		hardcodedGroupState.push({ groupId: '8', open: true });
+		hardcodedGroupState.push({ groupId: '9', open: true });
 	}
 	if (filterPlatform) {
 		hardcodedGroupState.push({ groupId: '3', open: true });
 	}
 	if (filterSeries) {
-		hardcodedGroupState.push({ groupId: '9', open: true });
+		hardcodedGroupState.push({ groupId: '10', open: true });
 	}
 	// wait 500ms, because maybe the DOM isn't completely ready yet
 	setTimeout(function(){
