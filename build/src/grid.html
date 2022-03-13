@@ -4,11 +4,12 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Instance Picker - Google Compute Engine</title>
-	<script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.noStyle.js"></script>
+	<script                 src="https://unpkg.com/ag-grid-community@27/dist/ag-grid-community.min.noStyle.js"></script>
+	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community@27/dist/styles/ag-grid.css">
+	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community@27/dist/styles/ag-theme-balham.css">
+	<link rel="stylesheet" href="https://unpkg.com/bootstrap@5/dist/css/bootstrap.min.css">
 	<link rel=icon href="/favicon.ico">
-	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-grid.css">
-	<link rel="stylesheet" href="https://unpkg.com/ag-grid-community/dist/styles/ag-theme-balham.css">
-	<style>
+<style>
 		html {
 			width: 100%;
 			height: 100%;
@@ -29,8 +30,51 @@
 		.sharedCpu::after { content: " (shared)"; }
 	</style>
 </head>
-<body class="ag-theme-balham">
-	<div id="myGrid" style="height: 100%; width:100%"></div>
-	<script src="main.js?[% timestamp %]"></script>
+<body>
+<div id="myGrid" class="ag-theme-balham" style="height: 100%; width:100%"></div>
+
+<div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-lg modal-fullscreen-lg-down">
+<div class="modal-content">
+<div class="modal-header">
+	<h5 class="modal-title" id="helpModalLabel">Keyboard shortcuts</h5>
+	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+	<p>Press <kbd>Ctrl</kbd> + <kbd>/</kbd> to focus the vCPU filter.</p>
+
+	<p>
+	Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>) to move focus up, down, left and right.
+	<kbd>Tab</kbd> will move the focus horizontally until the last cell and then move on to the next row.
+	</p>
+
+	<p>Pressing the <kbd>Space</kbd> key on a cell will select the cells row, or deselect the row if already selected.</p>
+		
+	<p>With the following keyboard shortcuts you can copy selected row from the table in CSV format to your clipboard:</p>
+	<ul>
+		<li><kbd>Ctrl</kbd> + <kbd>c</kbd> : Copy selected rows with shown column</li>
+		<li><kbd>Ctrl</kbd> + <kbd>a</kbd> : Copy selected rows with all   column</li>
+		<li><kbd>Alt</kbd>  + <kbd>c</kbd> : Copy selected rows with shown column and headers</li>
+		<li><kbd>Alt</kbd>  + <kbd>a</kbd> : Copy selected rows with all   column and headers</li>
+	</ul>
+
+	<p>The grid header also supports full keyboard navigation:</p>
+	<ul>
+		<li>Press <kbd>Enter</kbd> to toggle the sorting state of that column.</li>
+		<li>Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to open the menu for the focused header.</li>
+		<li>When a menu is open, simply press <kbd>Esc</kbd> to close it and the focus will return to the header.</li>
+	</ul>
+</div> <!-- // modal-body -->
+<div class="modal-footer">
+	<a class="btn btn-info" href="/" role="button">👋 About</a>
+	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+</div> <!-- // modal-footer -->
+</div> <!-- // modal-content -->
+</div> <!-- // modal-dialog -->
+</div> <!-- // modal -->
+
+<script src="main.js?[% timestamp %]"></script>
+<script src="https://unpkg.com/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

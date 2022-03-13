@@ -67,6 +67,12 @@ document.addEventListener('keydown', function(event) {
 	if (event.ctrlKey && event.key === '/') {
 		document.querySelector('[aria-label="vCPU Filter Input"]').focus();
 	}
+	if (event.key === '?') {
+		var helpModal = new bootstrap.Modal(document.getElementById('helpModal'), {
+			//keyboard: false
+		})
+		helpModal.show();
+	}
 });
 
 /*

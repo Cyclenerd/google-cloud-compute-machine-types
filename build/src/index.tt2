@@ -118,8 +118,7 @@ You can filter and sort all fields in the <a href="/grid.html">Instance Picker</
 
 <h3>Keyboard shortcuts</h3>
 
-<p>
-You can navigate the <a href="/grid.html">Instance Picker</a> with your keyboard.</p>
+<p>You can navigate the <a href="/grid.html">Instance Picker</a> with your keyboard.</p>
 
 <p>
 Press <kbd>Ctrl</kbd> + <kbd>/</kbd> to focus the vCPU filter.</p>
@@ -127,18 +126,11 @@ Press <kbd>Ctrl</kbd> + <kbd>/</kbd> to focus the vCPU filter.</p>
 <p>
 Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>) to move focus up, down, left and right.
 <kbd>Tab</kbd> will move the focus horizontally until the last cell and then move on to the next row.
-<p>
-
-<p>
-Pressing the <kbd>Space</kbd> key on a cell will select the cells row, or deselect the row if already selected.
 </p>
 
-<p>
-With the following keyboard shortcuts you can copy selected data from the table in CSV format to your clipboard:
-</p>
+<p>Pressing the <kbd>Space</kbd> key on a cell will select the cells row, or deselect the row if already selected.</p>
 
-<p>
-<strong>Copy selected rows to clipboard in CSV format:</strong></p>
+<p>With the following keyboard shortcuts you can copy selected row from the table in CSV format to your clipboard:</p>
 <ul>
 	<li><kbd>Ctrl</kbd> + <kbd>c</kbd> : Copy selected rows with shown column</li>
 	<li><kbd>Ctrl</kbd> + <kbd>a</kbd> : Copy selected rows with all   column</li>
@@ -146,15 +138,14 @@ With the following keyboard shortcuts you can copy selected data from the table 
 	<li><kbd>Alt</kbd>  + <kbd>a</kbd> : Copy selected rows with all   column and headers</li>
 </ul>
 
-<p>
-The grid header also supports full keyboard navigation:
-</p>
-
+<p>The grid header also supports full keyboard navigation:</p>
 <ul>
 	<li>Press <kbd>Enter</kbd> to toggle the sorting state of that column.</li>
 	<li>Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to open the menu for the focused header.</li>
 	<li>When a menu is open, simply press <kbd>Esc</kbd> to close it and the focus will return to the header.</li>
 </ul>
+
+<p>Press <kbd>?</kbd> to see the help with the keyboard shortcuts.</p>
 
 <h2>Download</h2>
 
