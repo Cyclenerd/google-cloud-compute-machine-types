@@ -64,6 +64,9 @@ document.addEventListener('keydown', function(event) {
 			onlySelected: true,
 		}));
 	}
+	if (event.ctrlKey && event.key === '/') {
+		document.querySelector('[aria-label="vCPU Filter Input"]').focus();
+	}
 });
 
 /*
