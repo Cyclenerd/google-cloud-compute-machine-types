@@ -11,6 +11,7 @@
 		<th scope="col" colspan="2">Region</th>
 		<th scope="col">Zones</th>
 		<th scope="col" colspan="10">Machine Series</th>
+		<th scope="col" colspan="2">SAP</th>
 		<th scope="col" colspan="2">Costs (e2-standard-8)</th>
 	</tr>
 	<tr>
@@ -28,6 +29,8 @@
 		<th scope="col">N2</th>
 		<th scope="col">N2D</th>
 		<th scope="col">T2D</th>
+		<th scope="col" title="Certified for SAP applications on Google Cloud">App.</th>
+		<th scope="col" title="Certified for SAP HANA on Google Cloud">HANA</th>
 		<!-- e2-standard-8 -->
 		<th scope="col" class="currancy">Hour</th>
 		<th scope="col" class="currancy">Month</th>
@@ -50,6 +53,13 @@
 		<td [% IF region.n2  == '0' %]class="table-danger"[% END %] title="Machine type series N2  in region [% region.name %]">[% region.n2 %]</td>
 		<td [% IF region.n2d == '0' %]class="table-danger"[% END %] title="Machine type series N2D in region [% region.name %]">[% region.n2d %]</td>
 		<td [% IF region.t2d == '0' %]class="table-danger"[% END %] title="Machine type series T2D in region [% region.name %]">[% region.t2d %]</td>
+		<!-- SAP -->
+		<td [% IF region.sap  == '0' %]class="table-danger"[% END %] title="Certified for SAP applications machine types region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;sap=1">[% region.sap %]</a>
+		</td>
+		<td [% IF region.hana == '0' %]class="table-danger"[% END %] title="Certified for SAP HANA machine types region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;hana=1">[% region.hana %]</a>
+		</td>
 		<!-- e2-standard-8 -->
 		<td class="currency" title="e2-standard-8 Hour: [% region.e2Standard8Hour %] USD">[% region.e2Standard8Hour %]</td>
 		<td class="currency" title="e2-standard-8 Month: [% region.e2Standard8Month %] USD">[% region.e2Standard8Month %]</td>

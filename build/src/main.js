@@ -7,6 +7,8 @@ const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const urlRegion = urlParams.get('region') || '';
 const urlName   = urlParams.get('name')   || '';
+const urlSAP    = urlParams.get('sap')    || '';
+const urlHANA   = urlParams.get('hana')   || '';
 
 const filterParamsNumber = {
 	filterOptions: ['equals', 'greaterThan', 'greaterThanOrEqual', 'lessThan', 'lessThanOrEqual'],
@@ -347,6 +349,8 @@ const gridOptions = {
 			]
 		},
 		{
+			// groupId: 7
+			// groupId is used in setColumnGroupState for inital filter
 			headerName: 'SAP',
 			children: [
 				{
@@ -452,8 +456,10 @@ document.addEventListener('DOMContentLoaded', function () {
 gridOptions.api.addEventListener('firstDataRendered', function () {
 	console.log('firstDataRendered');
 	// Initial filter with URL params
-	let filterName = urlName.replace(/[^\w\d\-]/g,"");
+	let filterName   = urlName.replace(/[^\w\d\-]/g,"");
 	let filterRegion = urlRegion.replace(/[^\w\d\-]/g,"");
+	let filterSAP    = (urlSAP >= 1) ? '1' : '';
+	let filterHANA   = (urlHANA >= 1) ? '1' : '';
 	var hardcodedFilter = {
 		name: {
 			type: 'equals',
@@ -463,9 +469,20 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 			type: 'equals',
 			filter: filterRegion,
 		},
+		sap: {
+			type: 'equals',
+			filter: filterSAP,
+		},
+		hana: {
+			type: 'equals',
+			filter: filterHANA,
+		},
 	};
 	// wait 500ms, because maybe the DOM isn't completely ready yet
 	setTimeout(function(){
+		if (filterSAP || filterHANA) {
+			gridOptions.columnApi.setColumnGroupState([ { groupId: 7, open: true } ]);
+		}
 		gridOptions.api.setFilterModel(hardcodedFilter);
 	}, 500);
 });
