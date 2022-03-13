@@ -34,3 +34,5 @@ perl site.pl
 ```
 
 This Perl script creates the static webapp (Templates are located in the [src](./src/) folder). The webapp is saved in the directory `../site`.
+
+The JavaScript grid library [AG Grid Community](https://www.ag-grid.com/) is used.
