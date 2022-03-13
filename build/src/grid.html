@@ -89,7 +89,7 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 
 <!-- welcome toast -->
 <div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-<div id="welcomeToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="8000">
+<div id="welcomeToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="6000">
 <div class="toast-header">
 	<strong class="me-auto">✅ Instance Picker</strong>
 	<small>Last update: [% USE date; date.format(timestamp, '%Y-%m-%d'); %]</small>
@@ -101,7 +101,7 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 	<p>Press <kbd>?</kbd> to see the help with all keyboard shortcuts.</p>
 	<div class="mt-2 pt-2 border-top">
 		<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#helpModal">Help</button>
-		<button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close</button>
+		<button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close <i>(6sec)</i></button>
 	</div>
 </div> <!-- // toast-body -->
 </div> <!-- // toast -->

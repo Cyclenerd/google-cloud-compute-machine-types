@@ -2,6 +2,12 @@
  * FILTERS
  */
 
+// URL params for initial filter
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const urlRegion = urlParams.get('region') || '';
+const urlName   = urlParams.get('name')   || '';
+
 const filterParamsNumber = {
 	filterOptions: ['equals', 'greaterThan', 'greaterThanOrEqual', 'lessThan', 'lessThanOrEqual'],
 	defaultOption: 'greaterThanOrEqual',
@@ -426,7 +432,30 @@ fetch('instance_in_region.json?[% timestamp %]')
 // page has finished loading
 document.addEventListener('DOMContentLoaded', function () {
 	console.log('DOMContentLoaded');
+	// Welcome toast
 	var welcomeToast = document.getElementById('welcomeToast');
-	var toast = new bootstrap.Toast(welcomeToast)
-	toast.show()
+	var toast = new bootstrap.Toast(welcomeToast);
+	toast.show();
+});
+
+// fist time data is rendered into the grid
+gridOptions.api.addEventListener('firstDataRendered', function () {
+	console.log('firstDataRendered');
+	// Initial filter with URL params
+	let filterName = urlName.replace(/[^\w\d\-]/g,"");
+	let filterRegion = urlRegion.replace(/[^\w\d\-]/g,"");
+	var hardcodedFilter = {
+		name: {
+			type: 'contains',
+			filter: filterName,
+		},
+		region: {
+			type: 'contains',
+			filter: filterRegion,
+		},
+	};
+	// wait 500ms, because maybe the DOM isn't completely ready yet
+	setTimeout(function(){
+		gridOptions.api.setFilterModel(hardcodedFilter);
+	}, 500);
 });
