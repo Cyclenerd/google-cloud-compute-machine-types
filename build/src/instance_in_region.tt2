@@ -255,7 +255,7 @@
 	</tr>
 </table>
 [% IF instance.zones %]
-<h2>CLI <small class="text-muted">Google Cloud SDK</small></h2>
+<h2>CLI <small class="text-muted">Google Cloud Command Line Interface</small></h2>
 
 <ul class="nav nav-tabs" id="zonesTab" role="tablist">
 [% firstZone = 0; FOREACH zone IN instance.zones.split(',').sort; firstZone = firstZone + 1; %]
