@@ -33,7 +33,11 @@
 	</p>
 </blockquote>
 
-<p><a class="btn btn-success" href="/grid.html?region=[% instance.region %]&amp;name=[% instance.name %]" role="button">✅ Instance Picker with filter on [% instance.region %] and [% instance.name %]</a></p>
+<p class="d-grid gap-2 d-lg-block">
+	<a class="btn btn-success" href="/grid.html?region=[% instance.region %]&amp;name=[% instance.name %]" role="button">✅ Instance Picker with filter on [% instance.region %] and [% instance.name %]</a>
+	<a class="btn btn-primary" href="/[% instance.name %].html" role="button" title="Show machine type [% instance.name %] in all regions">Show machine type [% instance.name %]</a>
+	<a class="btn btn-primary" href="/[% instance.region %].html" role="button" title="Show all machine types in region [% instance.region %]">Show region [% instance.region %]</a>
+</p>
 
 <div class="row">
 <div class="col-xxl-6">
