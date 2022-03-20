@@ -63,11 +63,15 @@ $sth->bind_columns ( \my (
 my @values = ();
 while ($sth->fetch) {
 	print "$name, $region\n";
+	# Shared CPU
 	if (lc($isSharedCpu) eq 'true') {
 		$isSharedCpu = '1';
 	} else {
 		$isSharedCpu = '0'
 	}
+	# Sort zones
+	my @zones_unsorted = split(',', $zones);
+	$zones = join(', ', sort @zones_unsorted);
 	# Create value for SQL INSERT
 	my $value = qq ~
 		 (

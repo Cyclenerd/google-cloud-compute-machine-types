@@ -291,7 +291,7 @@ foreach my $instance (@instances) {
 ###############################################################################
 
 # Zones
-my $sql_zones = "SELECT name, availableCpuPlatforms FROM zones";
+my $sql_zones = "SELECT name, availableCpuPlatforms FROM zones ORDER BY name";
 $sth = $dbh->prepare($sql_zones);
 $sth->execute();
 my @zones = ();

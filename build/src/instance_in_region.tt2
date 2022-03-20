@@ -18,7 +18,7 @@
 		[% IF instance.availableCpuPlatformCount < instance.cpuPlatformCount %]<mark>Not all CPU platforms are available in region [% instance.region %].</mark>[% END %]
 		[% notAllCpuPlatformsAvailableInZones = 0; FOREACH cpuPlatform IN instance.availableCpuPlatform.split(',').sort; cpu = cpuPlatform.remove('\s'); %]
 			<!-- cpu: '[% cpu %]' -->
-			[% FOREACH zone IN instance.zones.split(',').sort; %]
+			[% FOREACH zone IN instance.zones.split(', ').sort; %]
 				<!-- zone: '[% zone %]' -->
 				[% FOREACH z IN zones; IF z.name == zone; %]
 					[% available = z.availableCpuPlatforms.remove('\s') %]
@@ -179,7 +179,7 @@
 	</tr>
 </thead>
 <tbody>
-	[% FOREACH zone IN instance.zones.split(',').sort; %]
+	[% FOREACH zone IN instance.zones.split(', ').sort; %]
 	<tr>
 		<td>[% zone %]</td>
 		<td>
@@ -263,14 +263,14 @@
 <h2>CLI <small class="text-muted">Google Cloud Command Line Interface</small></h2>
 
 <ul class="nav nav-tabs" id="zonesTab" role="tablist">
-[% firstZone = 0; FOREACH zone IN instance.zones.split(',').sort; firstZone = firstZone + 1; %]
+[% firstZone = 0; FOREACH zone IN instance.zones.split(', ').sort; firstZone = firstZone + 1; %]
 <li class="nav-item" role="presentation">
 	<button [% IF firstZone == 1%]class="nav-link active" aria-selected="true"[% ELSE %]class="nav-link"[% END %] id="[% zone %]-tab" data-bs-toggle="tab" data-bs-target="#[% zone %]" type="button" role="tab" aria-controls="[% zone %]">[% zone %]</button>
 </li>
 [% END %]
 </ul>
 <div class="tab-content" id="zonesTabContent">
-[% firstZone = 0; FOREACH zone IN instance.zones.split(',').sort; firstZone = firstZone + 1; %]
+[% firstZone = 0; FOREACH zone IN instance.zones.split(', ').sort; firstZone = firstZone + 1; %]
 <div class="tab-pane mt-2 fade [% IF firstZone == 1%]show active[% END%]" id="[% zone %]" role="tabpanel" aria-labelledby="[% zone %]-tab">
 <p>Create instance:</p>
 <script>
