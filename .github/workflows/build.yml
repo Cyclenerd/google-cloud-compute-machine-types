@@ -3,7 +3,7 @@ name: "Build"
 on:
   workflow_dispatch:
   schedule:
-    - cron: '45 7 * * 1-5' # At 07:45 on every day-of-week from Monday through Friday.
+    - cron: '45 7 * * 5' # At 07:45 on Friday
 
 jobs:
   build:
