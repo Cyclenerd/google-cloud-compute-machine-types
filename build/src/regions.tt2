@@ -10,8 +10,8 @@
 	<tr>
 		<th scope="col" colspan="2">Region</th>
 		<th scope="col">Zones</th>
-		<th scope="col" colspan="10">Machine Series</th>
-		<th scope="col" colspan="2">SAP</th>
+		<th scope="col" colspan="10">✅ Machine Series</th>
+		<th scope="col" colspan="2">✅ SAP</th>
 		<th scope="col" colspan="2">Costs (e2-standard-8)</th>
 	</tr>
 	<tr>
@@ -43,41 +43,41 @@
 		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td>[% region.zoneCount %]</td>
 		<!-- Machine Series -->
-		<td [% IF region.a2  == '0' %]class="table-danger"[% END %] title="Machine type series A2 in region [% region.name %]">
+		<td [% IF region.a2  == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series A2 in region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;series=a2">[% region.a2 %]</a>
 		</td>
-		<td [% IF region.c2  == '0' %]class="table-danger"[% END %] title="Machine type series C2 in region [% region.name %]">
+		<td [% IF region.c2  == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series C2 in region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;series=c2">[% region.c2 %]</a>
 		</td>
-		<td [% IF region.c2d == '0' %]class="table-danger"[% END %] title="Machine type series C2D in region [% region.name %]">
+		<td [% IF region.c2d == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series C2D in region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;series=c2d">[% region.c2d %]</a>
 		</td>
-		<td [% IF region.e2  == '0' %]class="table-danger"[% END %] title="Machine type series E2 in region [% region.name %]">
+		<td [% IF region.e2  == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series E2 in region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;series=e2">[% region.e2 %]</a>
 		</td>
-		<td [% IF region.m1  == '0' %]class="table-danger"[% END %] title="Machine type series M1 in region [% region.name %]">
+		<td [% IF region.m1  == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series M1 in region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;series=m1">[% region.m1 %]</a>
 		</td>
-		<td [% IF region.m2  == '0' %]class="table-danger"[% END %] title="Machine type series M2 in region [% region.name %]">
+		<td [% IF region.m2  == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series M2 in region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;series=m2">[% region.m2 %]</a>
 		</td>
-		<td [% IF region.n1  == '0' %]class="table-danger"[% END %] title="Machine type series N1 in region [% region.name %]">
+		<td [% IF region.n1  == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series N1 in region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;series=n1">[% region.n1 %]</a>
 		</td>
-		<td [% IF region.n2  == '0' %]class="table-danger"[% END %] title="Machine type series N2 in region [% region.name %]">
+		<td [% IF region.n2  == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series N2 in region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;series=n2">[% region.n2 %]</a>
 		</td>
-		<td [% IF region.n2d == '0' %]class="table-danger"[% END %] title="Machine type series N2D in region [% region.name %]">
+		<td [% IF region.n2d == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series N2D in region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;series=n2d">[% region.n2d %]</a>
 		</td>
-		<td [% IF region.t2d == '0' %]class="table-danger"[% END %] title="Machine type series T2D in region [% region.name %]">
+		<td [% IF region.t2d == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series T2D in region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;series=t2d">[% region.t2d %]</a>
 		</td>
 		<!-- SAP -->
-		<td [% IF region.sap  == '0' %]class="table-danger"[% END %] title="Certified for SAP applications machine types region [% region.name %]">
+		<td [% IF region.sap  == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on certified for SAP applications machine types region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;sap=1">[% region.sap %]</a>
 		</td>
-		<td [% IF region.hana == '0' %]class="table-danger"[% END %] title="Certified for SAP HANA machine types region [% region.name %]">
+		<td [% IF region.hana == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on certified for SAP HANA machine types region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;hana=1">[% region.hana %]</a>
 		</td>
 		<!-- e2-standard-8 -->
