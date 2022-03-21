@@ -25,6 +25,7 @@
 
 <h2>Instances</h2>
 
+<div class="table-responsive">
 <table class="table table-hover table-bordered">
 <thead>
 	<tr>
@@ -189,12 +190,14 @@
 <tfoot>
 </tfoot>
 </table>
+</div> <!-- // table-responsive -->
 
 </div> <!-- // col -->
 <div class="col-xxl-6">
 
 <h2>Costs</h2>
 
+<div class="table-responsive">
 <table class="table table-hover table-bordered">
 <thead>
 	<tr>
@@ -210,7 +213,6 @@
 		<td class="currency table-active">[% instance_a.avgHour %]</td>
 		[% tableCompareCosts(instance_a.avgHour || 0, instance_b.avgHour || 0) %]
 		<td class="currency">[% instance_b.avgHour %]</td>
-
 	</tr>
 	<tr>
 		<th>Avg. costs per month</th>
@@ -229,7 +231,6 @@
 		<td class="currency table-active">[% instance_a.avgMonth1yCud %]</td>
 		[% tableCompareCosts(instance_a.avgMonth1yCud || 0, instance_b.avgMonth1yCud || 0) %]
 		<td class="currency">[% instance_b.avgMonth1yCud %]</td>
-
 	</tr>
 	<tr>
 		<th>Avg. costs per month with 3 year CUD</th>
@@ -239,9 +240,11 @@
 	</tr>
 </tbody>
 </table>
+</div> <!-- // table-responsive -->
 
 <h2>Operating System Licenses Costs (Month)</h2>
 
+<div class="table-responsive">
 <table class="table table-hover table-bordered">
 <thead>
 	<tr>
@@ -296,13 +299,15 @@
 	</tr>
 </tbody>
 </table>
+</div> <!-- // table-responsive -->
 
 </div> <!-- // col -->
 </div> <!-- // row -->
 
-<div class="table-responsive">
 
 <h2>Regions</h2>
+
+<div class="table-responsive">
 <table class="table table-sm table-hover table-bordered">
 <thead>
 	<tr>
