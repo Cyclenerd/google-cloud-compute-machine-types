@@ -214,13 +214,13 @@
 	</tr>
 	<tr>
 		<th>Avg. costs per month</th>
-		<td class="currency table-active">
-			[% instance_a.avgMonth %]
+		<td class="table-active">
+			<span class="currency">[% instance_a.avgMonth %]</span>
 			[% badgeSud(instance_a) %]
 		</td>
 		[% tableCompareCosts(instance_a.avgMonth || 0, instance_b.avgMonth || 0) %]
-		<td class="currency">
-			[% instance_b.avgMonth %]
+		<td>
+			<span class="currency">[% instance_b.avgMonth %]</span>
 			[% badgeSud(instance_b) %]
 		</td>
 	</tr>
@@ -384,8 +384,8 @@
 			END;
 		-%]
 		[% IF costs_a %]
-		<td class="currency table-active" title="Costs per month [% instance_a.name %] in [% region.name %]: [% costs_a %] USD">
-			<a href="/[% region.name %]/[% instance_a.name %].html">[% costs_a %]</a>
+		<td class="table-active" title="Costs per month [% instance_a.name %] in [% region.name %]: [% costs_a %] USD">
+			<span class="currency"><a href="/[% region.name %]/[% instance_a.name %].html">[% costs_a %]</a></span>
 			[% badgeSud(instance_a) %]
 		</td>
 		[% ELSE %]
@@ -397,8 +397,8 @@
 		<td class="table-warning"><span class="text-muted">-</span></td>
 		[% END %]
 		[% IF costs_b %]
-		<td class="currency" title="Costs per month [% instance_b.name %] in [% region.name %]: [% costs_b %] USD">
-			<a href="/[% region.name %]/[% instance_b.name %].html">[% costs_b %]</a>
+		<td title="Costs per month [% instance_b.name %] in [% region.name %]: [% costs_b %] USD">
+			<span class="currency"><a href="/[% region.name %]/[% instance_b.name %].html">[% costs_b %]</a></span>
 			[% badgeSud(instance_b) %]
 		</td>
 		[% ELSE %]
@@ -420,8 +420,8 @@
 			END;
 		-%]
 		[% IF costs_a %]
-		<td class="currency table-active" title="Costs per month [% instance_a.name %] in [% region.name %] with 1Y CUD: [% costs_a %] USD">
-			<a href="/[% region.name %]/[% instance_a.name %].html">[% costs_a %]</a>
+		<td class="table-active" title="Costs per month [% instance_a.name %] in [% region.name %] with 1Y CUD: [% costs_a %] USD">
+			<span class="currency"><a href="/[% region.name %]/[% instance_a.name %].html">[% costs_a %]</a></span>
 		</td>
 		[% ELSE %]
 		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
@@ -432,8 +432,8 @@
 		<td class="table-warning"><span class="text-muted">-</span></td>
 		[% END %]
 		[% IF costs_b %]
-		<td class="currency" title="Costs per month [% instance_b.name %] in [% region.name %] with 1Y CUD: [% costs_b %] USD">
-			<a href="/[% region.name %]/[% instance_b.name %].html">[% costs_b %]</a>
+		<td title="Costs per month [% instance_b.name %] in [% region.name %] with 1Y CUD: [% costs_b %] USD">
+			<span class="currency"><a href="/[% region.name %]/[% instance_b.name %].html">[% costs_b %]</a></span>
 		</td>
 		[% ELSE %]
 		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
@@ -454,8 +454,8 @@
 			END;
 		-%]
 		[% IF costs_a %]
-		<td class="currency table-active" title="Costs per month [% instance_a.name %] in [% region.name %] with 3Y CUD: [% costs_a %] USD">
-			<a href="/[% region.name %]/[% instance_a.name %].html">[% costs_a %]</a>
+		<td class="table-active" title="Costs per month [% instance_a.name %] in [% region.name %] with 3Y CUD: [% costs_a %] USD">
+			<span class="currency"><a href="/[% region.name %]/[% instance_a.name %].html">[% costs_a %]</a></span>
 		</td>
 		[% ELSE %]
 		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
@@ -466,8 +466,8 @@
 		<td class="table-warning"><span class="text-muted">-</span></td>
 		[% END %]
 		[% IF costs_b %]
-		<td class="currency" title="Costs per month [% instance_b.name %] in [% region.name %] with 3Y CUD: [% costs_b %] USD">
-			<a href="/[% region.name %]/[% instance_b.name %].html">[% costs_b %]</a>
+		<td title="Costs per month [% instance_b.name %] in [% region.name %] with 3Y CUD: [% costs_b %] USD">
+			<span class="currency"><a href="/[% region.name %]/[% instance_b.name %].html">[% costs_b %]</a></span>
 		</td>
 		[% ELSE %]
 		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
