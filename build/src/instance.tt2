@@ -18,7 +18,10 @@
 	</p>
 </blockquote>
 
-<p><a class="btn btn-success" href="/grid.html?name=[% instance.name %]" role="button">✅ Instance Picker with filter on machine type [% instance.name %]</a></p>
+<p class="d-grid gap-2 d-lg-block">
+	<a class="btn btn-success" href="/grid.html?name=[% instance.name %]" role="button">✅ Instance Picker with filter on machine type [% instance.name %]</a>
+	<a class="btn btn-warning" href="/comparison/[% instance.name %]/vs.html" role="button">Compare machine type [% instance.name %]</a>
+</p>
 
 <div class="row">
 <div class="col-xxl-6">
@@ -34,7 +37,7 @@
 	</tr>
 	<tr>
 		<th>vCPU</th>
-		<td>[% instance.vCpus %][% IF instance.sharedCpu %] <span class="badge bg-warning text-dark">Shared</span>[% END %]</td>
+		<td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 	</tr>
 	<tr>
 		<th>Memory</th>
@@ -42,20 +45,11 @@
 	</tr>
 	<tr>
 		<th>CPU Manufactur</th>
-		<td>
-			[% IF instance.intel %]<span class="badge bg-primary">Intel</span>[% END %]
-			[% IF instance.amd %]<span class="badge bg-success">AMD</span>[% END %]
-		</td>
+		<td>[% badgeCpuManufactur(instance) %]</td>
 	</tr>
 	<tr>
 		<th>CPU Platform</th>
-		<td>
-			<ul class="list-unstyled">
-				[% FOREACH cpuPlatform IN instance.cpuPlatform.split(',').sort %]
-				<li>[% cpuPlatform %]</li>
-				[% END %]
-			</ul>
-		</td>
+		<td>[% listCpuPlatform(instance) %]</td>
 	</tr>
 	<tr>
 		<th>CPU Base Frequency</th>
@@ -113,23 +107,23 @@
 	</tr>
 	<tr>
 		<th>Local SSD</th>
-		<td>[% IF instance.localSsd  %]✔️[% ELSE %]❌[% END %]</td>
+		<td>[% booleanLocalSsd(instance) %]</td>
 	</tr>
 	<tr>
 		<th>SAP Application</th>
-		<td>[% IF instance.sap %]<span class="badge bg-warning text-dark">Certified for SAP</span>[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+		<td>[% booleanSap(instance) %]</td>
 	</tr>
 	<tr>
 		<th>SAP HANA</th>
-		<td>[% IF instance.hana %]<span class="badge bg-warning text-dark">Certified for SAP HANA</span>[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+		<td>[% booleanHana(instance) %]</td>
 	</tr>
 	<tr>
 		<th>Spot Provisioning Mode (Spot VM)</th>
-		<td>[% IF instance.spot %]✔️[% ELSE %]❌[% END %]</td>
+		<td>[% booleanSpot(instance) %]</td>
 	</tr>
 	<tr>
 		<th>Sustained Use Discount (SUD)</th>
-		<td>[% IF instance.sud  %]✔️[% ELSE %]❌[% END %]</td>
+		<td>[% booleanSud(instance) %]</td>
 	</tr>
 	<tr>
 		<th title="Google Compute Engine API Description">GCE API Description</th>
@@ -166,7 +160,7 @@
 		<td class="currency" title="Hour: [% region.hour %] USD">[% region.hour %]</td>
 		<td title="Month: [% region.month %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% region.month %]</span>
-			[% IF instance.sud %]<span class="badge bg-info">SUD</span>[% END %]
+			[% badgeSud(instance) %]
 		</td>
 		<td class="currency" title="Month w. 1Y CUD: [% region.month1yCud %] USD">[% region.month1yCud %]</td>
 		<td class="currency" title="Month w. 3Y CUD: [% region.month3yCud %] USD">[% region.month3yCud %]</td>

@@ -5,6 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>
 [%- IF template.name == 'instance.tt2'           -%]Machine [% instance.name %] - [%- END -%]
+[%- IF template.name == 'comparison.tt2'         -%][% instance_a.name %] vs. [% instance_b.name %] - [%- END -%]
+[%- IF template.name == 'vs.tt2'                 -%]Compare [% instance_a.name %] - [%- END -%]
 [%- IF template.name == 'region.tt2'             -%]Region [% region.name %] - [%- END -%]
 [%- IF template.name == 'instance_in_region.tt2' -%][% instance.name %] in [% instance.region %] - [%- END -%]
 [%- IF template.title                            -%][% template.title %] - [%- END -%]
@@ -12,6 +14,10 @@ Google Compute Engine</title>
 <meta name="robots" content="index, follow">
 [%- IF template.name == 'instance.tt2' -%]
 <meta name="description" content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory.">
+[%- ELSIF template.name == 'comparison.tt2'-%]
+<meta name="description" content="Google Compute Engine machine type comparison [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) versus [% instance_b.name %] ([% instance_b.vCpus %] vCPU, [% instance_b.memoryGiB %] GB memory).">
+[%- ELSIF template.name == 'vs.tt2'-%]
+<meta name="description" content="Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) with other GCE machine types.">
 [%- ELSIF template.name == 'region.tt2'-%]
 <meta name="description" content="Google Cloud region [% region.name %][% IF region.regionLocation %] in [% region.regionLocation %][% END %].">
 [%- ELSIF template.name == 'instance_in_region.tt2'-%]
@@ -24,7 +30,6 @@ Google Compute Engine</title>
 <style>
 	main > .container-fluid { padding: 65px 15px 0; }
 	.frequency::after { content: " GHz"; }
-	.currency         { font-family: "SFMono-Regular",Consolas,"Liberation Mono",Menlo,Courier,monospace !important; }
 	.currency::before { content: "$"; }
 	.bandwidth::after { content: " Gbps"; }
 	.diskSize::after  { content: " TB"; }
@@ -65,6 +70,8 @@ Google Compute Engine</title>
 	<li class="nav-item">
 		<a [%- IF
 				template.name == 'instance.tt2' ||
+				template.name == 'comparison.tt2' ||
+				template.name == 'vs.tt2' ||
 				template.name == 'instances.tt2' ||
 				template.name == 'intel.tt2' ||
 				template.name == 'amd.tt2' ||
@@ -73,36 +80,15 @@ Google Compute Engine</title>
 			-%]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %]
 			href="/instances.html">Machines</a>
 	</li>
-	[% IF template.name == 'instance_in_region.tt2' %]
-	<li class="nav-item dropdown" aria-current="page">
-		<a class="nav-link active dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Regions</a>
-		<ul class="dropdown-menu">
-			<li>
-				<a class="dropdown-item" href="../[% instance.region %].html">
-					[% instance.region %]
-					[% IF instance.regionLocation %]([% instance.regionLocation %])[% END %]
-				</a>
-			</li>
-			<li><hr class="dropdown-divider"></li>
-			[% FOREACH region IN regions %]
-			<li>
-				<a class="dropdown-item" href="../[% region.name %].html">
-					[% region.name %]
-					[% IF region.regionLocation %]([% region.regionLocation %])[% END %]
-				</a>
-			</li>
-			[% END %]
-			<li><hr class="dropdown-divider"></li>
-			<li><a class="dropdown-item" href="../regions.html">All Regions</a></li>
-		</ul>
-	</li>
-	[% ELSE %]
 	<li class="nav-item">
-		<a
-			[% IF template.name == 'region.tt2' || template.name == 'regions.tt2' || template.name == 'platforms.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %]
+		<a [%- IF
+				template.name == 'instance_in_region.tt2' ||
+				template.name == 'region.tt2' ||
+				template.name == 'regions.tt2' ||
+				template.name == 'platforms.tt2'
+			-%]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %]
 			href="/regions.html">Regions</a>
 	</li>
-	[% END %]
 </ul>
 </div> <!-- // col -->
 </div> <!-- // row -->

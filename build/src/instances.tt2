@@ -22,35 +22,34 @@
 		<th scope="col"></th>
 		<th scope="col">#</th>
 		<!-- Costs -->
-		<th scope="col">Hour</th>
-		<th scope="col">Month</th>
-		<th scope="col">1Y CUD</th>
-		<th scope="col">3Y CUD</th>
+		<th scope="col" title="Costs per hour">Hour</th>
+		<th scope="col" title="Costs per month">Month</th>
+		<th scope="col" title="Costs per month with 1 year commitment (CUD)">1Y CUD</th>
+		<th scope="col" title="Costs per month with 3 year commitment (CUD)">3Y CUD</th>
 		<!-- OS -->
-		<th scope="col">SLES</th>
-		<th scope="col">RHEL</th>
-		<th scope="col">Windows</th>
+		<th scope="col" title="SUSE Linux Enterprise Server">SLES</th>
+		<th scope="col" title="Red Hat Enterprise Linux">RHEL</th>
+		<th scope="col" title="Microsoft Windows Server">Windows</th>
 	</tr>
 </thead>
 <tbody>
 	[% FOREACH instance IN instances %]
 	<tr>
 		<td><a href="[% instance.name %].html">[% instance.name %]</a></td>
-		<td>[% instance.vCpus %][% IF instance.sharedCpu %] <span class="badge bg-warning text-dark">Shared</span>[% END %]</td>
+		<td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
 		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
 		<td>
-			[% IF instance.intel %]<span class="badge bg-primary">Intel</span>[% END %]
-			[% IF instance.amd %]<span class="badge bg-success">AMD</span>[% END %]
-			[% IF instance.sap %]<span class="badge bg-warning text-dark">SAP</span>[% END %]
-			[% IF instance.hana %]<span class="badge bg-warning text-dark">HANA</span>[% END %]
+			[% badgeCpuManufactur(instance) %]
+			[% badgeSap(instance) %]
+			[% badgeHana(instance) %]
 		</td>
 		<td>[% instance.regionCount %]</td>
 		<!-- Costs -->
 		<td class="currency" title="[% instance.name %] avg. costs per hour: [% instance.avgHour %] USD">[% instance.avgHour %]</td>
 		<td title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% instance.avgMonth %]</span>
-			[% IF instance.sud %]<span class="badge bg-info">SUD</span>[% END %]
+			[% badgeSud(instance) %]
 		</td>
 		<td class="currency" title="[% instance.name %] avg. costs per month w. 1Y CUD: [% instance.avgMonth1yCud %] USD">[% instance.avgMonth1yCud %]</td>
 		<td class="currency" title="[% instance.name %] avg. costs per month w. 3Y CUD: [% instance.avgMonth3yCud %] USD">[% instance.avgMonth3yCud %]</td>

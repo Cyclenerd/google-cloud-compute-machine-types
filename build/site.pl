@@ -28,7 +28,7 @@ use Template;
 use File::Copy;
 use App::Options (
 	option => {
-		instance_in_region => {
+		region => {
 			required    => '1',
 			default     => '1',
 			description => "Create instance in region websites (/:REGION/:INSTANCE.html)"
@@ -38,12 +38,25 @@ use App::Options (
 			default     => '',
 			description => "Create websites only for this region"
 		},
+		comparison => {
+			required    => '1',
+			default     => '1',
+			description => "Create instance comparison websites (/comparison/:INSTANCE/vs/:INSTANCE.html)"
+		},
+		limit_comparison => {
+			required    => '0',
+			default     => '',
+			description => "Create comparison websites only for this machine type"
+		},
+
 	},
 );
 
-my $create_instance_in_region   = $App::options{instance_in_region};
-my $create_instance_vs_instance = $App::options{instance_vs_instance};
-my $limit_region                = $App::options{limit_region};
+my $create_region     = $App::options{region};
+my $limit_region      = $App::options{limit_region};
+my $create_comparison = $App::options{comparison};
+my $limit_comparison  = $App::options{limit_comparison};
+
 my $db_file  = 'gce.db';
 
 my $gmttime   = gmtime();
@@ -62,6 +75,7 @@ my $dbh = DBI->connect("dbi:SQLite:dbname=$db_file","","") or die "ERROR: Cannot
 
 my $template = Template->new(
 	INCLUDE_PATH => './src',
+	PRE_PROCESS  => 'config.tt2',
 	VARIABLES => {
 		'gmttime'          => $gmttime,
 		'timestamp'        => $timestamp,
@@ -271,20 +285,19 @@ foreach my $instance (@instances) {
 	~;
 	$sth = $dbh->prepare($sql_instance_regions);
 	$sth->execute();
-	my @regions = ();
+	my @instance_regions = ();
 	$id = '1';
 	while (my $region = $sth->fetchrow_hashref) {
 		$region->{'id'} = $id;
-		push(@regions, $region);
+		push(@instance_regions, $region);
 		$id++;
 	}
 	$sth->finish;
 	my $html_file = '../site/'."$name".'.html';
 	print "$html_file\n";
 	push(@files, "$name".'.html');
-	$template->process('instance.tt2', { 'instance' => $instance, 'regions' => \@regions }, "$html_file") || die "Template process failed: ", $template->error(), "\n";
+	$template->process('instance.tt2', { 'instance' => $instance, 'regions' => \@instance_regions }, "$html_file") || die "Template process failed: ", $template->error(), "\n";
 }
-
 
 ###############################################################################
 # INSTANCE in REGION
@@ -345,7 +358,7 @@ while (my $instance = $sth->fetchrow_hashref) {
 	next if ($limit_region && $limit_region ne "$region"); # skip region if limit is set
 	$instance->{'id'} = $id;
 	push(@instances_in_regions, $instance);
-	if ($create_instance_in_region) {
+	if ($create_region) {
 		my $html_file = '../site/'."$region/$name".'.html';
 		print "$id : $html_file\n";
 		push(@files, "$region/$name".'.html');
@@ -359,6 +372,83 @@ while (my $instance = $sth->fetchrow_hashref) {
 	$id++;
 }
 $sth->finish;
+
+
+###############################################################################
+# COMPARISON
+###############################################################################
+
+if ($create_comparison) {
+	my $id = '1';
+	foreach my $instance_a (@instances) {
+		my $name_a = $instance_a->{'name'} || 'missing';
+		next if ($limit_comparison && $name_a ne "$limit_comparison");
+		$template->process('vs.tt2', {
+			'instance_a' => $instance_a,
+			'instances'  => \@instances
+		}, '../site/comparison/'."$name_a".'/vs.html') || die "Template process failed: ", $template->error(), "\n";
+		foreach my $instance_b (@instances) {
+			my $name_b = $instance_b->{'name'} || 'missing';
+			next if ($name_a eq $name_b);
+			# Costs in regions for instance A
+			my $sql_regions_for_a = qq ~
+				SELECT
+					region                         AS region,
+					regionLocation                 AS regionLocation,
+					zoneCount                      AS zoneCount,
+					availableCpuPlatformCount      AS availableCpuPlatformCount,
+					ROUND(hour, 4)                 AS hour,
+					ROUND(month, 2)                AS month,
+					ROUND(month1yCud, 2)           AS month1yCud,
+					ROUND(month3yCud, 2)           AS month3yCud
+				FROM instances
+				WHERE name LIKE '$name_a'
+				ORDER BY region;
+			~;
+			$sth = $dbh->prepare($sql_regions_for_a);
+			$sth->execute();
+			my @regions_a = ();
+			while (my $region = $sth->fetchrow_hashref) {
+				push(@regions_a, $region);
+			}
+			$sth->finish;
+			# Costs in regions for instance B
+			my $sql_regions_for_b = qq ~
+				SELECT
+					region                         AS region,
+					regionLocation                 AS regionLocation,
+					zoneCount                      AS zoneCount,
+					availableCpuPlatformCount      AS availableCpuPlatformCount,
+					ROUND(hour, 4)                 AS hour,
+					ROUND(month, 2)                AS month,
+					ROUND(month1yCud, 2)           AS month1yCud,
+					ROUND(month3yCud, 2)           AS month3yCud
+				FROM instances
+				WHERE name LIKE '$name_b'
+				ORDER BY region;
+			~;
+			$sth = $dbh->prepare($sql_regions_for_b);
+			$sth->execute();
+			my @regions_b = ();
+			while (my $region = $sth->fetchrow_hashref) {
+				push(@regions_b, $region);
+			}
+			$sth->finish;
+			my $html_file = '../site/comparison/'."$name_a".'/vs/'."$name_b".'.html';
+			print "$id : $html_file\n";
+			push(@files, 'comparison/'."$name_a".'/vs/'."$name_b".'.html');
+			$template->process('comparison.tt2', {
+				'instances'  => \@instances,
+				'instance_a' => $instance_a,
+				'instance_b' => $instance_b,
+				'regions'    => \@regions,
+				'regions_a'  => \@regions_a,
+				'regions_b'  => \@regions_b,
+			}, "$html_file") || die "Template process failed: ", $template->error(), "\n";
+			$id++;
+		}
+	}
+}
 
 
 ###############################################################################

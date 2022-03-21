@@ -1,0 +1,79 @@
+[%- MACRO badgeSharedCpu(instance) BLOCK -%]
+[% IF instance.sharedCpu %] <span class="badge bg-warning text-dark">Shared</span>[% END %]
+[%- END -%]
+
+[%- MACRO badgeCpuManufactur(instance) BLOCK -%]
+[% IF instance.intel %]<span class="badge bg-primary">Intel</span>[% END %]
+[% IF instance.amd   %]<span class="badge bg-success">AMD</span>[% END %]
+[%- END -%]
+
+[%- MACRO badgeSud(instance) BLOCK -%]
+[% IF instance.sud %]<span class="badge bg-info">SUD</span>[% END %]
+[%- END -%]
+
+[%- MACRO badgeSap(instance) BLOCK -%]
+[% IF instance.sap %]<span class="badge bg-warning text-dark" title="Certified for SAP">SAP</span>[% END %]
+[%- END -%]
+
+[%- MACRO badgeHana(instance) BLOCK -%]
+[% IF instance.hana %]<span class="badge bg-warning text-dark" title="Certified for SAP HANA">HANA</span>[% END %]
+[%- END -%]
+
+[%- MACRO booleanLocalSsd(instance) BLOCK -%]
+[% IF instance.localSsd  %]✔️[% ELSE %]❌[% END %]
+[%- END -%]
+
+[%- MACRO booleanSpot(instance) BLOCK -%]
+[% IF instance.spot %]✔️[% ELSE %]❌[% END %]
+[%- END -%]
+
+[%- MACRO booleanSud(instance) BLOCK -%]
+[% IF instance.sud  %]✔️[% ELSE %]❌[% END %]
+[%- END -%]
+
+[%- MACRO booleanSap(instance) BLOCK -%]
+[% IF instance.sap %]✔️ Certified for SAP[% ELSE %]❌[% END %]
+[%- END -%]
+
+[%- MACRO booleanHana(instance) BLOCK -%]
+[% IF instance.hana %]✔️ Certified for SAP HANA[% ELSE %]❌[% END %]
+[%- END -%]
+
+[%- MACRO listCpuPlatform(instance) BLOCK -%]
+<ul class="list-unstyled">
+	[% FOREACH cpuPlatform IN instance.cpuPlatform.split(',').sort %]
+	<li>[% cpuPlatform %]</li>
+	[% END %]
+</ul>
+[%- END -%]
+
+[%- MACRO tableCompareText(a, b) BLOCK -%]
+[% IF a == b %]<td class="table-primary">=</td>[% ELSE %]<td class="table-warning">≠</td>[% END %]
+[%- END -%]
+
+[%- MACRO tableCompareNumber(a, b) BLOCK -%]
+[%- diff = b - a; IF b == a -%]
+	<td class="table-primary">=</td>
+[%- ELSIF b > a -%]
+	<td class="table-success">+[% diff FILTER format("%.2f") %]</td>
+[%- ELSE -%]
+	<td class="table-danger">[% diff FILTER format("%.2f") %]</td>
+[%- END; END; -%]
+
+[%- MACRO tableCompareBoolean(a, b) BLOCK -%]
+[% IF a == b %]
+	<td class="table-primary">=</td>
+[%- ELSIF b > a -%]
+	<td class="table-success">+</td>
+[%- ELSE -%]
+	<td class="table-danger">-</td>
+[%- END; END; -%]
+
+[%- MACRO tableCompareCosts(a, b) BLOCK -%]
+[%- diff = b - a; IF b == a -%]
+	<td class="table-primary">=</td>
+[%- ELSIF b < a -%]
+	<td class="table-success">[% diff FILTER format("%.2f") %]</td>
+[%- ELSE -%]
+	<td class="table-danger">+[% diff FILTER format("%.2f") %]</td>
+[%- END; END; -%]

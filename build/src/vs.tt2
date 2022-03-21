@@ -1,0 +1,55 @@
+[%- PROCESS header.tt2 -%]
+
+<h1>Compare machine type [% instance_a.name %]</h1>
+
+<blockquote class="blockquote">
+<p>
+	Compare Google Compute Engine machine type
+	<a href="/[% instance_a.name %].html" title="Show machine type [% instance_a.name %] in all regions">[% instance_a.name %]</a>
+	([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory)
+	with other GCE machine types.
+</p>
+</blockquote>
+
+<div class="table-responsive">
+<table class="table table-sm table-hover table-striped table-bordered">
+<thead>
+	<tr>
+		<th scope="row">Name</th>
+		<th scope="col" colspan="2">vCPU ⬇️</th>
+		<th scope="col" colspan="2">Memory</th>
+		<th scope="col"></th>
+		<th scope="col" colspan="2">Avg. costs per month</th>
+	</tr>
+</thead>
+<tbody>
+	[% FOREACH instance IN instances; IF instance_a.name != instance.name; %]
+	<tr>
+		<td>
+			<a href="/comparison/[% instance_a.name %]/vs/[% instance.name %].html" title="Compare [% instance_a.name %] vs. [% instance.name %]">
+				[% instance.name %]
+			</a>
+		</td>
+		<!-- vCPU -->
+		[% tableCompareNumber(instance_a.vCpus || 0, instance.vCpus || 0) %]
+		<td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
+		<!-- Memory -->
+		[% tableCompareNumber(instance_a.memoryGiB || 0, instance.memoryGiB || 0) %]
+		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
+		<td>
+			[% badgeCpuManufactur(instance) %]
+			[% badgeSap(instance) %]
+			[% badgeHana(instance) %]
+		</td>
+		<!-- Costs -->
+		[% tableCompareCosts(instance_a.avgMonth || 0, instance.avgMonth || 0) %]
+		<td title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
+			<span class="currency">[% instance.avgMonth %]</span>
+			[% badgeSud(instance) %]
+		</td>
+	</tr>
+	[% END; END; %]
+</tbody>
+</table>
+</div> <!-- // table-responsive -->
+[% PROCESS footer.tt2 %]

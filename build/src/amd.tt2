@@ -39,20 +39,20 @@
 	[% FOREACH instance IN instances; IF instance.amd; %]
 	<tr>
 		<td><a href="[% instance.name %].html">[% instance.name %]</a></td>
-		<td>[% instance.vCpus %][% IF instance.sharedCpu %] <span class="badge bg-warning text-dark">Shared</span>[% END %]</td>
+		<td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
 		<td title="CPU Platform: [% instance.cpuPlatform %]">[% instance.cpuPlatform | replace('\[','') | replace('\]','') %]</td>
 		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
 		<td>
-			[% IF instance.sap %]<span class="badge bg-warning text-dark">SAP</span>[% END %]
-			[% IF instance.hana %]<span class="badge bg-warning text-dark">HANA</span>[% END %]
+			[% badgeSap(instance) %]
+			[% badgeHana(instance) %]
 		</td>
 		<td>[% instance.regionCount %]</td>
 		<!-- Costs -->
 		<td class="currency" title="[% instance.name %] avg. costs per hour: [% instance.avgHour %] USD">[% instance.avgHour %]</td>
 		<td title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% instance.avgMonth %]</span>
-			[% IF instance.sud %]<span class="badge bg-info">SUD</span>[% END %]
+			[% badgeSud(instance) %]
 		</td>
 		<td class="currency" title="[% instance.name %] avg. costs per month w. 1Y CUD: [% instance.avgMonth1yCud %] USD">[% instance.avgMonth1yCud %]</td>
 		<td class="currency" title="[% instance.name %] avg. costs per month w. 3Y CUD: [% instance.avgMonth3yCud %] USD">[% instance.avgMonth3yCud %]</td>

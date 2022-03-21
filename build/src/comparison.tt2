@@ -1,0 +1,481 @@
+[%- PROCESS header.tt2 -%]
+
+<h1>Comparison [% instance_a.name %] vs. [% instance_b.name %]</h1>
+
+<blockquote class="blockquote">
+<p>
+	Google Compute Engine machine type comparison
+	<a href="/[% instance_a.name %].html" title="Show machine type [% instance_a.name %] in all regions">[% instance_a.name %]</a>
+	([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory)
+	versus
+	<a href="/[% instance_b.name %].html" title="Show machine type [% instance_b.name %] in all regions">[% instance_b.name %]</a>
+	([% instance_b.vCpus %] vCPU, [% instance_b.memoryGiB %] GB memory).
+</p>
+</blockquote>
+
+<p class="d-grid gap-2 d-lg-block">
+	<a class="btn btn-primary" href="/[% instance_a.name %].html" role="button" title="Show machine type [% instance_a.name %] in all regions">Show [% instance_a.name %]</a>
+	<a class="btn btn-primary" href="/[% instance_b.name %].html" role="button" title="Show machine type [% instance_b.name %] in all regions">Show [% instance_b.name %]</a>
+	<a class="btn btn-warning" href="/comparison/[% instance_a.name %]/vs.html" role="button">Compare [% instance_a.name %]</a>
+	<a class="btn btn-warning" href="/comparison/[% instance_b.name %]/vs.html" role="button">Compare [% instance_b.name %]</a>
+</p>
+
+<div class="row">
+<div class="col-xxl-6">
+
+<h2>Instances</h2>
+
+<table class="table table-hover table-bordered">
+<thead>
+	<tr>
+		<th scope="col"></th>
+		<th scope="col" class="table-active">[% instance_a.name %]</th>
+		<th scope="col"></th>
+		<th scope="col">[% instance_b.name %]</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th>Series</th>
+		<td class="table-active">[% instance_a.series %]</td>
+		[% tableCompareText(instance_a.series || '', instance_b.series || '') %]
+		<td>[% instance_b.series %]</td>
+	</tr>
+	<tr>
+		<th>Family</th>
+		<td class="table-active">[% instance_a.family %]</td>
+		[% tableCompareText(instance_a.family || '', instance_b.family || '') %]
+		<td>[% instance_b.family %]</td>
+	</tr>
+	<tr>
+		<th>Regions</th>
+		<td class="table-active">[% instance_a.regionCount %]</td>
+		[% tableCompareNumber(instance_a.regionCount || 0, instance_b.regionCount || 0) %]
+		<td>[% instance_b.regionCount %]</td>
+	</tr>
+	<tr>
+		<th>vCPU</th>
+		<td class="table-active">[% instance_a.vCpus %][% badgeSharedCpu(instance_a) %]</td>
+		[% tableCompareNumber(instance_a.vCpus || 0, instance_b.vCpus || 0) %]
+		<td>[% instance_b.vCpus %][% badgeSharedCpu(instance_b) %]</td>
+	</tr>
+	<tr>
+		<th>Memory</th>
+		<td class="table-active">[% instance_a.memoryGiB %] GB</td>
+		[% tableCompareNumber(instance_a.memoryGiB || 0, instance_b.memoryGiB || 0) %]
+		<td>[% instance_b.memoryGiB %] GB</td>
+	</tr>
+	<tr>
+		<th>CPU Platform</th>
+		<td class="table-active">[% listCpuPlatform(instance_a) %]</td>
+		[% tableCompareNumber(instance_a.cpuPlatformCount || 0, instance_b.cpuPlatformCount || 0) %]
+		<td>[% listCpuPlatform(instance_b) %]</td>
+	</tr>
+	<tr>
+		<th>CPU Base Frequency</th>
+		<td class="table-active">[% instance_a.cpuBaseClock %] GHz</td>
+		[% tableCompareNumber(instance_a.cpuBaseClock || 0, instance_b.cpuBaseClock || 0) %]
+		<td>[% instance_b.cpuBaseClock %] GHz</td>
+	</tr>
+	<tr>
+		<th>CPU Turbo Frequency</th>
+		<td class="table-active">[% instance_a.cpuTurboClock %] GHz</td>
+		[% tableCompareNumber(instance_a.cpuTurboClock || 0, instance_b.cpuTurboClock || 0) %]
+		<td>[% instance_b.cpuTurboClock %] GHz</td>
+	</tr>
+	<tr>
+		<th>CPU Max. Turbo Frequency</th>
+		<td class="table-active">[% instance_a.cpuSingleMaxTurboClock %] GHz</td>
+		[% tableCompareNumber(instance_a.cpuSingleMaxTurboClock || 0, instance_b.cpuSingleMaxTurboClock || 0) %]
+		<td>[% instance_b.cpuSingleMaxTurboClock %] GHz</td>
+	</tr>
+	<tr>
+		<th>Accelerator (GPUs)</th>
+		<td class="table-active">[% instance_a.acceleratorCount %]</td>
+		[% tableCompareNumber(instance_a.acceleratorCount || 0, instance_b.acceleratorCount || 0) %]
+		<td>[% instance_b.acceleratorCount %]</td>
+	</tr>
+	<tr>
+		<th>Accelerator Type</th>
+		<td class="table-active">[% instance_a.acceleratorType %]</td>
+		[% tableCompareText(instance_a.acceleratorType || '', instance_b.acceleratorType || '') %]
+		<td>[% instance_b.acceleratorType %]</td>
+	</tr>
+	<tr>
+		<th>EEMBC CoreMark Benchmark (<a href="https://www.eembc.org/coremark">?</a>)</th>
+		<td class="table-active">[% IF instance_a.coremarkScore %][% instance_a.coremarkScore %][% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+		[% tableCompareNumber(instance_a.coremarkScore || 0, instance_b.coremarkScore || 0) %]
+		<td>[% IF instance_b.coremarkScore %][% instance_b.coremarkScore %][% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+	</tr>
+	<tr>
+		<th>EEMBC CoreMark Standard Deviation</th>
+		<td class="table-active">[% IF instance_a.standardDeviation %][% instance_a.standardDeviation %] %[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+		[% tableCompareNumber(instance_a.standardDeviation || 0, instance_b.standardDeviation || 0) %]
+		<td>[% IF instance_b.standardDeviation %][% instance_b.standardDeviation %] %[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+	</tr>
+	<tr>
+		<th>EEMBC CoreMark Sample Count</th>
+		<td class="table-active">[% IF instance_a.sampleCount %][% instance_a.sampleCount %][% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+		[% tableCompareNumber(instance_a.sampleCount || 0, instance_b.sampleCount || 0) %]
+		<td>[% IF instance_b.sampleCount %][% instance_b.sampleCount %][% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+	</tr>
+	<tr>
+		<th>SAP Standard Benchmark (<a href="https://www.sap.com/about/benchmark.html">?</a>)</th>
+		<td class="table-active">[% IF instance_a.saps %][% instance_a.saps %][% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+		[% tableCompareNumber(instance_a.saps || 0, instance_b.saps || 0) %]
+		<td>[% IF instance_b.saps %][% instance_b.saps %][% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+	</tr>
+	<tr>
+		<th>Network Bandwidth</th>
+		<td class="table-active">[% instance_a.bandwidth %] Gbps</td>
+		[% tableCompareNumber(instance_a.bandwidth || 0, instance_b.bandwidth || 0) %]
+		<td>[% instance_b.bandwidth %] Gbps</td>
+	</tr>
+	<tr>
+		<th>Network Tier 1</th>
+		<td class="table-active">[% IF instance_a.tier1 %][% instance_a.tier1 %] Gbps[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+		[% tableCompareNumber(instance_a.tier1 || 0, instance_b.tier1 || 0) %]
+		<td>[% IF instance_b.tier1 %][% instance_b.tier1 %] Gbps[% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+	</tr>
+	<tr>
+		<th title="Disk usage is charged separately from machine type pricing!">Max. Disk Size</th>
+		<td class="table-active">[% instance_a.diskSizeTiB %] TB</td>
+		[% tableCompareNumber(instance_a.diskSizeTiB || 0, instance_b.diskSizeTiB || 0) %]
+		<td>[% instance_b.diskSizeTiB %] TB</td>
+	</tr>
+	<tr>
+		<th title="Disk usage is charged separately from machine type pricing!">Max. Number of Disks</th>
+		<td class="table-active">[% instance_a.disks %]</td>
+		[% tableCompareNumber(instance_a.disks || 0, instance_b.disks || 0) %]
+		<td>[% instance_b.disks %]</td>
+	</tr>
+		<tr>
+		<th>Local SSD</th>
+		<td class="table-active">[% booleanLocalSsd(instance_a) %]</td>
+		[% tableCompareBoolean(instance_a.localSsd || 0, instance_b.localSsd || 0) %]
+		<td>[% booleanLocalSsd(instance_b) %]</td>
+	</tr>
+	<tr>
+		<th>SAP Application</th>
+		<td class="table-active">[% booleanSap(instance_a) %]</td>
+		[% tableCompareBoolean(instance_a.sap || 0, instance_b.sap || 0) %]
+		<td>[% booleanSap(instance_b) %]</td>
+	</tr>
+	<tr>
+		<th>SAP HANA</th>
+		<td class="table-active">[% booleanHana(instance_a) %]</td>
+		[% tableCompareBoolean(instance_a.hana || 0, instance_b.hana || 0) %]
+		<td>[% booleanHana(instance_b) %]</td>
+	</tr>
+	<tr>
+		<th>Spot Provisioning Mode (Spot VM)</th>
+		<td class="table-active">[% booleanSpot(instance_a) %]</td>
+		[% tableCompareBoolean(instance_a.spot || 0, instance_b.spot || 0) %]
+		<td>[% booleanSpot(instance_b) %]</td>
+	</tr>
+	<tr>
+		<th>Sustained Use Discount (SUD)</th>
+		<td class="table-active">[% booleanSud(instance_a) %]</td>
+		[% tableCompareBoolean(instance_a.sud || 0, instance_b.sud || 0) %]
+		<td>[% booleanSud(instance_b) %]</td>
+	</tr>
+</tbody>
+	<tr>
+		<th scope="col"></th>
+		<th scope="col" class="table-active">[% instance_a.name %]</th>
+		<th scope="col"></th>
+		<th scope="col">[% instance_b.name %]</th>
+	</tr>
+<tfoot>
+</tfoot>
+</table>
+
+</div> <!-- // col -->
+<div class="col-xxl-6">
+
+<h2>Costs</h2>
+
+<table class="table table-hover table-bordered">
+<thead>
+	<tr>
+		<th scope="col"></th>
+		<th scope="col" class="table-active">[% instance_a.name %]</th>
+		<th scope="col"></th>
+		<th scope="col">[% instance_b.name %]</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th>Avg. costs per hour</th>
+		<td class="currency table-active">[% instance_a.avgHour %]</td>
+		[% tableCompareCosts(instance_a.avgHour || 0, instance_b.avgHour || 0) %]
+		<td class="currency">[% instance_b.avgHour %]</td>
+
+	</tr>
+	<tr>
+		<th>Avg. costs per month</th>
+		<td class="currency table-active">
+			[% instance_a.avgMonth %]
+			[% badgeSud(instance_a) %]
+		</td>
+		[% tableCompareCosts(instance_a.avgMonth || 0, instance_b.avgMonth || 0) %]
+		<td class="currency">
+			[% instance_b.avgMonth %]
+			[% badgeSud(instance_b) %]
+		</td>
+	</tr>
+	<tr>
+		<th>Avg. costs per month with 1 year CUD</th>
+		<td class="currency table-active">[% instance_a.avgMonth1yCud %]</td>
+		[% tableCompareCosts(instance_a.avgMonth1yCud || 0, instance_b.avgMonth1yCud || 0) %]
+		<td class="currency">[% instance_b.avgMonth1yCud %]</td>
+
+	</tr>
+	<tr>
+		<th>Avg. costs per month with 3 year CUD</th>
+		<td class="currency table-active">[% instance_a.avgMonth3yCud %]</td>
+		[% tableCompareCosts(instance_a.avgMonth3yCud || 0, instance_b.avgMonth3yCud || 0) %]
+		<td class="currency">[% instance_b.avgMonth3yCud %]</td>
+	</tr>
+</tbody>
+</table>
+
+<h2>Operating System Licenses Costs (Month)</h2>
+
+<table class="table table-hover table-bordered">
+<thead>
+	<tr>
+		<th scope="col"></th>
+		<th scope="col" class="table-active">[% instance_a.name %]</th>
+		<th scope="col"></th>
+		<th scope="col">[% instance_b.name %]</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th>SUSE Linux Enterprise Server</th>
+		<td class="currency table-active">[% instance_a.monthSles %]</td>
+		[% tableCompareCosts(instance_a.monthSles || 0, instance_b.monthSles || 0) %]
+		<td class="currency">[% instance_b.monthSles %]</td>
+	</tr>
+	<tr>
+		<th>Red Hat Enterprise Linux</th>
+		<td class="currency table-active">[% instance_a.monthRhel %]</td>
+		[% tableCompareCosts(instance_a.monthRhel || 0, instance_b.monthRhel || 0) %]
+		<td class="currency">[% instance_b.monthRhel %]</td>
+	</tr>
+	<tr>
+		<th>Microsoft Windows Server</th>
+		<td class="currency table-active">[% instance_a.monthWindows %]</td>
+		[% tableCompareCosts(instance_a.monthWindows || 0, instance_b.monthWindows || 0) %]
+		<td class="currency">[% instance_b.monthWindows %]</td>
+	</tr>
+	<tr>
+		<th>SUSE Linux Enterprise Server for SAP</th>
+		<td class="currency table-active">[% instance_a.monthSlesSap %]</td>
+		[% tableCompareCosts(instance_a.monthSlesSap || 0, instance_b.monthSlesSap || 0) %]
+		<td class="currency">[% instance_b.monthSlesSap %]</td>
+	</tr>
+	<tr>
+		<th>SUSE Linux Enterprise Server for SAP w. 1 Year CUD</th>
+		<td class="currency table-active">[% instance_a.monthSlesSap1yCud %]</td>
+		[% tableCompareCosts(instance_a.monthSlesSap1yCud || 0, instance_b.monthSlesSap1yCud || 0) %]
+		<td class="currency">[% instance_b.monthSlesSap1yCud %]</td>
+	</tr>
+	<tr>
+		<th>SUSE Linux Enterprise Server for SAP w. 3 Year CUD</th>
+		<td class="currency table-active">[% instance_a.monthSlesSap3yCud %]</td>
+		[% tableCompareCosts(instance_a.monthSlesSap3yCud || 0, instance_b.monthSlesSap3yCud || 0) %]
+		<td class="currency">[% instance_b.monthSlesSap3yCud %]</td>
+	</tr>
+	<tr>
+		<th>Red Hat Enterprise Linux for SAP</th>
+		<td class="currency table-active">[% instance_a.monthRhelSap %]</td>
+		[% tableCompareCosts(instance_a.monthRhelSap || 0, instance_b.monthRhelSap || 0) %]
+		<td class="currency">[% instance_b.monthRhelSap %]</td>
+	</tr>
+</tbody>
+</table>
+
+</div> <!-- // col -->
+</div> <!-- // row -->
+
+<div class="table-responsive">
+
+<h2>Regions</h2>
+<table class="table table-sm table-hover table-bordered">
+<thead>
+	<tr>
+		<th scope="col" colspan="2">Region</th>
+		<th scope="col" colspan="3">Hour</th>
+		<th scope="col" colspan="3">Month</th>
+		<th scope="col" colspan="3">Month with 1Y CUD</th>
+		<th scope="col" colspan="3">Month with 3Y CUD</th>
+	</tr>
+	<tr>
+		<th scope="col">Name</th>
+		<th scope="col">Location</th>
+		<!-- Hour -->
+		<th scope="col" class="table-active">[% instance_a.name %]</th>
+		<th scope="col"></th>
+		<th scope="col">[% instance_b.name %]</th>
+		<!-- Month -->
+		<th scope="col" class="table-active">[% instance_a.name %]</th>
+		<th scope="col"></th>
+		<th scope="col">[% instance_b.name %]</th>
+		<!-- 1Y CUD -->
+		<th scope="col" class="table-active">[% instance_a.name %]</th>
+		<th scope="col"></th>
+		<th scope="col">[% instance_b.name %]</th>
+		<!-- 3Y CUD -->
+		<th scope="col" class="table-active">[% instance_a.name %]</th>
+		<th scope="col"></th>
+		<th scope="col">[% instance_b.name %]</th>
+	</tr>
+</thead>
+<tbody>
+	[% FOREACH region IN regions %]
+	<tr>
+		<td><a href="/[% region.name %].html" title="Show all machine types in region [% region.name %]">[% region.name %]</a></td>
+		<td>[% region.regionLocation %]</td>
+		<!-- Hour -->
+		[%-
+			costs_a = 0;
+			costs_b = 0;
+			FOREACH region_a IN regions_a;
+				IF region_a.region == region.name;
+					costs_a = region_a.hour;
+				END;
+			END;
+			FOREACH region_b IN regions_b;
+				IF region_b.region == region.name;
+					costs_b = region_b.hour;
+				END;
+			END;
+		-%]
+		[% IF costs_a %]
+		<td class="currency table-active" title="Costs per hour [% instance_a.name %] in [% region.name %]: [% costs_a %] USD"><a href="/[% region.name %]/[% instance_a.name %].html">[% costs_a %]</a></td>
+		[% ELSE %]
+		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
+		[% END %]
+		[% IF costs_a && costs_b %]
+		[% tableCompareCosts(costs_a || 0, costs_b || 0) %]
+		[% ELSE %]
+		<td class="table-warning"><span class="text-muted">-</span></td>
+		[% END %]
+		[% IF costs_b %]
+		<td class="currency" title="Costs per hour [% instance_b.name %] in [% region.name %]: [% costs_b %] USD"><a href="/[% region.name %]/[% instance_b.name %].html">[% costs_b %]</a></td>
+		[% ELSE %]
+		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
+		[% END %]
+		<!-- Month -->
+		[%-
+			costs_a = 0;
+			costs_b = 0;
+			FOREACH region_a IN regions_a;
+				IF region_a.region == region.name;
+					costs_a = region_a.month;
+				END;
+			END;
+			FOREACH region_b IN regions_b;
+				IF region_b.region == region.name;
+					costs_b = region_b.month;
+				END;
+			END;
+		-%]
+		[% IF costs_a %]
+		<td class="currency table-active" title="Costs per month [% instance_a.name %] in [% region.name %]: [% costs_a %] USD">
+			<a href="/[% region.name %]/[% instance_a.name %].html">[% costs_a %]</a>
+			[% badgeSud(instance_a) %]
+		</td>
+		[% ELSE %]
+		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
+		[% END %]
+		[% IF costs_a && costs_b %]
+		[% tableCompareCosts(costs_a || 0, costs_b || 0) %]
+		[% ELSE %]
+		<td class="table-warning"><span class="text-muted">-</span></td>
+		[% END %]
+		[% IF costs_b %]
+		<td class="currency" title="Costs per month [% instance_b.name %] in [% region.name %]: [% costs_b %] USD">
+			<a href="/[% region.name %]/[% instance_b.name %].html">[% costs_b %]</a>
+			[% badgeSud(instance_b) %]
+		</td>
+		[% ELSE %]
+		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
+		[% END %]
+		<!-- 1Y CUD -->
+		[%-
+			costs_a = 0;
+			costs_b = 0;
+			FOREACH region_a IN regions_a;
+				IF region_a.region == region.name;
+					costs_a = region_a.month1yCud;
+				END;
+			END;
+			FOREACH region_b IN regions_b;
+				IF region_b.region == region.name;
+					costs_b = region_b.month1yCud;
+				END;
+			END;
+		-%]
+		[% IF costs_a %]
+		<td class="currency table-active" title="Costs per month [% instance_a.name %] in [% region.name %] with 1Y CUD: [% costs_a %] USD">
+			<a href="/[% region.name %]/[% instance_a.name %].html">[% costs_a %]</a>
+		</td>
+		[% ELSE %]
+		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
+		[% END %]
+		[% IF costs_a && costs_b %]
+		[% tableCompareCosts(costs_a || 0, costs_b || 0) %]
+		[% ELSE %]
+		<td class="table-warning"><span class="text-muted">-</span></td>
+		[% END %]
+		[% IF costs_b %]
+		<td class="currency" title="Costs per month [% instance_b.name %] in [% region.name %] with 1Y CUD: [% costs_b %] USD">
+			<a href="/[% region.name %]/[% instance_b.name %].html">[% costs_b %]</a>
+		</td>
+		[% ELSE %]
+		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
+		[% END %]
+		<!-- 3Y CUD -->
+		[%-
+			costs_a = 0;
+			costs_b = 0;
+			FOREACH region_a IN regions_a;
+				IF region_a.region == region.name;
+					costs_a = region_a.month3yCud;
+				END;
+			END;
+			FOREACH region_b IN regions_b;
+				IF region_b.region == region.name;
+					costs_b = region_b.month3yCud;
+				END;
+			END;
+		-%]
+		[% IF costs_a %]
+		<td class="currency table-active" title="Costs per month [% instance_a.name %] in [% region.name %] with 3Y CUD: [% costs_a %] USD">
+			<a href="/[% region.name %]/[% instance_a.name %].html">[% costs_a %]</a>
+		</td>
+		[% ELSE %]
+		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
+		[% END %]
+		[% IF costs_a && costs_b %]
+		[% tableCompareCosts(costs_a || 0, costs_b || 0) %]
+		[% ELSE %]
+		<td class="table-warning"><span class="text-muted">-</span></td>
+		[% END %]
+		[% IF costs_b %]
+		<td class="currency" title="Costs per month [% instance_b.name %] in [% region.name %] with 3Y CUD: [% costs_b %] USD">
+			<a href="/[% region.name %]/[% instance_b.name %].html">[% costs_b %]</a>
+		</td>
+		[% ELSE %]
+		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
+		[% END %]
+	</tr>
+	[% END %]
+</tbody>
+</table>
+</div> <!-- // table-responsive -->
+
+[% PROCESS footer.tt2 %]
