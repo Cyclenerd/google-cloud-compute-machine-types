@@ -1,4 +1,4 @@
-[%- META title       = 'Google Compute Engine Machine Types with Intel CPU' -%]
+[%- META title       = 'Machine types with Intel CPU' -%]
 [%- META description = 'List of all Google Compute Engine machine types with Intel processor (CPU) in Google Cloud Platfrom.' -%]
 [%- PROCESS header.tt2 -%]
 [%- PROCESS instances_header.tt2 -%]

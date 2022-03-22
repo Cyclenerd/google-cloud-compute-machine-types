@@ -1,4 +1,4 @@
-[%- META title       = 'Google Compute Engine Machine Types Certified for SAP HANA' -%]
+[%- META title       = 'Certified for SAP HANA' -%]
 [%- META description = 'List of all Google Compute Engine machine types certified for SAP HANA in Google Cloud Platfrom.' -%]
 [%- PROCESS header.tt2 -%]
 [%- PROCESS instances_header.tt2 -%]
