@@ -1,0 +1,18 @@
+<meta name="robots" content="index, follow">
+<meta name="description" content="
+[%- IF template.name == 'instance.tt2' -%]
+Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].
+[%- ELSIF template.name == 'comparison.tt2'-%]
+Google Compute Engine machine type comparison [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) versus [% instance_b.name %] ([% instance_b.vCpus %] vCPU, [% instance_b.memoryGiB %] GB memory).
+[%- ELSIF template.name == 'vs.tt2'-%]
+Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) with other Google Cloud Platform GCE machine types.
+[%- ELSIF template.name == 'region.tt2'-%]
+List off all Google Compute Engine machine types in Google Cloud Platform region [% region.name %].[% IF region.regionLocation %] The location of the region is [% region.regionLocation %][% END %].
+[%- ELSIF template.name == 'instance_in_region.tt2'-%]
+Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory in Google Cloud region [% instance.region %].
+[%- ELSIF template.description -%]
+[% template.description %]
+[%- ELSE -%]
+Google Compute Engine machine type comparison website.
+[%- END -%]
+">

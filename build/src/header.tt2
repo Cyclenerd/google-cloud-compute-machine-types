@@ -11,20 +11,7 @@
 [%- IF template.name == 'instance_in_region.tt2' -%][% instance.name %] in [% instance.region %] - [%- END -%]
 [%- IF template.title                            -%][% template.title %] - [%- END -%]
 Google Compute Engine</title>
-<meta name="robots" content="index, follow">
-[%- IF template.name == 'instance.tt2' -%]
-<meta name="description" content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory.">
-[%- ELSIF template.name == 'comparison.tt2'-%]
-<meta name="description" content="Google Compute Engine machine type comparison [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) versus [% instance_b.name %] ([% instance_b.vCpus %] vCPU, [% instance_b.memoryGiB %] GB memory).">
-[%- ELSIF template.name == 'vs.tt2'-%]
-<meta name="description" content="Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) with other GCE machine types.">
-[%- ELSIF template.name == 'region.tt2'-%]
-<meta name="description" content="Google Cloud region [% region.name %][% IF region.regionLocation %] in [% region.regionLocation %][% END %].">
-[%- ELSIF template.name == 'instance_in_region.tt2'-%]
-<meta name="description" content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory in Google Cloud region [% instance.region %].">
-[%- ELSIF template.description -%]
-<meta name="description" content="[% template.description %]">
-[%- END -%]
+[% IF template.name != '404.tt2'; PROCESS meta.tt2; END; %]
 <link rel=icon href="/favicon.ico">
 <link rel="stylesheet" href="https://unpkg.com/bootstrap@5/dist/css/bootstrap.min.css">
 <style>
