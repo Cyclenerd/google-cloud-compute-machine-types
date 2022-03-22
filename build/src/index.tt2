@@ -149,8 +149,8 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 <h2>Download</h2>
 
 <p>
-You can download a <a href="/machine-types-regions.csv">CSV</a> file ([% csvFileSize %] MB)
-and <a href="/machine-types-regions.sql.gz">SQL</a> export ([% sqlFileSize %] MB, gzip compressed) with all machine types and regions.
+You can download a <a href="/machine-types-regions.csv" rel="nofollow">CSV</a> file ([% csvFileSize %] MB)
+and <a href="/machine-types-regions.sql.gz" rel="nofollow">SQL</a> export ([% sqlFileSize %] MB, gzip compressed) with all machine types and regions.
 You can import and edit the CSV file to your favorite spreadsheet program (MS Excel, LibreOffice or Google Sheets).
 You can import the SQL dump into your favorite database (like SQLite).
 </p>

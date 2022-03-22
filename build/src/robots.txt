@@ -1,7 +1,6 @@
 User-agent: *
 Disallow: /img/
 Disallow: /index.html
-Disallow: /grid.html
 Disallow: /*.csv
 Disallow: /*.sql
 Disallow: /*.gz
