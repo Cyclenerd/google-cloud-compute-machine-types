@@ -1,35 +1,31 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Instance Picker - Google Compute Engine</title>
+[% PROCESS meta.tt2 %]
 <script                 src="https://unpkg.com/ag-grid-community@27/dist/ag-grid-community.min.noStyle.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/ag-grid-community@27/dist/styles/ag-grid.css">
 <link rel="stylesheet" href="https://unpkg.com/ag-grid-community@27/dist/styles/ag-theme-balham.css">
 <link rel="stylesheet" href="https://unpkg.com/bootstrap@5/dist/css/bootstrap.min.css">
-<meta name="robots" content="index, follow">
-<meta name="description" content="Choose with the Instance Picker between over 3,000 different combinations of Google Compute Engine machine types and Google Cloud regions.">
 <link rel=icon href="/favicon.ico">
 <style>
-		html {
-			width: 100%;
-			height: 100%;
-		}
-		body {
-			width: 100%;
-			height: 100%;
-			margin: 0;
-			padding: 0;
-		}
-		.frequency::after { content: " GHz"; }
-		.currency::before { content: "$"; }
-		.bandwidth::after { content: " Gbps"; }
-		.diskSize::after  { content: " TB"; }
-		.memory::after    { content: " GB"; }
-		.warning::before  { content: "⚠️ "; }
-		.sharedCpu::after { content: " (shared)"; }
-	</style>
+	html {
+		width: 100%;
+		height: 100%;
+	}
+	body {
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 0;
+	}
+	.frequency::after { content: " GHz"; }
+	.currency::before { content: "$"; }
+	.bandwidth::after { content: " Gbps"; }
+	.diskSize::after  { content: " TB"; }
+	.memory::after    { content: " GB"; }
+	.warning::before  { content: "⚠️ "; }
+	.sharedCpu::after { content: " (shared)"; }
+</style>
 </head>
 <body>
 <div id="myGrid" class="ag-theme-balham" style="height: 100%; width:100%"></div>

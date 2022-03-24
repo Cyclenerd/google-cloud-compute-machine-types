@@ -1,9 +1,7 @@
-[%- META title       = 'CPU Platforms' -%]
-[%- META description = 'Available CPU platforms in Google Cloud regions.' -%]
 [%- PROCESS header.tt2 -%]
 [%- PROCESS regions_header.tt2 -%]
 
-<h1>Available CPU Platforms in Regions</h1>
+<h1>Available CPU Platforms in Google Cloud Regions</h1>
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
@@ -31,7 +29,7 @@
 <tbody>
 	[% FOREACH region IN regions %]
 	<tr>
-		<td><a href="[% region.name %].html">[% region.name %]</a></td>
+		<td><a href="[% region.name %].html" title="Google Cloud region [% region.name %]">[% region.name %]</a></td>
 		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td>[% region.zoneCount %]</td>
 		<td [% IF region.intelIceLake      == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine types with Intel Ice Lake in region [% region.name %]">

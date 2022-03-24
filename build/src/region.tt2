@@ -1,6 +1,6 @@
 [%- PROCESS header.tt2 -%]
 
-<h1>Region [% region.name %][% IF region.regionLocation %] <small class="text-muted">[% region.regionLocation %]</small>[% END %]</h1>
+<h1>Google Cloud Region [% region.name %][% IF region.regionLocation %] <small class="text-muted">[% region.regionLocation %]</small>[% END %]</h1>
 
 <p><a class="btn btn-success" href="/grid.html?region=[% region.name %]" role="button">✅ Instance Picker with filter on region [% region.name %]</a></p>
 

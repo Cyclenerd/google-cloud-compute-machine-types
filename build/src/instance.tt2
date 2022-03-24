@@ -1,5 +1,5 @@
 [%- PROCESS header.tt2 -%]
-<h1>Machine Type [% instance.name %]</h1>
+<h1>Google Compute Engine Machine Type [% instance.name %]</h1>
 
 <blockquote class="blockquote">
 	<p>

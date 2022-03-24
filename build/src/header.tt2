@@ -1,17 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>
-[%- IF template.name == 'instance.tt2'           -%]Machine [% instance.name %] - [%- END -%]
-[%- IF template.name == 'comparison.tt2'         -%][% instance_a.name %] vs. [% instance_b.name %] - [%- END -%]
-[%- IF template.name == 'vs.tt2'                 -%]Compare [% instance_a.name %] - [%- END -%]
-[%- IF template.name == 'region.tt2'             -%]Region [% region.name %] - [%- END -%]
-[%- IF template.name == 'instance_in_region.tt2' -%][% instance.name %] in [% instance.region %] - [%- END -%]
-[%- IF template.title                            -%][% template.title %] - [%- END -%]
-Google Compute Engine</title>
-[% IF template.name != '404.tt2'; PROCESS meta.tt2; END; %]
+[% PROCESS meta.tt2; %]
 <link rel=icon href="/favicon.ico">
 <link rel="stylesheet" href="https://unpkg.com/bootstrap@5/dist/css/bootstrap.min.css">
 <style>

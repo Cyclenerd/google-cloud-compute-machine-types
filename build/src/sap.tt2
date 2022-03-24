@@ -1,9 +1,7 @@
-[%- META title       = 'Certified for SAP' -%]
-[%- META description = 'List of all Google Compute Engine machine types certified for SAP application in Google Cloud Platfrom.' -%]
 [%- PROCESS header.tt2 -%]
 [%- PROCESS instances_header.tt2 -%]
 
-<h1>[% template.title %]</h1>
+<h1>Certified for SAP Application on Google Cloud Platform</h1>
 
 <p><a class="btn btn-success" href="/grid.html?sap=1" role="button">✅ Instance Picker with filter on SAP</a></p>
 

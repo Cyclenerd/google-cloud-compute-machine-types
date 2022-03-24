@@ -1,9 +1,7 @@
-[%- META title       = 'Certified for SAP HANA' -%]
-[%- META description = 'List of all Google Compute Engine machine types certified for SAP HANA in Google Cloud Platfrom.' -%]
 [%- PROCESS header.tt2 -%]
 [%- PROCESS instances_header.tt2 -%]
 
-<h1>[% template.title %]</h1>
+<h1>Certified for SAP HANA on Google Cloud Platform</h1>
 
 <p><a class="btn btn-success" href="/grid.html?hana=1" role="button">✅ Instance Picker with filter on SAP HANA</a></p>
 
@@ -38,7 +36,7 @@
 <tbody>
 	[% FOREACH instance IN instances; IF instance.hana; %]
 	<tr>
-		<td><a href="[% instance.name %].html">[% instance.name %]</a></td>
+		<td><a href="[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
 		<td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
 		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>

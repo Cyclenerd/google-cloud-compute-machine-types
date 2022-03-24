@@ -1,6 +1,6 @@
 [%- PROCESS header.tt2 -%]
 
-<h1>Comparison [% instance_a.name %] vs. [% instance_b.name %]</h1>
+<h1>Google Compute Engine Comparison [% instance_a.name %] vs. [% instance_b.name %]</h1>
 
 <blockquote class="blockquote">
 <p>

@@ -1,5 +1,5 @@
 [%- PROCESS header.tt2 -%]
-<h1>Machine Type [% instance.name %] in Region [% instance.region %][% IF instance.regionLocation %] <small class="text-muted">[% instance.regionLocation %]</small>[% END %]</h1>
+<h1>Google Compute Engine Machine Type [% instance.name %] in Region [% instance.region %][% IF instance.regionLocation %] <small class="text-muted">[% instance.regionLocation %]</small>[% END %]</h1>
 
 <blockquote class="blockquote">
 	<p>
@@ -301,7 +301,7 @@ gcloud compute instances create [% instance.name%]-[% zone %] \
 --image-family=ubuntu-2004-lts</code></pre>
 </div> <!-- // position-relative -->
 
-<p>CPU platfroms:<p>
+<p>CPU platforms:<p>
 <pre># List available CPU platforms
 gcloud compute zones describe [% zone %] --format=&#39;value(availableCpuPlatforms)&#39;</pre>
 </div>

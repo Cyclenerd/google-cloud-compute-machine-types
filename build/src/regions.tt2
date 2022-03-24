@@ -1,9 +1,7 @@
-[%- META title       = 'Google Cloud Regions' -%]
-[%- META description = 'List of all Google Cloud regions available in all Google Cloud Platfrom locations.' -%]
 [%- PROCESS header.tt2 -%]
 [%- PROCESS regions_header.tt2 -%]
 
-<h1>[% template.title %]</h1>
+<h1>Google Cloud Platform Regions</h1>
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
@@ -39,7 +37,7 @@
 <tbody>
 	[% FOREACH region IN regions %]
 	<tr>
-		<td><a href="[% region.name %].html">[% region.name %]</a></td>
+		<td><a href="[% region.name %].html" title="Google Cloud region [% region.name %]">[% region.name %]</a></td>
 		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td>[% region.zoneCount %]</td>
 		<!-- Machine Series -->

@@ -1,9 +1,7 @@
-[%- META title       = 'Google Compute Engine Machine Types' -%]
-[%- META description = 'List of all Google Compute Engine machine types available in Google Cloud Platfrom regions.' -%]
 [%- PROCESS header.tt2 -%]
 [%- PROCESS instances_header.tt2 -%]
 
-<h1>[% template.title %]</h1>
+<h1>Google Compute Engine Machine Types</h1>
 
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
@@ -35,7 +33,7 @@
 <tbody>
 	[% FOREACH instance IN instances %]
 	<tr>
-		<td><a href="[% instance.name %].html">[% instance.name %]</a></td>
+		<td><a href="[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
 		<td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
 		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>

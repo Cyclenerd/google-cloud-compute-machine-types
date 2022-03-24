@@ -1,6 +1,6 @@
 [%- PROCESS header.tt2 -%]
 
-<h1>Compare machine type [% instance_a.name %]</h1>
+<h1>Compare Google Compute Engine Machine Type [% instance_a.name %]</h1>
 
 <blockquote class="blockquote">
 <p>
@@ -48,7 +48,7 @@
 	[% ELSE %]
 	<tr>
 		<td>
-			<a href="/comparison/[% instance_a.name %]/vs/[% instance.name %].html" title="Compare [% instance_a.name %] vs. [% instance.name %]">
+			<a href="/comparison/[% instance_a.name %]/vs/[% instance.name %].html" title="Compare Google Compute Engine machine type [% instance_a.name %] vs. [% instance.name %]">
 				[% instance.name %]
 			</a>
 		</td>

@@ -1,9 +1,7 @@
-[%- META title       = 'Machine types with Intel CPU' -%]
-[%- META description = 'List of all Google Compute Engine machine types with Intel processor (CPU) in Google Cloud Platfrom.' -%]
 [%- PROCESS header.tt2 -%]
 [%- PROCESS instances_header.tt2 -%]
 
-<h1>[% template.title %]</h1>
+<h1>Google Compute Engine Machine Types with Intel CPU Platform</h1>
 
 <p><a class="btn btn-success" href="/grid.html?platform=intel" role="button">✅ Instance Picker with filter on CPU Platform</a></p>
 
@@ -38,7 +36,7 @@
 <tbody>
 	[% FOREACH instance IN instances; IF instance.intel; %]
 	<tr>
-		<td><a href="[% instance.name %].html">[% instance.name %]</a></td>
+		<td><a href="[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
 		<td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
 		<td title="CPU Platform: [% instance.cpuPlatform %]">[% instance.cpuPlatform | replace('\[','') | replace('\]','') %]</td>
