@@ -23,8 +23,8 @@
 <div class="row">
 <div class="col-xxl-6">
 
-<h2>Instances</h2>
-
+<h2>Google Cloud VMs</h2>
+<p>Technical facts about the Google Compute Engine machine types [% instance_a.name %] and [% instance_b.name %].</p>
 <div class="table-responsive">
 <table class="table table-hover table-bordered">
 <thead>
@@ -195,8 +195,8 @@
 </div> <!-- // col -->
 <div class="col-xxl-6">
 
-<h2>Costs</h2>
-
+<h2>Costs (Pricing)</h2>
+<p>Costs for Google Compute Engine machine types [% instance_a.name %] and [% instance_b.name %].</p>
 <div class="table-responsive">
 <table class="table table-hover table-bordered">
 <thead>
@@ -242,8 +242,8 @@
 </table>
 </div> <!-- // table-responsive -->
 
-<h2>Operating System Licenses Costs (Month)</h2>
-
+<h2>Operating System Licenses Costs</h2>
+<p>Monthly costs for paid <i>premium</i> operating system licenses for Google Compute Engine machine types [% instance_a.name %] and [% instance_b.name %].</p>
 <div class="table-responsive">
 <table class="table table-hover table-bordered">
 <thead>
@@ -306,7 +306,7 @@
 
 
 <h2>Regions</h2>
-
+<p>Costs for Google Compute Engine machine types [% instance_a.name %] and [% instance_b.name %] in Google Cloud regions in which the VMs are available.</p>
 <div class="table-responsive">
 <table class="table table-sm table-hover table-bordered">
 <thead>

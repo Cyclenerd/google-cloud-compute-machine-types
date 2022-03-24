@@ -42,7 +42,8 @@
 
 <div class="row">
 <div class="col-xxl-6">
-<h2>Instance</h2>
+<h2>Google Cloud VM [% instance.name %]</h2>
+<p>Technical facts about the Google Compute Engine machine type [% instance.name %] in Google Cloud Region [% instance.region %].</p>
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>Series</th>
@@ -167,7 +168,8 @@
 </table>
 
 [% IF instance.zones %]
-<h2>Zones</h2>
+<h2>Zones in Region [% instance.region %]</h2>
+<p>Google Compute Engine machine type [% instance.name %] is available in the following zones within the Google Cloud region [% instance.region %].</p>
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
@@ -204,7 +206,9 @@
 [% END %]
 </div> <!-- // col -->
 <div class="col-xxl-6">
-<h2>Costs</h2>
+
+<h2>Costs (Pricing)</h2>
+<p>Costs for Google Compute Engine machine type [% instance.name %] in Google Cloud region [% instance.region %].</p>
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>Costs per Hour</th>
@@ -226,7 +230,9 @@
 		<td class="currency">[% instance.month3yCud %]</td>
 	</tr>
 </table>
-<h2>Operating System Licenses Costs (Month)</h2>
+
+<h2>Operating System Licenses Costs</h2>
+<p>Monthly costs for paid <i>premium</i> operating system licenses for Google Compute Engine machine type [% instance.name %].</p>
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>SUSE Linux Enterprise Server</th>
@@ -257,13 +263,21 @@
 		<td class="currency">[% instance.monthRhelSap %]</td>
 	</tr>
 </table>
+
 [% IF instance.zones %]
 <h2>CLI <small class="text-muted">Google Cloud Command Line Interface</small></h2>
-
+<p>Google Cloud Command Line Interface (CLI) snippets for Google Compute Engine machine type [% instance.name %] in Google Cloud Region [% instance.region %].</p>
 <ul class="nav nav-tabs" id="zonesTab" role="tablist">
 [% firstZone = 0; FOREACH zone IN instance.zones.split(', ').sort; firstZone = firstZone + 1; %]
 <li class="nav-item" role="presentation">
-	<button [% IF firstZone == 1%]class="nav-link active" aria-selected="true"[% ELSE %]class="nav-link"[% END %] id="[% zone %]-tab" data-bs-toggle="tab" data-bs-target="#[% zone %]" type="button" role="tab" aria-controls="[% zone %]">[% zone %]</button>
+	<button [% IF firstZone == 1%]class="nav-link active" aria-selected="true"[% ELSE %]class="nav-link"[% END %]
+		id="[% zone %]-tab"
+		data-bs-toggle="tab"
+		data-bs-target="#[% zone %]"
+		type="button"
+		role="tab"
+		aria-controls="[% zone %]"
+		title="Google Compute Engine machine type [% instance.name %] in Google Cloud zone [% zone %]">[% zone %]</button>
 </li>
 [% END %]
 </ul>
@@ -279,7 +293,7 @@ function copy[% zone.remove('-') %]() {
 </script>
 <div class="position-relative">
 <div class="position-absolute top-0 end-0"><button type="button" class="btn btn-outline-primary btn-sm" onclick="copy[% zone.remove('-') %]();">Copy to Clipboard</button></div>
-<pre><code id="cli[% zone.remove('-') %]"># Create Compute Engine virtual machine instance
+<pre><code id="cli[% zone.remove('-') %]"># Create Google Compute Engine virtual machine instance
 # called &#39;[% instance.name%]-[% zone %]&#39;
 # in the &#39;[% zone %]&#39; zone
 # with the latest &#39;Ubuntu 20.04 LTS&#39; image available.
@@ -313,6 +327,7 @@ gcloud compute zones describe [% zone %] --format=&#39;value(availableCpuPlatfor
 gcloud compute images list</pre>
 
 [% END %]
+
 </div> <!-- // col -->
 </div> <!-- // row -->
 

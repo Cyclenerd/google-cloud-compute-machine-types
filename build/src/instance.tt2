@@ -25,7 +25,8 @@
 
 <div class="row">
 <div class="col-xxl-6">
-<h2>Instance</h2>
+<h2>Google Cloud VM [% instance.name %]</h2>
+<p>Technical facts about the Google Compute Engine machine type [% instance.name %].</p>
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>Series</th>
@@ -133,7 +134,8 @@
 </table>
 </div> <!-- // col -->
 <div class="col-xxl-6">
-<h2>Costs</h2>
+<h2>Costs (Pricing) for [% instance.name %]</h2>
+<p>Costs for Google Compute Engine machine type [% instance.name %] in Google Cloud regions in which the VM is available.</p>
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
@@ -152,7 +154,7 @@
 <tbody>
 	[% FOREACH region IN regions %]
 	<tr>
-		<td><a href="./[% region.name %]/[% instance.name %].html">[% region.name %]</a></td>
+		<td><a href="./[% region.name %]/[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %] in Google Cloud region [% region.name %]">[% region.name %]</a></td>
 		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td [% IF region.zoneCount < 1%]class="table-danger"[% END%] title="Available [% region.zoneCount %] zone[% IF region.zoneCount > 1 %]s[% END %] in region [% region.name %]">[% IF region.zoneCount %][% region.zoneCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td [% IF region.availableCpuPlatformCount < instance.cpuPlatformCount %]class="table-warning"[% END%] title="Available CPU platforms in region [% region.name %]">[% IF region.availableCpuPlatformCount %][% region.availableCpuPlatformCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
@@ -169,7 +171,8 @@
 </tbody>
 </table>
 </div><!-- table-responsive -->
-<h2>Operating System Licenses Costs (Month)</h2>
+<h2>Operating System Licenses Costs for [% instance.name %]</h2>
+<p>Monthly costs for paid <i>premium</i> operating system licenses for Google Compute Engine machine type [% instance.name %].</p>
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>SUSE Linux Enterprise Server</th>

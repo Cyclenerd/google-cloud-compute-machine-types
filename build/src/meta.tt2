@@ -179,7 +179,7 @@
 <meta property="og:url"          content="https://gcloud-compute.com/[% instance.name %].html">
 
 [%- ELSIF template.name == 'comparison.tt2' -%]
-<title>[% instance_a.name %] Vs. [% instance_b.name %] - Google Cloud</title>
+<title>[% instance_a.name %] / [% instance_b.name %] - Google Cloud</title>
 <meta name="description"         content="Google Compute Engine machine type comparison [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) versus [% instance_b.name %] ([% instance_b.vCpus %] vCPU, [% instance_b.memoryGiB %] GB memory).">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/[% instance_a.name %]/[% instance_b.name %].png">
@@ -196,7 +196,7 @@
 <meta property="og:url"          content="https://gcloud-compute.com/comparison/[% instance_a.name %]/vs/[% instance_b.name %].html">
 
 [%- ELSIF template.name == 'vs.tt2'-%]
-<title>[% instance_a.name %] - Google Cloud Comparison</title>
+<title>[% instance_a.name %] - GCE Machine Type Comparison</title>
 <meta name="description"         content="Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) with other Google Cloud Platform GCE machine types.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/[% instance_a.name %].png">
