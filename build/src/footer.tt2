@@ -1,5 +1,5 @@
 <p>
-	<a class="btn btn-secondary" href="https://github.com/Cyclenerd/google-cloud-compute-machine-types" role="button">🖊️ Edit on GitHub</a>
+	<a class="btn btn-secondary" href="[% site.github.repo %]" role="button">🖊️ Edit on GitHub</a>
 </p>
 </div> <!-- // container -->
 </main>
@@ -9,10 +9,10 @@
 			Copyright [% USE date; date.format(date.now, '%Y'); %] <a href="https://www.nkn-it.de/">Nils Knieling</a>. All Rights Reserved.
 		</p>
 		<p class="text-muted text-center">
-			This site is not maintained by or affiliated with Google.
+			This Google Cloud Platform and Google Compute Engine machine type comparison website is not maintained by or affiliated with Google.
 			All product names, logos, and brands are property of their respective owners.
 			Data and costs shown are not guaranteed to be accurate or current.
-			Please <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types/issues">report issues</a> you see.
+			Please <a href="[% site.github.issues %]">report issues</a> you see.
 		</p>
 		<p class="text-muted text-center small">Last Update: <a href=[% IF gitHubRunId %]"[% gitHubServerUrl %]/[% gitHubRepository %]/actions/runs/[% gitHubRunId %]"[% ELSE %]"#"[% END %]>[% gmttime %]</a> (GMT)</p>
 	</div>
@@ -22,35 +22,35 @@
 <div class="modal-dialog modal-lg modal-fullscreen-lg-down">
 <div class="modal-content">
 <div class="modal-header">
-	<h5 class="modal-title" id="downloadModalLabel">Download all GCE Machine Types in Regions</h5>
+	<h5 class="modal-title" id="downloadModalLabel">Download Google Compute Machine Types</h5>
 	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
 
-<p class="h4">Spreadsheet</p>
+<p class="h4">Spreadsheet with GCE Machine Types and Google Cloud Regions</p>
 <p><a href="/machine-types-regions.csv" rel="nofollow">Download CSV file</a> ([% csvFileSize %] MB)<p>
 
-<p class="h4">Database</p>
+<p class="h4">Database with GCE Machine Types, Google Cloud Regions and Zones</p>
 <p><a href="/machine-types-regions.sql.gz" rel="nofollow">Download SQL export</a> ([% sqlFileSize %] MB, gzip compressed)<p>
 
 <p class="h4">Command Line</p>
-<pre><code># Download CSV
+<pre><code># Download Google Compute Engine machine types as CSV
 curl -O https://gcloud-compute.com/machine-types-regions.csv
 # Search CSV and count
 grep 'europe-west4' &lt; machine-types-regions.csv | wc -l
-# Download SQL
+# Download Google Compute Engine machine types as SQL
 curl -O https://gcloud-compute.com/machine-types-regions.sql.gz
-# Decompress SQL export
+# Decompress GCE machine types SQL export
 gzip -d machine-types-regions.sql.gz
-# Import SQL dump
+# Import GCE machine types SQL dump
 sqlite3 gce.db &lt; machine-types-regions.sql
-# SQL query
+# SQL query Google Cloud machine types (instances)
 sqlite3 gce.db &#39;SELECT * FROM instances&#39;</code></pre>
 
 <p class="h4">Source Code</p>
 <p>
-	This website and software is published as open source and licensed under the Apache License (version 2.0).
-	You can find the source code on <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types">GitHub</a>.
+	This Google Cloud Platform and Google Compute Engine machine type comparison website is published as open source and licensed under the Apache License (version 2.0).
+	You can find the source code on <a href="[% site.github.repo %]">GitHub</a>.
 <p>
 
 </div> <!-- // modal-body -->
@@ -59,6 +59,6 @@ sqlite3 gce.db &#39;SELECT * FROM instances&#39;</code></pre>
 </div> <!-- // modal-dialog -->
 </div> <!-- // modal -->
 
-<script src="https://unpkg.com/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+<script src="[% site.bootstrap.js %]"></script>
 </body>
 </html>

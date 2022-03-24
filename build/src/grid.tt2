@@ -5,7 +5,7 @@
 <script                 src="https://unpkg.com/ag-grid-community@27/dist/ag-grid-community.min.noStyle.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/ag-grid-community@27/dist/styles/ag-grid.css">
 <link rel="stylesheet" href="https://unpkg.com/ag-grid-community@27/dist/styles/ag-theme-balham.css">
-<link rel="stylesheet" href="https://unpkg.com/bootstrap@5/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="[% site.bootstrap.css %]">
 <link rel=icon href="/favicon.ico">
 <style>
 	html {
@@ -65,17 +65,18 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 
 <p class="h4">About</p>
 <p>
-	This website and software is published as open source and licensed under the Apache License (version 2.0).
-	You can find the source code on <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types">GitHub</a>.
+	This Google Cloud Platform and Google Compute Engine machine type comparison website is published as open source and licensed under the Apache License (version 2.0).
+	You can find the source code on <a href="[% site.github.repo %]">GitHub</a>.
 	This site is not maintained by or affiliated with Google.
+	All product names, logos, and brands are property of their respective owners.
 	Data and costs shown are not guaranteed to be accurate or current.
-	Please <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types/issues">report issues</a> you see.
+	Please <a href="[% site.github.issues %]">report issues</a> you see.
 </p>
 <p>Last Update: <a href=[% IF gitHubRunId %]"[% gitHubServerUrl %]/[% gitHubRepository %]/actions/runs/[% gitHubRunId %]"[% ELSE %]"#"[% END %]>[% gmttime %]</a> (GMT)</p>
 </div> <!-- // modal-body -->
 <div class="modal-footer">
 	<a class="btn btn-success" href="/" role="button">👋 Start</a>
-	<a class="btn btn-primary" href="https://github.com/Cyclenerd/google-cloud-compute-machine-types" role="button">😽 GitHub</a>
+	<a class="btn btn-primary" href="[% site.github.repo %]" role="button">😽 GitHub</a>
 	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 </div> <!-- // modal-footer -->
 </div> <!-- // modal-content -->
@@ -105,7 +106,7 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 <!-- // welcome toast -->
 
 <script src="main.js?[% timestamp %]"></script>
-<script src="https://unpkg.com/bootstrap@5/dist/js/bootstrap.bundle.min.js"></script>
+<script src="[% site.bootstrap.js %]"></script>
 
 </body>
 </html>

@@ -1,3 +1,13 @@
 [%-
+site = {
+	github = {
+		repo   => 'https://github.com/Cyclenerd/google-cloud-compute-machine-types',
+		issues => 'https://github.com/Cyclenerd/google-cloud-compute-machine-types/issues',
+	},
+	bootstrap = {
+		css => 'https://unpkg.com/bootstrap@5/dist/css/bootstrap.min.css',
+		js  => 'https://unpkg.com/bootstrap@5/dist/js/bootstrap.bundle.min.js',
+	}
+};
 PROCESS macros.tt2;
 -%]

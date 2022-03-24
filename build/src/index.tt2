@@ -231,7 +231,7 @@ n2-highcpu-8|8.0|0.315728</code></pre>
 
 <p>
 	Everything you see here is published as open source software and licensed under the Apache License (version 2.0).
-	You can find the source code on <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types">GitHub</a>.
+	You can find the source code on <a href="[% site.github.repo %]">GitHub</a>.
 	Any improvements and pull requests are welcome.
 </p>
 

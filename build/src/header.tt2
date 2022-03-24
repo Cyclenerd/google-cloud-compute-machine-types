@@ -3,7 +3,7 @@
 <head>
 [% PROCESS meta.tt2; %]
 <link rel=icon href="/favicon.ico">
-<link rel="stylesheet" href="https://unpkg.com/bootstrap@5/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="[% site.bootstrap.css %]">
 <style>
 	main > .container-fluid { padding: 65px 15px 0; }
 	.frequency::after { content: " GHz"; }
