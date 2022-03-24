@@ -63,6 +63,12 @@ unless (-d "$dir") {
 	mkdir("$dir") or die "Can not create dir for opengraph images!\n";
 }
 
+# robots.txt
+open(FH, '>', "$dir/robots.txt") or die $!;
+print FH "User-agent: *\n";
+print FH "Allow: /\n";
+close(FH);
+
 
 ###############################################################################
 # IMAGE TEMPLATE
