@@ -86,3 +86,8 @@ Cloudflare is used as CDN. The following must be added to the DNS management for
 ```text
 opengraph.gcloud-compute.com CNAME c.storage.googleapis.com
 ```
+
+Test:
+
+* [Twitter Card Validator](https://cards-dev.twitter.com/validator)
+* [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/inspect/)

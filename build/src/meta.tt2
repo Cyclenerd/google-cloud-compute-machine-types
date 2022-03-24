@@ -12,11 +12,11 @@
 <title>Google Cloud Compute Engine Machine Type Comparison</title>
 <meta name="description"         content="Choose the right Google Compute Engine machine type available in Google Cloud Platform. Compare different families like N1 with N2.">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/social.png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/social.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Google Cloud Machine Type Comparison">
 <meta name="twitter:description" content="Choose the right Google Compute Engine machine type available in Google Cloud Platform. Compare different families like N1 with N2.">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/social.png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/social.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Cloud Platform with Google Compute Engine">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
@@ -29,11 +29,11 @@
 <title>Google Cloud Compute Engine Instance Picker</title>
 <meta name="description"         content="Choose with the Instance Picker between over 3,000 different combinations of Google Compute Engine machine types and Google Cloud regions.">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/grid.png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/grid.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Google Cloud Compute Engine Instance Picker">
 <meta name="twitter:description" content="Choose with the Instance Picker between over 3,000 different combinations of Google Compute Engine machine types and Google Cloud regions.">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/grid.png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/grid.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Cloud Platform Google Compute Engine Instance Picker">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
@@ -46,11 +46,11 @@
 <title>GCE Machine Types in Google Cloud Platform</title>
 <meta name="description"         content="List of all Google Compute Engine machine types available in Google Cloud Platform regions.">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/instances.png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/instances.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Google Compute Engine Machine Types">
 <meta name="twitter:description" content="List of all Google Compute Engine machine types available in Google Cloud Platform regions.">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/instances.png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/instances.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine types">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
@@ -63,16 +63,16 @@
 <title>Machine Types with Intel CPU in Google Cloud Platform</title>
 <meta name="description"         content="List of all Google Compute Engine machine types with Intel processor (CPU) in Google Cloud Platform.">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/instances.png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/instances.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:title"       content="Google Compute Engine Machine Types with Intel CPU">
+<meta name="twitter:title"       content="GCE Machine Types with Intel CPU">
 <meta name="twitter:description" content="List of all Google Compute Engine machine types with Intel processor (CPU) in Google Cloud Platform.">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/instances.png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/instances.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine types">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:type"         content="website">
-<meta property="og:title"        content="Google Compute Engine Machine Types with Intel CPU">
+<meta property="og:title"        content="GCE Machine Types with Intel CPU">
 <meta property="og:description"  content="List of all Google Compute Engine machine types with Intel processor (CPU) in Google Cloud Platform.">
 <meta property="og:url"          content="https://gcloud-compute.com/intel.html">
 
@@ -80,16 +80,16 @@
 <title>Machine Types with AMD CPU in Google Cloud Platform</title>
 <meta name="description"         content="List of all Google Compute Engine machine types with AMD processor (CPU) in Google Cloud Platform.">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/instances.png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/instances.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:title"       content="Google Compute Engine Machine Types with AMD CPU">
+<meta name="twitter:title"       content="GCE Machine Types with AMD CPU">
 <meta name="twitter:description" content="List of all Google Compute Engine machine types with AMD processor (CPU) in Google Cloud Platform.">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/instances.png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/instances.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine types">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:type"         content="website">
-<meta property="og:title"        content="Google Compute Engine Machine Types with AMD CPU">
+<meta property="og:title"        content="GCE Machine Types with AMD CPU">
 <meta property="og:description"  content="List of all Google Compute Engine machine types with AMD processor (CPU) in Google Cloud Platform.">
 <meta property="og:url"          content="https://gcloud-compute.com/amd.html">
 
@@ -97,16 +97,16 @@
 <title>Certified machine types for SAP on Google Cloud Platform</title>
 <meta name="description"         content="List of all Google Compute Engine machine types certified for SAP application on Google Cloud Platform.">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/instances.png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/instances.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:title"       content="Google Compute Engine Machine Types Certified for SAP">
+<meta name="twitter:title"       content="GCE Machine Types Certified for SAP">
 <meta name="twitter:description" content="List of all Google Compute Engine machine types certified for SAP application on Google Cloud Platform.">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/instances.png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/instances.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine types">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:type"         content="website">
-<meta property="og:title"        content="Google Compute Engine Machine Types Certified for SAP">
+<meta property="og:title"        content="GCE Machine Types Certified for SAP">
 <meta property="og:description"  content="List of all Google Compute Engine machine types certified for SAP application in Google Cloud Platform.">
 <meta property="og:url"          content="https://gcloud-compute.com/sap.html">
 
@@ -114,16 +114,16 @@
 <title>Certified machine types for HANA on Google Cloud Platform</title>
 <meta name="description"         content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform.">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/instances.png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/instances.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:title"       content="Google Compute Engine Machine Types Certified for HANA">
+<meta name="twitter:title"       content="GCE Machine Types Certified for HANA">
 <meta name="twitter:description" content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform.">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/instances.png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/instances.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine types">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:type"         content="website">
-<meta property="og:title"        content="Google Compute Engine Machine Types Certified for HANA">
+<meta property="og:title"        content="GCE Machine Types Certified for HANA">
 <meta property="og:description"  content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform.">
 <meta property="og:url"          content="https://gcloud-compute.com/hana.html">
 
@@ -131,11 +131,11 @@
 <title>Google Cloud Platform Regions with GCE Machines</title>
 <meta name="description"         content="List of all Google Cloud regions available in all Google Cloud Platform locations.">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/regions.png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/regions.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Google Cloud Platform Regions">
 <meta name="twitter:description" content="List of all Google Cloud regions available in all Google Cloud Platform locations.">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/regions.png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/regions.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Cloud Platform regions">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
@@ -148,11 +148,11 @@
 <title>Compute Engine CPU Platforms in Google Cloud Regions</title>
 <meta name="description"         content="Available CPU platforms in Google Cloud regions. Overview of the CPU generations from Intel and AMD.">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/regions.png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/regions.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="CPU Platforms in Google Cloud Regions">
 <meta name="twitter:description" content="Available CPU platforms in Google Cloud regions. Overview of the CPU generations from Intel and AMD.">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/regions.png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/regions.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Cloud Platform regions">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
@@ -165,11 +165,11 @@
 <title>[% instance.name %] - Google Cloud Compute Machine</title>
 <meta name="description"         content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/[% instance.name %].png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/[% instance.name %].png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Google Machine Type [% instance.name %]">
 <meta name="twitter:description" content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/[% instance.name %].png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/[% instance.name %].png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine type [% instance.name %]">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
@@ -182,16 +182,16 @@
 <title>[% instance_a.name %] / [% instance_b.name %] - Google Cloud</title>
 <meta name="description"         content="Google Compute Engine machine type comparison [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) versus [% instance_b.name %] ([% instance_b.vCpus %] vCPU, [% instance_b.memoryGiB %] GB memory).">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/[% instance_a.name %]/[% instance_b.name %].png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/[% instance_a.name %]/[% instance_b.name %].png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
-<meta name="twitter:title"       content="Comparison [% instance_a.name %] Vs. [% instance_b.name %]">
+<meta name="twitter:title"       content="Comparison [% instance_a.name %] vs. [% instance_b.name %]">
 <meta name="twitter:description" content="Google Compute Engine machine type comparison [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) versus [% instance_b.name %] ([% instance_b.vCpus %] vCPU, [% instance_b.memoryGiB %] GB memory).">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/[% instance_a.name %]/[% instance_b.name %].png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/[% instance_a.name %]/[% instance_b.name %].png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine comparison [% instance_a.name %] vs. [% instance_b.name %]">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:type"         content="website">
-<meta property="og:title"        content="Comparison [% instance_a.name %] Vs. [% instance_b.name %]">
+<meta property="og:title"        content="Comparison [% instance_a.name %] vs. [% instance_b.name %]">
 <meta property="og:description"  content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
 <meta property="og:url"          content="https://gcloud-compute.com/comparison/[% instance_a.name %]/vs/[% instance_b.name %].html">
 
@@ -199,11 +199,11 @@
 <title>[% instance_a.name %] - GCE Machine Type Comparison</title>
 <meta name="description"         content="Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) with other Google Cloud Platform GCE machine types.">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/[% instance_a.name %].png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/[% instance_a.name %].png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Compare Machine Type [% instance_a.name %]">
 <meta name="twitter:description" content="Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) with other Google Cloud Platform GCE machine types.">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/[% instance_a.name %].png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/[% instance_a.name %].png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine type [% instance_a.name %]">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
@@ -216,11 +216,11 @@
 <title>[% region.name %] - Google Cloud Platform Region</title>
 <meta name="description"         content="List off all Google Compute Engine machine types in Google Cloud Platform region [% region.name %].[% IF region.regionLocation %] The location of the region is [% region.regionLocation %][% END %].">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/[% region.name %].png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/[% region.name %].png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Google Cloud Region [% region.name %]">
 <meta name="twitter:description" content="List off all Google Compute Engine machine types in Google Cloud Platform region [% region.name %].[% IF region.regionLocation %] The location of the region is [% region.regionLocation %][% END %].">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/[% region.name %].png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/[% region.name %].png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Cloud region [% region.name %]">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
@@ -233,11 +233,11 @@
 <title>[% instance.name %] in [% instance.region %] - Google Cloud</title>
 <meta name="description"         content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory in Google Cloud region [% instance.region %].">
 <meta name="robots"              content="index, follow">
-<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/[% instance.region %]/[% instance.name %].png">
+<meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/[% instance.region %]/[% instance.name %].png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Machine Type [% instance.name %] in Region [% instance.region %]">
 <meta name="twitter:description" content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory in Google Cloud region [% instance.region %].">
-<meta property="og:image"        content="https://opengraph.gcloud-compute.com/[% instance.region %]/[% instance.name %].png">
+<meta property="og:image"        content="https://opengraph.gcloud-compute.com/[% instance.region %]/[% instance.name %].png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine type [% instance.name %] in region [% instance.region %]">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
