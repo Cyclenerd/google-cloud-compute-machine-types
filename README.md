@@ -24,6 +24,7 @@ you need the following requirements.
 * SQLite3 (`sqlite3`)
 * Perl 5 (`perl`)
 * Perl modules:
+	* [GD::Simple](https://metacpan.org/pod/GD::Simple)
 	* [App::Options](https://metacpan.org/pod/App::Options)
 	* [Encode](https://metacpan.org/pod/Encode)
 	* [YAML::XS](https://metacpan.org/pod/YAML::XS) (and `libyaml`)
@@ -31,6 +32,7 @@ you need the following requirements.
 	* [DBD::SQLite](https://metacpan.org/pod/DBD::SQLite)
 	* [Template::Toolkit](https://metacpan.org/pod/Template::Toolkit)
 	* [plackup](https://metacpan.org/dist/Plack/view/script/plackup)
+* [Roboto Font](https://fonts.google.com/specimen/Roboto) (for Open Graph images)
 
 Debian/Ubuntu:
 ```shell
@@ -46,7 +48,9 @@ sudo apt install \
 	libdbd-csv-perl \
 	libdbd-sqlite3-perl \
 	libtemplate-perl \
-	libplack-perl
+	libplack-perl \
+	libgd-perl \
+	fonts-roboto
 ```
 
 » Install [Google Cloud SDK](https://cloud.google.com/sdk/docs/install#deb)

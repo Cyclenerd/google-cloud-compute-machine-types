@@ -33,9 +33,20 @@ Run:
 perl site.pl
 ```
 
-This Perl script creates the static webapp (Templates are located in the [src](./src/) folder). The webapp is saved in the directory `../site`.
+This Perl script creates static websites (Templates are located in the [src](./src/) folder).
+The websites are stored in the directory `../site/`.
 
 The JavaScript grid library [AG Grid Community](https://www.ag-grid.com/) is used.
+
+## Open Graph
+
+Run:
+```shell
+perl opengraph.pl
+```
+
+This Perl script creates [Open Graph](https://ogp.me/) images for all GCE machines in all regions.
+The images are stored in the directory `../opengraph/`.
 
 ## Publish
 
@@ -59,4 +70,19 @@ Cloudflare is used as CDN. The following must be added to the DNS management for
 
 ```text
 gcloud-compute.com CNAME c.storage.googleapis.com
+```
+
+### Open Graph Images
+
+Open Graph images are stored in a separate Google Cloud Storage bucket.
+
+Copy:
+```shell
+gsutil -m rsync -r opengraph gs://opengraph.gcloud-compute.com
+```
+
+Cloudflare is used as CDN. The following must be added to the DNS management for gcloud-compute.com:
+
+```text
+opengraph.gcloud-compute.com CNAME c.storage.googleapis.com
 ```

@@ -1,4 +1,5 @@
 /site/**
+/opengraph/**
 /build/*.csv
 /build/*.gz
 /build/*.json
