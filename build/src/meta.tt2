@@ -44,19 +44,19 @@
 
 [%- ELSIF template.name == 'instances.tt2' -%]
 <title>GCE Machine Types in Google Cloud Platform</title>
-<meta name="description"         content="List of all Google Compute Engine machine types available in Google Cloud Platform regions.">
+<meta name="description"         content="List of all Google Compute Engine machine types available in Google Cloud Platform regions and locations.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image"       content="https://opengraph.gcloud-compute.com/instances.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Google Compute Engine Machine Types">
-<meta name="twitter:description" content="List of all Google Compute Engine machine types available in Google Cloud Platform regions.">
+<meta name="twitter:description" content="List of all Google Compute Engine machine types available in Google Cloud Platform regions and locations.">
 <meta property="og:image"        content="https://opengraph.gcloud-compute.com/instances.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine types">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Google Compute Engine Machine Types">
-<meta property="og:description"  content="List of all Google Compute Engine machine types available in Google Cloud Platform regions.">
+<meta property="og:description"  content="List of all Google Compute Engine machine types available in Google Cloud Platform regions and locations.">
 <meta property="og:url"          content="https://gcloud-compute.com/instances.html">
 
 [%- ELSIF template.name == 'intel.tt2' -%]
