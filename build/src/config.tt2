@@ -1,6 +1,7 @@
 [%-
 site = {
-	opengraph => 'https://storage.googleapis.com/opengraph.gcloud-compute.com',
+	#opengraph => 'https://storage.googleapis.com/opengraph.gcloud-compute.com',
+	opengraph  => 'https://opengraph.gcloud-compute.com',
 	github = {
 		repo   => 'https://github.com/Cyclenerd/google-cloud-compute-machine-types',
 		issues => 'https://github.com/Cyclenerd/google-cloud-compute-machine-types/issues',
