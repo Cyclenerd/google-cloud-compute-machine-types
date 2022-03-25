@@ -66,7 +66,7 @@ unless (-d "$dir") {
 # robots.txt
 open(FH, '>', "$dir/robots.txt") or die $!;
 print FH "User-agent: *\n";
-print FH "Allow: /\n";
+print FH "Disallow:\n";
 close(FH);
 
 
