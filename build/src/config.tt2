@@ -1,5 +1,6 @@
 [%-
 site = {
+	url => 'https://gcloud-compute.com',
 	#opengraph => 'https://storage.googleapis.com/opengraph.gcloud-compute.com',
 	opengraph  => 'https://opengraph.gcloud-compute.com',
 	github = {

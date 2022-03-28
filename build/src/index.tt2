@@ -171,7 +171,7 @@ You can import the SQL dump into your favorite database (like SQLite).
 <p>With the SQL export you can also do great queries using the command line (CLI).</p>
 <p>Command line:</p>
 <pre><code># Download SQL export
-curl -O https://gcloud-compute.com/machine-types-regions.sql.gz
+curl -O [% site.url %]/machine-types-regions.sql.gz
 # Decompress SQL export
 gzip -d machine-types-regions.sql.gz
 # Import SQL dump

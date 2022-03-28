@@ -23,7 +23,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Google Cloud Machine Type Comparison">
 <meta property="og:description"  content="Choose the right Google Compute Engine machine type available in Google Cloud Platform. Compare different families like N1 with N2.">
-<meta property="og:url"          content="https://gcloud-compute.com/">
+<meta property="og:url"          content="[% site.url %]/">
 
 [%- ELSIF template.name == 'grid.tt2' -%]
 <title>Google Cloud Compute Engine Instance Picker</title>
@@ -40,7 +40,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Google Cloud Compute Engine Instance Picker">
 <meta property="og:description"  content="Choose with the Instance Picker between over 3,000 different combinations of Google Compute Engine machine types and Google Cloud regions.">
-<meta property="og:url"          content="https://gcloud-compute.com/grid.html">
+<meta property="og:url"          content="[% site.url %]/grid.html">
 
 [%- ELSIF template.name == 'instances.tt2' -%]
 <title>GCE Machine Types in Google Cloud Platform</title>
@@ -57,7 +57,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Google Compute Engine Machine Types">
 <meta property="og:description"  content="Overview of all Google Compute Engine machine types that can be used in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
-<meta property="og:url"          content="https://gcloud-compute.com/instances.html">
+<meta property="og:url"          content="[% site.url %]/instances.html">
 
 [%- ELSIF template.name == 'intel.tt2' -%]
 <title>Machine Types with Intel CPU in Google Cloud Platform</title>
@@ -74,7 +74,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="GCE Machine Types with Intel CPU">
 <meta property="og:description"  content="List of all Google Compute Engine machine types with Intel processor (CPU) in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
-<meta property="og:url"          content="https://gcloud-compute.com/intel.html">
+<meta property="og:url"          content="[% site.url %]/intel.html">
 
 [%- ELSIF template.name == 'amd.tt2' -%]
 <title>Machine Types with AMD CPU in Google Cloud Platform</title>
@@ -91,7 +91,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="GCE Machine Types with AMD CPU">
 <meta property="og:description"  content="List of all Google Compute Engine machine types with AMD processor (CPU) in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
-<meta property="og:url"          content="https://gcloud-compute.com/amd.html">
+<meta property="og:url"          content="[% site.url %]/amd.html">
 
 [%- ELSIF template.name == 'sap.tt2' -%]
 <title>Certified machine types for SAP on Google Cloud Platform</title>
@@ -108,7 +108,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="GCE Machine Types Certified for SAP">
 <meta property="og:description"  content="List of all Google Compute Engine machine types certified for SAP application in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
-<meta property="og:url"          content="https://gcloud-compute.com/sap.html">
+<meta property="og:url"          content="[% site.url %]/sap.html">
 
 [%- ELSIF template.name == 'hana.tt2' -%]
 <title>Certified machine types for HANA on Google Cloud Platform</title>
@@ -125,7 +125,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="GCE Machine Types Certified for HANA">
 <meta property="og:description"  content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
-<meta property="og:url"          content="https://gcloud-compute.com/hana.html">
+<meta property="og:url"          content="[% site.url %]/hana.html">
 
 [%- ELSIF template.name == 'regions.tt2' -%]
 <title>Google Cloud Platform Regions with GCE Machines</title>
@@ -142,7 +142,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Google Cloud Platform Regions">
 <meta property="og:description"  content="List of all Google Cloud regions available in all Google Cloud Platform locations. Overview of the available number of Google Compute Engine machine types per series.">
-<meta property="og:url"          content="https://gcloud-compute.com/regions.html">
+<meta property="og:url"          content="[% site.url %]/regions.html">
 
 [%- ELSIF template.name == 'platforms.tt2' -%]
 <title>Compute Engine CPU Platforms in Google Cloud Regions</title>
@@ -159,7 +159,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="CPU Platforms in Google Cloud Regions">
 <meta property="og:description"  content="Available CPU platforms in Google Cloud regions. Overview of the CPU generations from Intel and AMD.">
-<meta property="og:url"          content="https://gcloud-compute.com/platforms.html">
+<meta property="og:url"          content="[% site.url %]/platforms.html">
 
 [%- ELSIF template.name == 'instance.tt2' -%]
 <title>[% instance.name %] - Google Cloud Compute Machine</title>
@@ -176,7 +176,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Google Machine Type [% instance.name %]">
 <meta property="og:description"  content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
-<meta property="og:url"          content="https://gcloud-compute.com/[% instance.name %].html">
+<meta property="og:url"          content="[% site.url %]/[% instance.name %].html">
 
 [%- ELSIF template.name == 'comparison.tt2' -%]
 <title>[% instance_a.name %] / [% instance_b.name %] - Google Cloud</title>
@@ -193,7 +193,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Comparison [% instance_a.name %] vs. [% instance_b.name %]">
 <meta property="og:description"  content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
-<meta property="og:url"          content="https://gcloud-compute.com/comparison/[% instance_a.name %]/vs/[% instance_b.name %].html">
+<meta property="og:url"          content="[% site.url %]/comparison/[% instance_a.name %]/vs/[% instance_b.name %].html">
 
 [%- ELSIF template.name == 'vs.tt2'-%]
 <title>[% instance_a.name %] - GCE Machine Type Comparison</title>
@@ -210,7 +210,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Compare Machine Type [% instance_a.name %]">
 <meta property="og:description"  content="Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) with other Google Cloud Platform GCE machine types.">
-<meta property="og:url"          content="https://gcloud-compute.com/comparison/[% instance_a.name %]/vs.html">
+<meta property="og:url"          content="[% site.url %]/comparison/[% instance_a.name %]/vs.html">
 
 [%- ELSIF template.name == 'region.tt2'-%]
 <title>[% region.name %] - Google Cloud Platform Region</title>
@@ -227,7 +227,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Google Cloud Region [% region.name %]">
 <meta property="og:description"  content="List off all Google Compute Engine machine types in Google Cloud Platform region [% region.name %].[% IF region.regionLocation %] The location of the region is [% region.regionLocation %][% END %].">
-<meta property="og:url"          content="https://gcloud-compute.com/[% region.name %].html">
+<meta property="og:url"          content="[% site.url %]/[% region.name %].html">
 
 [%- ELSIF template.name == 'instance_in_region.tt2'-%]
 <title>[% instance.name %] in [% instance.region %] - Google Cloud</title>
@@ -244,7 +244,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Machine Type [% instance.name %] in Region [% instance.region %]">
 <meta property="og:description"  content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory in Google Cloud region [% instance.region %].">
-<meta property="og:url"          content="https://gcloud-compute.com/[% instance.region %]/[% instance.name %].html">
+<meta property="og:url"          content="[% site.url %]/[% instance.region %]/[% instance.name %].html">
 
 [%- ELSIF template.name == '404.tt2'-%]
 <title>404 - Page Not Found</title>

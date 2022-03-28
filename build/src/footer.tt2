@@ -35,11 +35,11 @@
 
 <p class="h4">Command Line</p>
 <pre><code># Download Google Compute Engine machine types as CSV
-curl -O https://gcloud-compute.com/machine-types-regions.csv
+curl -O [% site.url %]/machine-types-regions.csv
 # Search CSV and count
 grep 'europe-west4' &lt; machine-types-regions.csv | wc -l
 # Download Google Compute Engine machine types as SQL
-curl -O https://gcloud-compute.com/machine-types-regions.sql.gz
+curl -O [% site.url %]/machine-types-regions.sql.gz
 # Decompress GCE machine types SQL export
 gzip -d machine-types-regions.sql.gz
 # Import GCE machine types SQL dump
