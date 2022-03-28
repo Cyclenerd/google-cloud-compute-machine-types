@@ -103,7 +103,10 @@ while ($sth->fetch) {
 	$without_location++;
 }
 if ($without_location) {
-	die "\nERROR: Location of region missing! Maybe there is a new region. Please update pricing.yml in Cyclenerd/google-cloud-pricing-cost-calculator.\n";
+	print "\n";
+	print "ERROR: Location of region missing! Maybe there is a new region?\n";
+	print "       Please update pricing.yml in Cyclenerd/google-cloud-pricing-cost-calculator.\n";
+	die "ERROR: Location of region missing!\n";
 }
 
 # Check costs
@@ -116,7 +119,10 @@ while ($sth->fetch) {
 	$without_costs++;
 }
 if ($without_costs) {
-	die "\nERROR: Costs per hour missing! Maybe there is a new machine type or region. Please update pricing.yml in Cyclenerd/google-cloud-pricing-cost-calculator.\n";
+	print "\n";
+	print "ERROR: Costs per hour missing! Maybe there is a new machine type or region.\n";
+	print "       Please update pricing.yml in Cyclenerd/google-cloud-pricing-cost-calculator.\n";
+	die "ERROR: Costs per hour missing!\n";
 }
 
 

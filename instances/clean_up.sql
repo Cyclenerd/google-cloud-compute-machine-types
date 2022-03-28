@@ -1,3 +1,11 @@
+/* 
+ * Delete not yet official 100% finished regions
+ */
+/* 2022/03/28: Milan */
+DELETE FROM machinetypes WHERE zone LIKE 'europe-west8-%';
+/* 2022/03/28: Paris */
+DELETE FROM machinetypes WHERE zone LIKE 'europe-west9-%';
+
 /* Delete machine types that are not available in the region
  * 2022/02/24
  * Skip compute optimized instances (C2) running in Zurich
