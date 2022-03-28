@@ -160,7 +160,7 @@ function copy[% instance.name.remove('-') %]() {
 
 <div class="col-xxl-6">
 <h2>Costs (Pricing) for [% instance.name %]</h2>
-<p>Costs for Google Compute Engine machine type [% instance.name %] in Google Cloud regions in which the VM is available.</p>
+<p>Costs and pricing for Google Compute Engine machine type [% instance.name %] in Google Cloud regions in which the VM is available.</p>
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
