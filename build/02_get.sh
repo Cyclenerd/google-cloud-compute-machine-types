@@ -5,7 +5,7 @@
 # Google Compute Engine API and create CSV file
 #
 
-source "00_config.sh" || exit
+source "00_config.sh" || exit 9
 
 # Create CSV file with machine types
 echo "Executing: 'gcloud compute machine-types list', please wait..."
@@ -20,8 +20,8 @@ printf "%s;" \
 	"guestAcceleratorType" \
 	"maximumPersistentDisks" \
 	"maximumPersistentDisksSizeGb" \
-	"deprecated" > "$CSV_GCLOUD_MACHINE_TYPES" || exit
-echo "" >> "$CSV_GCLOUD_MACHINE_TYPES" || exit
+	"deprecated" > "$CSV_GCLOUD_MACHINE_TYPES" || exit 9
+echo "" >> "$CSV_GCLOUD_MACHINE_TYPES" || exit 9
 gcloud compute machine-types list \
 	--quiet \
 	--filter="ZONE:-" \
@@ -36,16 +36,16 @@ gcloud compute machine-types list \
 		accelerators.guestAcceleratorType, \
 		maximumPersistentDisks, \
 		maximumPersistentDisksSizeGb, \
-		deprecated.state)" >> "$CSV_GCLOUD_MACHINE_TYPES" || exit
+		deprecated.state)" >> "$CSV_GCLOUD_MACHINE_TYPES" || exit 9
 
 # Create CSV file with zones and available CPU platforms
 echo "Executing: 'gcloud compute zones list', please wait..."
 printf "%s;" \
 	"name" \
-	"availableCpuPlatforms" > "$CSV_GCLOUD_ZONES" || exit
-echo "" >> "$CSV_GCLOUD_ZONES" || exit
+	"availableCpuPlatforms" > "$CSV_GCLOUD_ZONES" || exit 9
+echo "" >> "$CSV_GCLOUD_ZONES" || exit 9
 gcloud compute zones list \
 	--quiet \
-	--format="csv[no-heading,separator=';'](name, availableCpuPlatforms.list())" >> "$CSV_GCLOUD_ZONES" || exit
+	--format="csv[no-heading,separator=';'](name, availableCpuPlatforms.list())" >> "$CSV_GCLOUD_ZONES" || exit 9
 
 echo "DONE"
