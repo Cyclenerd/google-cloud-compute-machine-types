@@ -43,104 +43,104 @@
 
 [%- ELSIF template.name == 'instances.tt2' -%]
 <title>GCE Machine Types in Google Cloud Platform</title>
-<meta name="description"         content="Overview of all Google Compute Engine machine types that can be used in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta name="description"         content="Overview of all Google Compute Engine machine types that can be used in Google Cloud Platform. Sorted by CPU count.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/instances.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Google Compute Engine Machine Types">
-<meta name="twitter:description" content="Overview of all Google Compute Engine machine types that can be used in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta name="twitter:description" content="Overview of all Google Compute Engine machine types that can be used in Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:image"        content="[% site.opengraph %]/instances.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine types">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Google Compute Engine Machine Types">
-<meta property="og:description"  content="Overview of all Google Compute Engine machine types that can be used in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta property="og:description"  content="Overview of all Google Compute Engine machine types that can be used in Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:url"          content="[% site.url %]/instances.html">
 
 [%- ELSIF template.name == 'intel.tt2' -%]
 <title>Machine Types with Intel CPU in Google Cloud Platform</title>
-<meta name="description"         content="List of all Google Compute Engine machine types with Intel processor (CPU) in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta name="description"         content="List of all Google Compute Engine machine types with Intel processor (CPU) in Google Cloud Platform. Sorted by CPU count.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/instances.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="GCE Machine Types with Intel CPU">
-<meta name="twitter:description" content="List of all Google Compute Engine machine types with Intel processor (CPU) in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta name="twitter:description" content="List of all Google Compute Engine machine types with Intel processor (CPU) in Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:image"        content="[% site.opengraph %]/instances.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine types">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="GCE Machine Types with Intel CPU">
-<meta property="og:description"  content="List of all Google Compute Engine machine types with Intel processor (CPU) in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta property="og:description"  content="List of all Google Compute Engine machine types with Intel processor (CPU) in Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:url"          content="[% site.url %]/intel.html">
 
 [%- ELSIF template.name == 'amd.tt2' -%]
 <title>Machine Types with AMD CPU in Google Cloud Platform</title>
-<meta name="description"         content="List of all Google Compute Engine machine types with AMD processor (CPU) in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta name="description"         content="List of all Google Compute Engine machine types with AMD processor (CPU) in Google Cloud Platform. Sorted by CPU count.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/instances.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="GCE Machine Types with AMD CPU">
-<meta name="twitter:description" content="List of all Google Compute Engine machine types with AMD processor (CPU) in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta name="twitter:description" content="List of all Google Compute Engine machine types with AMD processor (CPU) in Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:image"        content="[% site.opengraph %]/instances.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine types">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="GCE Machine Types with AMD CPU">
-<meta property="og:description"  content="List of all Google Compute Engine machine types with AMD processor (CPU) in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta property="og:description"  content="List of all Google Compute Engine machine types with AMD processor (CPU) in Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:url"          content="[% site.url %]/amd.html">
 
 [%- ELSIF template.name == 'sap.tt2' -%]
 <title>Certified machine types for SAP on Google Cloud Platform</title>
-<meta name="description"         content="List of all Google Compute Engine machine types certified for SAP application on Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta name="description"         content="List of all Google Compute Engine machine types certified for SAP application on Google Cloud Platform. Sorted by CPU count.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/instances.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="GCE Machine Types Certified for SAP">
-<meta name="twitter:description" content="List of all Google Compute Engine machine types certified for SAP application on Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta name="twitter:description" content="List of all Google Compute Engine machine types certified for SAP application on Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:image"        content="[% site.opengraph %]/instances.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine types">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="GCE Machine Types Certified for SAP">
-<meta property="og:description"  content="List of all Google Compute Engine machine types certified for SAP application in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta property="og:description"  content="List of all Google Compute Engine machine types certified for SAP application in Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:url"          content="[% site.url %]/sap.html">
 
 [%- ELSIF template.name == 'hana.tt2' -%]
 <title>Certified machine types for HANA on Google Cloud Platform</title>
-<meta name="description"         content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta name="description"         content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform. Sorted by CPU count.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/instances.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="GCE Machine Types Certified for HANA">
-<meta name="twitter:description" content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta name="twitter:description" content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:image"        content="[% site.opengraph %]/instances.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Compute Engine machine types">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="GCE Machine Types Certified for HANA">
-<meta property="og:description"  content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
+<meta property="og:description"  content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:url"          content="[% site.url %]/hana.html">
 
 [%- ELSIF template.name == 'regions.tt2' -%]
 <title>Google Cloud Platform Regions with GCE Machines</title>
-<meta name="description"         content="List of all Google Cloud regions available in all Google Cloud Platform locations. Overview of the available number of Google Compute Engine machine types per series.">
+<meta name="description"         content="List of all Google Cloud regions available in all Google Cloud Platform locations. Overview of available Google Compute Engine machine types.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/regions.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Google Cloud Platform Regions">
-<meta name="twitter:description" content="List of all Google Cloud regions available in all Google Cloud Platform locations. Overview of the available number of Google Compute Engine machine types per series.">
+<meta name="twitter:description" content="List of all Google Cloud regions available in all Google Cloud Platform locations. Overview of available Google Compute Engine machine types.">
 <meta property="og:image"        content="[% site.opengraph %]/regions.png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Cloud Platform regions">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Google Cloud Platform Regions">
-<meta property="og:description"  content="List of all Google Cloud regions available in all Google Cloud Platform locations. Overview of the available number of Google Compute Engine machine types per series.">
+<meta property="og:description"  content="List of all Google Cloud regions available in all Google Cloud Platform locations. Overview of available Google Compute Engine machine types.">
 <meta property="og:url"          content="[% site.url %]/regions.html">
 
 [%- ELSIF template.name == 'platforms.tt2' -%]
