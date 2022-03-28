@@ -1,4 +1,3 @@
-
 #!/usr/bin/env bash
 
 DB='gce.db'
