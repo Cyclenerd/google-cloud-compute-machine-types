@@ -289,7 +289,7 @@ function copy[% instance.name.remove('-') %]() {
 </table>
 
 [% IF instance.zones %]
-<h2>CLI <small class="text-muted">Google Cloud Command Line Interface</small></h2>
+<h2>Google Cloud Command Line Interface <small class="text-muted">CLI</small></h2>
 <p>Google Cloud Command Line Interface (CLI) snippets for Google Compute Engine machine type [% instance.name %] in Google Cloud Region [% instance.region %].</p>
 <ul class="nav nav-tabs" id="zonesTab" role="tablist">
 [% firstZone = 0; FOREACH zone IN instance.zones.split(', ').sort; firstZone = firstZone + 1; %]
@@ -331,9 +331,9 @@ function copy[% zone.remove('-') %]() {
 #    --min-cpu-platform=&#39;[% cpuPlatform.remove('^\s').remove('\s$') %]&#39; \
 [% # do not remove this line %]
 [%- END; END; END -%]
-gcloud compute instances create [% instance.name%]-[% zone %] \
+gcloud compute instances create [% instance.name %]-[% zone %] \
 --zone=[% zone %] \
---machine-type=[% instance.name%] \
+--machine-type=[% instance.name %] \
 --min-cpu-platform=&#39;AUTOMATIC&#39; \
 --image-project=ubuntu-os-cloud \
 --image-family=ubuntu-2004-lts</code></pre>
@@ -351,6 +351,39 @@ gcloud compute zones describe [% zone %] --format=&#39;value(availableCpuPlatfor
 gcloud compute images list</pre>
 
 [% END %]
+
+<h2>Google Cloud Pricing and Cost Calculator <small class="text-muted">gcosts</small></h2>
+<p>
+Calculate estimated monthly costs of Google Cloud Platform products and resources via YAML files
+and <a href="https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator">gcosts</a> Linux CLI program.
+Copy and paste the YAML to a new usage file <code>[% instance.name %]-[% instance.region %].yml</code>.
+More help can be found in the <a href="https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator#readme">documentation</a> of the gcosts CLI program.
+</p>
+<script>
+function gcosts[% instance.name.remove('-') %]() {
+	var gcosts = document.getElementById("gcosts[% instance.name.remove('-') %]").innerHTML;
+	navigator.clipboard.writeText(gcosts);
+}
+</script>
+<div class="position-relative">
+<div class="position-absolute top-0 end-0"><button type="button" class="btn btn-outline-primary btn-sm" onclick="gcosts[% instance.name.remove('-') %]();">Copy to Clipboard</button></div>
+<pre><code id="gcosts[% instance.name.remove('-') %]"># gcosts YAML usage file
+# Help: https://bit.ly/gcosts-usage
+# Machine type: [% site.url %]/[% instance.region %]/[% instance.name %].html
+region: [% instance.region %]
+instances:
+  - name: [% instance.name %]-[% instance.region %]
+    type: [% instance.name %]
+    os: free
+    commitment: 0
+    disks:
+      - name: boot-[% instance.name %]-[% instance.region %]
+        type: ssd
+        data: 75
+      - name: snapshot-[% instance.name %]-[% instance.region %]
+        type: snapshot
+        data: 10</code></pre>
+</div> <!-- // position-relative -->
 
 </div> <!-- // col -->
 </div> <!-- // row -->
