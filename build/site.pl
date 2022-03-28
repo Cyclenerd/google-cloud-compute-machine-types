@@ -472,10 +472,11 @@ $template->process('404.tt2', {}, '../site/404.html') || die "Template process f
 $template->process('robots.txt', {}, '../site/robots.txt')     || die "Template process failed: ", $template->error(), "\n";
 
 # Grid
+push(@files, 'grid.html');
 my $json = encode_json \@instances_in_regions;
 $json    = decode('UTF-8', $json); # force UTF-8
 $template->process('main.js',                 {},                  '../site/main.js')                 || die "Template process failed: ", $template->error(), "\n";
-$template->process('grid.tt2',               {},                  '../site/grid.html')                || die "Template process failed: ", $template->error(), "\n";
+$template->process('grid.tt2',                {},                  '../site/grid.html')               || die "Template process failed: ", $template->error(), "\n";
 $template->process('instance_in_region.json', { 'json' => $json }, '../site/instance_in_region.json') || die "Template process failed: ", $template->error(), "\n";
 
 # SQL

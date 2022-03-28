@@ -31,10 +31,10 @@
 <div class="modal-body">
 
 <p class="h4">Spreadsheet with GCE Machine Types and Google Cloud Regions</p>
-<p><a href="/machine-types-regions.csv" rel="nofollow">Download CSV file</a> ([% csvFileSize %] MB)<p>
+<p><a href="/machine-types-regions.csv">Download CSV file</a> ([% csvFileSize %] MB)<p>
 
 <p class="h4">Database with GCE Machine Types, Google Cloud Regions and Zones</p>
-<p><a href="/machine-types-regions.sql.gz" rel="nofollow">Download SQL export</a> ([% sqlFileSize %] MB, gzip compressed)<p>
+<p><a href="/machine-types-regions.sql.gz">Download SQL export</a> ([% sqlFileSize %] MB, gzip compressed)<p>
 
 <p class="h4">Command Line</p>
 <pre><code># Download Google Compute Engine machine types as CSV
