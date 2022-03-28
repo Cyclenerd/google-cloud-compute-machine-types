@@ -218,7 +218,7 @@ n2-highcpu-8|8.0|0.315728</code></pre>
 </div>
 <div class="col-xl-6">
 <ul>
-	<li><a href="https://cloud.google.com/compute/docs/regions-zones#available">Available regions and zones</a></li>
+	<li><a href="https://cloud.google.com/compute/docs/regions-zones#available" rel="nofollow">Available regions and zones</a></li>
 	<li><a href="https://cloud.google.com/compute/docs/cpu-platforms" rel="nofollow">CPU Platform</a></li>
 	<li><a href="https://cloud.google.com/compute/docs/benchmarks-linux" rel="nofollow">Benchmarks for Linux VM instances</a></li>
 	<li><a href="https://cloud.google.com/solutions/sap/docs/certifications-sap-apps#sap-certified-vms" rel="nofollow">Certified SAP applications on Google Cloud</a></li>

@@ -204,6 +204,30 @@
 </table>
 </div>
 [% END %]
+
+<h2 id="share">Share [% instance.name %] in [% instance.region %]</h2>
+<p>Share a link to the Google Compute Engine machine type [% instance.name %] in Google Cloud region [% instance.region %].</p>
+<script>
+function copy[% instance.name.remove('-') %]() {
+	var url = document.getElementById("url[% instance.name.remove('-') %]").value;
+	navigator.clipboard.writeText(url);
+}
+</script>
+<div class="input-group mb-3">
+	<span class="input-group-text">Link to share</span>
+	<input type="text" class="form-control" id="url[% instance.name.remove('-') %]" value="[% site.url %]/[% instance.region %]/[% instance.name %].html" disabled readonly>
+	<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Copy link</button>
+	<ul class="dropdown-menu dropdown-menu-end">
+		<li><a class="dropdown-item" href="#share" onclick="copy[% instance.name.remove('-') %]();">Clipboard</a></li>
+		<li><hr class="dropdown-divider"></li>
+		<li><a class="dropdown-item" rel="nofollow" href="mailto:?subject=[% instance.name | uri %]&amp;body=[% site.url | uri %][% '/' | uri %][% instance.region | uri %][% '/' | uri %][% instance.name | uri %].html">Email</a></li>
+		<li><a class="dropdown-item" rel="nofollow" target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url=[% site.url | uri %][% '/' | uri %][% instance.region | uri %][% '/' | uri %][% instance.name | uri %].html">LinkedIn</a></li>
+		<li><a class="dropdown-item" rel="nofollow" target="_blank" href="https://twitter.com/intent/tweet?url=[% site.url | uri %][% '/' | uri %][% instance.region | uri %][% '/' | uri %][% instance.name | uri %].html">Twitter</a></li>
+		<li><a class="dropdown-item" rel="nofollow" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=[% site.url | uri %][% '/' | uri %][% instance.region | uri %][% '/' | uri %][% instance.name | uri %].html">Facebook</a></li>
+		<li><a class="dropdown-item" rel="nofollow" target="_blank" href="https://www.reddit.com/submit?url=[% site.url | uri %][% '/' | uri %][% instance.region | uri %][% '/' | uri %][% instance.name | uri %].html">Reddit</a></li>
+	</ul>
+</div>
+
 </div> <!-- // col -->
 <div class="col-xxl-6">
 
