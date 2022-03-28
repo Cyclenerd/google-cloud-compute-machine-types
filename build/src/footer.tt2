@@ -1,21 +1,24 @@
-<p>
-	<a class="btn btn-secondary" href="[% site.github.repo %]" role="button">🖊️ Edit on GitHub</a>
-</p>
 </div> <!-- // container -->
 </main>
 <footer class="footer py-3 bg-light">
-	<div class="container">
-		<p class="text-muted text-center">
-			Copyright [% USE date; date.format(date.now, '%Y'); %] <a href="https://www.nkn-it.de/">Nils Knieling</a>. All Rights Reserved.
-		</p>
-		<p class="text-muted text-center">
-			This Google Cloud Platform and Google Compute Engine machine type comparison website is not maintained by or affiliated with Google.
-			All product names, logos, and brands are property of their respective owners.
-			Data and costs shown are not guaranteed to be accurate or current.
-			Please <a href="[% site.github.issues %]">report issues</a> you see.
-		</p>
-		<p class="text-muted text-center small">Last Update: <a href=[% IF gitHubRunId %]"[% gitHubServerUrl %]/[% gitHubRepository %]/actions/runs/[% gitHubRunId %]"[% ELSE %]"#"[% END %]>[% gmttime %]</a> (GMT)</p>
-	</div>
+<div class="container-fluid">
+<div class="row">
+<div class="col-xxl-10">
+<p class="text-muted">
+	Copyright [% USE date; date.format(date.now, '%Y'); %] <a href="https://github.com/Cyclenerd">Nils Knieling</a>. All Rights Reserved.
+</p>
+<p class="text-muted">
+	Data and costs shown are not guaranteed to be accurate or current. Please <a href="[% site.github.issues %]">report issues</a> you see.<br>
+	This Google Cloud Platform and Google Compute Engine machine type comparison website is not maintained by or affiliated with Google.<br>
+	All product names, logos, and brands are property of their respective owners.
+</p>
+<p class="text-muted small">Last Update: <a href=[% IF gitHubRunId %]"[% gitHubServerUrl %]/[% gitHubRepository %]/actions/runs/[% gitHubRunId %]"[% ELSE %]"#"[% END %]>[% gmttime %]</a> (GMT)</p>
+</div> <!-- // col -->
+<div class="col-xxl-2 text-end">
+<p><a class="btn btn-secondary" href="[% site.github.repo %]" role="button">🖊️ Edit on GitHub</a></p>
+</div> <!-- // col -->
+</div> <!-- // row -->
+</div> <!-- // container -->
 </footer>
 
 <div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
