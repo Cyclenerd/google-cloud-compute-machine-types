@@ -89,4 +89,35 @@ foreach my $region (keys %{ $gcp->{'region'} }) {
 	$db->do($update) or die "ERROR: Cannot update $DBI::errstr\n";
 }
 
+
+# Checks
+print "\n";
+
+# Check regions
+my $sth = $db->prepare("SELECT region FROM instances WHERE regionLocation LIKE '' GROUP BY region");
+$sth->execute;
+$sth->bind_columns (\my ($region));
+my $without_location = 0;
+while ($sth->fetch) {
+	print "ERROR: Location of region '$region' missing!\n";
+	$without_location++;
+}
+if ($without_location) {
+	die "\nERROR: Location of region missing! Maybe there is a new region. Please update pricing.yml in Cyclenerd/google-cloud-pricing-cost-calculator.\n";
+}
+
+# Check costs
+$sth = $db->prepare("SELECT name, region FROM instances WHERE hour <= 0");
+$sth->execute;
+$sth->bind_columns (\my ($name, $region));
+my $without_costs = 0;
+while ($sth->fetch) {
+	print "ERROR: Costs per hour missing for machine type '$name' in region '$region'.\n";
+	$without_costs++;
+}
+if ($without_costs) {
+	die "\nERROR: Costs per hour missing! Maybe there is a new machine type or region. Please update pricing.yml in Cyclenerd/google-cloud-pricing-cost-calculator.\n";
+}
+
+
 print "DONE\n";
