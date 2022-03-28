@@ -10,7 +10,6 @@
 
 [%- IF template.name == 'index.tt2' -%]
 <title>Google Cloud Compute Engine Machine Type Comparison</title>
-<meta name="robots"              content="index, follow">
 <meta name="description"         content="Choose the right Google Compute Engine machine type available in Google Cloud Platform. Compare different families like N1 with N2.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/social.png?[% timestamp %]">
@@ -29,7 +28,6 @@
 [%- ELSIF template.name == 'grid.tt2' -%]
 <title>Google Cloud Compute Engine Instance Picker</title>
 <meta name="description"         content="Choose with the Instance Picker between over 3,000 different combinations of Google Compute Engine machine types and Google Cloud regions.">
-<meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/grid.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Google Cloud Compute Engine Instance Picker">
@@ -45,7 +43,6 @@
 
 [%- ELSIF template.name == 'instances.tt2' -%]
 <title>GCE Machine Types in Google Cloud Platform</title>
-<meta name="robots"              content="index, follow">
 <meta name="description"         content="Overview of all Google Compute Engine machine types that can be used in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/instances.png?[% timestamp %]">
@@ -63,7 +60,6 @@
 
 [%- ELSIF template.name == 'intel.tt2' -%]
 <title>Machine Types with Intel CPU in Google Cloud Platform</title>
-<meta name="robots"              content="index, follow">
 <meta name="description"         content="List of all Google Compute Engine machine types with Intel processor (CPU) in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/instances.png?[% timestamp %]">
@@ -81,7 +77,6 @@
 
 [%- ELSIF template.name == 'amd.tt2' -%]
 <title>Machine Types with AMD CPU in Google Cloud Platform</title>
-<meta name="robots"              content="index, follow">
 <meta name="description"         content="List of all Google Compute Engine machine types with AMD processor (CPU) in Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/instances.png?[% timestamp %]">
@@ -99,7 +94,6 @@
 
 [%- ELSIF template.name == 'sap.tt2' -%]
 <title>Certified machine types for SAP on Google Cloud Platform</title>
-<meta name="robots"              content="index, follow">
 <meta name="description"         content="List of all Google Compute Engine machine types certified for SAP application on Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/instances.png?[% timestamp %]">
@@ -117,7 +111,6 @@
 
 [%- ELSIF template.name == 'hana.tt2' -%]
 <title>Certified machine types for HANA on Google Cloud Platform</title>
-<meta name="robots"              content="index, follow">
 <meta name="description"         content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform. Sort by CPU count. Further information like main memory and costs are displayed.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/instances.png?[% timestamp %]">
@@ -135,7 +128,6 @@
 
 [%- ELSIF template.name == 'regions.tt2' -%]
 <title>Google Cloud Platform Regions with GCE Machines</title>
-<meta name="robots"              content="index, follow">
 <meta name="description"         content="List of all Google Cloud regions available in all Google Cloud Platform locations. Overview of the available number of Google Compute Engine machine types per series.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/regions.png?[% timestamp %]">
@@ -153,7 +145,6 @@
 
 [%- ELSIF template.name == 'platforms.tt2' -%]
 <title>Compute Engine CPU Platforms in Google Cloud Regions</title>
-<meta name="robots"              content="index, follow">
 <meta name="description"         content="Available CPU platforms in Google Cloud regions. Overview of the CPU generations from Intel and AMD.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/regions.png?[% timestamp %]">
@@ -171,7 +162,6 @@
 
 [%- ELSIF template.name == 'instance.tt2' -%]
 <title>[% instance.name %] - Google Cloud Compute Machine</title>
-<meta name="robots"              content="index, follow">
 <meta name="description"         content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/[% instance.name %].png?[% timestamp %]">
@@ -189,7 +179,6 @@
 
 [%- ELSIF template.name == 'comparison.tt2' -%]
 <title>[% instance_a.name %] / [% instance_b.name %] - Google Cloud</title>
-<meta name="robots"              content="index, follow">
 <meta name="description"         content="Google Compute Engine machine type comparison [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) versus [% instance_b.name %] ([% instance_b.vCpus %] vCPU, [% instance_b.memoryGiB %] GB memory).">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/[% instance_a.name %]/[% instance_b.name %].png?[% timestamp %]">
@@ -207,7 +196,6 @@
 
 [%- ELSIF template.name == 'vs.tt2'-%]
 <title>[% instance_a.name %] - GCE Machine Type Comparison</title>
-<meta name="robots"              content="index, follow">
 <meta name="description"         content="Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) with other Google Cloud Platform GCE machine types.">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/[% instance_a.name %].png?[% timestamp %]">
@@ -225,7 +213,6 @@
 
 [%- ELSIF template.name == 'region.tt2'-%]
 <title>[% region.name %] - Google Cloud Platform Region</title>
-<meta name="robots"              content="index, follow">
 <meta name="description"         content="List off all Google Compute Engine machine types in Google Cloud Platform region [% region.name %].[% IF region.regionLocation %] The location of the region is [% region.regionLocation %][% END %].">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/[% region.name %].png?[% timestamp %]">
@@ -243,7 +230,6 @@
 
 [%- ELSIF template.name == 'instance_in_region.tt2'-%]
 <title>[% instance.name %] in [% instance.region %] - Google Cloud</title>
-<meta name="robots"              content="index, follow">
 <meta name="description"         content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory in Google Cloud region [% instance.region %].">
 <meta name="robots"              content="index, follow">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/[% instance.region %]/[% instance.name %].png?[% timestamp %]">
