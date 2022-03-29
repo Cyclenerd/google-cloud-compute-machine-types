@@ -28,6 +28,7 @@
 [%- ELSIF template.name == 'grid.tt2' -%]
 <title>Google Cloud Compute Engine Instance Picker</title>
 <meta name="description"         content="Choose with the Instance Picker between over 3,000 different combinations of Google Compute Engine machine types and Google Cloud regions.">
+<link rel="canonical"            href="[% site.url %]/grid.html">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/grid.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Google Cloud Compute Engine Instance Picker">
