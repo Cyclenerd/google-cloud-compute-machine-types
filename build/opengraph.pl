@@ -318,18 +318,42 @@ foreach my $instance (@instances) {
 	unless (-d "$dir/$name/") {
 		mkdir("$dir/$name/") or die "Can not create dir for machine type '$name'!\n";
 	}
-	# Machine type in region
-	if ($create_region) {
-		foreach my $region (@regions) {
-			my $region_name = $region->{'name'} || 'missing';
-			print "\t $region_name\n";
-			next if ($limit_region && $limit_region ne "$region_name"); # skip region if limit is set
+}
+
+# Instances in region
+if ($create_region) {
+	foreach my $region (@regions) {
+		my $region_name = $region->{'name'} || 'missing';
+		next if ($limit_region && $limit_region ne "$region_name"); # skip region if limit is set
+		print "$region_name\n";
+		foreach my $instance (@instances) {
+			my $name           = $instance->{'name'}         || 'missing';
+			my $cpu_count      = $instance->{'vCpus'}        || '0';
+			my $cpu_shared     = $instance->{'sharedCpu'}    || '0';
+			my $cpu_base_clock = $instance->{'cpuBaseClock'} || '0';
+			my $ram            = $instance->{'memoryGiB'}    || '0';
+			my $img = image();
+			# Small title
+			$img->moveTo($left, 100);
+			$img->fontsize('20');
+			$img->string('Google Compute Engine machine type:');
+			# Machine type
+			$img->moveTo( $left, 190 );
+			$img->fontsize('60');
+			$img->string("$name");
+			# vCPU
+			$img->moveTo( $left, 270 );
+			$img->fontsize('40');
+			my $cpu_text  = "vCPU: $cpu_count";
+			   $cpu_text .= " ($cpu_base_clock GHz)" if ($cpu_base_clock > 0);
+			   $cpu_text .= ' [Shared]' if ($cpu_shared > 0);
+			$img->string("$cpu_text");
+			# Memory
+			$img->moveTo( $left, 350 );
+			$img->fontsize('40');
+			$img->string("Memory: $ram GB");
+			print "\t$name\n";
 			# Region
-			$img->bgcolor('white');
-			$img->fgcolor('white');
-			$img->rectangle($left,420,1130,450);
-			$img->bgcolor('black');
-			$img->fgcolor('black');
 			$img->moveTo( $left, 430 );
 			$img->fontsize('40');
 			$img->string("Region: $region_name");
