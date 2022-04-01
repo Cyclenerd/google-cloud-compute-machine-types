@@ -1,15 +1,5 @@
 /* Intel */
 /* https://cloud.google.com/compute/docs/cpu-platforms#intel_cpu_processors */
-/*
-https://en.wikipedia.org/wiki/Intel_Core
-2011 : Sandy Bridge
-2012 : Ivy Bridge
-2013 : Haswell
-2014 : Broadwell
-2015 : Skylake
-2019 : Cascade Lake
-2019 : Ice Lake
-*/
 
 /* Intel Xeon E5 (Sandy Bridge) */
 UPDATE instances SET cpuBaseClock  = '2.6', cpuTurboClock  = '3.2', cpuSingleMaxTurboClock = '3.6' WHERE availableCpuPlatform LIKE "%Sandy%" AND series LIKE "n1";
