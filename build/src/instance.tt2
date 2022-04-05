@@ -6,7 +6,7 @@
 		[% IF instance.family %][% instance.family %][% END %]
 		Google Compute Engine machine type [% instance.name %] with [% instance.vCpus%] vCPU and [% instance.memoryGiB %] GB memory.
 		[%- IF instance.sap || instance.hana -%]
-			GCE machine type is certified for
+			GCE machine type [% instance.name %] is certified for
 			[% IF instance.sap %]SAP applications[% END %]
 			[% IF instance.sap && instance.hana%]and[% END %]
 			[% IF instance.hana %]SAP HANA[% END %]
@@ -15,6 +15,10 @@
 		Available in [% regions.size %] Google Cloud region[% IF regions.size > 1 %]s[% END %].
 		[% notAllCpuPlatformsAvailable = 0; FOREACH region IN regions; IF region.availableCpuPlatformCount < instance.cpuPlatformCount; notAllCpuPlatformsAvailable = 1; END; END; %]
 		[% IF notAllCpuPlatformsAvailable %]<mark>Not all CPU platforms are available in all regions.</mark>[% END %]
+		On average across all regions, the machine type [% instance.name %] costs <mark>$[% instance.avgHour %] per hour</mark>.
+		Average cost $[% instance.avgMonth %] per month[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %].
+		With a commitment for one year, the instance costs on average $[% instance.avgMonth1yCud %] per month.
+		If you commit for three years, you get a commit use discount (CUD) and the instance costs on average $[% instance.avgMonth3yCud %] per month.
 	</p>
 </blockquote>
 
