@@ -41,6 +41,10 @@
 		</td>
 		<!-- Costs -->
 		<td></td>
+		<td title="[% instance.name %] avg. costs per hour: [% instance.avgHour %] USD">
+			<span class="currency">[% instance.avgHour %]</span>
+		</td>
+		<td></td>
 		<td title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% instance.avgMonth %]</span>
 			[% badgeSud(instance) %]
