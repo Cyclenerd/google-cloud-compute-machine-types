@@ -246,6 +246,7 @@ function copy[% instance.name.remove('-') %]() {
 		<th scope="col"></th>
 		<th scope="col" colspan="2">Avg. costs per hour</th>
 		<th scope="col" colspan="2">Avg. costs per month</th>
+		<th scope="col"></th>
 	</tr>
 </thead>
 <tbody>
@@ -274,13 +275,13 @@ function copy[% instance.name.remove('-') %]() {
 			<span class="currency">[% other.avgMonth %]</span>
 			[% badgeSud(other) %]
 		</td>
+		<!-- Compare -->
+		<td></td>
 	</tr>
 	[% ELSE %]
 	<tr>
 		<td>
-			<a href="/comparison/[% instance.name %]/vs/[% other.name %].html" title="Compare Google Compute Engine machine type [% instance.name %] vs. [% other.name %]">
-				[% other.name %]
-			</a>
+			<a href="[% other.name %].html" title="Google Compute Engine machine type [% other.name %]">[% other.name %]</a>
 		</td>
 		<!-- vCPU -->
 		<td>[% other.vCpus %][% badgeSharedCpu(other) %]</td>
@@ -301,6 +302,12 @@ function copy[% instance.name.remove('-') %]() {
 		<td title="[% other.name %] avg. costs per month: [% other.avgMonth %] USD[% IF other.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% other.avgMonth %]</span>
 			[% badgeSud(other) %]
+		</td>
+		<!-- Compare -->
+		<td>
+			<a href="/comparison/[% instance.name %]/vs/[% other.name %].html"
+			   title="Compare Google Compute Engine machine type [% instance.name %] vs. [% other.name %]"
+			   class="btn btn-warning btn-sm">Compare</a>
 		</td>
 	</tr>
 	[%- END; END; END -%]
