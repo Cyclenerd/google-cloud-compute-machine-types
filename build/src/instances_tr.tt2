@@ -1,6 +1,32 @@
+[%- MACRO instanceTh BLOCK -%]
+<tr>
+<th scope="col" colspan="5">Machine Type</th>
+<th scope="col">Regions</th>
+<th scope="col" colspan="4">Costs (Avg. Region)</th>
+<th scope="col" colspan="3">OS</th>
+</tr>
+<tr>
+<th scope="row">Name</th>
+<th scope="col">vCPU ⬇️</th>
+<th scope="col">Base Clock</th>
+<th scope="col">Memory</th>
+<th scope="col"></th>
+<th scope="col">#</th>
+<!-- Costs -->
+<th scope="col" title="Costs per hour">Hour</th>
+<th scope="col" title="Costs per month">Month</th>
+<th scope="col" title="Costs per month with 1 year commitment (CUD)">1Y CUD</th>
+<th scope="col" title="Costs per month with 3 year commitment (CUD)">3Y CUD</th>
+<!-- OS -->
+<th scope="col" title="SUSE Linux Enterprise Server">SLES</th>
+<th scope="col" title="Red Hat Enterprise Linux">RHEL</th>
+<th scope="col" title="Microsoft Windows Server">Windows</th>
+</tr>
+[%- END -%]
+
 [%- MACRO instanceTr(instance) BLOCK -%]
 <tr>
-<td><a href="[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
+<td><a href="/[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
 <td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 <td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
 <td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
@@ -54,7 +80,7 @@
 
 [%- MACRO instancePlatformTr(instance) BLOCK -%]
 <tr>
-<td><a href="[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
+<td><a href="/[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
 <td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 <td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
 <td title="CPU Platform: [% instance.cpuPlatform %]">[% instance.cpuPlatform | replace('\[','') | replace('\]','') %]</td>

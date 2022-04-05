@@ -231,4 +231,77 @@ function copy[% instance.name.remove('-') %]() {
 </div> <!-- // col -->
 </div> <!-- // row -->
 
+<h2>Machine Types with [% instance.vCpus %] vCPU</h2>
+<div class="table-responsive">
+<table class="table table-sm table-hover table-striped table-bordered">
+<thead>
+	<tr>
+		<th scope="row">Name ⬇️</th>
+		<th scope="col">vCPU</th>
+		<th scope="col" colspan="2">Memory</th>
+		<th scope="col"></th>
+		<th scope="col" colspan="2">Avg. costs per hour</th>
+		<th scope="col" colspan="2">Avg. costs per month</th>
+	</tr>
+</thead>
+<tbody>
+	[%- FOREACH other IN instances -%]
+	[% IF other.vCpus == instance.vCpus %]
+	[% IF other.name == instance.name %]
+	<tr class="table-info">
+		<td>[% other.name %]</td>
+		<!-- vCPU -->
+		<td>[% other.vCpus %][% badgeSharedCpu(other) %]</td>
+		<!-- Memory -->
+		<td></td>
+		<td class="memory" title="Random-access memory: [% other.memoryGiB %] GiB">[% other.memoryGiB %]</td>
+		<td>
+			[% badgeCpuManufactur(other) %]
+			[% badgeSap(other) %]
+			[% badgeHana(other) %]
+		</td>
+		<!-- Costs -->
+		<td></td>
+		<td title="[% other.name %] avg. costs per hour: [% other.avgMonth %] USD">
+			<span class="currency">[% other.avgHour %]</span>
+		</td>
+		<td></td>
+		<td title="[% other.name %] avg. costs per month: [% other.avgMonth %] USD[% IF other.sud %] with sustained use discounts (SUD) applied[% END %]">
+			<span class="currency">[% other.avgMonth %]</span>
+			[% badgeSud(other) %]
+		</td>
+	</tr>
+	[% ELSE %]
+	<tr>
+		<td>
+			<a href="/comparison/[% instance.name %]/vs/[% other.name %].html" title="Compare Google Compute Engine machine type [% instance.name %] vs. [% other.name %]">
+				[% other.name %]
+			</a>
+		</td>
+		<!-- vCPU -->
+		<td>[% other.vCpus %][% badgeSharedCpu(other) %]</td>
+		<!-- Memory -->
+		[% tableCompareNumber(instance.memoryGiB || 0, other.memoryGiB || 0) %]
+		<td class="memory" title="Random-access memory: [% other.memoryGiB %] GiB">[% other.memoryGiB %]</td>
+		<td>
+			[% badgeCpuManufactur(other) %]
+			[% badgeSap(other) %]
+			[% badgeHana(other) %]
+		</td>
+		<!-- Costs -->
+		[% tableCompareCosts(instance.avgHour || 0, other.avgHour || 0) %]
+		<td title="[% other.name %] avg. costs per hour: [% other.avgHour %] USD">
+			<span class="currency">[% other.avgHour %]</span>
+		</td>
+		[% tableCompareCosts(instance.avgMonth || 0, other.avgMonth || 0) %]
+		<td title="[% other.name %] avg. costs per month: [% other.avgMonth %] USD[% IF other.sud %] with sustained use discounts (SUD) applied[% END %]">
+			<span class="currency">[% other.avgMonth %]</span>
+			[% badgeSud(other) %]
+		</td>
+	</tr>
+	[%- END; END; END -%]
+</tbody>
+</table>
+</div> <!-- // table-responsive -->
+
 [% PROCESS footer.tt2 %]

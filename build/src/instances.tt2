@@ -4,34 +4,12 @@
 <h1>Google Compute Engine Machine Types</h1>
 
 <div class="table-responsive">
+[%- PROCESS instances_tr.tt2; -%]
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
-	<tr>
-		<th scope="col" colspan="5">Machine Type</th>
-		<th scope="col">Regions</th>
-		<th scope="col" colspan="4">Costs (Avg. Region)</th>
-		<th scope="col" colspan="3">OS</th>
-	</tr>
-	<tr>
-		<th scope="row">Name</th>
-		<th scope="col">vCPU ⬇️</th>
-		<th scope="col">Base Clock</th>
-		<th scope="col">Memory</th>
-		<th scope="col"></th>
-		<th scope="col">#</th>
-		<!-- Costs -->
-		<th scope="col" title="Costs per hour">Hour</th>
-		<th scope="col" title="Costs per month">Month</th>
-		<th scope="col" title="Costs per month with 1 year commitment (CUD)">1Y CUD</th>
-		<th scope="col" title="Costs per month with 3 year commitment (CUD)">3Y CUD</th>
-		<!-- OS -->
-		<th scope="col" title="SUSE Linux Enterprise Server">SLES</th>
-		<th scope="col" title="Red Hat Enterprise Linux">RHEL</th>
-		<th scope="col" title="Microsoft Windows Server">Windows</th>
-	</tr>
+[%- instanceTh() -%]
 </thead>
 <tbody>
-[%- PROCESS instances_tr.tt2; -%]
 [%- FOREACH instance IN instances; instanceTr(instance); END -%]
 </tbody>
 </table>

@@ -296,7 +296,11 @@ foreach my $instance (@instances) {
 	my $html_file = '../site/'."$name".'.html';
 	print "$html_file\n";
 	push(@files, "$name".'.html');
-	$template->process('instance.tt2', { 'instance' => $instance, 'regions' => \@instance_regions }, "$html_file") || die "Template process failed: ", $template->error(), "\n";
+	$template->process('instance.tt2', {
+		'instance'  => $instance,
+		'instances' => \@instances,
+		'regions'   => \@instance_regions
+	}, "$html_file") || die "Template process failed: ", $template->error(), "\n";
 }
 
 ###############################################################################

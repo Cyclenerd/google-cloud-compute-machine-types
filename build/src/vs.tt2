@@ -19,6 +19,7 @@
 		<th scope="col" colspan="2">vCPU ⬇️</th>
 		<th scope="col" colspan="2">Memory</th>
 		<th scope="col"></th>
+		<th scope="col" colspan="2">Avg. costs per hour</th>
 		<th scope="col" colspan="2">Avg. costs per month</th>
 	</tr>
 </thead>
@@ -64,6 +65,10 @@
 			[% badgeHana(instance) %]
 		</td>
 		<!-- Costs -->
+		[% tableCompareCosts(instance_a.avgHour || 0, instance.avgHour || 0) %]
+		<td title="[% instance.name %] avg. costs per hour: [% instance.avgHour %] USD">
+			<span class="currency">[% instance.avgHour %]</span>
+		</td>
 		[% tableCompareCosts(instance_a.avgMonth || 0, instance.avgMonth || 0) %]
 		<td title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% instance.avgMonth %]</span>
