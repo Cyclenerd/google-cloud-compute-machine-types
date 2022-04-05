@@ -365,7 +365,6 @@ while (my $instance = $sth->fetchrow_hashref) {
 	if ($create_region) {
 		my $html_file = '../site/'."$region/$name".'.html';
 		print "$id : $html_file\n";
-		push(@files, "$region/$name".'.html');
 		$template->process('instance_in_region.tt2', {
 			'gmttime'  => $gmttime,
 			'instance' => $instance,
@@ -440,7 +439,6 @@ if ($create_comparison) {
 			$sth->finish;
 			my $html_file = '../site/comparison/'."$name_a".'/vs/'."$name_b".'.html';
 			print "$id : $html_file\n";
-			push(@files, 'comparison/'."$name_a".'/vs/'."$name_b".'.html');
 			$template->process('comparison.tt2', {
 				'instances'  => \@instances,
 				'instance_a' => $instance_a,

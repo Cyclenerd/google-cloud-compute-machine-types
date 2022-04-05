@@ -190,7 +190,7 @@
 [%- ELSIF template.name == 'comparison.tt2' -%]
 <title>[% instance_a.name %] / [% instance_b.name %] - Google Cloud</title>
 <meta name="description"         content="Google Compute Engine machine type comparison [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) versus [% instance_b.name %] ([% instance_b.vCpus %] vCPU, [% instance_b.memoryGiB %] GB memory).">
-<meta name="robots"              content="index, follow">
+<meta name="robots"              content="noindex, follow"> <!-- block search indexing -->
 <link rel="canonical"            href="[% site.url %]/comparison/[% instance_a.name %]/vs/[% instance_b.name %].html">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/[% instance_a.name %]/[% instance_b.name %].png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
@@ -244,7 +244,7 @@
 [%- ELSIF template.name == 'instance_in_region.tt2'-%]
 <title>[% instance.name %] in [% instance.region %] - Google Cloud</title>
 <meta name="description"         content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory in Google Cloud region [% instance.region %].">
-<meta name="robots"              content="index, follow">
+<meta name="robots"              content="noindex, follow"> <!-- block search indexing -->
 <link rel="canonical"            href="[% site.url %]/[% instance.region %]/[% instance.name %].html">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/[% instance.region %]/[% instance.name %].png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
