@@ -6,7 +6,7 @@
 		[% IF instance.family %][% instance.family %][% END %]
 		Google Compute Engine machine type <a href="/[% instance.name %].html" title="Show machine type [% instance.name %] in all regions">[% instance.name %]</a>
 		with [% instance.vCpus%] vCPU and [% instance.memoryGiB %] GB memory
-		in Google Cloud region <a href="/[% instance.region %].html" title="Show all machine types in region [% instance.region %]">[% instance.region %]</a>.
+		in Google Cloud region <a href="/[% instance.region %].html" title="Show all machine types in region [% instance.region %]">[% instance.region %]</a>[% IF instance.regionLocation %] ([% instance.regionLocation %])[% END %].
 		[%- IF instance.sap || instance.hana -%]
 			GCE machine type [% instance.name %] is certified for
 			[% IF instance.sap %]SAP applications[% END %]
@@ -15,7 +15,7 @@
 			on Google Cloud Platform.
 		[%- END -%]
 		Available in [% instance.zoneCount %] zone[% IF instance.zoneCount > 1 %]s[% END %].
-		[% IF instance.availableCpuPlatformCount < instance.cpuPlatformCount %]<mark>Not all CPU platforms are available in region [% instance.region %].</mark>[% END %]
+		[% IF instance.availableCpuPlatformCount < instance.cpuPlatformCount %]<mark>Not all CPU platforms are available in region [% instance.region %][% IF instance.regionLocation %] ([% instance.regionLocation %])[% END %].</mark>[% END %]
 		[% notAllCpuPlatformsAvailableInZones = 0; FOREACH cpuPlatform IN instance.availableCpuPlatform.split(',').sort; cpu = cpuPlatform.remove('\s'); %]
 			<!-- cpu: '[% cpu %]' -->
 			[% FOREACH zone IN instance.zones.split(', ').sort; %]
@@ -29,7 +29,7 @@
 				[% END; END; %]
 			[% END %]
 		[%END %]
-		[% IF notAllCpuPlatformsAvailableInZones %]<mark>Not all CPU platforms are available in all zones in region [% instance.region %].</mark>[% END %]
+		[% IF notAllCpuPlatformsAvailableInZones %]<mark>Not all CPU platforms are available in all zones in region [% instance.region %][% IF instance.regionLocation %] ([% instance.regionLocation %])[% END %].</mark>[% END %]
 	</p>
 </blockquote>
 
@@ -43,7 +43,7 @@
 <div class="row">
 <div class="col-xxl-6">
 <h2>Google Cloud VM [% instance.name %]</h2>
-<p>Technical facts about the Google Compute Engine machine type [% instance.name %] in Google Cloud Region [% instance.region %].</p>
+<p>Technical facts about the Google Compute Engine machine type [% instance.name %] in Google Cloud Region [% instance.region %][% IF instance.regionLocation %] ([% instance.regionLocation %])[% END %].</p>
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>Series</th>
@@ -169,7 +169,7 @@
 
 [% IF instance.zones %]
 <h2>Zones in Region [% instance.region %]</h2>
-<p>Google Compute Engine machine type [% instance.name %] is available in the following zones within the Google Cloud region [% instance.region %].</p>
+<p>Google Compute Engine machine type [% instance.name %] is available in the following zones within the Google Cloud region [% instance.region %][% IF instance.regionLocation %] ([% instance.regionLocation %])[% END %].</p>
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
@@ -206,7 +206,7 @@
 [% END %]
 
 <h2 id="share">Share [% instance.name %] in [% instance.region %]</h2>
-<p>Share a link to the Google Compute Engine machine type [% instance.name %] in Google Cloud region [% instance.region %].</p>
+<p>Share a link to the Google Compute Engine machine type [% instance.name %] in Google Cloud region [% instance.region %][% IF instance.regionLocation %] ([% instance.regionLocation %])[% END %].</p>
 <script>
 function copy[% instance.name.remove('-') %]() {
 	var url = document.getElementById("url[% instance.name.remove('-') %]").value;
@@ -232,7 +232,7 @@ function copy[% instance.name.remove('-') %]() {
 <div class="col-xxl-6">
 
 <h2>Costs (Pricing)</h2>
-<p>Costs and pricing for Google Compute Engine machine type [% instance.name %] in Google Cloud region [% instance.region %].</p>
+<p>Costs and pricing for Google Compute Engine machine type [% instance.name %] in Google Cloud region [% instance.region %][% IF instance.regionLocation %] ([% instance.regionLocation %])[% END %].</p>
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>Costs per Hour</th>
@@ -290,7 +290,7 @@ function copy[% instance.name.remove('-') %]() {
 
 [% IF instance.zones %]
 <h2>Google Cloud Command Line Interface <small class="text-muted">CLI</small></h2>
-<p>Google Cloud Command Line Interface (CLI) snippets for Google Compute Engine machine type [% instance.name %] in Google Cloud Region [% instance.region %].</p>
+<p>Google Cloud Command Line Interface (CLI) snippets for Google Compute Engine machine type [% instance.name %] in Google Cloud Region [% instance.region %][% IF instance.regionLocation %] ([% instance.regionLocation %])[% END %].</p>
 <ul class="nav nav-tabs" id="zonesTab" role="tablist">
 [% firstZone = 0; FOREACH zone IN instance.zones.split(', ').sort; firstZone = firstZone + 1; %]
 <li class="nav-item" role="presentation">
