@@ -31,32 +31,8 @@
 	</tr>
 </thead>
 <tbody>
-	[% FOREACH instance IN instances %]
-	<tr>
-		<td><a href="[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
-		<td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
-		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
-		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
-		<td>
-			[% badgeCpuManufactur(instance) %]
-			[% badgeSap(instance) %]
-			[% badgeHana(instance) %]
-		</td>
-		<td>[% instance.regionCount %]</td>
-		<!-- Costs -->
-		<td class="currency" title="[% instance.name %] avg. costs per hour: [% instance.avgHour %] USD">[% instance.avgHour %]</td>
-		<td title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
-			<span class="currency">[% instance.avgMonth %]</span>
-			[% badgeSud(instance) %]
-		</td>
-		<td class="currency" title="[% instance.name %] avg. costs per month w. 1Y CUD: [% instance.avgMonth1yCud %] USD">[% instance.avgMonth1yCud %]</td>
-		<td class="currency" title="[% instance.name %] avg. costs per month w. 3Y CUD: [% instance.avgMonth3yCud %] USD">[% instance.avgMonth3yCud %]</td>
-		<!-- OS -->
-		<td class="currency" title="[% instance.name %] license costs for SUSE Linux Enterprise Server: [% instance.monthSles %] USD">[% instance.monthSles %]</td>
-		<td class="currency" title="[% instance.name %] license costs for Red Hat Enterprise Linux: [% instance.monthRhel %] USD">[% instance.monthRhel %]</td>
-		<td class="currency" title="[% instance.name %] license costs for Microsoft Windows Server: [% instance.monthWindows %] USD">[% instance.monthWindows %]</td>
-	</tr>
-	[% END %]
+[%- PROCESS instances_tr.tt2; -%]
+[%- FOREACH instance IN instances; instanceTr(instance); END -%]
 </tbody>
 </table>
 </div> <!-- // table-responsive -->
