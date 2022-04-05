@@ -281,7 +281,7 @@ function copy[% instance.name.remove('-') %]() {
 	[% ELSE %]
 	<tr>
 		<td>
-			<a href="[% other.name %].html" title="Google Compute Engine machine type [% other.name %]">[% other.name %]</a>
+			<a href="/[% other.name %].html" title="Google Compute Engine machine type [% other.name %]">[% other.name %]</a>
 		</td>
 		<!-- vCPU -->
 		<td>[% other.vCpus %][% badgeSharedCpu(other) %]</td>
