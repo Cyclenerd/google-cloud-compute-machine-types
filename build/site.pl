@@ -253,6 +253,7 @@ foreach my $region (@regions) {
 	push(@files, "$name".'.html');
 	$template->process('region.tt2', {
 		'region'              => $region,
+		'regions'             => \@regions,
 		'instances'           => \@instances,
 		'instances_in_region' => \@instances_in_region
 	}, "$html_file") || die "Template process failed: ", $template->error(), "\n";

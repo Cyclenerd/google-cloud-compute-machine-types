@@ -87,4 +87,26 @@ Out of a total of [% instances.size %] Google Compute Engine machine types,
 </tbody>
 </table>
 </div><!-- table-responsive -->
+
+[%-
+id   = region.id - 1
+prev = id - 1
+next = id + 1
+-%]
+<nav>
+<ul class="pagination justify-content-center">
+	[% IF id > 0 %]
+	<li class="page-item"><a class="page-link" href="/[% regions.$prev.name %].html">← [% regions.$prev.name %]</a></li>
+	[% ELSE %]
+	<li class="page-item disabled"><span class="page-link">←</span></li>
+	[% END %]
+	<li class="page-item active" aria-current="page"><span class="page-link">[% region.name %]</span></li>
+	[% IF regions.$next.id %]
+	<li class="page-item"><a class="page-link" href="/[% regions.$next.name %].html">[% regions.$next.name %] →</a></li>
+	[% ELSE %]
+	<li class="page-item disabled"><span class="page-link">→</span></li>
+	[% END %]
+</ul>
+</nav>
+
 [% PROCESS footer.tt2 %]
