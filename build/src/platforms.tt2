@@ -2,6 +2,15 @@
 [%- PROCESS regions_header.tt2 -%]
 
 <h1>Available CPU Platforms in Google Cloud Regions</h1>
+
+<blockquote class="blockquote">
+<p>
+You have the choice between Google Compute Engine machine types with <a href="/intel.html">Intel</a> or <a href="/amd.html">AMD</a> central processing unit (CPU).
+The different CPU platforms differ from the year of release and performance.
+Not every CPU is available in all Google Cloud region and zones.
+</p>
+</blockquote>
+
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>

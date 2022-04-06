@@ -2,6 +2,15 @@
 [%- PROCESS regions_header.tt2 -%]
 
 <h1>Google Cloud Platform Regions</h1>
+
+<blockquote class="blockquote">
+<p>
+Worldwide, there are <mark>[% regions.size %]</mark> Google Cloud regions.
+Not every Google Compute Engine machine series is available in all Google Cloud region and zones.
+The pricing differs.
+</p>
+</blockquote>
+
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
@@ -79,8 +88,14 @@
 			<a href="/grid.html?region=[% region.name %]&amp;hana=1">[% region.hana %]</a>
 		</td>
 		<!-- e2-standard-8 -->
-		<td class="currency" title="e2-standard-8 Hour: [% region.e2Standard8Hour %] USD">[% region.e2Standard8Hour %]</td>
-		<td class="currency" title="e2-standard-8 Month: [% region.e2Standard8Month %] USD">[% region.e2Standard8Month %]</td>
+		<td
+		    title="Costs per hour for machine type e2-standard-8 in region [% region.name %]: [% region.hour %] USD">
+			<span class="currency">[% region.e2Standard8Hour %]</span>
+		</td>
+		<td
+		    title="Costs per month for machine type e2-standard-8 in region [% region.name %]: [% region.hour %] USD">
+			<span class="currency">[% region.e2Standard8Month %]</span>
+		</td>
 	</tr>
 	[% END %]
 </tbody>

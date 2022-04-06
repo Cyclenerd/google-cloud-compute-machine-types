@@ -3,6 +3,14 @@
 
 <h1>Certified for SAP HANA on Google Cloud Platform</h1>
 
+[%- countSAP = 0; FOREACH instance IN instances; IF instance.hana; countSAP = countSAP + 1; END; END -%]
+<blockquote class="blockquote">
+<p>
+There are <mark>[% countSAP %]</mark> Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform.
+Not every certified Google Cloud VM is available in every region.
+</p>
+</blockquote>
+
 <p><a class="btn btn-success" href="/grid.html?hana=1" role="button">✅ Instance Picker with filter on SAP HANA</a></p>
 
 <div class="table-responsive">

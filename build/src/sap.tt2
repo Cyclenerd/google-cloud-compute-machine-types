@@ -3,6 +3,14 @@
 
 <h1>Certified for SAP Application on Google Cloud Platform</h1>
 
+[%- countSAP = 0; FOREACH instance IN instances; IF instance.sap; countSAP = countSAP + 1; END; END -%]
+<blockquote class="blockquote">
+<p>
+There are <mark>[% countSAP %]</mark> Google Compute Engine machine types certified for SAP applications on Google Cloud Platform.
+Not every certified GCE machine type is available in every Google Cloud region.
+</p>
+</blockquote>
+
 <p><a class="btn btn-success" href="/grid.html?sap=1" role="button">✅ Instance Picker with filter on SAP</a></p>
 
 <div class="table-responsive">

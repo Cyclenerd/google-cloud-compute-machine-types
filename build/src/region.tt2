@@ -2,6 +2,13 @@
 
 <h1>Google Cloud Region [% region.name %][% IF region.regionLocation %] <small class="text-muted">[% region.regionLocation %]</small>[% END %]</h1>
 
+<blockquote class="blockquote">
+<p>
+Out of a total of [% instances.size %] Google Compute Engine machine types,
+<mark>[% instances_in_region.size %] machine types</mark> are available in Google Cloud region [% region.name %][% IF region.regionLocation %] ([% region.regionLocation %])[% END %].
+</p>
+</blockquote>
+
 <p><a class="btn btn-success" href="/grid.html?region=[% region.name %]" role="button">✅ Instance Picker with filter on region [% region.name %]</a></p>
 
 <div class="table-responsive">
@@ -33,28 +40,44 @@
 	</tr>
 </thead>
 <tbody>
-	[% FOREACH instance IN instances %]
+	[% FOREACH instance IN instances_in_region %]
 	<tr>
-		<td><a href="./[% region.name %]/[% instance.name %].html">[% instance.name %]</a></td>
+		<td>
+			<a
+			   href="/[% region.name %]/[% instance.name %].html"
+			   title="Google Compute Engine machine type [% instance.name %] in Google Cloud region [% region.name %]">
+				[% instance.name %]
+			</a>
+		</td>
 		<td>[% instance.vCpus %][% IF instance.sharedCpu %] <span class="badge bg-warning text-dark">Shared</span>[% END %]</td>
 		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
 		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
 		<td>
 			[% IF instance.intel %]<span class="badge bg-primary">Intel</span>[% END %]
-			[% IF instance.amd %]<span class="badge bg-success">AMD</span>[% END %]
-			[% IF instance.sap %]<span class="badge bg-warning text-dark">SAP</span>[% END %]
-			[% IF instance.hana %]<span class="badge bg-warning text-dark">HANA</span>[% END %]
+			[% IF instance.amd   %]<span class="badge bg-success">AMD</span>[% END %]
+			[% IF instance.sap   %]<span class="badge bg-warning text-dark">SAP</span>[% END %]
+			[% IF instance.hana  %]<span class="badge bg-warning text-dark">HANA</span>[% END %]
 		</td>
 		<td [% IF instance.availableCpuPlatformCount < instance.cpuPlatformCount %]class="table-warning"[% END%] title="Available CPU platforms for machine type [% instance.name %] in region [% region.name %]">[% IF instance.availableCpuPlatformCount %][% instance.availableCpuPlatformCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td title="Available in [% instance.zoneCount %] zone[% IF instance.zoneCount > 1 %]s[% END %]">[% instance.zoneCount %]</td>
 		<!-- Costs -->
-		<td class="currency" title="Hour: [% instance.hour %] USD">[% instance.hour %]</td>
-		<td title="Month: [% instance.month %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
-			<span class="currency">[% instance.month %]</span>
-			[% IF instance.sud %]<span class="badge bg-info">SUD</span>[% END %]
+		<td
+			title="Costs per hour for machine type [% instance.name %] in region [% region.name %]: [% instance.hour %] USD">
+			<span class="currency">[% instance.hour %]</span>
 		</td>
-		<td class="currency" title="Month w. 1Y CUD: [% instance.month1yCud %] USD">[% instance.month1yCud %]</td>
-		<td class="currency" title="Month w. 3Y CUD: [% instance.month3yCud %] USD">[% instance.month3yCud %]</td>
+		<td
+		    title="Costs per month for machine type [% instance.name %] in region [% region.name %]: [% instance.month %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
+			<span class="currency">[% instance.month %]</span>
+			[% badgeSud(instance) %]
+		</td>
+		<td
+		    title="Costs per month for machine type [% instance.name %] in region [% region.name %] with 1 year commitment (CUD): [% instance.month1yCud %] USD">
+			<span class="currency">[% instance.month1yCud %]</span>
+		</td>
+		<td
+		    title="Costs per month for machine type [% instance.name %] in region [% region.name %] with 3 year commitment (CUD): [% instance.month3yCud %] USD">
+			<span class="currency">[% instance.month3yCud %]</span>
+		</td>
 		<!-- OS -->
 		<td class="currency" title="SUSE Linux Enterprise Server: [% instance.monthSles %] USD">[% instance.monthSles %]</td>
 		<td class="currency" title="Red Hat Enterprise Linux: [% instance.monthRhel %] USD">[% instance.monthRhel %]</td>

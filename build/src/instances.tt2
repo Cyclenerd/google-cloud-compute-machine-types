@@ -3,6 +3,13 @@
 
 <h1>Google Compute Engine Machine Types</h1>
 
+<blockquote class="blockquote">
+<p>
+There are <mark>[% instances.size %]</mark> Google Compute Engine machine types in total.
+Not every Google Cloud VM is available in every region.
+</p>
+</blockquote>
+
 <div class="table-responsive">
 [%- PROCESS instances_tr.tt2; -%]
 <table class="table table-sm table-hover table-striped table-bordered">

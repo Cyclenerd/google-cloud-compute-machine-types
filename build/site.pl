@@ -241,17 +241,21 @@ foreach my $region (@regions) {
 	~;
 	$sth = $dbh->prepare($sql_instances_in_region);
 	$sth->execute();
-	my @instances = ();
+	my @instances_in_region = ();
 	$id = '1';
 	while (my $instance = $sth->fetchrow_hashref) {
 		$instance->{'id'} = $id;
-		push(@instances, $instance);
+		push(@instances_in_region, $instance);
 		$id++;
 	}
 	my $html_file = '../site/'."$name".'.html';
 	print "$html_file\n";
 	push(@files, "$name".'.html');
-	$template->process('region.tt2', { 'region' => $region, 'instances' => \@instances }, "$html_file") || die "Template process failed: ", $template->error(), "\n";
+	$template->process('region.tt2', {
+		'region'              => $region,
+		'instances'           => \@instances,
+		'instances_in_region' => \@instances_in_region
+	}, "$html_file") || die "Template process failed: ", $template->error(), "\n";
 }
 
 
@@ -366,7 +370,6 @@ while (my $instance = $sth->fetchrow_hashref) {
 		my $html_file = '../site/'."$region/$name".'.html';
 		print "$id : $html_file\n";
 		$template->process('instance_in_region.tt2', {
-			'gmttime'  => $gmttime,
 			'instance' => $instance,
 			'regions'  => \@regions,
 			'zones'    => \@zones,

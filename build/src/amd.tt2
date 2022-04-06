@@ -3,6 +3,14 @@
 
 <h1>Google Compute Engine Machine Types with AMD CPU Platform</h1>
 
+[%- countAmd = 0; FOREACH instance IN instances; IF instance.amd; countAmd = countAmd + 1; END; END -%]
+<blockquote class="blockquote">
+<p>
+There are <mark>[% countAmd %]</mark> Google Compute Engine machine types with AMD central processing unit (CPU) available.
+Not every Google Cloud VM with AMD CPU is available in every region.
+</p>
+</blockquote>
+
 <p><a class="btn btn-success" href="/grid.html?platform=amd" role="button">✅ Instance Picker with filter on CPU Platform</a></p>
 
 <div class="table-responsive">

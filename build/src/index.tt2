@@ -40,7 +40,7 @@ END;
 %]
 
 <p>
-<a href="/instances.html">Here</a> you can find an overview of all <mark>[% instances.size %] different Google Compute Engine machine types</mark>.
+<a href="/instances.html" title="All Google Conmpute Engine machine types">Here</a> you can find an overview of all <mark>[% instances.size %] different Google Compute Engine machine types</mark>.
 You can also find the average costs per GCE machine type across all Google Cloud regions in this overview.
 </p>
 
@@ -52,7 +52,7 @@ You have the choice between <mark>[% intel %] machine types with <a href="/intel
 <h2>Regions</h2>
 
 <p>
-<a href="/regions.html">Here</a> you can find an overview of all <mark>[% regions.size %] Google Cloud regions</mark> and the corresponding zones.
+<a href="/regions.html" title="All Google Cloud regions">Here</a> you can find an overview of all <mark>[% regions.size %] Google Cloud regions</mark> and the corresponding zones.
 You can also find the available Google Compute Engine machine types per GCE machine series (<a href="/platforms.html">CPU type and CPU plattform</a>) in this overview.
 </p>
 
@@ -87,13 +87,13 @@ You can filter and sort all fields in the <a href="/grid.html">Instance Picker</
 	<div class="col-xl-6">
 		<p>
 			Filter on region <code>europe-west4</code> and CPU base clock frequency greater than <code>3 GHz</code>:
-			<img src="./img/filter.png?[% timestamp %]" alt="Screenshot: Filter" class="img-fluid rounded">
+			<img src="/img/filter.png?[% timestamp %]" alt="Screenshot: Filter" class="img-fluid rounded">
 		</p>
 	</div>
 	<div class="col-xl-6">
 		<p>
 			Filter on region <code>europe-west4</code> and Memory greater than <code>30 GB</code> but also less than <code>60 GB</code>:
-			<img src="./img/combine-filter.png?[% timestamp %]" alt="Screenshot: Filter combined" class="img-fluid rounded">
+			<img src="/img/combine-filter.png?[% timestamp %]" alt="Screenshot: Filter combined" class="img-fluid rounded">
 		</p>
 	</div>
 </div>
@@ -103,13 +103,13 @@ You can filter and sort all fields in the <a href="/grid.html">Instance Picker</
 	<div class="col-xl-6">
 		<p>
 			Click header title to sort column:
-			<img src="./img/sort.png?[% timestamp %]" alt="Screenshot: Sort colums" class="img-fluid rounded">
+			<img src="/img/sort.png?[% timestamp %]" alt="Screenshot: Sort colums" class="img-fluid rounded">
 		</p>
 	</div>
 	<div class="col-xl-6">
 		<p>
 			Click group header title icon to show more colums:
-			<img src="./img/show-more.png?[% timestamp %]" alt="Screenshot: Show more colums" class="img-fluid rounded">
+			<img src="/img/show-more.png?[% timestamp %]" alt="Screenshot: Show more colums" class="img-fluid rounded">
 		</p>
 	</div>
 </div>
@@ -147,8 +147,8 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 <h2>Download</h2>
 
 <p>
-You can download a <a href="/machine-types-regions.csv" rel="nofollow">CSV</a> file ([% csvFileSize %] MB)
-and <a href="/machine-types-regions.sql.gz" rel="nofollow">SQL</a> export ([% sqlFileSize %] MB, gzip compressed) with all machine types and regions.
+You can download a <a href="/machine-types-regions.csv">CSV</a> file ([% csvFileSize %] MB)
+and <a href="/machine-types-regions.sql.gz">SQL</a> export ([% sqlFileSize %] MB, gzip compressed) with all machine types and regions.
 You can import and edit the CSV file to your favorite spreadsheet program (MS Excel, LibreOffice or Google Sheets).
 You can import the SQL dump into your favorite database (like SQLite).
 </p>
@@ -157,13 +157,13 @@ You can import the SQL dump into your favorite database (like SQLite).
 	<div class="col-xl-6">
 		<p>
 			Imported CSV file in LibreOffice spreadsheet program:
-			<img src="./img/spreadsheet.png?[% timestamp %]" alt="Screenshot: LibreOffice" class="img-fluid rounded">
+			<img src="/img/spreadsheet.png?[% timestamp %]" alt="Screenshot: LibreOffice" class="img-fluid rounded">
 		</p>
 	</div>
 	<div class="col-xl-6">
 		<p>
 			Imported SQL export in DB Browser for SQLite:
-			<img src="./img/dbbrowser.png?[% timestamp %]" alt="Screenshot: DB Browser for SQLite" class="img-fluid rounded">
+			<img src="/img/dbbrowser.png?[% timestamp %]" alt="Screenshot: DB Browser for SQLite" class="img-fluid rounded">
 		</p>
 	</div>
 </div>

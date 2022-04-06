@@ -3,6 +3,14 @@
 
 <h1>Google Compute Engine Machine Types with Intel CPU Platform</h1>
 
+[%- countIntel = 0; FOREACH instance IN instances; IF instance.intel; countIntel = countIntel + 1; END; END -%]
+<blockquote class="blockquote">
+<p>
+There are <mark>[% countIntel %]</mark> Google Compute Engine machine types with Intel central processing unit (CPU) available.
+Not every GCE machine type with Intel CPU is available in every Google Cloud region.
+</p>
+</blockquote>
+
 <p><a class="btn btn-success" href="/grid.html?platform=intel" role="button">✅ Instance Picker with filter on CPU Platform</a></p>
 
 <div class="table-responsive">
