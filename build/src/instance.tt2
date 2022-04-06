@@ -189,7 +189,7 @@ function copy[% instance.name.remove('-') %]() {
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
 	<tr>
-		<th scope="col">Name</th>
+		<th scope="col">Region</th>
 		<th scope="col">Location</th>
 		<th scope="col">#Zones</th>
 		<th scope="col" title="CPU Platforms">#Platf.</th>
