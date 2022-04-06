@@ -280,13 +280,13 @@
 		<td class="currency">[% instance_b.monthSlesSap %]</td>
 	</tr>
 	<tr>
-		<th>SUSE Linux Enterprise Server for SAP w. 1 Year CUD</th>
+		<th>SUSE Linux Enterprise Server for SAP w. 1 year CUD</th>
 		<td class="currency table-active">[% instance_a.monthSlesSap1yCud %]</td>
 		[% tableCompareCosts(instance_a.monthSlesSap1yCud || 0, instance_b.monthSlesSap1yCud || 0) %]
 		<td class="currency">[% instance_b.monthSlesSap1yCud %]</td>
 	</tr>
 	<tr>
-		<th>SUSE Linux Enterprise Server for SAP w. 3 Year CUD</th>
+		<th>SUSE Linux Enterprise Server for SAP w. 3 year CUD</th>
 		<td class="currency table-active">[% instance_a.monthSlesSap3yCud %]</td>
 		[% tableCompareCosts(instance_a.monthSlesSap3yCud || 0, instance_b.monthSlesSap3yCud || 0) %]
 		<td class="currency">[% instance_b.monthSlesSap3yCud %]</td>
@@ -337,8 +337,8 @@ function copy[% instance_a.name.remove('-') %]() {
 		<th scope="col" colspan="2">Region</th>
 		<th scope="col" colspan="3">Hour</th>
 		<th scope="col" colspan="3">Month</th>
-		<th scope="col" colspan="3">Month with 1Y CUD</th>
-		<th scope="col" colspan="3">Month with 3Y CUD</th>
+		<th scope="col" colspan="3">Month w. 1 year CUD</th>
+		<th scope="col" colspan="3">Month w. 3 year CUD</th>
 	</tr>
 	<tr>
 		<th scope="col">Name</th>

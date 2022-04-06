@@ -15,10 +15,6 @@
 		Available in [% regions.size %] Google Cloud region[% IF regions.size > 1 %]s[% END %].
 		[% notAllCpuPlatformsAvailable = 0; FOREACH region IN regions; IF region.availableCpuPlatformCount < instance.cpuPlatformCount; notAllCpuPlatformsAvailable = 1; END; END; %]
 		[% IF notAllCpuPlatformsAvailable %]<mark>Not all CPU platforms are available in all regions.</mark>[% END %]
-		On average across all regions, the machine type [% instance.name %] costs <mark>$[% instance.avgHour %] per hour</mark>.
-		Average cost $[% instance.avgMonth %] per month[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %].
-		With a commitment for one year, the instance costs on average $[% instance.avgMonth1yCud %] per month.
-		If you commit for three years, you get a commit use discount (CUD) and the instance costs on average $[% instance.avgMonth3yCud %] per month.
 	</p>
 </blockquote>
 
@@ -29,8 +25,10 @@
 
 <div class="row">
 <div class="col-xxl-6">
+
 <h2>Google Cloud VM [% instance.name %]</h2>
 <p>Technical facts about the Google Compute Engine machine type [% instance.name %].</p>
+<div class="table-responsive">
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>Series</th>
@@ -134,8 +132,8 @@
 		<th title="Google Compute Engine API Description">GCE API Description</th>
 		<td>[% instance.description %]</td>
 	</tr>
-	
 </table>
+</div><!-- table-responsive -->
 
 <h2 id="share">Share [% instance.name %]</h2>
 <p>Share a link to the Google Cloud machine type [% instance.name %].</p>
@@ -161,9 +159,31 @@ function copy[% instance.name.remove('-') %]() {
 </div>
 
 </div> <!-- // col -->
-
 <div class="col-xxl-6">
+
 <h2>Costs (Pricing) for [% instance.name %]</h2>
+<p>Average cost and pricing across all regions for Google Cloud VM [% instance.name %].</p>
+<div class="table-responsive">
+<table class="table table-hover table-striped table-bordered">
+	<tr>
+		<th>Avg. costs per hour</th>
+		<td class="currency">[% instance.avgHour %]</td>
+	</tr>
+	<tr>
+		<th>Avg. costs per month[% IF instance.sud %] with sustained use discount (SUD)[% END %]</th>
+		<td class="currency">[% instance.avgMonth %]</td>
+	</tr>
+	<tr>
+		<th>Avg. costs per month with 1 year commitment (CUD)</th>
+		<td class="currency">[% instance.avgMonth1yCud %]</td>
+	</tr>
+	<tr>
+		<th>Avg. costs per month with 3 year commitment (CUD)</th>
+		<td class="currency">[% instance.avgMonth3yCud %]</td>
+	</tr>
+</table>
+</div><!-- table-responsive -->
+
 <p>Costs and pricing for Google Compute Engine machine type [% instance.name %] in Google Cloud regions in which the VM is available.</p>
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
@@ -188,20 +208,36 @@ function copy[% instance.name.remove('-') %]() {
 		<td [% IF region.zoneCount < 1%]class="table-danger"[% END%] title="Available [% region.zoneCount %] zone[% IF region.zoneCount > 1 %]s[% END %] in region [% region.name %]">[% IF region.zoneCount %][% region.zoneCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td [% IF region.availableCpuPlatformCount < instance.cpuPlatformCount %]class="table-warning"[% END%] title="Available CPU platforms in region [% region.name %]">[% IF region.availableCpuPlatformCount %][% region.availableCpuPlatformCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<!-- Costs -->
-		<td class="currency" title="Hour: [% region.hour %] USD">[% region.hour %]</td>
-		<td title="Month: [% region.month %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
+		<td
+		    class="[% IF region.hour >= instance.maxHour %]table-danger[% ELSIF region.hour > instance.avgHour %]table-warning[% ELSE %]table-success[% END %]"
+			title="Costs per hour for machine type [% instance.name %] in region [% region.name %]: [% region.hour %] USD">
+			<span class="currency">[% region.hour %]</span>
+		</td>
+		<td
+		    class="[% IF region.month >= instance.maxMonth %]table-danger[% ELSIF region.month > instance.avgMonth %]table-warning[% ELSE %]table-success[% END %]"
+		    title="Costs per month for machine type [% instance.name %] in region [% region.name %]: [% region.month %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% region.month %]</span>
 			[% badgeSud(instance) %]
 		</td>
-		<td class="currency" title="Month w. 1Y CUD: [% region.month1yCud %] USD">[% region.month1yCud %]</td>
-		<td class="currency" title="Month w. 3Y CUD: [% region.month3yCud %] USD">[% region.month3yCud %]</td>
+		<td
+		    class="[% IF region.month1yCud >= instance.maxMonth1yCud %]table-danger[% ELSIF region.month1yCud > instance.avgMonth1yCud %]table-warning[% ELSE %]table-success[% END %]"
+		    title="Costs per month for machine type [% instance.name %] in region [% region.name %] with 1 year commitment (CUD): [% region.month1yCud %] USD">
+			<span class="currency">[% region.month1yCud %]</span>
+		</td>
+		<td
+		    class="[% IF region.month3yCud >= instance.maxMonth3yCud %]table-danger[% ELSIF region.month3yCud > instance.avgMonth3yCud %]table-warning[% ELSE %]table-success[% END %]"
+		    title="Costs per month for machine type [% instance.name %] in region [% region.name %] with 3 year commitment (CUD): [% region.month3yCud %] USD">
+			<span class="currency">[% region.month3yCud %]</span>
+		</td>
 	</tr>
 	[% END %]
 </tbody>
 </table>
 </div><!-- table-responsive -->
+
 <h2>Operating System Licenses Costs for [% instance.name %]</h2>
 <p>Monthly costs for paid <i>premium</i> operating system licenses for Google Compute Engine machine type [% instance.name %].</p>
+<div class="table-responsive">
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>SUSE Linux Enterprise Server</th>
@@ -220,11 +256,11 @@ function copy[% instance.name.remove('-') %]() {
 		<td class="currency">[% instance.monthSlesSap %]</td>
 	</tr>
 	<tr>
-		<th>SUSE Linux Enterprise Server for SAP w. 1 Year CUD</th>
+		<th>SUSE Linux Enterprise Server for SAP w. 1 year CUD</th>
 		<td class="currency">[% instance.monthSlesSap1yCud %]</td>
 	</tr>
 	<tr>
-		<th>SUSE Linux Enterprise Server for SAP w. 3 Year CUD</th>
+		<th>SUSE Linux Enterprise Server for SAP w. 3 year CUD</th>
 		<td class="currency">[% instance.monthSlesSap3yCud %]</td>
 	</tr>
 	<tr>
@@ -232,6 +268,8 @@ function copy[% instance.name.remove('-') %]() {
 		<td class="currency">[% instance.monthRhelSap %]</td>
 	</tr>
 </table>
+</div><!-- table-responsive -->
+
 </div> <!-- // col -->
 </div> <!-- // row -->
 

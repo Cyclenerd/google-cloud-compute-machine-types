@@ -42,8 +42,10 @@
 
 <div class="row">
 <div class="col-xxl-6">
+
 <h2>Google Cloud VM [% instance.name %]</h2>
 <p>Technical facts about the Google Compute Engine machine type [% instance.name %] in Google Cloud Region [% instance.region %][% IF instance.regionLocation %] ([% instance.regionLocation %])[% END %].</p>
+<div class="table-responsive">
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>Series</th>
@@ -166,6 +168,7 @@
 		<td>[% instance.description %]</td>
 	</tr>
 </table>
+</div><!-- table-responsive -->
 
 [% IF instance.zones %]
 <h2>Zones in Region [% instance.region %]</h2>
@@ -202,7 +205,7 @@
 	[% END %]
 </tbody>
 </table>
-</div>
+</div><!-- table-responsive -->
 [% END %]
 
 <h2 id="share">Share [% instance.name %] in [% instance.region %]</h2>
@@ -231,32 +234,32 @@ function copy[% instance.name.remove('-') %]() {
 </div> <!-- // col -->
 <div class="col-xxl-6">
 
-<h2>Costs (Pricing)</h2>
+<h2>Costs (Pricing) in Region [% instance.region %]</h2>
 <p>Costs and pricing for Google Compute Engine machine type [% instance.name %] in Google Cloud region [% instance.region %][% IF instance.regionLocation %] ([% instance.regionLocation %])[% END %].</p>
+<div class="table-responsive">
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>Costs per Hour</th>
 		<td class="currency">[% instance.hour %]</td>
 	</tr>
 	<tr>
-		<th>
-			Costs per Month
-			[% IF instance.sud %]with SUD[% END %]
-		</th>
+		<th>Costs per month[% IF instance.sud %] with sustained use discount (SUD)[% END %]</th>
 		<td class="currency">[% instance.month %]</td>
 	</tr>
 	<tr>
-		<th>Month with 1 Year CUD</th>
+		<th>Costs per month with 1 year commitment (CUD)</th>
 		<td class="currency">[% instance.month1yCud %]</td>
 	</tr>
 	<tr>
-		<th>Month with 3 Year CUD</th>
+		<th>Costs per month with 3 year commitment (CUD)</th>
 		<td class="currency">[% instance.month3yCud %]</td>
 	</tr>
 </table>
+</div><!-- table-responsive -->
 
-<h2>Operating System Licenses Costs</h2>
+<h2>Operating System Licenses Costs for [% instance.name %]</h2>
 <p>Monthly costs for paid <i>premium</i> operating system licenses for Google Compute Engine machine type [% instance.name %].</p>
+<div class="table-responsive">
 <table class="table table-hover table-striped table-bordered">
 	<tr>
 		<th>SUSE Linux Enterprise Server</th>
@@ -275,11 +278,11 @@ function copy[% instance.name.remove('-') %]() {
 		<td class="currency">[% instance.monthSlesSap %]</td>
 	</tr>
 	<tr>
-		<th>SUSE Linux Enterprise Server for SAP w. 1 Year CUD</th>
+		<th>SUSE Linux Enterprise Server for SAP w. 1 year CUD</th>
 		<td class="currency">[% instance.monthSlesSap1yCud %]</td>
 	</tr>
 	<tr>
-		<th>SUSE Linux Enterprise Server for SAP w. 3 Year CUD</th>
+		<th>SUSE Linux Enterprise Server for SAP w. 3 year CUD</th>
 		<td class="currency">[% instance.monthSlesSap3yCud %]</td>
 	</tr>
 	<tr>
@@ -287,6 +290,7 @@ function copy[% instance.name.remove('-') %]() {
 		<td class="currency">[% instance.monthRhelSap %]</td>
 	</tr>
 </table>
+</div><!-- table-responsive -->
 
 [% IF instance.zones %]
 <h2>Google Cloud Command Line Interface <small class="text-muted">CLI</small></h2>
