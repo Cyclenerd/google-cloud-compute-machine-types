@@ -170,17 +170,17 @@ You can import the SQL dump into your favorite database (like SQLite).
 
 <p>With the SQL export you can also do great queries using the command line (CLI).</p>
 <p>Command line:</p>
-<pre><code># Download SQL export
+<pre class="bg-light"><code><span class="text-muted"># Download SQL export</span>
 curl -O [% site.url %]/machine-types-regions.sql.gz
-# Decompress SQL export
+<span class="text-muted"># Decompress SQL export</span>
 gzip -d machine-types-regions.sql.gz
-# Import SQL dump
+<span class="text-muted"># Import SQL dump</span>
 sqlite3 gce.db &lt; machine-types-regions.sql
-# SQL query
-sqlite3 gce.db &#39;SELECT name, vCpus, hour FROM instances WHERE vCpus &gt;= 8 AND region LIKE &quot;europe-west4&quot; ORDER BY hour ASC LIMIT 5&#39;</code></pre>
+<span class="text-muted"># SQL query</span>
+sqlite3 gce.db <span class="text-primary">&#39;SELECT name, vCpus, hour FROM instances WHERE vCpus &gt;= 8 AND region LIKE &quot;europe-west4&quot; ORDER BY hour ASC LIMIT 5&#39;</span></code></pre>
 
 <p>Example SQL output:</p>
-<pre><code>e2-highcpu-8|8.0|0.21785232
+<pre class="bg-light"><code>e2-highcpu-8|8.0|0.21785232
 n2d-highcpu-8|8.0|0.274688
 e2-standard-8|8.0|0.29508816
 n1-highcpu-8|8.0|0.3119968

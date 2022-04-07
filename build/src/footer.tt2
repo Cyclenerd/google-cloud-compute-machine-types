@@ -30,25 +30,27 @@
 </div>
 <div class="modal-body">
 
-<p class="h4">Spreadsheet with GCE Machine Types and Google Cloud Regions</p>
-<p><a href="/machine-types-regions.csv">Download CSV file</a> ([% csvFileSize %] MB)<p>
+<p class="h4">Spreadsheet</p>
+<p>Comma Separated Values (CSV) file with GCE machine types and Google Cloud regions.</p>
+<p><a class="btn btn-primary" href="/machine-types-regions.csv">Download CSV ([% csvFileSize %] MB)</a><p>
 
-<p class="h4">Database with GCE Machine Types, Google Cloud Regions and Zones</p>
-<p><a href="/machine-types-regions.sql.gz">Download SQL export</a> ([% sqlFileSize %] MB, gzip compressed)<p>
+<p class="h4">Database</p>
+<p>Gzip compressed Structured Query Language (SQL) export with GCE machine types, Google Cloud regions and zones.</p>
+<p><a class="btn btn-primary" href="/machine-types-regions.sql.gz">Download SQL ([% sqlFileSize %] MB)</a><p>
 
 <p class="h4">Command Line</p>
-<pre><code># Download Google Compute Engine machine types as CSV
+<pre class="bg-light"><code><span class="text-muted"># Download CSV file</span>
 curl -O [% site.url %]/machine-types-regions.csv
-# Search CSV and count
-grep 'europe-west4' &lt; machine-types-regions.csv | wc -l
-# Download Google Compute Engine machine types as SQL
+<span class="text-muted"># Search CSV and count</span>
+grep <span class="text-primary">'europe-west4'</span> &lt; machine-types-regions.csv | wc -l
+<span class="text-muted"># Download SQL export</span>
 curl -O [% site.url %]/machine-types-regions.sql.gz
-# Decompress GCE machine types SQL export
+<span class="text-muted"># Decompress SQL export</span>
 gzip -d machine-types-regions.sql.gz
-# Import GCE machine types SQL dump
+<span class="text-muted"># Import SQL dump</span>
 sqlite3 gce.db &lt; machine-types-regions.sql
-# SQL query Google Cloud machine types (instances)
-sqlite3 gce.db &#39;SELECT * FROM instances&#39;</code></pre>
+<span class="text-muted"># SQL query Google Cloud machine types (instances)</span>
+sqlite3 gce.db <span class="text-primary">&#39;SELECT * FROM instances&#39;</span></code></pre>
 
 <p class="h4">Source Code</p>
 <p>

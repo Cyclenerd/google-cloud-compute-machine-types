@@ -315,43 +315,43 @@ function copy[% instance.name.remove('-') %]() {
 <p>Create instance:</p>
 <script>
 function copy[% zone.remove('-') %]() {
-	var cli = document.getElementById("cli[% zone.remove('-') %]").innerHTML;
+	var cli = document.getElementById("cli[% zone.remove('-') %]").innerText;
 	navigator.clipboard.writeText(cli);
 }
 </script>
 <div class="position-relative">
-<div class="position-absolute top-0 end-0"><button type="button" class="btn btn-outline-primary btn-sm" onclick="copy[% zone.remove('-') %]();">Copy to Clipboard</button></div>
-<pre><code id="cli[% zone.remove('-') %]"># Create Google Compute Engine virtual machine instance
-# called &#39;[% instance.name%]-[% zone %]&#39;
-# in the &#39;[% zone %]&#39; zone
-# with the latest &#39;Ubuntu 20.04 LTS&#39; image available.
+<div class="position-absolute top-0 end-0"><button type="button" class="btn btn-outline-primary btn-sm" onclick="copy[% zone.remove('-') %]();" title="Copy to clipboard">Copy</button></div>
+<pre class="bg-light"><code id="cli[% zone.remove('-') %]"><span class="text-muted"># Create Google Compute Engine virtual machine instance</span>
+<span class="text-muted"># called '[% instance.name%]-[% zone %]'</span>
+<span class="text-muted"># in the '[% zone %]' zone</span>
+<span class="text-muted"># with the latest 'Ubuntu 20.04 LTS' image available.</span>
 [% # do not remove this line %]
 [%- IF instance.sharedCpu < 1 -%]
-# To specify minimum CPU platform replace min-cpu-platform:
+<span class="text-muted"># To specify minimum CPU platform replace min-cpu-platform:</span>
 [% # do not remove this line %]
 [%- FOREACH cpuPlatform IN instance.availableCpuPlatform.split(',').sort; cpu = cpuPlatform.remove('\s'); -%]
 [%- FOREACH z IN zones; IF z.name == zone; available = z.availableCpuPlatforms.remove('\s'); END; END; -%]
 [%- IF available.search(cpu) -%]
-#    --min-cpu-platform=&#39;[% cpuPlatform.remove('^\s').remove('\s$') %]&#39; \
+<span class="text-muted">#    --min-cpu-platform=&#39;[% cpuPlatform.remove('^\s').remove('\s$') %]&#39; \</span>
 [% # do not remove this line %]
 [%- END; END; END -%]
 gcloud compute instances create [% instance.name %]-[% zone %] \
---zone=[% zone %] \
---machine-type=[% instance.name %] \
---min-cpu-platform=&#39;AUTOMATIC&#39; \
---image-project=ubuntu-os-cloud \
---image-family=ubuntu-2004-lts</code></pre>
+--zone=<span class="text-primary">'[% zone %]'</span> \
+--machine-type=<span class="text-primary">'[% instance.name %]'</span> \
+--min-cpu-platform=<span class="text-primary">'AUTOMATIC'</span> \
+--image-project=<span class="text-primary">'ubuntu-os-cloud'</span> \
+--image-family=<span class="text-primary">'ubuntu-2004-lts'</span></code></pre>
 </div> <!-- // position-relative -->
 
 <p>CPU platforms:<p>
-<pre># List available CPU platforms
-gcloud compute zones describe [% zone %] --format=&#39;value(availableCpuPlatforms)&#39;</pre>
+<pre class="bg-light"><span class="text-muted"># List available CPU platforms</span>
+gcloud compute zones describe [% zone %] --format=<span class="text-primary">'value(availableCpuPlatforms)'</span></pre>
 </div>
 [% END %]
 </div>
 
 <p>Images:</p>
-<pre># List Google Compute Engine images
+<pre class="bg-light"><span class="text-muted"># List Google Compute Engine images</span>
 gcloud compute images list</pre>
 
 [% END %]
@@ -365,28 +365,28 @@ More help can be found in the <a href="https://github.com/Cyclenerd/google-cloud
 </p>
 <script>
 function gcosts[% instance.name.remove('-') %]() {
-	var gcosts = document.getElementById("gcosts[% instance.name.remove('-') %]").innerHTML;
+	var gcosts = document.getElementById("gcosts[% instance.name.remove('-') %]").innerText;
 	navigator.clipboard.writeText(gcosts);
 }
 </script>
 <div class="position-relative">
-<div class="position-absolute top-0 end-0"><button type="button" class="btn btn-outline-primary btn-sm" onclick="gcosts[% instance.name.remove('-') %]();">Copy to Clipboard</button></div>
-<pre><code id="gcosts[% instance.name.remove('-') %]"># gcosts YAML usage file
-# Help: https://bit.ly/gcosts-usage
-# Machine type: [% site.url %]/[% instance.region %]/[% instance.name %].html
-region: [% instance.region %]
-instances:
-  - name: [% instance.name %]-[% instance.region %]
-    type: [% instance.name %]
-    os: free
-    commitment: 0
-    disks:
-      - name: boot-[% instance.name %]-[% instance.region %]
-        type: ssd
-        data: 75
-      - name: snapshot-[% instance.name %]-[% instance.region %]
-        type: snapshot
-        data: 10</code></pre>
+<div class="position-absolute top-0 end-0"><button type="button" class="btn btn-outline-primary btn-sm" onclick="gcosts[% instance.name.remove('-') %]();" title="Copy to clipboard">Copy</button></div>
+<pre class="bg-light"><code id="gcosts[% instance.name.remove('-') %]"><span class="text-muted"># gcosts YAML usage file</span>
+<span class="text-muted"># Help: https://bit.ly/gcosts-usage</span>
+<span class="text-muted"># Machine type: [% site.url %]/[% instance.region %]/[% instance.name %].html</span>
+<span class="text-primary">region</span>: [% instance.region %]
+<span class="text-primary">instances</span>:
+  - <span class="text-primary">name</span>: [% instance.name %]-[% instance.region %]
+    <span class="text-primary">type</span>: [% instance.name %]
+    <span class="text-primary">os</span>: free
+    <span class="text-primary">commitment</span>: 0
+    <span class="text-primary">disks</span>:
+      - <span class="text-primary">name</span>: boot-[% instance.name %]-[% instance.region %]
+        <span class="text-primary">type</span>: ssd
+        <span class="text-primary">data</span>: 75
+      - <span class="text-primary">name</span>: snapshot-[% instance.name %]-[% instance.region %]
+        <span class="text-primary">type</span>: snapshot
+        <span class="text-primary">data</span>: 10</code></pre>
 </div> <!-- // position-relative -->
 
 </div> <!-- // col -->
