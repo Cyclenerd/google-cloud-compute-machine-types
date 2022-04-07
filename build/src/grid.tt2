@@ -37,11 +37,11 @@
 <div class="modal-dialog modal-lg modal-fullscreen-lg-down modal-dialog-scrollable">
 <div class="modal-content">
 <div class="modal-header">
-	<h5 class="modal-title" id="helpModalLabel">Help</h5>
+	<h5 class="modal-title" id="helpModalLabel">Google Compute Engine Machine Type Instance Picker</h5>
 	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-<p class="h4">Keyboard shortcuts</p>
+<p class="h4">Keyboard Shortcuts</p>
 <p>Press <kbd>Ctrl</kbd> + <kbd>/</kbd> to focus the vCPU filter.</p>
 
 <p>
