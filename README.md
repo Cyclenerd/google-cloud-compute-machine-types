@@ -1,11 +1,14 @@
-<div align="center">
-<h1><a href="https://gcloud-compute.com/">gcloud-compute.com</a></h1>
-</div>
+# Google Cloud Compute Comparison
 
-This [webapp](https://gcloud-compute.com/) helps to find the optimal Google Compute Engine (GCE) machine type or instance in the many Google Cloud Platfrom (GCP) regions.
-A lot of information has been collected from various Google Cloud websites and different sources.
+This Google Compute Engine machine type comparison [webapp](https://gcloud-compute.com/) helps to find the optimal GCE machine type or instance in the many Google Cloud Platfrom (GCP) regions. A lot of information has been collected from various Google Cloud websites and different sources.
 
-[![Screenshot: gcloud-compute.com](./img/gcloud-compute_com-instance_picker.jpg)](https://gcloud-compute.com/)
+## Instance Picker
+
+[![Screenshot: gcloud-compute.com - Instance Picker](./img/grid.jpg?v1)](https://gcloud-compute.com/)
+
+## Comparioson
+
+[![Screenshot: gcloud-compute.com - Comparison](./img/compare.jpg?v1)](https://gcloud-compute.com/comparison/n1-standard-8/vs/n2d-standard-8.html)
 
 ## 🖊️ Add, edit or change machine type information
 
