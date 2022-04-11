@@ -18,8 +18,10 @@ These files can be found in the [instances](./instances/) folder.
 
 ## 🧑‍💻 Development
 
-If you want to customize the [build](./build/) process or run the webapp on your local computer,
+If you want to customize the [build](./build/) process or run the webapp on your [Gitpod](https://gitpod.io/#https://github.com/Cyclenerd/google-cloud-compute-machine-types) or local computer,
 you need the following requirements.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/Cyclenerd/google-cloud-compute-machine-types)
 
 ### Requirements
 
@@ -56,7 +58,17 @@ sudo apt install \
 	fonts-roboto
 ```
 
-» Install [Google Cloud SDK](https://cloud.google.com/sdk/docs/install#deb)
+[Google Cloud SDK](https://cloud.google.com/sdk/docs/install#deb):
+```shell
+sudo apt-get install apt-transport-https ca-certificates gnupg
+# Add the gcloud CLI distribution URI as a package source
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+# Import the Google Cloud public key.
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo tee /usr/share/keyrings/cloud.google.gpg
+# Update and install the gcloud CLI
+sudo apt-get update
+sudo apt-get install google-cloud-cli
+```
 
 Build:
 ```shell
