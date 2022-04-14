@@ -469,7 +469,9 @@ document.addEventListener('DOMContentLoaded', function () {
 		console.log('welcome toast already shown');
 	} else {
 		console.log('welcome toast');
-		document.cookie = "instancePickerWelcomeToast=true;SameSite=Strict;Secure"; // Set session cookie, cookie is deleted when the browser is closed
+		const d = new Date();
+		d.setTime(d.getTime() + (24*60*60*1000)); // 1 day
+		document.cookie = "instancePickerWelcomeToast=true;expires="+d.toUTCString()+";SameSite=Strict;Secure";
 		toast.show();
 	}
 });
