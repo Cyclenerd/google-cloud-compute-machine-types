@@ -498,4 +498,12 @@ copy( './src/img/show-more.png',      '../site/img/show-more.png');
 copy( './src/img/sort.png',           '../site/img/sort.png');
 copy( './src/img/spreadsheet.png',    '../site/img/spreadsheet.png');
 copy( './src/img/dbbrowser.png',      '../site/img/dbbrowser.png');
-copy( './src/favicon.ico',            '../site/favicon.ico');
+
+# Favicon
+copy( './src/img/favicon/favicon.ico',                '../site/favicon.ico');
+copy( './src/img/favicon/favicon-16x16.png',          '../site/favicon-16x16.png');
+copy( './src/img/favicon/favicon-32x32.png',          '../site/favicon-32x32.png');
+copy( './src/img/favicon/apple-touch-icon.png',       '../site/apple-touch-icon.png');
+copy( './src/img/favicon/android-chrome-192x192.png', '../site/android-chrome-192x192.png');
+copy( './src/img/favicon/android-chrome-512x512.png', '../site/android-chrome-512x512.png');
+copy( './src/img/favicon/site.webmanifest',           '../site/site.webmanifest');
