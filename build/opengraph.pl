@@ -100,17 +100,17 @@ sub image {
 	# blue
 	$img->bgcolor(13,110,253);
 	$img->fgcolor(13,110,253);
-	$img->rectangle(1140,0,1200,600);
+	$img->rectangle(1140,61,1200,600);
 
 	# green
 	$img->bgcolor(25,135,84);
 	$img->fgcolor(25,135,84);
-	$img->rectangle(0,540,1200,600);
+	$img->rectangle(0,540,1139,600);
 
 	# yellow
 	$img->bgcolor(255,193,7);
 	$img->fgcolor(255,193,7);
-	$img->rectangle(0,61,60,600);
+	$img->rectangle(0,0,60,539);
 
 	# Font
 	$img->font('Roboto'); # fonts-roboto
