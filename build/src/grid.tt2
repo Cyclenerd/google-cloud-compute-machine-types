@@ -1,12 +1,15 @@
 <!doctype html>
 <html lang="en">
 <head>
-[% PROCESS meta.tt2 %]
+[%-
+	PROCESS meta.tt2;
+	PROCESS favicon.tt2;
+-%]
+[%  %]
 <script                 src="https://unpkg.com/ag-grid-community@27/dist/ag-grid-community.min.noStyle.js"></script>
 <link rel="stylesheet" href="https://unpkg.com/ag-grid-community@27/dist/styles/ag-grid.css">
 <link rel="stylesheet" href="https://unpkg.com/ag-grid-community@27/dist/styles/ag-theme-balham.css">
 <link rel="stylesheet" href="[% site.bootstrap.css %]">
-<link rel=icon href="/favicon.ico">
 <style>
 	html {
 		width: 100%;
