@@ -1,6 +1,6 @@
 </div> <!-- // container -->
 </main>
-<footer class="footer py-3 bg-light">
+<footer class="footer py-3 bg-light mt-2">
 <div class="container-fluid">
 <div class="row">
 <div class="col-xxl-10">
@@ -9,7 +9,7 @@
 </p>
 <p class="text-muted">
 	Data and costs shown are not guaranteed to be accurate or current. Please <a href="[% site.github.issues %]">report issues</a> you see.<br>
-	This Google Cloud Platform and Google Compute Engine machine type comparison website is not maintained by or affiliated with Google.<br>
+	This Google Cloud Platform and Google Compute Engine machine type comparison website is not maintained by or affiliated with Google.
 	All product names, logos, and brands are property of their respective owners.
 </p>
 <p class="text-muted small">Last Update: <a href=[% IF gitHubRunId %]"[% gitHubServerUrl %]/[% gitHubRepository %]/actions/runs/[% gitHubRunId %]"[% ELSE %]"#"[% END %]>[% gmttime %]</a> (GMT)</p>
@@ -65,5 +65,8 @@ sqlite3 gce.db <span class="text-primary">&#39;SELECT * FROM instances&#39;</spa
 </div> <!-- // modal -->
 
 <script src="[% site.bootstrap.js %]"></script>
+<script src="[% site.jQuery.js %]"></script>
+<script src="[% site.bootstrapTable.js %]"></script>
+<script src="[% site.bootstrapTableStickyHeader.js %]"></script>
 </body>
 </html>

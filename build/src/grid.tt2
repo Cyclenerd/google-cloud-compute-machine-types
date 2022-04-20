@@ -6,9 +6,9 @@
 	PROCESS favicon.tt2;
 -%]
 [%  %]
-<script                 src="https://unpkg.com/ag-grid-community@27/dist/ag-grid-community.min.noStyle.js"></script>
-<link rel="stylesheet" href="https://unpkg.com/ag-grid-community@27/dist/styles/ag-grid.css">
-<link rel="stylesheet" href="https://unpkg.com/ag-grid-community@27/dist/styles/ag-theme-balham.css">
+<script                 src="[% site.agGrid.js %]"></script>
+<link rel="stylesheet" href="[% site.agGrid.css %]">
+<link rel="stylesheet" href="[% site.agGrid.theme %]">
 <link rel="stylesheet" href="[% site.bootstrap.css %]">
 <style>
 	html {

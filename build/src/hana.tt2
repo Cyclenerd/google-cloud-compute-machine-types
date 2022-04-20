@@ -14,7 +14,14 @@ Not every certified Google Cloud VM is available in every region.
 <p><a class="btn btn-success" href="/grid.html?hana=1" role="button">✅ Instance Picker with filter on SAP HANA</a></p>
 
 <div class="table-responsive">
-<table class="table table-sm table-hover table-striped table-bordered">
+<table
+	class="table table-hover table-bordered"
+	data-toggle="table"
+	data-sort-name="vcpu"
+	data-sort-order="asc"
+	data-sortable="true"
+	data-sticky-header="true"
+>
 <thead>
 	<tr>
 		<th scope="col" colspan="6">Machine Type</th>
@@ -23,11 +30,11 @@ Not every certified Google Cloud VM is available in every region.
 		<th scope="col" colspan="3">OS</th>
 	</tr>
 	<tr>
-		<th scope="row">Name</th>
-		<th scope="col">vCPU ⬇️</th>
-		<th scope="col">Base Clock</th>
-		<th scope="col">Memory</th>
-		<th scope="col">SAPS</th>
+		<th scope="col" data-sortable="true">Name</th>
+		<th scope="col" data-field="vcpu" data-sortable="true">vCPU</th>
+		<th scope="col" data-sortable="true">Base Clock</th>
+		<th scope="col" data-sortable="true">Memory</th>
+		<th scope="col" data-sortable="true">SAPS</th>
 		<th scope="col"></th>
 		<th scope="col">#</th>
 		<!-- Costs -->
@@ -45,7 +52,7 @@ Not every certified Google Cloud VM is available in every region.
 	[% FOREACH instance IN instances; IF instance.hana; %]
 	<tr>
 		<td><a href="[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
-		<td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
+		<td class="text-nowrap">[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
 		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
 		<td title="SAP Standard Benchmark: [% instance.saps %]">[% instance.saps %]</td>
@@ -53,7 +60,7 @@ Not every certified Google Cloud VM is available in every region.
 		<td>[% instance.regionCount %]</td>
 		<!-- Costs -->
 		<td class="currency" title="[% instance.name %] avg. per hour: [% instance.avgHour %] USD">[% instance.avgHour %]</td>
-		<td title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
+		<td class="text-nowrap" title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% instance.avgMonth %]</span>
 			[% badgeSud(instance) %]
 		</td>

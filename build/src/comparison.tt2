@@ -331,7 +331,13 @@ function copy[% instance_a.name.remove('-') %]() {
 <h2>Regions</h2>
 <p>Costs for Google Compute Engine machine types [% instance_a.name %] and [% instance_b.name %] in Google Cloud regions in which the VMs are available.</p>
 <div class="table-responsive">
-<table class="table table-sm table-hover table-bordered">
+<table
+	class="table table-hover table-bordered"
+	data-toggle="table"
+	data-sort-name="name"
+	data-sort-order="asc"
+	data-sticky-header="true"
+>
 <thead>
 	<tr>
 		<th scope="col" colspan="2">Region</th>
@@ -341,7 +347,7 @@ function copy[% instance_a.name.remove('-') %]() {
 		<th scope="col" colspan="3">Month w. 3 year CUD</th>
 	</tr>
 	<tr>
-		<th scope="col">Name</th>
+		<th scope="col" data-field="name" data-sortable="true">Name</th>
 		<th scope="col">Location</th>
 		<!-- Hour -->
 		<th scope="col" class="table-active">[% instance_a.name %]</th>
@@ -412,7 +418,7 @@ function copy[% instance_a.name.remove('-') %]() {
 			END;
 		-%]
 		[% IF costs_a %]
-		<td class="table-active" title="Costs per month [% instance_a.name %] in [% region.name %]: [% costs_a %] USD">
+		<td class="text-nowrap" class="table-active" title="Costs per month [% instance_a.name %] in [% region.name %]: [% costs_a %] USD">
 			<span class="currency"><a href="/[% region.name %]/[% instance_a.name %].html">[% costs_a %]</a></span>
 			[% badgeSud(instance_a) %]
 		</td>
@@ -425,7 +431,7 @@ function copy[% instance_a.name.remove('-') %]() {
 		<td class="table-warning"><span class="text-muted">-</span></td>
 		[% END %]
 		[% IF costs_b %]
-		<td title="Costs per month [% instance_b.name %] in [% region.name %]: [% costs_b %] USD">
+		<td class="text-nowrap" title="Costs per month [% instance_b.name %] in [% region.name %]: [% costs_b %] USD">
 			<span class="currency"><a href="/[% region.name %]/[% instance_b.name %].html">[% costs_b %]</a></span>
 			[% badgeSud(instance_b) %]
 		</td>

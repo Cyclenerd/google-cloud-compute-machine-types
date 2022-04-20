@@ -6,10 +6,10 @@
 <th scope="col" colspan="3">OS</th>
 </tr>
 <tr>
-<th scope="row">Name</th>
-<th scope="col">vCPU ⬇️</th>
-<th scope="col">Base Clock</th>
-<th scope="col">Memory</th>
+<th scope="col" data-sortable="true">Name</th>
+<th scope="col" data-field="vcpu" data-sortable="true">vCPU</th>
+<th scope="col" data-sortable="true">Base Clock</th>
+<th scope="col" data-sortable="true">Memory</th>
 <th scope="col"></th>
 <th scope="col">#</th>
 <!-- Costs -->
@@ -27,7 +27,7 @@
 [%- MACRO instanceTr(instance) BLOCK -%]
 <tr>
 <td><a href="/[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
-<td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
+<td class="text-nowrap">[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 <td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
 <td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
 <td>
@@ -38,7 +38,7 @@
 <td>[% instance.regionCount %]</td>
 <!-- Costs -->
 <td class="currency" title="[% instance.name %] avg. costs per hour: [% instance.avgHour %] USD">[% instance.avgHour %]</td>
-<td title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
+<td class="text-nowrap" title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 	<span class="currency">[% instance.avgMonth %]</span>
 	[% badgeSud(instance) %]
 </td>
@@ -59,11 +59,11 @@
 <th scope="col" colspan="3">OS</th>
 </tr>
 <tr>
-<th scope="row">Name</th>
-<th scope="col">vCPU ⬇️</th>
-<th scope="col">Base Clock</th>
+<th scope="col" data-sortable="true">Name</th>
+<th scope="col" data-field="vcpu" data-sortable="true">vCPU</th>
+<th scope="col" data-sortable="true">Base Clock</th>
 <th scope="col">Platform</th>
-<th scope="col">Memory</th>
+<th scope="col" data-sortable="true">Memory</th>
 <th scope="col"></th>
 <th scope="col">#</th>
 <!-- Costs -->
@@ -81,9 +81,9 @@
 [%- MACRO instancePlatformTr(instance) BLOCK -%]
 <tr>
 <td><a href="/[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
-<td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
+<td class="text-nowrap">[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 <td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
-<td title="CPU Platform: [% instance.cpuPlatform %]">[% instance.cpuPlatform | replace('\[','') | replace('\]','') %]</td>
+<td title="CPU Platform: [% instance.cpuPlatform %]">[% instance.cpuPlatform | replace('\[','') | replace('\]','') | replace('Intel','') | replace('AMD','') %]</td>
 <td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
 <td>
 	[% badgeSap(instance) %]
@@ -92,7 +92,7 @@
 <td>[% instance.regionCount %]</td>
 <!-- Costs -->
 <td class="currency" title="[% instance.name %] avg. costs per hour: [% instance.avgHour %] USD">[% instance.avgHour %]</td>
-<td title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
+<td class="text-nowrap" title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 	<span class="currency">[% instance.avgMonth %]</span>
 	[% badgeSud(instance) %]
 </td>

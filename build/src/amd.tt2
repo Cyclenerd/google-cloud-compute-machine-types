@@ -15,7 +15,14 @@ Not every Google Cloud VM with AMD CPU is available in every region.
 
 <div class="table-responsive">
 [%- PROCESS instances_tr.tt2; -%]
-<table class="table table-sm table-hover table-striped table-bordered">
+<table
+	class="table table-hover table-bordered"
+	data-toggle="table"
+	data-sort-name="vcpu"
+	data-sort-order="asc"
+	data-sortable="true"
+	data-sticky-header="true"
+>
 <thead>
 [%- instancePlatformTh() -%]
 </thead>

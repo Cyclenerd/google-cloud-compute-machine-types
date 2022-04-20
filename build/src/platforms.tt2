@@ -12,7 +12,14 @@ Not every CPU is available in all Google Cloud region and zones.
 </blockquote>
 
 <div class="table-responsive">
-<table class="table table-sm table-hover table-striped table-bordered">
+<table
+	class="table table-hover table-bordered"
+	data-toggle="table"
+	data-sort-name="name"
+	data-sort-order="asc"
+	data-sortable="true"
+	data-sticky-header="true"
+>
 <thead>
 	<tr>
 		<th scope="col" colspan="2">Region</th>
@@ -21,9 +28,9 @@ Not every CPU is available in all Google Cloud region and zones.
 		<th scope="col" colspan="2">✅ AMD</th>
 	</tr>
 	<tr>
-		<th scope="row">Name ⬇️</th>
-		<th scope="row">Location</th>
-		<th scope="col" >#</th>
+		<th scope="col" data-field="name" data-sortable="true">Name</th>
+		<th scope="col" data-sortable="true">Location</th>
+		<th scope="col" data-sortable="true">#</th>
 		<th scope="col" title="Intel Xeon Scalable Processor (Ice Lake) 3rd Generation">Ice Lake</th>
 		<th scope="col" title="Intel Xeon Scalable Processor (Cascade Lake) 2nd Generation">Cascade Lake</th>
 		<th scope="col" title="Intel Xeon Scalable Processor (Skylake) 1st Generation">Skylake</th>

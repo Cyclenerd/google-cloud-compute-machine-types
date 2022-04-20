@@ -6,8 +6,9 @@
 	PROCESS favicon.tt2;
 %]
 <link rel="stylesheet" href="[% site.bootstrap.css %]">
+<link rel="stylesheet" href="[% site.bootstrapTable.css %]">
+<link rel="stylesheet" href="[% site.bootstrapTableStickyHeader.css %]">
 <style>
-	main > .container-fluid { padding: 65px 15px 0; }
 	.frequency::after { content: " GHz"; }
 	.currency::before { content: "$"; }
 	.bandwidth::after { content: " Gbps"; }
@@ -17,7 +18,7 @@
 </head>
 <body>
 <header>
-	<nav class="navbar fixed-top navbar-dark bg-dark">
+	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand mb-0 h1" href="/">
 				<!-- hide on screens smaller than lg -->
@@ -40,7 +41,7 @@
 </header>
 <main>
 <div class="container-fluid">
-<div class="row">
+<div class="row mt-2">
 <div class="col">
 <ul class="nav nav-tabs">
 	<li class="nav-item">

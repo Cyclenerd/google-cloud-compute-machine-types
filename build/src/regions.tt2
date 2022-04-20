@@ -12,7 +12,14 @@ The pricing differs.
 </blockquote>
 
 <div class="table-responsive">
-<table class="table table-sm table-hover table-striped table-bordered">
+<table
+	class="table table-hover table-bordered"
+	data-toggle="table"
+	data-sort-name="name"
+	data-sort-order="asc"
+	data-sortable="true"
+	data-sticky-header="true"
+>
 <thead>
 	<tr>
 		<th scope="col" colspan="2">Region</th>
@@ -22,9 +29,9 @@ The pricing differs.
 		<th scope="col" colspan="2">Costs (e2-standard-8)</th>
 	</tr>
 	<tr>
-		<th scope="row">Name ⬇️</th>
-		<th scope="row">Location</th>
-		<th scope="col" >#</th>
+		<th scope="row" data-field="name" data-sortable="true">Name</th>
+		<th scope="row" data-sortable="true">Location</th>
+		<th scope="col" data-sortable="true">#</th>
 		<!-- Machine Series -->
 		<th scope="col">A2</th>
 		<th scope="col">C2</th>
@@ -39,8 +46,8 @@ The pricing differs.
 		<th scope="col" title="Certified for SAP applications on Google Cloud">App.</th>
 		<th scope="col" title="Certified for SAP HANA on Google Cloud">HANA</th>
 		<!-- e2-standard-8 -->
-		<th scope="col" class="currancy">Hour</th>
-		<th scope="col" class="currancy">Month</th>
+		<th scope="col" class="currancy" data-sortable="true">Hour</th>
+		<th scope="col" class="currancy" data-sortable="true">Month</th>
 	</tr>
 </thead>
 <tbody>

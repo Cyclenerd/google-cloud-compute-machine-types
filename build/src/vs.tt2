@@ -12,15 +12,25 @@
 </blockquote>
 
 <div class="table-responsive">
-<table class="table table-sm table-hover table-striped table-bordered">
+<table
+	class="table table-hover table-bordered"
+	data-toggle="table"
+	data-sort-name="vcpu"
+	data-sort-order="asc"
+	data-sticky-header="true"
+>
 <thead>
 	<tr>
-		<th scope="row">Name</th>
-		<th scope="col" colspan="2">vCPU ⬇️</th>
-		<th scope="col" colspan="2">Memory</th>
+		<th scope="col" data-sortable="true">Name</th>
 		<th scope="col"></th>
-		<th scope="col" colspan="2">Avg. costs per hour</th>
-		<th scope="col" colspan="2">Avg. costs per month</th>
+		<th scope="col" data-field="vcpu" data-sortable="true">vCPU</th>
+		<th scope="col"></th>
+		<th scope="col" data-sortable="true">Memory</th>
+		<th scope="col"></th>
+		<th scope="col"></th>
+		<th scope="col">Avg. costs per hour</th>
+		<th scope="col"></th>
+		<th scope="col">Avg. costs per month</th>
 	</tr>
 </thead>
 <tbody>
@@ -30,7 +40,7 @@
 		<td>[% instance.name %]</td>
 		<!-- vCPU -->
 		<td></td>
-		<td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
+		<td class="text-nowrap">[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 		<!-- Memory -->
 		<td></td>
 		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
@@ -74,7 +84,7 @@
 			<span class="currency">[% instance.avgHour %]</span>
 		</td>
 		[% tableCompareCosts(instance_a.avgMonth || 0, instance.avgMonth || 0) %]
-		<td title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
+		<td class="text-nowrap" title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% instance.avgMonth %]</span>
 			[% badgeSud(instance) %]
 		</td>
