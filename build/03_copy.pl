@@ -23,10 +23,15 @@ binmode(STDOUT, ':encoding(utf8)');
 use strict;
 use DBI;
 
-my $csv_gcloud_machine_types = 'machinetypes'; # without .csv
-my $csv_gcloud_zones         = 'zones'; # without .csv
-my $csv_gcloud_disk_types    = 'disktypes'; # without .csv
+# CSV files without .csv
+my $csv_gcloud_machine_types       = 'machinetypes';
+my $csv_gcloud_zones               = 'zones';
+my $csv_gcloud_disk_types          = 'disktypes';
+my $csv_gcloud_images              = 'images';
+my $csv_gcloud_community_images    = 'imagescommunity';
+my $csv_gcloud_deeplearning_images = 'imagesdeeplearning';
 
+# SQLite database file
 my $db_file  = 'gce.db';
 
 # Open CSV
@@ -144,7 +149,7 @@ $db->do("DELETE FROM disktypes") or die "ERROR: Cannot delete table $DBI::errstr
 
 # Select disk types from CSV
 my $select_disks = "SELECT name, description, zone FROM $csv_gcloud_disk_types";
-my $sth = $csv->prepare($select_disks);
+$sth = $csv->prepare($select_disks);
 $sth->execute;
 $sth->bind_columns (\my ($name, $description, $zone));
 # Create values for insert
@@ -173,5 +178,34 @@ INSERT INTO disktypes (
 $insert_disks .= join(",", @disks);
 $insert_disks .= ";\n";
 $db->do($insert_disks) or die "ERROR: Cannot insert disk types $DBI::errstr\n";
+
+
+###############################################################################
+# IMAGES
+###############################################################################
+
+print "Images\n";
+$db->do("DELETE FROM images") or die "ERROR: Cannot delete table $DBI::errstr\n";
+
+my $insert_images = qq ~
+INSERT INTO images (
+	'name',
+	'description',
+	'diskSizeGb',
+	'project',
+	'family',
+	'creation'
+) VALUES
+~;
+my $select_images = "SELECT name, description, diskSizeGb, project, family, creation FROM $csv_gcloud_images WHERE status LIKE 'READY'";
+$sth = $csv->prepare($select_images);
+$sth->execute;
+$sth->bind_columns (\my ($name, $description, $diskSizeGb, $project, $family, $creation));
+while ($sth->fetch) {
+	print "$project, $family, $name\n";
+	my $value = "$insert_images ('$name', '$description', '$diskSizeGb', '$project', '$family', '$creation')";
+	$db->do($value) or die "ERROR: Cannot insert images $DBI::errstr\n";
+}
+$sth->finish;
 
 print "DONE\n";
