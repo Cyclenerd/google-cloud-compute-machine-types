@@ -152,6 +152,31 @@ $template->process('sap.tt2', { 'instances' => \@instances }, '../site/sap.html'
 push(@files, 'hana.html');
 $template->process('hana.tt2', { 'instances' => \@instances }, '../site/hana.html') || die "Template process failed: ", $template->error(), "\n";
 
+###############################################################################
+# DISKS
+###############################################################################
+
+my $sql_disks = qq ~
+SELECT
+	name,
+	description,
+	region,
+	regionLocation,
+	monthGb
+FROM disks D
+ORDER BY name
+~;
+$sth = $dbh->prepare($sql_disks);
+$sth->execute();
+my @disks = ();
+$id = '1';
+while (my $disk = $sth->fetchrow_hashref) {
+	$disk->{'id'} = $id;
+	push(@disks, $disk);
+	$id++;
+}
+$sth->finish;
+
 
 ###############################################################################
 # DISKS in REGIONS
@@ -285,6 +310,7 @@ foreach my $region (@regions) {
 		'region'              => $region,
 		'regions'             => \@regions,
 		'instances'           => \@instances,
+		'disks'               => \@disks,
 		'instances_in_region' => \@instances_in_region
 	}, "$html_file") || die "Template process failed: ", $template->error(), "\n";
 }

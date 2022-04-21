@@ -243,20 +243,20 @@
 
 [%- ELSIF template.name == 'region.tt2'-%]
 <title>[% region.name %] - Google Cloud Platform Region</title>
-<meta name="description"         content="List off all Google Compute Engine machine types in Google Cloud Platform region [% region.name %].[% IF region.regionLocation %] The location of the region is [% region.regionLocation %][% END %].">
+<meta name="description"         content="List off all Google Compute Engine machine and disk types in Google Cloud Platform region [% region.name %].[% IF region.regionLocation %] The location of the region is [% region.regionLocation %][% END %].">
 <meta name="robots"              content="index, follow">
 <link rel="canonical"            href="[% site.url %]/[% region.name %].html">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/[% region.name %].png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Google Cloud Region [% region.name %]">
-<meta name="twitter:description" content="List off all Google Compute Engine machine types in Google Cloud Platform region [% region.name %].[% IF region.regionLocation %] The location of the region is [% region.regionLocation %][% END %].">
+<meta name="twitter:description" content="List off all Google Compute Engine machine and disk types in Google Cloud Platform region [% region.name %].[% IF region.regionLocation %] The location of the region is [% region.regionLocation %][% END %].">
 <meta property="og:image"        content="[% site.opengraph %]/[% region.name %].png?[% timestamp %]">
 <meta property="og:image:alt"    content="Image: Google Cloud region [% region.name %]">
 <meta property="og:image:width"  content="1200">
 <meta property="og:image:height" content="600">
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Google Cloud Region [% region.name %]">
-<meta property="og:description"  content="List off all Google Compute Engine machine types in Google Cloud Platform region [% region.name %].[% IF region.regionLocation %] The location of the region is [% region.regionLocation %][% END %].">
+<meta property="og:description"  content="List off all Google Compute Engine machine and disk types in Google Cloud Platform region [% region.name %].[% IF region.regionLocation %] The location of the region is [% region.regionLocation %][% END %].">
 <meta property="og:url"          content="[% site.url %]/[% region.name %].html">
 
 [%- ELSIF template.name == 'instance_in_region.tt2'-%]

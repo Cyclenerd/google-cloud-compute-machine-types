@@ -11,6 +11,46 @@ Out of a total of [% instances.size %] Google Compute Engine machine types,
 
 <p><a class="btn btn-success" href="/grid.html?region=[% region.name %]" role="button">✅ Instance Picker with filter on region [% region.name %]</a></p>
 
+<h2>Persistent Disk Types in [% region.name %]</h2>
+<p>Costs and pricing for Google Compute disk types in Google Cloud region [% region.name %][% IF region.regionLocation %] ([% region.regionLocation %])[% END %].</p>
+<div class="table-responsive">
+<table class="table table-hover table-striped table-bordered">
+<thead>
+	<tr>
+		<th>Name</th>
+		<th>Description</th>
+		<th title="Price per GB and month">1 GB</th>
+		<th title="Minimum capacity per disk">Min. Disk Size</th>
+		<th title="Price per minimum disk size and month">Min. Month</th>
+	</tr>
+</thead>
+<tbody>
+[%
+FOREACH disk IN disks;
+IF disk.region == region.name;
+minDiskSize = 10;
+IF disk.name == 'pd-extreme'; minDiskSize = 500; END;
+%]
+<tr>
+	<td>[% disk.name %]</td>
+	<td>[% disk.description %]</td>
+	[% IF disk.monthGb %]
+	<td class="currency" title="Costs for 1 GB [% disk.name %] persistent disk per month in region [% region.name %]: [% disk.monthGb %] USD">[% disk.monthGb %]</td>
+	<td title="Minimum capacity per [% disk.name %] persistent disk: [% minDiskSize %] GB">[% minDiskSize %] GB</td>
+	<td class="currency" title="Costs for [% minDiskSize %] GB [% disk.name %] persistent disk per month in region [% region.name %]: [% disk.monthGb*minDiskSize FILTER format("%.2f") %] USD">[% disk.monthGb*minDiskSize FILTER format("%.2f") %]</td>
+	[% ELSE %]
+	<td>???</td>
+	<td>[% minDiskSize %] GB</td>
+	<td>???</td>
+	[% END %]
+</tr>
+[% END; END; %]
+</tbody>
+</table>
+</div>
+
+<h2>Machine Types in [% region.name %]</h2>
+<p>Costs and pricing for Google Compute Engine machine types in Google Cloud region [% region.name %][% IF region.regionLocation %] ([% region.regionLocation %])[% END %].</p>
 <div class="table-responsive">
 <table
 	class="table table-hover table-bordered"
