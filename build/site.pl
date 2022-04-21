@@ -48,7 +48,6 @@ use App::Options (
 			default     => '',
 			description => "Create comparison websites only for this machine type"
 		},
-
 	},
 );
 
@@ -514,6 +513,47 @@ if ($create_comparison) {
 
 
 ###############################################################################
+# IMAGES
+###############################################################################
+
+# Operating system details: https://cloud.google.com/compute/docs/images/os-details
+
+$sth = $dbh->prepare("SELECT project AS name, COUNT(name) as imageCount FROM images GROUP BY project ORDER BY project ASC");
+$sth->execute();
+my @image_projects = ();
+while (my $image_project = $sth->fetchrow_hashref) {
+	push(@image_projects, $image_project);
+}
+$sth->finish;
+
+my $sql_image_family = qq ~
+SELECT
+	project,
+	family AS name,
+	(SELECT name            FROM images WHERE project LIKE I.project AND family LIKE I.family ORDER BY creation DESC LIMIT 1) AS image,
+	(SELECT description     FROM images WHERE project LIKE I.project AND family LIKE I.family ORDER BY creation DESC LIMIT 1) AS description,
+	(SELECT MAX(diskSizeGb) FROM images WHERE project LIKE I.project AND family LIKE I.family ORDER BY creation DESC LIMIT 1) AS diskSizeGb,
+	(SELECT creation        FROM images WHERE project LIKE I.project AND family LIKE I.family ORDER BY creation DESC LIMIT 1) AS creation
+FROM images I
+GROUP BY project, family
+ORDER BY family DESC;
+~;
+$sth = $dbh->prepare($sql_image_family);
+$sth->execute();
+my @image_families = ();
+while (my $image_family = $sth->fetchrow_hashref) {
+	push(@image_families, $image_family);
+}
+$sth->finish;
+
+push(@files, 'images.html');
+$template->process('images.tt2', {
+	'image_projects' => \@image_projects,
+	'image_famlies'  => \@image_families
+}, '../site/images.html') || die "Template process failed: ", $template->error(), "\n";
+
+
+###############################################################################
 # MISC
 ###############################################################################
 
@@ -547,7 +587,7 @@ copy("$sql_export", '../site/machine-types-regions.sql.gz');
 copy("$csv_export", '../site/machine-types-regions.csv');
 
 # Images
-mkdir(                                '../site/img/');
+mkdir('../site/img/');
 copy( './src/img/combine-filter.png', '../site/img/combine-filter.png');
 copy( './src/img/filter.png',         '../site/img/filter.png');
 copy( './src/img/show-more.png',      '../site/img/show-more.png');
@@ -563,3 +603,5 @@ copy( './src/img/favicon/apple-touch-icon.png',       '../site/apple-touch-icon.
 copy( './src/img/favicon/android-chrome-192x192.png', '../site/android-chrome-192x192.png');
 copy( './src/img/favicon/android-chrome-512x512.png', '../site/android-chrome-512x512.png');
 copy( './src/img/favicon/site.webmanifest',           '../site/site.webmanifest');
+
+print "DONE\n";

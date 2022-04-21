@@ -1,0 +1,88 @@
+[%- PROCESS header.tt2 -%]
+
+<h1>Operating System Images</h1>
+
+<blockquote class="blockquote">
+<p>
+Compute Engine offers many preconfigured public images that have compatible Linux or Windows operating systems.
+Most images are free of charge.
+Premium images (SLES, RHEL, Windows) add additional cost to your instances.
+You can see the costs in the <a href="/instances.html">machine type</a> overview.
+</p>
+</blockquote>
+
+<ul class="nav nav-pills" role="tablist">
+[% FOREACH project IN image_projects %]
+<li class="nav-item" role="presentation">
+<button
+	class="nav-link[% IF project.name == 'debian-cloud' %] active[% END %]"
+	aria-selected="[% IF project.name == 'debian-cloud' %]true[% ELSE %]false[% END %]"
+	id="pills-[% project.name %]-tab"
+	data-bs-toggle="pill"
+	data-bs-target="#[% project.name %]"
+	type="button"
+	role="tab"
+	aria-controls="[% project.name %]">[% imageProjectName(project.name) %]</button>
+</li>
+[% END %]
+</ul>
+
+<div class="tab-content">
+[% FOREACH project IN image_projects %]
+<div
+	class="tab-pane[% IF project.name == 'debian-cloud' %] active[% END %]"
+	id="[% project.name %]"
+	role="tabpanel"
+	aria-labelledby="pills-[% project.name %]-tab">
+<h2>[% imageProjectName(project.name) %]</h2>
+
+<div class="table-responsive">
+<table class="table table-sm table-hover table-bordered">
+<thead>
+<tr>
+	<th>Image Family</th>
+	<th title="Most recent image name">Latest Image</th>
+	<th>Description</th>
+	<th title="Minimum persistent boot disk size">Min. Disk Size</th>
+	<th>Creation</th>
+</tr>
+</thead>
+<tbody>
+[% FOREACH family IN image_famlies; IF family.project == project.name; %]
+<tr>
+	<td>[% family.name %]</td>
+	<td>[% family.image %]</td>
+	<td>[% IF family.description %][% family.description %][% ELSE %]<span class="text-muted">-</span>[% END %]</td>
+	<td>[% family.diskSizeGb %] GB</td>
+	<td>[% family.creation | replace('T.+$','') %]</td>
+</tr>
+[% END; END; %]
+</tbody>
+</table>
+</div><!-- table-responsive -->
+
+<p>Google Cloud CLI:</p>
+<script>
+function copy[% project.name.remove('-') %]() {
+	var cli = document.getElementById("cli[% project.name.remove('-') %]").innerText;
+	navigator.clipboard.writeText(cli);
+}
+</script>
+<div class="position-relative">
+<div class="position-absolute top-0 end-0"><button type="button" class="btn btn-outline-primary btn-sm" onclick="copy[% project.name.remove('-') %]();" title="Copy to clipboard">Copy</button></div>
+<pre class="bg-light"><code id="cli[% project.name.remove('-') %]"><span class="text-muted"># Create VM instance with [% imageProjectName(project.name) %] operating system boot disk</span>
+<span class="text-muted"># Name: 'vm-[% project.name %]'</span>
+<span class="text-muted"># Machine type: 'e2-micro'</span>
+<span class="text-muted"># Zone: 'us-central1-a'</span>
+gcloud compute instances create vm-[% project.name %] \
+--machine-type=<span class="text-primary">'e2-micro'</span> \
+--zone=<span class="text-primary">'us-central1-a'</span> \
+--image-project=<span class="text-primary">'[% project.name %]'</span> \
+--image-family=<span class="text-primary">'ADD_IMAGE_FAMILY_HERE'</span></code></pre>
+</div> <!-- // position-relative -->
+
+</div> <!-- // tab-pane -->
+[% END %]
+</div>
+
+[% PROCESS footer.tt2 %]

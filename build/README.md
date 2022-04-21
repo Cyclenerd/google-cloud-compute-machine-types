@@ -33,6 +33,22 @@ Run:
 perl site.pl
 ```
 
+No regions and comparison:
+```shell
+perl site.pl \
+  --comparison=0 \
+  --region=0
+```
+
+Only `g1-small` and `europe-west4`:
+```shell
+perl site.pl \
+  --comparison=1 \
+  --limit_comparison=g1-small \
+  --region=1 \
+  --limit_region=europe-west4
+```
+
 This Perl script creates static websites (Templates are located in the [src](./src/) folder).
 The websites are stored in the directory `../site/`.
 

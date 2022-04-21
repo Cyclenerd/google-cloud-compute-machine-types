@@ -70,6 +70,12 @@
 			-%]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %]
 			href="/regions.html">Regions</a>
 	</li>
+		<li class="nav-item">
+		<a [%- IF
+				template.name == 'images.tt2'
+			-%]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %]
+			href="/images.html">Images</a>
+	</li>
 </ul>
 </div> <!-- // col -->
 </div> <!-- // row -->

@@ -77,3 +77,26 @@
 [%- ELSE -%]
 	<td class="table-danger">+[% diff FILTER format("%.2f") %]</td>
 [%- END; END; -%]
+
+[%- MACRO imageProjectName(project) BLOCK -%]
+[%- IF    project == 'almalinux-cloud'               -%]AlmaLinux
+[%- ELSIF project == 'centos-cloud'                  -%]CentOS
+[%- ELSIF project == 'cos-cloud'                     -%]Container-Optimized OS
+[%- ELSIF project == 'debian-cloud'                  -%]Debian GNU/Linux
+[%- ELSIF project == 'deeplearning-platform-release' -%]Deep Learning
+[%- ELSIF project == 'fedora-cloud'                  -%]Fedora
+[%- ELSIF project == 'fedora-coreos-cloud'           -%]Fedora CoreOS
+[%- ELSIF project == 'freebsd-org-cloud-dev'         -%]FreeBSD
+[%- ELSIF project == 'ml-images'                     -%]Machine Learning (ml-images)
+[%- ELSIF project == 'opensuse-cloud'                -%]openSUSE
+[%- ELSIF project == 'rhel-cloud'                    -%]Red Hat Enterprise Linux
+[%- ELSIF project == 'rhel-sap-cloud'                -%]Red Hat Enterprise Linux for SAP
+[%- ELSIF project == 'rocky-linux-cloud'             -%]Rocky Linux
+[%- ELSIF project == 'suse-cloud'                    -%]SUSE Linux Enterprise Server
+[%- ELSIF project == 'suse-sap-cloud'                -%]SUSE Linux Enterprise Server for SAP
+[%- ELSIF project == 'ubuntu-os-cloud'               -%]Ubuntu
+[%- ELSIF project == 'ubuntu-os-pro-cloud'           -%]Ubuntu Pro
+[%- ELSIF project == 'windows-cloud'                 -%]Microsoft Windows Server
+[%- ELSIF project == 'windows-sql-cloud'             -%]Microsoft SQL Server
+[%- ELSE -%][% project %]
+[%- END; END; -%]
