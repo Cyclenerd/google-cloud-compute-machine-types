@@ -101,7 +101,7 @@ id   = region.id - 1
 prev = id - 1
 next = id + 1
 -%]
-<nav>
+<nav class="mt-2">
 <ul class="pagination justify-content-center">
 	[% IF id > 0 %]
 	<li class="page-item"><a class="page-link" href="/[% regions.$prev.name %].html">← [% regions.$prev.name %]</a></li>
