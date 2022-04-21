@@ -54,6 +54,7 @@ You have the choice between <mark>[% intel %] machine types with <a href="/intel
 <p>
 <a href="/regions.html" title="All Google Cloud regions">Here</a> you can find an overview of all <mark>[% regions.size %] Google Cloud regions</mark> and the corresponding zones.
 You can also find the available Google Compute Engine machine types per GCE machine series (<a href="/platforms.html">CPU type and CPU plattform</a>) in this overview.
+A cost overview of the <a href="/disks.html" title="Persistent disk pricing in Google Cloud regions">persistent disk types</a> in the regions can also be found in this section.
 </p>
 
 <p>
