@@ -154,6 +154,36 @@ $template->process('hana.tt2', { 'instances' => \@instances }, '../site/hana.htm
 
 
 ###############################################################################
+# DISKS in REGIONS
+###############################################################################
+
+my $sql_disks_regions = qq ~
+SELECT
+	region AS name,
+	regionLocation,
+	MAX(zoneCount) AS zoneCount,
+	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region LIKE D.region AND name LIKE "local-ssd")   AS local,
+	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region LIKE D.region AND name LIKE "pd-balanced") AS balanced,
+	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region LIKE D.region AND name LIKE "pd-extreme")  AS extreme,
+	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region LIKE D.region AND name LIKE "pd-ssd")      AS ssd,
+	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region LIKE D.region AND name LIKE "pd-standard") AS standard
+FROM disks D
+GROUP BY region
+ORDER BY region
+~;
+$sth = $dbh->prepare($sql_disks_regions);
+$sth->execute();
+my @disks_regions = ();
+while (my $region = $sth->fetchrow_hashref) {
+	push(@disks_regions, $region);
+}
+$sth->finish;
+# Regions
+push(@files, 'disks.html');
+$template->process('disks.tt2', { 'disks_regions' => \@disks_regions }, '../site/disks.html') || die "Template process failed: ", $template->error(), "\n";
+
+
+###############################################################################
 # REGIONS
 ###############################################################################
 

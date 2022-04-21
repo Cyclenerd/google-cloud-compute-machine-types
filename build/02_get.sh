@@ -48,4 +48,19 @@ gcloud compute zones list \
 	--quiet \
 	--format="csv[no-heading,separator=';'](name, availableCpuPlatforms.list())" >> "$CSV_GCLOUD_ZONES" || exit 9
 
+# Create CSV file with disk types
+echo "Executing: 'gcloud compute disk-types list', please wait..."
+printf "%s;" \
+	"name" \
+	"zone" \
+	"description" > "$CSV_GCLOUD_DISK_TYPES" || exit 9
+echo "" >> "$CSV_GCLOUD_DISK_TYPES" || exit 9
+gcloud compute disk-types list \
+	--quiet \
+	--filter="ZONE:-" \
+	--format="csv[no-heading,separator=';']( \
+		name, \
+		zone, \
+		description)" >> "$CSV_GCLOUD_DISK_TYPES" || exit 9
+
 echo "DONE"

@@ -1,0 +1,95 @@
+[%- PROCESS header.tt2 -%]
+[%- PROCESS regions_header.tt2 -%]
+
+<h1>Persistent Disk Pricing in Google Cloud Regions</h1>
+
+<blockquote class="blockquote">
+<p>
+Each Google Compute Engine machine type (VM instance) has at least one boot disk attached to it.
+Each disk incurs a cost, described in this overview.
+Breakdown by price per GB and minimum capacity per disk.
+</p>
+</blockquote>
+
+<div class="table-responsive">
+<table
+	class="table table-hover table-bordered"
+	data-toggle="table"
+	data-sort-name="name"
+	data-sort-order="asc"
+	data-sortable="true"
+	data-sticky-header="true"
+>
+<thead>
+	<tr>
+		<th scope="col" colspan="2">Region</th>
+		<th scope="col">Zones</th>
+		<th scope="col" colspan="2" title="Efficient and reliable block storage. Minimum capacity per disk: 10 GB">Standard</th>
+		<th scope="col" colspan="2" title="Cost-effective and reliable block storage. Minimum capacity per disk: 10 GB">Balanced</th>
+		<th scope="col" colspan="2" title="Fast and reliable block storage. Minimum capacity per disk: 10 GB">SSD</th>
+		<th scope="col" colspan="2" title="Highest performance persistent block storage option. Minimum capacity per disk: 500 GB">Extreme</th>
+	</tr>
+	<tr>
+		<!-- Region -->
+		<th scope="row" data-field="name" data-sortable="true">Name</th>
+		<th scope="row" data-sortable="true">Location</th>
+		<!-- Zones -->
+		<th scope="col" data-sortable="true">#</th>
+		<!-- Standard -->
+		<th scope="col" data-sortable="true">1 GB</th>
+		<th scope="col" data-sortable="true">10 GB</th>
+		<!-- Balanced -->
+		<th scope="col" data-sortable="true">1 GB</th>
+		<th scope="col" data-sortable="true">10 GB</th>
+		<!-- SSD -->
+		<th scope="col" data-sortable="true">1 GB</th>
+		<th scope="col" data-sortable="true">10 GB</th>
+		<!-- Extreme -->
+		<th scope="col" data-sortable="true">1 GB</th>
+		<th scope="col" data-sortable="true">500 GB</th>
+	</tr>
+</thead>
+<tbody>
+	[% FOREACH region IN disks_regions %]
+	<tr>
+		<td><a href="[% region.name %].html" title="Google Cloud region [% region.name %]">[% region.name %]</a></td>
+		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td>[% region.zoneCount %]</td>
+		<!-- Standard -->
+		[% IF region.standard %]
+		<td title="Costs for 1 GB standard persistent disk per month in region [% region.name %]: [% region.standard %] USD" class="currency">[% region.standard %]</td>
+		<td title="Costs for 10 GB standard persistent disk per month in region [% region.name %]: [% region.standard*10 %] USD" class="currency">[% region.standard*10 FILTER format("%.2f") %]</td>
+		[% ELSE %]
+		<td class="table-warning">-</td>
+		<td class="table-warning">-</td>
+		[% END %]
+		<!-- Balanced -->
+		[% IF region.balanced %]
+		<td title="Costs for 1 GB balanced persistent disk per month in region [% region.name %]: [% region.balanced %] USD" class="currency">[% region.balanced %]</td>
+		<td title="Costs for 10 GB balanced persistent disk per month in region [% region.name %]: [% region.balanced*10 %] USD" class="currency">[% region.balanced*10 FILTER format("%.2f") %]</td>
+		[% ELSE %]
+		<td class="table-warning">-</td>
+		<td class="table-warning">-</td>
+		[% END %]
+		<!-- SSD -->
+		[% IF region.ssd %]
+		<td title="Costs for 1 GB SSD persistent disk per month in region [% region.name %]: [% region.ssd %] USD" class="currency">[% region.ssd %]</td>
+		<td title="Costs for 10 GB SSD persistent disk per month in region [% region.name %]: [% region.ssd*10 %] USD" class="currency">[% region.ssd*10 FILTER format("%.2f") %]</td>
+		[% ELSE %]
+		<td class="table-warning">-</td>
+		<td class="table-warning">-</td>
+		[% END %]
+		<!-- Extreme -->
+		[% IF region.extreme %]
+		<td title="Costs for 1 GB extreme persistent disk per month in region [% region.name %]: [% region.extreme %] USD" class="currency">[% region.extreme %]</td>
+		<td title="Costs for 500 GB extreme persistent disk per month in region [% region.name %]: [% region.extreme*500 %] USD" class="currency">[% region.extreme*500 FILTER format("%.2f") %]</td>
+		[% ELSE %]
+		<td class="table-warning">-</td>
+		<td class="table-warning">-</td>
+		[% END %]
+	</tr>
+	[% END %]
+</tbody>
+</table>
+</div><!-- table-responsive -->
+[% PROCESS footer.tt2 %]

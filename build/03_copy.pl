@@ -25,6 +25,7 @@ use DBI;
 
 my $csv_gcloud_machine_types = 'machinetypes'; # without .csv
 my $csv_gcloud_zones         = 'zones'; # without .csv
+my $csv_gcloud_disk_types    = 'disktypes'; # without .csv
 
 my $db_file  = 'gce.db';
 
@@ -69,7 +70,6 @@ $sth->bind_columns (\my (
 	$deprecated
 ));
 # Create values for insert
-
 my @values = ();
 while ($sth->fetch) {
 	next if ($deprecated); # Skip deprecated machine-types
@@ -134,5 +134,44 @@ my $insert_zones = "INSERT INTO zones ('name', 'availableCpuPlatforms') VALUES";
 $insert_zones .= join(",", @zones);
 $insert_zones .= ";\n";
 $db->do($insert_zones) or die "ERROR: Cannot insert zones $DBI::errstr\n";
+
+###############################################################################
+# DISK TYPES
+###############################################################################
+
+print "Disk types\n";
+$db->do("DELETE FROM disktypes") or die "ERROR: Cannot delete table $DBI::errstr\n";
+
+# Select disk types from CSV
+my $select_disks = "SELECT name, description, zone FROM $csv_gcloud_disk_types";
+my $sth = $csv->prepare($select_disks);
+$sth->execute;
+$sth->bind_columns (\my ($name, $description, $zone));
+# Create values for insert
+my @disks = ();
+while ($sth->fetch) {
+	print "$name, $zone\n";
+	# Location and region
+	my @zone_parts = split(/-/, $zone);
+	my $location   = "$zone_parts[0]";
+	my $region     = "$zone_parts[0]-$zone_parts[1]";
+	# Create value for SQL INSERT
+	my $value = "('$name', '$description', '$location', '$region', '$zone')";
+	push(@disks, $value);
+}
+$sth->finish;
+# Insert machine types to database table
+my $insert_disks = qq ~
+INSERT INTO disktypes (
+	'name',
+	'description',
+	'location',
+	'region',
+	'zone'
+) VALUES
+~;
+$insert_disks .= join(",", @disks);
+$insert_disks .= ";\n";
+$db->do($insert_disks) or die "ERROR: Cannot insert disk types $DBI::errstr\n";
 
 print "DONE\n";

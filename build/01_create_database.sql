@@ -77,3 +77,26 @@ CREATE TABLE "instances" (
 	"monthWindows"              REAL DEFAULT '0.0',
 	PRIMARY KEY("name", "region")
 );
+
+DROP TABLE IF EXISTS "disktypes";
+CREATE TABLE "disktypes" (
+	"name"                         TEXT NOT NULL DEFAULT '',
+	'description'                  TEXT NOT NULL DEFAULT '',
+	'location'                     TEXT NOT NULL DEFAULT '',
+	'region'                       TEXT NOT NULL DEFAULT '',
+	'zone'                         TEXT NOT NULL DEFAULT '',
+	PRIMARY KEY("name", "zone")
+);
+
+DROP TABLE IF EXISTS "disks";
+CREATE TABLE "disks" (
+	"name"                      TEXT NOT NULL DEFAULT '',
+	"description"               TEXT DEFAULT '',
+	"location"                  TEXT NOT NULL DEFAULT '',
+	"region"                    TEXT NOT NULL DEFAULT '',
+	"regionLocation"            TEXT NOT NULL DEFAULT '',
+	"zoneCount"                 REAL DEFAULT '0.0',
+	"zones"                     TEXT DEFAULT '',
+	"monthGb"                   REAL DEFAULT '0.0',
+	PRIMARY KEY("name", "region")
+);

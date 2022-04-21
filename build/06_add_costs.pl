@@ -44,6 +44,12 @@ unless (-r "$pricing_file") { # read
 }
 my $gcp = LoadFile("$pricing_file");
 
+
+###############################################################################
+# INSTANCES
+###############################################################################
+print "\nInstances\n";
+
 foreach my $machine (keys %{ $gcp->{'compute'}->{'instance'} }) {
 	print "$machine\n";
 	# OS license per month
@@ -80,18 +86,50 @@ foreach my $machine (keys %{ $gcp->{'compute'}->{'instance'} }) {
 	}
 }
 
-# Update region location
-print "Region Locations\n";
-foreach my $region (keys %{ $gcp->{'region'} }) {
-	my $regionLocation = $gcp->{'region'}->{$region}->{'location'};
-	print "$region : $regionLocation\n";
-	my $update = "UPDATE instances SET regionLocation = '$regionLocation' WHERE region LIKE '$region'";
-	$db->do($update) or die "ERROR: Cannot update $DBI::errstr\n";
+
+###############################################################################
+# DISKS
+###############################################################################
+print "\nDisks\n";
+
+# gcosts -> gcloud disk-types name mapping
+my %storage_types = (
+	'local'    => 'local-ssd',
+	'balanced' => 'pd-balanced',
+	'extreme'  => 'pd-extreme',
+	'ssd'      => 'pd-ssd',
+	'hdd'      => 'pd-standard',
+);
+foreach my $storage_type (keys %storage_types) {
+	my $disk_type = $storage_types{$storage_type};
+	print "$storage_type [$disk_type]\n";
+	foreach my $region (keys %{ $gcp->{'compute'}->{'storage'}->{$storage_type}->{'cost'} }) {
+		print "\t$region\n";
+		my $month = $gcp->{'compute'}->{'storage'}->{$storage_type}->{'cost'}->{$region}->{'month'};
+		my $update = "UPDATE disks SET monthGb = '$month' WHERE name LIKE '$disk_type' AND region LIKE '$region'";
+		$db->do($update) or die "ERROR: Cannot update $DBI::errstr\n";
+	}
 }
 
 
-# Checks
-print "\n";
+###############################################################################
+# LOCATION NAME
+###############################################################################
+print "\nRegion Locations\n";
+
+# Update region location
+foreach my $region (keys %{ $gcp->{'region'} }) {
+	my $regionLocation = $gcp->{'region'}->{$region}->{'location'};
+	print "$region : $regionLocation\n";
+	$db->do("UPDATE instances SET regionLocation = '$regionLocation' WHERE region LIKE '$region'") or die "ERROR: Cannot update $DBI::errstr\n";
+	$db->do("UPDATE disks     SET regionLocation = '$regionLocation' WHERE region LIKE '$region'") or die "ERROR: Cannot update $DBI::errstr\n";
+}
+
+
+###############################################################################
+# TEST
+###############################################################################
+print "\nTest\n";
 
 # Check regions
 my $sth = $db->prepare("SELECT region FROM instances WHERE regionLocation LIKE '' GROUP BY region");
@@ -110,6 +148,14 @@ if ($without_location) {
 }
 
 # Check costs
+# Disks
+$sth = $db->prepare("SELECT name, region FROM disks WHERE monthGb <= 0");
+$sth->execute;
+$sth->bind_columns (\my ($name, $region));
+while ($sth->fetch) {
+	print "WARNING: Costs per month missing for disk type '$name' in region '$region'.\n";
+}
+# Instances
 $sth = $db->prepare("SELECT name, region FROM instances WHERE hour <= 0");
 $sth->execute;
 $sth->bind_columns (\my ($name, $region));
@@ -118,11 +164,12 @@ while ($sth->fetch) {
 	print "ERROR: Costs per hour missing for machine type '$name' in region '$region'.\n";
 	$without_costs++;
 }
+# Error
 if ($without_costs) {
 	print "\n";
-	print "ERROR: Costs per hour missing! Maybe there is a new machine type or region.\n";
+	print "ERROR: Costs missing! Maybe there is a new machine type, disk type or region.\n";
 	print "       Please update pricing.yml in Cyclenerd/google-cloud-pricing-cost-calculator.\n";
-	die "ERROR: Costs per hour missing!\n";
+	die "ERROR: Costs missing!\n";
 }
 
 

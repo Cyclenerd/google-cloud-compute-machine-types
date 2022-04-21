@@ -65,6 +65,7 @@
 				template.name == 'instance_in_region.tt2' ||
 				template.name == 'region.tt2' ||
 				template.name == 'regions.tt2' ||
+				template.name == 'disks.tt2' ||
 				template.name == 'platforms.tt2'
 			-%]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %]
 			href="/regions.html">Regions</a>

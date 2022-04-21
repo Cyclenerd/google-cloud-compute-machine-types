@@ -169,6 +169,24 @@
 <meta property="og:description"  content="Available CPU platforms in Google Cloud regions. Overview of the CPU generations from Intel and AMD.">
 <meta property="og:url"          content="[% site.url %]/platforms.html">
 
+[%- ELSIF template.name == 'disks.tt2' -%]
+<title>Persistent Disk Pricing in Google Cloud Regions</title>
+<meta name="description"         content="Overview of available persistent disks in Google Cloud regions. Breakdown by price per GB and minimum capacity per disk.">
+<meta name="robots"              content="index, follow">
+<link rel="canonical"            href="[% site.url %]/disks.html">
+<meta name="twitter:image:src"   content="[% site.opengraph %]/regions.png?[% timestamp %]">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Google Cloud Persistent Disk Pricing">
+<meta name="twitter:description" content="Overview of available persistent disks in Google Cloud regions. Breakdown by price per GB and minimum capacity per disk.">
+<meta property="og:image"        content="[% site.opengraph %]/regions.png?[% timestamp %]">
+<meta property="og:image:alt"    content="Image: Google Cloud Platform regions">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:type"         content="website">
+<meta property="og:title"        content="Google Cloud Persistent Disk Pricing">
+<meta property="og:description"  content="Overview of available persistent disks in Google Cloud regions. Breakdown by price per GB and minimum capacity per disk.">
+<meta property="og:url"          content="[% site.url %]/disks.html">
+
 [%- ELSIF template.name == 'instance.tt2' -%]
 <title>[% instance.name %] - Google Cloud Compute Machine</title>
 <meta name="description"         content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
