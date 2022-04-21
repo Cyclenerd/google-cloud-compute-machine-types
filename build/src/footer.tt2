@@ -35,7 +35,7 @@
 <p><a class="btn btn-primary" href="/machine-types-regions.csv?[% timestamp %]" download="machine-types-regions.csv">Download CSV ([% csvFileSize %] MB)</a><p>
 
 <p class="h4">Database</p>
-<p>Gzip compressed Structured Query Language (SQL) export with GCE machine types, Google Cloud regions and zones.</p>
+<p>Gzip compressed Structured Query Language (SQL) export with GCE machine types, disk types, Google Cloud regions and zones.</p>
 <p><a class="btn btn-primary" href="/machine-types-regions.sql.gz?[% timestamp %]" download="machine-types-regions.sql.gz">Download SQL ([% sqlFileSize %] MB)</a><p>
 
 <p class="h4">Command Line</p>

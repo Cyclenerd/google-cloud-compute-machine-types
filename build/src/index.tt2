@@ -149,7 +149,7 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 
 <p>
 You can download a <a href="/machine-types-regions.csv?[% timestamp %]" download="machine-types-regions.csv">CSV</a> file ([% csvFileSize %] MB)
-and <a href="/machine-types-regions.sql.gz?[% timestamp %]" download="machine-types-regions.sql.gz">SQL</a> export ([% sqlFileSize %] MB, gzip compressed) with all machine types and regions.
+and <a href="/machine-types-regions.sql.gz?[% timestamp %]" download="machine-types-regions.sql.gz">SQL</a> export ([% sqlFileSize %] MB, gzip compressed) with all machine types, disk types and regions.
 You can import and edit the CSV file to your favorite spreadsheet program (MS Excel, LibreOffice or Google Sheets).
 You can import the SQL dump into your favorite database (like SQLite).
 </p>
