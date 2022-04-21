@@ -58,7 +58,7 @@ Breakdown by price per GB and minimum capacity per disk.
 		<!-- Standard -->
 		[% IF region.standard %]
 		<td title="Costs for 1 GB standard persistent disk per month in region [% region.name %]: [% region.standard %] USD" class="currency">[% region.standard %]</td>
-		<td title="Costs for 10 GB standard persistent disk per month in region [% region.name %]: [% region.standard*10 %] USD" class="currency">[% region.standard*10 FILTER format("%.2f") %]</td>
+		<td title="Costs for 10 GB standard persistent disk per month in region [% region.name %]: [% region.standard*10 FILTER format("%.2f") %] USD" class="currency">[% region.standard*10 FILTER format("%.2f") %]</td>
 		[% ELSE %]
 		<td class="table-warning">-</td>
 		<td class="table-warning">-</td>
@@ -66,7 +66,7 @@ Breakdown by price per GB and minimum capacity per disk.
 		<!-- Balanced -->
 		[% IF region.balanced %]
 		<td title="Costs for 1 GB balanced persistent disk per month in region [% region.name %]: [% region.balanced %] USD" class="currency">[% region.balanced %]</td>
-		<td title="Costs for 10 GB balanced persistent disk per month in region [% region.name %]: [% region.balanced*10 %] USD" class="currency">[% region.balanced*10 FILTER format("%.2f") %]</td>
+		<td title="Costs for 10 GB balanced persistent disk per month in region [% region.name %]: [% region.balanced*10 FILTER format("%.2f") %] USD" class="currency">[% region.balanced*10 FILTER format("%.2f") %]</td>
 		[% ELSE %]
 		<td class="table-warning">-</td>
 		<td class="table-warning">-</td>
@@ -74,7 +74,7 @@ Breakdown by price per GB and minimum capacity per disk.
 		<!-- SSD -->
 		[% IF region.ssd %]
 		<td title="Costs for 1 GB SSD persistent disk per month in region [% region.name %]: [% region.ssd %] USD" class="currency">[% region.ssd %]</td>
-		<td title="Costs for 10 GB SSD persistent disk per month in region [% region.name %]: [% region.ssd*10 %] USD" class="currency">[% region.ssd*10 FILTER format("%.2f") %]</td>
+		<td title="Costs for 10 GB SSD persistent disk per month in region [% region.name %]: [% region.ssd*10 FILTER format("%.2f") %] USD" class="currency">[% region.ssd*10 FILTER format("%.2f") %]</td>
 		[% ELSE %]
 		<td class="table-warning">-</td>
 		<td class="table-warning">-</td>
@@ -82,7 +82,7 @@ Breakdown by price per GB and minimum capacity per disk.
 		<!-- Extreme -->
 		[% IF region.extreme %]
 		<td title="Costs for 1 GB extreme persistent disk per month in region [% region.name %]: [% region.extreme %] USD" class="currency">[% region.extreme %]</td>
-		<td title="Costs for 500 GB extreme persistent disk per month in region [% region.name %]: [% region.extreme*500 %] USD" class="currency">[% region.extreme*500 FILTER format("%.2f") %]</td>
+		<td title="Costs for 500 GB extreme persistent disk per month in region [% region.name %]: [% region.extreme*500 FILTER format("%.2f") %] USD" class="currency">[% region.extreme*500 FILTER format("%.2f") %]</td>
 		[% ELSE %]
 		<td class="table-warning">-</td>
 		<td class="table-warning">-</td>
