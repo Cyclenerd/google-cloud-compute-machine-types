@@ -11,7 +11,7 @@ Out of a total of [% instances.size %] Google Compute Engine machine types,
 
 <p><a class="btn btn-success" href="/grid.html?region=[% region.name %]" role="button">✅ Instance Picker with filter on region [% region.name %]</a></p>
 
-<h2>Persistent Disk Types in [% region.name %]</h2>
+<h2 id="disk-types">Persistent Disk Types in [% region.name %]</h2>
 <p>Costs and pricing for Google Compute disk types in Google Cloud region [% region.name %][% IF region.regionLocation %] ([% region.regionLocation %])[% END %].</p>
 <div class="table-responsive">
 <table class="table table-hover table-striped table-bordered">
@@ -49,7 +49,7 @@ IF disk.name == 'pd-extreme'; minDiskSize = 500; END;
 </table>
 </div>
 
-<h2>Machine Types in [% region.name %]</h2>
+<h2 id="machine-types">Machine Types in [% region.name %]</h2>
 <p>Costs and pricing for Google Compute Engine machine types in Google Cloud region [% region.name %][% IF region.regionLocation %] ([% region.regionLocation %])[% END %].</p>
 <div class="table-responsive">
 <table
