@@ -34,7 +34,9 @@ You can see the costs in the <a href="/instances.html">machine type</a> overview
 	id="[% project.name %]"
 	role="tabpanel"
 	aria-labelledby="pills-[% project.name %]-tab">
-<h2>[% imageProjectName(project.name) %]</h2>
+<h2>[% imageProjectName(project.name) %] <small class="text-muted">[% project.name %]</small></h2>
+
+<p>Image project: <code>[% project.name %]</code></p>
 
 <div class="table-responsive">
 <table class="table table-sm table-hover table-bordered">
