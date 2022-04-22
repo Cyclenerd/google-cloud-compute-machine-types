@@ -13,6 +13,10 @@ DELETE FROM disktypes    WHERE zone LIKE 'europe-southwest1-%';
 DELETE FROM machinetypes WHERE zone LIKE 'us-east5-%';
 DELETE FROM disktypes    WHERE zone LIKE 'us-east5-%';
 
+/* 2022/04/22: us-south1 (Dallas) */
+DELETE FROM machinetypes WHERE zone LIKE 'us-south1-%';
+DELETE FROM disktypes    WHERE zone LIKE 'us-south1-%';
+
 /*
  * Remove disconnected data centers
  */
