@@ -236,7 +236,7 @@ my $regions = image();
 # Small title
 $regions->moveTo($left, 100);
 $regions->fontsize('20');
-$regions->string('Google Cloud');
+$regions->string('Google Cloud Platform');
 # Regions
 $regions->moveTo( $left, 190 );
 $regions->fontsize('60');
@@ -245,6 +245,22 @@ $regions->string("Regions");
 open(FH, '>', "$dir/regions.png") or die $!;
 binmode FH;
 print FH $regions->png('8');
+close(FH);
+
+# images.png
+my $os_images = image();
+# Small title
+$os_images->moveTo($left, 100);
+$os_images->fontsize('20');
+$os_images->string('Google Cloud Platform');
+# Images
+$os_images->moveTo( $left, 190 );
+$os_images->fontsize('60');
+$os_images->string("Operating system images");
+# Save
+open(FH, '>', "$dir/images.png") or die $!;
+binmode FH;
+print FH $os_images->png('8');
 close(FH);
 
 # Regions
