@@ -277,6 +277,24 @@
 <meta property="og:description"  content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory in Google Cloud region [% instance.region %].">
 <meta property="og:url"          content="[% site.url %]/[% instance.region %]/[% instance.name %].html">
 
+[%- ELSIF template.name == 'images.tt2' -%]
+<title>Operating System Images - Google Cloud Platform</title>
+<meta name="description"         content="Overview of available operating system images in Google Cloud Platform. Breakdown per operating system developer.">
+<meta name="robots"              content="index, follow">
+<link rel="canonical"            href="[% site.url %]/images.html">
+<meta name="twitter:image:src"   content="[% site.opengraph %]/images.png?[% timestamp %]">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Google Cloud Operating System Images">
+<meta name="twitter:description" content="Overview of available operating system images in Google Cloud Platform. Breakdown per operating system developer.">
+<meta property="og:image"        content="[% site.opengraph %]/images.png?[% timestamp %]">
+<meta property="og:image:alt"    content="Image: Google Cloud Platform OS images">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:type"         content="website">
+<meta property="og:title"        content="Google Cloud Operating System Images">
+<meta property="og:description"  content="Overview of available operating system images in Google Cloud Platform. Breakdown per operating system developer.">
+<meta property="og:url"          content="[% site.url %]/images.html">
+
 [%- ELSIF template.name == '404.tt2'-%]
 <title>404 - Page Not Found</title>
 <meta name="robots" content="noindex, nofollow">
