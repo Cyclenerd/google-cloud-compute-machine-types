@@ -4,7 +4,7 @@
 
 <blockquote class="blockquote">
 <p>
-Compute Engine offers many preconfigured public images that have compatible Linux or Windows operating systems.
+Compute Engine offers many preconfigured public images that have compatible Linux, UNIX or Windows operating systems.
 Most images are free of charge.
 Premium images (SLES, RHEL, Windows) add additional cost to your instances.
 You can see the costs in the <a href="/instances.html">machine type</a> overview.
