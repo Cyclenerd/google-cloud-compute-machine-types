@@ -572,6 +572,9 @@ $template->process('main.js',                 {},                  '../site/main
 $template->process('grid.tt2',                {},                  '../site/grid.html')               || die "Template process failed: ", $template->error(), "\n";
 $template->process('instance_in_region.json', { 'json' => $json }, '../site/instance_in_region.json') || die "Template process failed: ", $template->error(), "\n";
 
+# Imprint
+$template->process('imprint.tt2', {}, '../site/imprint.html') || die "Template process failed: ", $template->error(), "\n";
+
 # 404
 $template->process('404.tt2', {}, '../site/404.html') || die "Template process failed: ", $template->error(), "\n";
 

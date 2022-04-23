@@ -1,6 +1,7 @@
 User-agent: *
 Disallow: /img/
 Disallow: /index.html
+Disallow: /imprint.html
 Disallow: /grid.html?*
 Disallow: /comparison/*
 Disallow: /*.csv

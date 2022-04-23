@@ -1,0 +1,21 @@
+[%- PROCESS header.tt2 -%]
+<h1>Imprint</h1>
+
+<p>🇩🇪 German law demands this.</p>
+
+<p>
+<address>
+Nils Knieling<br>
+Klabundeweg 14<br>
+22359 Hamburg<br>
+Deutschland
+</address>
+</p>
+
+<p>Email: <code>nils [at] nkn-it (dot) de</code></p>
+
+<p>Phone: + 49 (0) 40 2282 1390 (no support)</p>
+
+<p>Umsatzsteuer-ID gemäß §27 a Umsatzsteuergesetz (VAT ID Number Germany): DE 279463785</p>
+
+[%- PROCESS footer.tt2 -%]

@@ -295,6 +295,12 @@
 <meta property="og:description"  content="Overview of available operating system images in Google Cloud Platform. Breakdown per operating system developer.">
 <meta property="og:url"          content="[% site.url %]/images.html">
 
+[%- ELSIF template.name == 'imprint.tt2'-%]
+<title>Imprint - gcloud-compute.com</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="canonical" href="[% site.url %]/imprint.html">
+
+
 [%- ELSIF template.name == '404.tt2'-%]
 <title>404 - Page Not Found</title>
 <meta name="robots" content="noindex, nofollow">
