@@ -622,6 +622,7 @@ $template->process('images.tt2', {
 # Index
 $template->process('index.tt2', {
 	'instances'            => \@instances,
+	'disks'                => \@disks,
 	'regions'              => \@regions,
 	'instances_in_regions' => \@instances_in_regions
 }, '../site/index.html') || die "Template process failed: ", $template->error(), "\n";

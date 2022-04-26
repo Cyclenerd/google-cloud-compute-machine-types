@@ -49,6 +49,18 @@ You have the choice between <mark>[% intel %] machine types with <a href="/intel
 [% sap %] machine types are certified for <a href="/sap.html">SAP application</a> and [% hana %] machine types are certified for <a href="/hana.html">SAP HANA</a> on Google Cloud.
 </p>
 
+<h2>Disks</h2>
+
+<p>
+<a href="/disks.html" title="Persistent Disk Types">Here</a> you can find an overview of <mark>[% disks.size %]</mark> different disk types for your instances.
+</p>
+
+<h2>Images</h2>
+
+<p>
+<a href="/images.html" title="Operating system images">Here</a> you can find an overview of many preconfigured public images that have compatible <mark>Linux, UNIX or Windows operating systems</mark>.
+</p>
+
 <h2>Regions</h2>
 
 <p>
@@ -61,12 +73,6 @@ A cost overview of the <a href="/disks.html" title="Persistent disk pricing in G
 In total, you have the freedom to choose between <mark>[% instances_in_regions.size %] different combinations</mark> of Google Compute Engine machine types and Google Cloud regions.
 For each combination the cost per hour, month with sustained use discounts (SUD), month with 1 year commitment (CUD) and price per month with 3 year commitment (CUD) was calculated.
 The cost of paid "premium" operating system licenses, such as SUSE Linux Enterprise Server (SLES), Red Hat Enterprise Linux (RHEL) and Microsoft Windows Server, was also calculated.
-</p>
-
-<h2>Images</h2>
-
-<p>
-<a href="/images.html" title="Operating system images">Here</a> you can find an overview of many preconfigured public images that have compatible Linux, UNIX or Windows operating systems.
 </p>
 
 <h2>Instance Picker</h2>
