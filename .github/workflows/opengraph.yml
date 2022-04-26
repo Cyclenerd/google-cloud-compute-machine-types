@@ -10,16 +10,17 @@ jobs:
     steps:
       - name: Install dependencies
         run: |
-          sudo apt-get install   \
-            jq                   \
-            sqlite3              \
-            libapp-options-perl  \
-            libencode-perl       \
-            libyaml-libyaml-perl \
-            libdbd-csv-perl      \
-            libdbd-sqlite3-perl  \
-            libtemplate-perl     \
-            libgd-perl           \
+          sudo apt-get install           \
+            jq                           \
+            sqlite3                      \
+            libparallel-forkmanager-perl \
+            libapp-options-perl          \
+            libencode-perl               \
+            libyaml-libyaml-perl         \
+            libdbd-csv-perl              \
+            libdbd-sqlite3-perl          \
+            libtemplate-perl             \
+            libgd-perl                   \
             fonts-roboto
 
       - name: Checkout

@@ -30,6 +30,7 @@ you need the following requirements.
 * Perl 5 (`perl`)
 * Perl modules:
 	* [GD::Simple](https://metacpan.org/pod/GD::Simple)
+	* [Parallel::ForkManager](https://metacpan.org/pod/Parallel::ForkManager)
 	* [App::Options](https://metacpan.org/pod/App::Options)
 	* [Encode](https://metacpan.org/pod/Encode)
 	* [YAML::XS](https://metacpan.org/pod/YAML::XS) (and `libyaml`)
@@ -47,6 +48,7 @@ sudo apt install \
 	ca-certificates \
 	gnupg \
 	sqlite3 \
+	libparallel-forkmanager-perl \
 	libapp-options-perl \
 	libencode-perl \
 	libyaml-libyaml-perl \
