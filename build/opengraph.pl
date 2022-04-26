@@ -152,6 +152,30 @@ while (my $instance = $sth->fetchrow_hashref) {
 }
 
 ###############################################################################
+# DISKS
+###############################################################################
+
+my $sql_disks = qq ~
+SELECT
+	name,
+	description,
+	COUNT(region) AS regionCount,
+	ROUND(MIN(monthGb), 2) AS minMonth,
+	ROUND(AVG(monthGb), 2) AS avgMonth,
+	ROUND(MAX(monthGb), 2) AS maxMonth
+FROM disks D
+GROUP BY name
+ORDER BY name
+~;
+$sth = $dbh->prepare($sql_disks);
+$sth->execute();
+my @disks = ();
+while (my $disk = $sth->fetchrow_hashref) {
+	push(@disks, $disk);
+}
+$sth->finish;
+
+###############################################################################
 # REGIONS
 ###############################################################################
 
@@ -231,20 +255,20 @@ binmode FH;
 print FH $instances->png('8');
 close(FH);
 
-# regions.png
-my $regions = image();
+# disks.png
+my $instances = image();
 # Small title
-$regions->moveTo($left, 100);
-$regions->fontsize('20');
-$regions->string('Google Cloud Platform');
-# Regions
-$regions->moveTo( $left, 190 );
-$regions->fontsize('60');
-$regions->string("Regions");
+$instances->moveTo($left, 100);
+$instances->fontsize('20');
+$instances->string('Google Compute Engine');
+# Disk types
+$instances->moveTo( $left, 190 );
+$instances->fontsize('60');
+$instances->string("Disk types");
 # Save
-open(FH, '>', "$dir/regions.png") or die $!;
+open(FH, '>', "$dir/disks.png") or die $!;
 binmode FH;
-print FH $regions->png('8');
+print FH $instances->png('8');
 close(FH);
 
 # images.png
@@ -261,6 +285,22 @@ $os_images->string("Operating system images");
 open(FH, '>', "$dir/images.png") or die $!;
 binmode FH;
 print FH $os_images->png('8');
+close(FH);
+
+# regions.png
+my $regions = image();
+# Small title
+$regions->moveTo($left, 100);
+$regions->fontsize('20');
+$regions->string('Google Cloud Platform');
+# Regions
+$regions->moveTo( $left, 190 );
+$regions->fontsize('60');
+$regions->string("Regions");
+# Save
+open(FH, '>', "$dir/regions.png") or die $!;
+binmode FH;
+print FH $regions->png('8');
 close(FH);
 
 # Regions
@@ -444,4 +484,24 @@ if ($create_comparison) {
 			close(FH);
 		}
 	}
+}
+
+# Disks
+foreach my $disk (@disks) {
+	my $name  = $disk->{'name'} || 'missing';
+	my $img = image();
+	print "$name\n";
+	# Small title
+	$img->moveTo($left, 100);
+	$img->fontsize('20');
+	$img->string('Google Compute Engine disk type:');
+	# Disk type
+	$img->moveTo( $left, 190 );
+	$img->fontsize('60');
+	$img->string("$name");
+	# Save
+	open(FH, '>', "$dir/$name.png") or die $!;
+	binmode FH;
+	print FH $img->png('8');
+	close(FH);
 }
