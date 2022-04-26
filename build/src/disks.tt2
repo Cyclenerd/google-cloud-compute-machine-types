@@ -54,4 +54,18 @@ IF disk.name == 'local-ssd';  minDiskSize = 375; END;
 </tbody>
 </table>
 </div> <!-- // table-responsive -->
+
+<h2 class="mt-2">Performance by Disk Size</h2>
+
+<p>
+Persistent disk performance scales with the size of the disk and with the number of vCPUs on your Google Compute Engine VM instance.
+The <a href="https://cloud.google.com/compute/docs/disks/performance" rel="nofollow"> Google documentation</a> explains the whole concept very detailed.
+The following graphic is only meant to give a quick overview.
+</p>
+
+<div id="myChart" style="height: 400px"></div>
+<script src="[% site.agCharts.js %]"></script>
+<script src="/disks.js">
+</script>
+
 [% PROCESS footer.tt2 %]

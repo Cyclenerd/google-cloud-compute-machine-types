@@ -4,6 +4,7 @@ Disallow: /index.html
 Disallow: /imprint.html
 Disallow: /grid.html?*
 Disallow: /comparison/*
+Disallow: /*.js
 Disallow: /*.csv
 Disallow: /*.sql
 Disallow: /*.gz

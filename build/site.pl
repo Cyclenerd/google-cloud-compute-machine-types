@@ -179,6 +179,7 @@ while (my $disk = $sth->fetchrow_hashref) {
 $sth->finish;
 push(@files, 'disks.html');
 $template->process('disks.tt2', { 'disks' => \@disks }, '../site/disks.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('disks.js', {}, '../site/disks.js') || die "Template process failed: ", $template->error(), "\n";
 
 
 ###############################################################################
