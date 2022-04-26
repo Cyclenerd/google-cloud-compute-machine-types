@@ -44,7 +44,7 @@ IF disk.name == 'local-ssd';  minDiskSize = 375; END;
 <tr>
 	<td><a href="/[% disk.name %].html" title="Persistent disk type [% disk.name %]">[% disk.name %]</a></td>
 	<td>[% disk.description %]</td>
-	<td>[% minDiskSize %] GB</td>
+	[% IF minDiskSize %]<td [% IF minDiskSize > 400 %]class="table-danger"[% ELSIF minDiskSize > 300 %]class="table-warning"[% END %]>[% minDiskSize %] GB</td>[% ELSE %]<td>???</td>[% END %]
 	<td>[% disk.regionCount %]</td>
 	<td title="Avg. costs for 1 GB [% disk.name %] per month: [% disk.avgMonth %] USD" class="currency">[% disk.avgMonth %]</td>
 	<td title="Avg. costs for 10 GB [% disk.name %] per month: [% disk.avgMonth %] USD" class="currency">[% disk.avgMonth*10  FILTER format("%.2f") %]</td>
