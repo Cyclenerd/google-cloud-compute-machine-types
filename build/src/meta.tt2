@@ -133,6 +133,42 @@
 <meta property="og:description"  content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:url"          content="[% site.url %]/hana.html">
 
+[%- ELSIF template.name == 'disks.tt2' -%]
+<title>GCE Disk Types in Google Cloud Platform</title>
+<meta name="description"         content="Overview of all Google Compute Engine disk types that can be used in Google Cloud Platform. Sorted by price.">
+<meta name="robots"              content="index, follow">
+<link rel="canonical"            href="[% site.url %]/disks.html">
+<meta name="twitter:image:src"   content="[% site.opengraph %]/disks.png?[% timestamp %]">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Google Compute Engine Disk Types">
+<meta name="twitter:description" content="Overview of all Google Compute Engine disk types that can be used in Google Cloud Platform. Sorted by price.">
+<meta property="og:image"        content="[% site.opengraph %]/disks.png?[% timestamp %]">
+<meta property="og:image:alt"    content="Image: Google Compute Engine disk types">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:type"         content="website">
+<meta property="og:title"        content="Google Compute Engine Disk Types">
+<meta property="og:description"  content="Overview of all Google Compute Engine disk types that can be used in Google Cloud Platform. Sorted by price.">
+<meta property="og:url"          content="[% site.url %]/disks.html">
+
+[%- ELSIF template.name == 'disk.tt2' -%]
+<title>[% disk.name %] - Google Cloud Compute Disk Type</title>
+<meta name="description"         content="Google Compute Engine persistent disk type [% disk.name %]. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
+<meta name="robots"              content="index, follow">
+<link rel="canonical"            href="[% site.url %]/[% disk.name %].html">
+<meta name="twitter:image:src"   content="[% site.opengraph %]/[% disk.name %].png?[% timestamp %]">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Google Disk Type [% disk.name %]">
+<meta name="twitter:description" content="Google Compute Engine persistent disk type [% disk.name %]. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
+<meta property="og:image"        content="[% site.opengraph %]/[% disk.name %].png?[% timestamp %]">
+<meta property="og:image:alt"    content="Image: Google Compute Engine disk type [% disk.name %]">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:type"         content="website">
+<meta property="og:title"        content="Google Disk Type [% disk.name %]">
+<meta property="og:description"  content="Google Compute Engine persistent disk type [% disk.name %]. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
+<meta property="og:url"          content="[% site.url %]/[% disk.name %].html">
+
 [%- ELSIF template.name == 'regions.tt2' -%]
 <title>Google Cloud Platform Regions with GCE Machines</title>
 <meta name="description"         content="List of all Google Cloud regions available in all Google Cloud Platform locations. Overview of available Google Compute Engine machine types.">
@@ -169,11 +205,11 @@
 <meta property="og:description"  content="Available CPU platforms in Google Cloud regions. Overview of the CPU generations from Intel and AMD.">
 <meta property="og:url"          content="[% site.url %]/platforms.html">
 
-[%- ELSIF template.name == 'disks.tt2' -%]
+[%- ELSIF template.name == 'diskpricing.tt2' -%]
 <title>Persistent Disk Pricing in Google Cloud Regions</title>
 <meta name="description"         content="Overview of available persistent disks in Google Cloud regions. Breakdown by price per GB and minimum capacity per disk.">
 <meta name="robots"              content="index, follow">
-<link rel="canonical"            href="[% site.url %]/disks.html">
+<link rel="canonical"            href="[% site.url %]/diskpricing.html">
 <meta name="twitter:image:src"   content="[% site.opengraph %]/regions.png?[% timestamp %]">
 <meta name="twitter:card"        content="summary_large_image">
 <meta name="twitter:title"       content="Google Cloud Persistent Disk Pricing">
@@ -185,7 +221,7 @@
 <meta property="og:type"         content="website">
 <meta property="og:title"        content="Google Cloud Persistent Disk Pricing">
 <meta property="og:description"  content="Overview of available persistent disks in Google Cloud regions. Breakdown by price per GB and minimum capacity per disk.">
-<meta property="og:url"          content="[% site.url %]/disks.html">
+<meta property="og:url"          content="[% site.url %]/diskpricing.html">
 
 [%- ELSIF template.name == 'instance.tt2' -%]
 <title>[% instance.name %] - Google Cloud Compute Machine</title>

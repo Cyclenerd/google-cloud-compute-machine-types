@@ -1,13 +1,11 @@
 [%- PROCESS header.tt2 -%]
-[%- PROCESS regions_header.tt2 -%]
 
-<h1>Persistent Disk Pricing in Google Cloud Regions</h1>
+<h1>Google Compute Engine Persistent Disk Types</h1>
 
 <blockquote class="blockquote">
 <p>
-Each Google Compute Engine machine type (VM instance) has at least one boot disk attached to it.
-Each disk incurs a cost, described in this overview.
-Breakdown by price per GB and minimum capacity per disk.
+Google Compute Engine offers <mark>[% disks.size %]</mark> disk types for your instances.
+Each of the following disk types has unique price and performance characteristics.
 </p>
 </blockquote>
 
@@ -15,81 +13,45 @@ Breakdown by price per GB and minimum capacity per disk.
 <table
 	class="table table-hover table-bordered"
 	data-toggle="table"
-	data-sort-name="name"
+	data-sort-name="1gb"
 	data-sort-order="asc"
 	data-sortable="true"
-	data-sticky-header="true"
+	data-sticky-header="false"
 >
 <thead>
 	<tr>
-		<th scope="col" colspan="2">Region</th>
-		<th scope="col">Zones</th>
-		<th scope="col" colspan="2" title="Efficient and reliable block storage. Minimum capacity per disk: 10 GB">Standard</th>
-		<th scope="col" colspan="2" title="Cost-effective and reliable block storage. Minimum capacity per disk: 10 GB">Balanced</th>
-		<th scope="col" colspan="2" title="Fast and reliable block storage. Minimum capacity per disk: 10 GB">SSD</th>
-		<th scope="col" colspan="2" title="Highest performance persistent block storage option. Minimum capacity per disk: 500 GB">Extreme</th>
+		<th scope="col" colspan="3">Disk Type</th>
+		<th scope="col">Region</th>
+		<th scope="col" colspan="3">Costs (Avg. Region)</th>
 	</tr>
 	<tr>
-		<!-- Region -->
-		<th scope="row" data-field="name" data-sortable="true">Name</th>
-		<th scope="row" data-sortable="true">Location</th>
-		<!-- Zones -->
+		<th scope="col" data-field="name" data-sortable="true">Name</th>
+		<th scope="col">Description</th>
+		<th scope="col" title="Minimum capacity per disk">Min. Disk Size</th>
 		<th scope="col" data-sortable="true">#</th>
-		<!-- Standard -->
-		<th scope="col" data-sortable="true">1 GB</th>
+		<th scope="col" data-field="1gb" data-sortable="true">1 GB</th>
 		<th scope="col" data-sortable="true">10 GB</th>
-		<!-- Balanced -->
-		<th scope="col" data-sortable="true">1 GB</th>
-		<th scope="col" data-sortable="true">10 GB</th>
-		<!-- SSD -->
-		<th scope="col" data-sortable="true">1 GB</th>
-		<th scope="col" data-sortable="true">10 GB</th>
-		<!-- Extreme -->
-		<th scope="col" data-sortable="true">1 GB</th>
 		<th scope="col" data-sortable="true">500 GB</th>
 	</tr>
 </thead>
 <tbody>
-	[% FOREACH region IN disks_regions %]
-	<tr>
-		<td><a href="[% region.name %].html" title="Google Cloud region [% region.name %]">[% region.name %]</a></td>
-		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
-		<td>[% region.zoneCount %]</td>
-		<!-- Standard -->
-		[% IF region.standard %]
-		<td title="Costs for 1 GB standard persistent disk per month in region [% region.name %]: [% region.standard %] USD" class="currency">[% region.standard %]</td>
-		<td title="Costs for 10 GB standard persistent disk per month in region [% region.name %]: [% region.standard*10 FILTER format("%.2f") %] USD" class="currency">[% region.standard*10 FILTER format("%.2f") %]</td>
-		[% ELSE %]
-		<td class="table-warning">-</td>
-		<td class="table-warning">-</td>
-		[% END %]
-		<!-- Balanced -->
-		[% IF region.balanced %]
-		<td title="Costs for 1 GB balanced persistent disk per month in region [% region.name %]: [% region.balanced %] USD" class="currency">[% region.balanced %]</td>
-		<td title="Costs for 10 GB balanced persistent disk per month in region [% region.name %]: [% region.balanced*10 FILTER format("%.2f") %] USD" class="currency">[% region.balanced*10 FILTER format("%.2f") %]</td>
-		[% ELSE %]
-		<td class="table-warning">-</td>
-		<td class="table-warning">-</td>
-		[% END %]
-		<!-- SSD -->
-		[% IF region.ssd %]
-		<td title="Costs for 1 GB SSD persistent disk per month in region [% region.name %]: [% region.ssd %] USD" class="currency">[% region.ssd %]</td>
-		<td title="Costs for 10 GB SSD persistent disk per month in region [% region.name %]: [% region.ssd*10 FILTER format("%.2f") %] USD" class="currency">[% region.ssd*10 FILTER format("%.2f") %]</td>
-		[% ELSE %]
-		<td class="table-warning">-</td>
-		<td class="table-warning">-</td>
-		[% END %]
-		<!-- Extreme -->
-		[% IF region.extreme %]
-		<td title="Costs for 1 GB extreme persistent disk per month in region [% region.name %]: [% region.extreme %] USD" class="currency">[% region.extreme %]</td>
-		<td title="Costs for 500 GB extreme persistent disk per month in region [% region.name %]: [% region.extreme*500 FILTER format("%.2f") %] USD" class="currency">[% region.extreme*500 FILTER format("%.2f") %]</td>
-		[% ELSE %]
-		<td class="table-warning">-</td>
-		<td class="table-warning">-</td>
-		[% END %]
-	</tr>
-	[% END %]
+[%-
+FOREACH disk IN disks;
+minDiskSize = 10;
+IF disk.name == 'pd-extreme'; minDiskSize = 500; END;
+IF disk.name == 'local-ssd';  minDiskSize = 375; END;
+-%]
+<tr>
+	<td><a href="/[% disk.name %].html" title="Persistent disk type [% disk.name %]">[% disk.name %]</a></td>
+	<td>[% disk.description %]</td>
+	<td>[% minDiskSize %] GB</td>
+	<td>[% disk.regionCount %]</td>
+	<td title="Avg. costs for 1 GB [% disk.name %] per month: [% disk.avgMonth %] USD" class="currency">[% disk.avgMonth %]</td>
+	<td title="Avg. costs for 10 GB [% disk.name %] per month: [% disk.avgMonth %] USD" class="currency">[% disk.avgMonth*10  FILTER format("%.2f") %]</td>
+	<td title="Avg. costs for 500 GB [% disk.name %] per month: [% disk.avgMonth %] USD" class="currency">[% disk.avgMonth*500 FILTER format("%.2f") %]</td>
+</tr>
+[%- END -%]
 </tbody>
 </table>
-</div><!-- table-responsive -->
+</div> <!-- // table-responsive -->
 [% PROCESS footer.tt2 %]

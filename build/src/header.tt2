@@ -62,19 +62,26 @@
 	</li>
 	<li class="nav-item">
 		<a [%- IF
-				template.name == 'instance_in_region.tt2' ||
-				template.name == 'region.tt2' ||
-				template.name == 'regions.tt2' ||
-				template.name == 'disks.tt2' ||
-				template.name == 'platforms.tt2'
+				template.name == 'disk.tt2' ||
+				template.name == 'disks.tt2'
 			-%]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %]
-			href="/regions.html">Regions</a>
+			href="/disks.html">Disks</a>
 	</li>
-		<li class="nav-item">
+	<li class="nav-item">
 		<a [%- IF
 				template.name == 'images.tt2'
 			-%]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %]
 			href="/images.html">Images</a>
+	</li>
+	<li class="nav-item">
+		<a [%- IF
+				template.name == 'instance_in_region.tt2' ||
+				template.name == 'region.tt2' ||
+				template.name == 'regions.tt2' ||
+				template.name == 'diskpricing.tt2' ||
+				template.name == 'platforms.tt2'
+			-%]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %]
+			href="/regions.html">Regions</a>
 	</li>
 </ul>
 </div> <!-- // col -->

@@ -26,10 +26,10 @@ Out of a total of [% instances.size %] Google Compute Engine machine types,
 </thead>
 <tbody>
 [%
-FOREACH disk IN disks;
-IF disk.region == region.name;
+FOREACH disk IN disks_in_region;
 minDiskSize = 10;
 IF disk.name == 'pd-extreme'; minDiskSize = 500; END;
+IF disk.name == 'local-ssd';  minDiskSize = 375; END;
 %]
 <tr>
 	<td>[% disk.name %]</td>
@@ -44,7 +44,7 @@ IF disk.name == 'pd-extreme'; minDiskSize = 500; END;
 	<td>???</td>
 	[% END %]
 </tr>
-[% END; END; %]
+[% END %]
 </tbody>
 </table>
 </div>

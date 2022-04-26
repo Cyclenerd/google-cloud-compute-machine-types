@@ -159,10 +159,12 @@ my $sql_disks = qq ~
 SELECT
 	name,
 	description,
-	region,
-	regionLocation,
-	monthGb
+	COUNT(region) AS regionCount,
+	ROUND(MIN(monthGb), 2) AS minMonth,
+	ROUND(AVG(monthGb), 2) AS avgMonth,
+	ROUND(MAX(monthGb), 2) AS maxMonth
 FROM disks D
+GROUP BY name
 ORDER BY name
 ~;
 $sth = $dbh->prepare($sql_disks);
@@ -175,6 +177,8 @@ while (my $disk = $sth->fetchrow_hashref) {
 	$id++;
 }
 $sth->finish;
+push(@files, 'disks.html');
+$template->process('disks.tt2', { 'disks' => \@disks }, '../site/disks.html') || die "Template process failed: ", $template->error(), "\n";
 
 
 ###############################################################################
@@ -203,8 +207,8 @@ while (my $region = $sth->fetchrow_hashref) {
 }
 $sth->finish;
 # Regions
-push(@files, 'disks.html');
-$template->process('disks.tt2', { 'disks_regions' => \@disks_regions }, '../site/disks.html') || die "Template process failed: ", $template->error(), "\n";
+push(@files, 'diskpricing.html');
+$template->process('diskpricing.tt2', { 'disks_regions' => \@disks_regions }, '../site/diskpricing.html') || die "Template process failed: ", $template->error(), "\n";
 
 
 ###############################################################################
@@ -268,6 +272,7 @@ $template->process('platforms.tt2', { 'regions' => \@regions }, '../site/platfor
 # Instances in Region
 foreach my $region (@regions) {
 	my $name = $region->{'name'} || 'missing';
+	# Instances
 	my $sql_instances_in_region = qq ~
 		SELECT
 			UPPER(series) AS series, name, description, family,
@@ -302,6 +307,26 @@ foreach my $region (@regions) {
 		push(@instances_in_region, $instance);
 		$id++;
 	}
+	# Disks
+	my $sql_disks_in_region = qq ~
+		SELECT
+			name,
+			description,
+			zoneCount,
+			monthGb
+		FROM disks
+		WHERE region LIKE '$name'
+		ORDER BY name;
+	~;
+	$sth = $dbh->prepare($sql_disks_in_region);
+	$sth->execute();
+	my @disks_in_region = ();
+	$id = '1';
+	while (my $disk = $sth->fetchrow_hashref) {
+		$disk->{'id'} = $id;
+		push(@disks_in_region, $disk);
+		$id++;
+	}
 	my $html_file = '../site/'."$name".'.html';
 	print "$html_file\n";
 	push(@files, "$name".'.html');
@@ -309,7 +334,7 @@ foreach my $region (@regions) {
 		'region'              => $region,
 		'regions'             => \@regions,
 		'instances'           => \@instances,
-		'disks'               => \@disks,
+		'disks_in_region'     => \@disks_in_region,
 		'instances_in_region' => \@instances_in_region
 	}, "$html_file") || die "Template process failed: ", $template->error(), "\n";
 }
@@ -360,6 +385,43 @@ foreach my $instance (@instances) {
 		'instance'  => $instance,
 		'instances' => \@instances,
 		'regions'   => \@instance_regions
+	}, "$html_file") || die "Template process failed: ", $template->error(), "\n";
+}
+
+
+###############################################################################
+# DISK
+###############################################################################
+
+# Disk in Regions
+foreach my $disk (@disks) {
+	my $name = $disk->{'name'} || 'missing';
+	my $sql_disk_regions = qq ~
+		SELECT
+			region                         AS name,
+			regionLocation                 AS regionLocation,
+			zoneCount                      AS zoneCount,
+			monthGb
+		FROM disks
+		WHERE name LIKE '$name'
+		ORDER BY monthGb, region;
+	~;
+	$sth = $dbh->prepare($sql_disk_regions);
+	$sth->execute();
+	my @disk_regions = ();
+	$id = '1';
+	while (my $region = $sth->fetchrow_hashref) {
+		$region->{'id'} = $id;
+		push(@disk_regions, $region);
+		$id++;
+	}
+	$sth->finish;
+	my $html_file = '../site/'."$name".'.html';
+	print "$html_file\n";
+	push(@files, "$name".'.html');
+	$template->process('disk.tt2', {
+		'disk'    => $disk,
+		'regions' => \@disk_regions
 	}, "$html_file") || die "Template process failed: ", $template->error(), "\n";
 }
 

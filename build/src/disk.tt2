@@ -1,0 +1,56 @@
+[%- PROCESS header.tt2 -%]
+<h1>Google Compute Engine Disk Type [% disk.name %]</h1>
+
+[%-
+minDiskSize = 10;
+IF disk.name == 'pd-extreme'; minDiskSize = 500; END;
+IF disk.name == 'local-ssd';  minDiskSize = 375; END;
+-%]
+<blockquote class="blockquote">
+	<p>[% IF disk.description %][% disk.description %], [% END %]<mark>minimum capacity per disk [% minDiskSize %] GB</mark>.</p>
+</blockquote>
+
+<p>Costs and pricing for Google Compute Engine disk type [% disk.name %] in Google Cloud regions in which the disk is available.</p>
+<div class="table-responsive">
+<table
+	class="table table-hover table-bordered"
+	data-toggle="table"
+	data-sort-name="region"
+	data-sort-order="asc"
+	data-sortable="true"
+	data-sticky-header="true"
+>
+<thead>
+	<tr>
+		<th scope="col" data-field="region" data-sortable="true">Region</th>
+		<th scope="col">Location</th>
+		<th scope="col" data-sortable="true">#Zones</th>
+		<!-- Costs -->
+		<th scope="col" data-sortable="true">1 GB</th>
+		<th scope="col" data-sortable="true">10 GB</th>
+		<th scope="col" data-sortable="true">500 GB</th>
+	</tr>
+</thead>
+<tbody>
+	[% FOREACH region IN regions %]
+	<tr>
+		<td>
+			<a
+			   href="/[% region.name %].html"
+			   title="Google Compute Engine disk type [% disk.name %] in Google Cloud region [% region.name %]">
+				[% region.name %]
+			</a>
+		</td>
+		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td [% IF region.zoneCount < 1%]class="table-danger"[% END%] title="Available [% region.zoneCount %] zone[% IF region.zoneCount > 1 %]s[% END %] in region [% region.name %]">[% IF region.zoneCount %][% region.zoneCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<!-- Costs -->
+		<td title="Costs for 1 GB [% disk.name %] per month: [% region.monthGb %] USD" class="currency">[% region.monthGb %]</td>
+		<td title="Costs for 10 GB [% disk.name %] per month: [% region.monthGb %] USD" class="currency">[% region.monthGb*10  FILTER format("%.2f") %]</td>
+		<td title="Costs for 500 GB [% disk.name %] per month: [% region.monthGb %] USD" class="currency">[% region.monthGb*500 FILTER format("%.2f") %]</td>
+	</tr>
+	[% END %]
+</tbody>
+</table>
+</div><!-- table-responsive -->
+
+[% PROCESS footer.tt2 %]
