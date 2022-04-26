@@ -47,20 +47,30 @@ use App::Options (
 			default     => '',
 			description => "Create images only for this machine type"
 		},
+		processes => {
+			required    => '0',
+			default     => '1',
+			description => "Max processes for parallel creation"
+		},
 	},
 );
+use Parallel::ForkManager;
 
 my $create_region     = $App::options{region};
 my $limit_region      = $App::options{limit_region};
 my $create_comparison = $App::options{comparison};
 my $limit_comparison  = $App::options{limit_comparison};
+my $max_processes     = $App::options{processes};
+
+my $pm = Parallel::ForkManager->new($max_processes);
 
 my $db_file  = 'gce.db';
 my $dbh = DBI->connect("dbi:SQLite:dbname=$db_file","","") or die "ERROR: Cannot connect $DBI::errstr\n";
 
-my $dir = '../opengraph/';
+my $dir = '../opengraph';
 unless (-d "$dir") {
-	mkdir("$dir") or die "Can not create dir for opengraph images!\n";
+	print "Directory '$dir' not Found\n";
+	mkdir("$dir") or die "Can not create directory '$dir' for opengraph images!\n";
 }
 
 # robots.txt
@@ -378,9 +388,11 @@ foreach my $instance (@instances) {
 
 # Instances in region
 if ($create_region) {
+	REGION_LOOP:
 	foreach my $region (@regions) {
 		my $region_name = $region->{'name'} || 'missing';
 		next if ($limit_region && $limit_region ne "$region_name"); # skip region if limit is set
+		my $pid = $pm->start and next REGION_LOOP; # Forks and returns the pid for the child:
 		print "$region_name\n";
 		foreach my $instance (@instances) {
 			my $name           = $instance->{'name'}         || 'missing';
@@ -419,11 +431,13 @@ if ($create_region) {
 			print FH $img->png('8');
 			close(FH);
 		}
+		$pm->finish; # Terminates the child process
 	}
 }
 
 # Comparison
 if ($create_comparison) {
+	INSTANCE_LOOP:
 	foreach my $instance (@instances) {
 		my $name           = $instance->{'name'}         || 'missing';
 		my $cpu_count      = $instance->{'vCpus'}        || '0';
@@ -431,6 +445,7 @@ if ($create_comparison) {
 		my $cpu_base_clock = $instance->{'cpuBaseClock'} || '0';
 		my $ram            = $instance->{'memoryGiB'}    || '0';
 		next if ($limit_comparison && $limit_comparison ne "$limit_comparison"); # skip instance if limit is set
+		my $pid = $pm->start and next INSTANCE_LOOP; # Forks and returns the pid for the child:
 		foreach my $instance_b (@instances) {
 			my $name_b           = $instance_b->{'name'}         || 'missing';
 			my $cpu_count_b      = $instance_b->{'vCpus'}        || '0';
@@ -483,6 +498,7 @@ if ($create_comparison) {
 			print FH $img->png('8');
 			close(FH);
 		}
+		$pm->finish; # Terminates the child process
 	}
 }
 
@@ -505,3 +521,6 @@ foreach my $disk (@disks) {
 	print FH $img->png('8');
 	close(FH);
 }
+
+$pm->wait_all_children;
+print "DONE\n";
