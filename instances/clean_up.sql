@@ -1,9 +1,6 @@
 /* 
  * Delete not yet official 100% finished regions
  */
-/* 2022/03/28: Paris */
-DELETE FROM machinetypes WHERE zone LIKE 'europe-west9-%';
-DELETE FROM disktypes    WHERE zone LIKE 'europe-west9-%';
 
 /* 2022/04/22: europe-southwest1 (Madrid) */
 DELETE FROM machinetypes WHERE zone LIKE 'europe-southwest1-%';
