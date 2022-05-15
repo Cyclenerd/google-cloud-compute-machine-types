@@ -1,4 +1,11 @@
 /* 
+ * Delete not yet official 100% released machine types
+ */
+
+/* 2022/05/15: m3-megamem-* and m3-ultramem-* */
+DELETE FROM machinetypes WHERE name LIKE 'm3-%';
+
+/* 
  * Delete not yet official 100% finished regions
  */
 
