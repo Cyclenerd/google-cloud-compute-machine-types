@@ -9,10 +9,6 @@ DELETE FROM machinetypes WHERE name LIKE 'm3-%';
  * Delete not yet official 100% finished regions
  */
 
-/* 2022/04/22: us-east5 (Columbus) */
-DELETE FROM machinetypes WHERE zone LIKE 'us-east5-%';
-DELETE FROM disktypes    WHERE zone LIKE 'us-east5-%';
-
 /* 2022/04/22: us-south1 (Dallas) */
 DELETE FROM machinetypes WHERE zone LIKE 'us-south1-%';
 DELETE FROM disktypes    WHERE zone LIKE 'us-south1-%';
