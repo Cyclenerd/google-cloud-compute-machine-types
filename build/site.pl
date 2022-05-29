@@ -471,7 +471,9 @@ SELECT
 	ROUND(monthSlesSap3yCud, 2) AS monthSlesSap3yCud,
 	ROUND(monthRhel, 2)         AS monthRhel,
 	ROUND(monthRhelSap, 2)      AS monthRhelSap,
-	ROUND(monthWindows, 2)      AS monthWindows
+	ROUND(monthWindows, 2)      AS monthWindows,
+	ROUND(coremarkScore/hour, 0) AS coremarkHour,
+	ROUND(saps/hour, 0)          AS sapsHour
 FROM instances
 ORDER BY name, region
 ~;
