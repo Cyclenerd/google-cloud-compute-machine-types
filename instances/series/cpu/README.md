@@ -15,6 +15,15 @@ Performance benchmarks are created with [PerfKitBenchmarker](https://github.com/
 
 More help with resource mappings from on-premises hardware to Google Cloud: <https://cloud.google.com/architecture/resource-mappings-from-on-premises-hardware-to-gcp>
 
+## Coremark Benchmark
+
+Copy benchmarks from website <https://cloud.google.com/compute/docs/benchmarks-linux> to spreadsheet (`coremark.ods`) and export as CSV (`coremark.csv`).
+
+Run `coremark.pl` to convert CSV to SQL:
+```shell
+perl coremark.pl > coremark.sql
+```
+
 ## Intel
 
 Intel Xeon processor family
