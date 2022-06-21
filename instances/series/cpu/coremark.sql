@@ -14,6 +14,7 @@ UPDATE instances SET coremarkScore = '26973',   standardDeviation = '5.28',  sam
 UPDATE instances SET coremarkScore = '55439',   standardDeviation = '4',     sampleCount = '8528'  WHERE name LIKE 'e2-standard-4';
 UPDATE instances SET coremarkScore = '106182',  standardDeviation = '3.48',  sampleCount = '8268'  WHERE name LIKE 'e2-standard-8';
 UPDATE instances SET coremarkScore = '222745',  standardDeviation = '1.9',   sampleCount = '6424'  WHERE name LIKE 'e2-standard-16';
+UPDATE instances SET coremarkScore = '439445',  standardDeviation = '1.75',  sampleCount = '9304'  WHERE name LIKE 'e2-standard-32';
 UPDATE instances SET coremarkScore = '26821',   standardDeviation = '4.7',   sampleCount = '8824'  WHERE name LIKE 'e2-highmem-2';
 UPDATE instances SET coremarkScore = '55013',   standardDeviation = '3.79',  sampleCount = '8396'  WHERE name LIKE 'e2-highmem-4';
 UPDATE instances SET coremarkScore = '106036',  standardDeviation = '4.46',  sampleCount = '8420'  WHERE name LIKE 'e2-highmem-8';
