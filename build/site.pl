@@ -673,4 +673,21 @@ copy( './src/img/favicon/android-chrome-192x192.png', '../site/android-chrome-19
 copy( './src/img/favicon/android-chrome-512x512.png', '../site/android-chrome-512x512.png');
 copy( './src/img/favicon/site.webmanifest',           '../site/site.webmanifest');
 
+# JavaScript
+mkdir('../site/js/');
+copy( './src/js/ag-grid-community.min.noStyle.js',     '../site/js/ag-grid-community.min.noStyle.js');
+copy( './src/js/ag-charts-community.min.js',           '../site/js/ag-charts-community.min.js');
+copy( './src/js/jquery.js',                            '../site/js/jquery.js');
+copy( './src/js/bootstrap.bundle.min.js',              '../site/js/bootstrap.bundle.min.js');
+copy( './src/js/bootstrap-table.min.js',               '../site/js/bootstrap-table.min.js');
+copy( './src/js/bootstrap-table-sticky-header.min.js', '../site/js/bootstrap-table-sticky-header.min.js');
+
+# CSS
+mkdir('../site/css/');
+copy( './src/css/ag-grid.css',                       '../site/css/ag-grid.css');
+copy( './src/css/ag-theme-balham.css',               '../site/css/ag-theme-balham.css');
+copy( './src/css/bootstrap.min.css',                 '../site/css/bootstrap.min.css');
+copy( './src/css/bootstrap-table.min.css',           '../site/css/bootstrap-table.min.css');
+copy( './src/css/bootstrap-table-sticky-header.css', '../site/css/bootstrap-table-sticky-header.css');
+
 print "DONE\n";
