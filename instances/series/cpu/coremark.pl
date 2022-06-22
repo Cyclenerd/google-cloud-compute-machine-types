@@ -33,8 +33,12 @@ print " * Please see: https://github.com/Cyclenerd/google-cloud-compute-machine-
 print " */\n";
 while ($sth->fetch) {
 	if ($name) {
+		$name =~ s/^\s//;
+		$name =~ s/\s$//;
 		$coremarkScore =~ s/,//g;
+		$coremarkScore =~ s/\s//g;
 		$sampleCount   =~ s/,//g;
+		$sampleCount   =~ s/\s//g;
 		print "UPDATE instances SET coremarkScore = '$coremarkScore', standardDeviation = '$standardDeviation', sampleCount = '$sampleCount' WHERE name LIKE '$name';\n";
 	}
 }

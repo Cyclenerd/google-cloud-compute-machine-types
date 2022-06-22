@@ -17,7 +17,7 @@ More help with resource mappings from on-premises hardware to Google Cloud: <htt
 
 ## Coremark Benchmark
 
-Copy benchmarks from website <https://cloud.google.com/compute/docs/benchmarks-linux> to spreadsheet (`coremark.ods`) and export as CSV (`coremark.csv`).
+Copy benchmarks from website <https://cloud.google.com/compute/docs/benchmarks-linux> and paste as unformatted text (<kbd>Crtl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>) to spreadsheet (`coremark.ods`) and export as CSV (`coremark.csv`).
 
 Run `coremark.pl` to convert CSV to SQL:
 ```shell
