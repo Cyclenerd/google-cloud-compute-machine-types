@@ -37,6 +37,10 @@ function booleanFormatter(params) {
 	return (params.value >= 1) ? '✔️' : '❌';
 }
 
+function lowCo2Formatter(params) {
+	return (params.value >= 1) ? '🍃' : '❌';
+}
+
 /*
  * KEYBOARD
  */
@@ -113,6 +117,35 @@ const gridOptions = {
 					columnGroupShow: 'open',
 					tooltipField: 'regionLocation',
 					width: 120
+				},
+				{
+					headerName: 'Low CO2',
+					field: "regionLowCo2",
+					columnGroupShow: 'open',
+					tooltipField: 'regionLowCo2',
+					filterParams: filterParamsBoolean,
+					valueFormatter: lowCo2Formatter,
+					width: 90
+				},
+				{
+					headerName: 'CFE%',
+					headerTooltip: 'Google CFE%: Average percentage of carbon free energy consumed in a particular location on an hourly basis',
+					field: "regionCfe",
+					columnGroupShow: 'open',
+					tooltipField: 'regionCfe',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					width: 90
+				},
+				{
+					headerName: 'gCO2eq/kWh',
+					headerTooltip: 'Grid carbon intensity (gCO2eq/kWh): Average lifecycle gross emissions per unit of energy from the grid',
+					field: "regionCo2Kwh",
+					columnGroupShow: 'open',
+					tooltipField: 'regionCo2Kwh',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					width: 90
 				},
 			]
 		},

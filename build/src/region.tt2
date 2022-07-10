@@ -1,6 +1,10 @@
 [%- PROCESS header.tt2 -%]
 
-<h1>Google Cloud Region [% region.name %][% IF region.regionLocation %] <small class="text-muted">[% region.regionLocation %]</small>[% END %]</h1>
+<h1>
+	Google Cloud Region [% region.name %]
+	[% IF region.regionLocation %] <small class="text-muted">[% region.regionLocation %]</small>[% END %]
+	<small>[% badgeLowCo2Region(region) %]</small>
+</h1>
 
 <blockquote class="blockquote">
 <p>
@@ -11,7 +15,10 @@ Out of a total of [% instances.size %] Google Compute Engine machine types,
 
 <p><a class="btn btn-success" href="/grid.html?region=[% region.name %]" role="button">✅ Instance Picker with filter on region [% region.name %]</a></p>
 
-<h2 id="disk-types">Persistent Disk Types in [% region.name %]</h2>
+<div class="row">
+
+<div class="col-xxl-6">
+<h2 id="disk-types">Persistent Disk Types</h2>
 <p>Costs and pricing for Google Compute disk types in Google Cloud region [% region.name %][% IF region.regionLocation %] ([% region.regionLocation %])[% END %].</p>
 <div class="table-responsive">
 <table class="table table-hover table-striped table-bordered">
@@ -48,6 +55,30 @@ IF disk.name == 'local-ssd';  minDiskSize = 375; END;
 </tbody>
 </table>
 </div>
+</div> <!-- // col -->
+
+<div class="col-xxl-6">
+<h2 id="region-carbon">Carbon Data</h2>
+<p>Higher CFE% will emit lower carbon emissions.</p>
+<div class="table-responsive">
+<table class="table table-hover table-striped table-bordered">
+	<tr>
+		<th>Google CFE%</th>
+		<td>[% IF region.regionCfe %][% region.regionCfe %] %[% ELSE %]?[% END %]</td>
+	</tr>
+	<tr>
+		<th>Grid carbon intensity (gCO2eq/kWh)</th>
+		<td>[% IF region.regionCo2Kwh %][% region.regionCo2Kwh %][% ELSE %]?[% END %]</td>
+	</tr>
+	<tr>
+		<th>Google Cloud net operational GHG emissions</th>
+		<td>0</td>
+	</tr>
+</table>
+</div><!-- // table-responsive -->
+</div> <!-- // col -->
+
+</div> <!-- // row -->
 
 <h2 id="machine-types">Machine Types in [% region.name %]</h2>
 <p>Costs and pricing for Google Compute Engine machine types in Google Cloud region [% region.name %][% IF region.regionLocation %] ([% region.regionLocation %])[% END %].</p>

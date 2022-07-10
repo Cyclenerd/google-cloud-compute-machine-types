@@ -188,9 +188,9 @@ $template->process('disks.js', {}, '../site/disks.js') || die "Template process 
 
 my $sql_disks_regions = qq ~
 SELECT
-	region AS name,
-	regionLocation,
-	MAX(zoneCount) AS zoneCount,
+	region          AS name,
+	regionLocation  AS regionLocation,
+	MAX(zoneCount)  AS zoneCount,
 	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region LIKE D.region AND name LIKE "local-ssd")   AS local,
 	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region LIKE D.region AND name LIKE "pd-balanced") AS balanced,
 	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region LIKE D.region AND name LIKE "pd-extreme")  AS extreme,
@@ -218,8 +218,11 @@ $template->process('diskpricing.tt2', { 'disks_regions' => \@disks_regions }, '.
 
 my $sql_regions = qq ~
 SELECT
-	region AS name,
-	regionLocation,
+	region         AS name,
+	regionLocation AS regionLocation,
+	regionCfe      AS regionCfe,
+	regionCo2Kwh   AS regionCo2Kwh,
+	regionLowCo2   AS regionLowCo2,
 	MAX(zoneCount) AS zoneCount,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Sandy%")        AS intelSandy,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Ivy%")          AS intelIvy,
@@ -352,6 +355,9 @@ foreach my $instance (@instances) {
 		SELECT
 			region                         AS name,
 			regionLocation                 AS regionLocation,
+			regionCfe                      AS regionCfe,
+			regionCo2Kwh                   AS regionCo2Kwh,
+			regionLowCo2                   AS regionLowCo2,
 			zoneCount                      AS zoneCount,
 			availableCpuPlatformCount      AS availableCpuPlatformCount,
 			ROUND(hour, 4)                 AS hour,
@@ -459,7 +465,7 @@ SELECT
 	acceleratorCount, acceleratorType,
 	sap, saps, hana,
 	spot,
-	region, regionLocation, zoneCount, zones,
+	region, regionLocation, regionCfe, regionCo2Kwh, regionLowCo2, zoneCount, zones,
 	sud,
 	ROUND(hour, 4)              AS hour,
 	ROUND(month, 2)             AS month,
@@ -522,6 +528,9 @@ if ($create_comparison) {
 				SELECT
 					region                         AS region,
 					regionLocation                 AS regionLocation,
+					regionCfe                      AS regionCfe,
+					regionCo2Kwh                   AS regionCo2Kwh,
+					regionLowCo2                   AS regionLowCo2,
 					zoneCount                      AS zoneCount,
 					availableCpuPlatformCount      AS availableCpuPlatformCount,
 					ROUND(hour, 4)                 AS hour,
@@ -544,6 +553,9 @@ if ($create_comparison) {
 				SELECT
 					region                         AS region,
 					regionLocation                 AS regionLocation,
+					regionCfe                      AS regionCfe,
+					regionCo2Kwh                   AS regionCo2Kwh,
+					regionLowCo2                   AS regionLowCo2,
 					zoneCount                      AS zoneCount,
 					availableCpuPlatformCount      AS availableCpuPlatformCount,
 					ROUND(hour, 4)                 AS hour,

@@ -1,5 +1,10 @@
 [%- PROCESS header.tt2 -%]
-<h1>Google Compute Engine Machine Type [% instance.name %] in Region [% instance.region %][% IF instance.regionLocation %] <small class="text-muted">[% instance.regionLocation %]</small>[% END %]</h1>
+<h1>
+	Google Compute Engine Machine Type [% instance.name %]
+	in Region [% instance.region %]
+	[% IF instance.regionLocation %] <small class="text-muted">[% instance.regionLocation %]</small>[% END %]
+	<small>[% badgeLowCo2Region(instance) %]</small>
+</h1>
 
 <blockquote class="blockquote">
 	<p>
@@ -291,6 +296,25 @@ function copy[% instance.name.remove('-') %]() {
 	</tr>
 </table>
 </div><!-- table-responsive -->
+
+<h2 id="region-carbon">Carbon Data for Region [% instance.region %]</h2>
+<p>Higher CFE% will emit lower carbon emissions.</p>
+<div class="table-responsive">
+<table class="table table-hover table-striped table-bordered">
+	<tr>
+		<th>Google CFE%</th>
+		<td>[% IF instance.regionCfe %][% instance.regionCfe %] %[% ELSE %]?[% END %]</td>
+	</tr>
+	<tr>
+		<th>Grid carbon intensity (gCO2eq/kWh)</th>
+		<td>[% IF instance.regionCo2Kwh %][% instance.regionCo2Kwh %][% ELSE %]?[% END %]</td>
+	</tr>
+	<tr>
+		<th>Google Cloud net operational GHG emissions</th>
+		<td>0</td>
+	</tr>
+</table>
+</div><!-- // table-responsive -->
 
 [% IF instance.zones %]
 <h2>Google Cloud Command Line Interface <small class="text-muted">CLI</small></h2>

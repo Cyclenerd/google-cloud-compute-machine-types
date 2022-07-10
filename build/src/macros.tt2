@@ -19,6 +19,20 @@
 [% IF instance.hana %]<span class="badge bg-warning text-dark" title="Certified for SAP HANA">HANA</span>[% END %]
 [%- END -%]
 
+[%- MACRO badgeLowCo2Region(region) BLOCK -%]
+[% IF region.regionLowCo2 %]<span
+class="badge rounded-pill bg-success"
+title="Region: [% region.name %], 
+[%- IF region.regionCfe -%]Google CFE%: [% region.regionCfe %] %, [% END %]
+[%- IF region.regionCo2Kwh -%]Grid carbon intensity (gCO2eq/kWh): [% region.regionCo2Kwh %][% END %]">🍃 Low CO2</span>
+[%- END -%]
+[%- END -%]
+
+[%- MACRO iconLowCo2Region(region) BLOCK -%]
+[% IF region.regionLowCo2 %]<span class="badge rounded-pill bg-success" title="Low CO2 Region">🍃</span>
+[%- END -%]
+[%- END -%]
+
 [%- MACRO booleanLocalSsd(instance) BLOCK -%]
 [% IF instance.localSsd  %]✔️[% ELSE %]❌[% END %]
 [%- END -%]

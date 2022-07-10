@@ -1,0 +1,28 @@
+REGION;LOCATION;CFE;CO2_KWH;GHG;LOW
+asia-east1 ;Taiwan ;18,00 %;540;0;
+asia-east2 ;Hong Kong ;* ;453;0;
+asia-northeast1 ;Tokyo ;12,00 %;554;0;
+asia-northeast2 ;Osaka ;* ;442;0;
+asia-northeast3 ;Seoul ;31,00 %;457;0;
+asia-south1 ;Mumbai ;12,00 %;721;0;
+asia-south2 ;Delhi ;* ;657;0;
+asia-southeast1 ;Singapore ;4,00 %;493;0;
+asia-southeast2 ;Jakarta ;* ;647;0;
+australia-southeast1 ;Sydney ;11,00 %;727;0;
+australia-southeast2 ;Melbourne ;* ;691;0;
+europe-central2 ;Warsaw ;* ;622;0;
+europe-north1 ;Finland ;94,00 %;133;0;leaf icon Low CO2
+europe-west1 ;Belgium ;79,00 %;212;0;leaf icon Low CO2
+europe-west2 ;London ;59,00 %;231;0;
+europe-west3 ;Frankfurt ;63,00 %;293;0;
+europe-west4 ;Netherlands ;60,00 %;410;0;
+europe-west6 ;Zurich ;* ;87;0;leaf icon Low CO2
+northamerica-northeast1 ;Montreal ;* ;27;0;leaf icon Low CO2
+southamerica-east1 ;Sao Paulo ;88,00 %;103;0;leaf icon Low CO2
+us-central1 ;Iowa ;93,00 %;454;0;leaf icon Low CO2
+us-east1 ;South Carolina ;27,00 %;480;0;
+us-east4 ;Northern Virginia ;58,00 %;361;0;
+us-west1 ;Oregon ;90,00 %;78;0;leaf icon Low CO2
+us-west2 ;Los Angeles ;54,00 %;253;0;
+us-west3 ;Salt Lake City ;28,00 %;533;0;
+us-west4 ;Las Vegas ;19,00 %;455;0;

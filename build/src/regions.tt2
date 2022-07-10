@@ -54,7 +54,10 @@ The pricing differs.
 	[% FOREACH region IN regions %]
 	<tr>
 		<td><a href="[% region.name %].html" title="Google Cloud region [% region.name %]">[% region.name %]</a></td>
-		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td>
+			[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]
+			[% badgeLowCo2Region(region) %]
+		</td>
 		<td>[% region.zoneCount %]</td>
 		<!-- Machine Series -->
 		<td [% IF region.a2  == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series A2 in region [% region.name %]">

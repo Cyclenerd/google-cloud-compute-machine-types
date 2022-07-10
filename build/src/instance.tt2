@@ -210,7 +210,10 @@ function copy[% instance.name.remove('-') %]() {
 				[% region.name %]
 			</a>
 		</td>
-		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td>
+			[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]
+			[% iconLowCo2Region(region) %]
+		</td>
 		<td [% IF region.zoneCount < 1%]class="table-danger"[% END%] title="Available [% region.zoneCount %] zone[% IF region.zoneCount > 1 %]s[% END %] in region [% region.name %]">[% IF region.zoneCount %][% region.zoneCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td [% IF region.availableCpuPlatformCount < instance.cpuPlatformCount %]class="table-warning"[% END%] title="Available CPU platforms in region [% region.name %]">[% IF region.availableCpuPlatformCount %][% region.availableCpuPlatformCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<!-- Costs -->
