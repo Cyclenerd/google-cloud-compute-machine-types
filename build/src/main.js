@@ -17,6 +17,11 @@ const filterParamsNumber = {
 	defaultOption: 'greaterThanOrEqual',
 	debounceMs: 100,
 };
+const filterLowerParamsNumber = {
+	filterOptions: ['equals', 'greaterThan', 'greaterThanOrEqual', 'lessThan', 'lessThanOrEqual'],
+	defaultOption: 'lessThanOrEqual',
+	debounceMs: 100,
+};
 const filterParamsText = {
 	filterOptions: ['equals', 'notEqual', 'contains', 'notContains', 'startsWith', 'endsWith'],
 	defaultOption: 'contains',
@@ -39,6 +44,10 @@ function booleanFormatter(params) {
 
 function lowCo2Formatter(params) {
 	return (params.value >= 1) ? '🍃' : '❌';
+}
+
+function nullFormatter(params) {
+	return (params.value >= 0.01) ? params.value : '?';
 }
 
 /*
@@ -122,7 +131,6 @@ const gridOptions = {
 					headerName: 'Low CO2',
 					field: "regionLowCo2",
 					columnGroupShow: 'open',
-					tooltipField: 'regionLowCo2',
 					filterParams: filterParamsBoolean,
 					valueFormatter: lowCo2Formatter,
 					width: 90
@@ -132,9 +140,9 @@ const gridOptions = {
 					headerTooltip: 'Google CFE%: Average percentage of carbon free energy consumed in a particular location on an hourly basis',
 					field: "regionCfe",
 					columnGroupShow: 'open',
-					tooltipField: 'regionCfe',
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
+					valueFormatter: nullFormatter,
 					width: 90
 				},
 				{
@@ -142,9 +150,9 @@ const gridOptions = {
 					headerTooltip: 'Grid carbon intensity (gCO2eq/kWh): Average lifecycle gross emissions per unit of energy from the grid',
 					field: "regionCo2Kwh",
 					columnGroupShow: 'open',
-					tooltipField: 'regionCo2Kwh',
 					filter: 'agNumberColumnFilter',
-					filterParams: filterParamsNumber,
+					filterParams: filterLowerParamsNumber,
+					valueFormatter: nullFormatter,
 					width: 90
 				},
 			]
@@ -382,6 +390,7 @@ const gridOptions = {
 					width: 120,
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
+					valueFormatter: nullFormatter,
 					columnGroupShow: 'open',
 					headerTooltip: 'EEMBC CoreMark Benchmark / costs per hour'
 				},
@@ -391,6 +400,7 @@ const gridOptions = {
 					width: 120,
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
+					valueFormatter: nullFormatter,
 					columnGroupShow: 'open',
 					headerTooltip: 'SAP Standard Benchmark / costs per hour'
 				},
@@ -432,18 +442,9 @@ const gridOptions = {
 			headerName: 'SAP',
 			children: [
 				{
-					headerName: 'SAPS',
-					field: 'saps',
-					columnGroupShow: 'close',
-					filter: 'agNumberColumnFilter',
-					filterParams: filterParamsNumber,
-					headerTooltip: 'SAP Standard Benchmark (please see SAP Note 1612283 and 2456432)',
-					width: 90
-				},
-				{
 					headerName: 'SAP',
 					field: "sap",
-					columnGroupShow: 'open',
+					columnGroupShow: 'close',
 					filterParams: filterParamsBoolean,
 					valueFormatter: booleanFormatter,
 					width: 90,
@@ -457,6 +458,15 @@ const gridOptions = {
 					valueFormatter: booleanFormatter,
 					width: 90,
 					headerTooltip: 'Certified for SAP HANA on Google Cloud'
+				},
+				{
+					headerName: 'SAPS',
+					field: 'saps',
+					columnGroupShow: 'open',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					headerTooltip: 'SAP Standard Benchmark (please see SAP Note 1612283 and 2456432)',
+					width: 90
 				},
 			]
 		},

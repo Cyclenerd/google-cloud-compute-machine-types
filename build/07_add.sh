@@ -11,5 +11,8 @@ for MY_SERIES in ../instances/series/*.sql; do
 	sqlite3 "$DB" < "$MY_SERIES" || exit 9
 done
 
+echo "Add extra data for GCP regions"
+sqlite3 "$DB" < ../regions/extra.sql  || exit 9
+
 echo "Carbon data across GCP regions"
 sqlite3 "$DB" < ../regions/carbon.sql || exit 9

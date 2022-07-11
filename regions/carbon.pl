@@ -39,13 +39,13 @@ while ($sth->fetch) {
 		if ($cfe =~ /(\d+)/) {
 			$cfe = $1;
 		} else {
-			$cfe = "0";
+			$cfe = "";
 		}
 		# Grid carbon intensity (gCO2eq/kWh)
 		if ($co2_kwh =~ /(\d+)/) {
 			$co2_kwh = $1;
 		} else {
-			$co2_kwh = "0";
+			$co2_kwh = "";
 		}
 		# For a location to be considered "low carbon",
 		# it must belong to a region with a Google CFE% of at least 75%,
@@ -54,7 +54,7 @@ while ($sth->fetch) {
 			$low_co2 = "1";
 		# or, if CFE% information is not available,
 		# a grid carbon intensity of maximum 200 gCO2eq/kWh.
-		} elsif ($cfe == "0" && $co2_kwh <= "200") {
+		} elsif ($co2_kwh <= "200") {
 			$low_co2 = "1";
 		}
 		print "UPDATE instances SET regionCfe = '$cfe', regionCo2Kwh = '$co2_kwh', regionLowCo2 = '$low_co2' WHERE region LIKE '$region';\n";
