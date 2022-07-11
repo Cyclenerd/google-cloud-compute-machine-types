@@ -16,3 +16,5 @@ Run `carbon.pl` to convert CSV to SQL:
 ```shell
 perl carbon.pl > carbon.sql
 ```
+
+TODO: Use this repo as source <https://github.com/GoogleCloudPlatform/region-carbon-info/tree/main/data/yearly>
