@@ -19,6 +19,10 @@
 [% IF instance.hana %]<span class="badge bg-warning text-dark" title="Certified for SAP HANA">HANA</span>[% END %]
 [%- END -%]
 
+[%- MACRO badgeImageArch(architecture) BLOCK -%]
+[% IF architecture %]<span class="badge bg-secondary" title="CPU Architecture">[% architecture %]</span>[% END %]
+[%- END -%]
+
 [%- MACRO badgeLowCo2Region(region) BLOCK -%]
 [% IF region.regionLowCo2 %]<span
 class="badge rounded-pill bg-success"

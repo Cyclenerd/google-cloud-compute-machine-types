@@ -106,11 +106,12 @@ CREATE TABLE "disks" (
 
 DROP TABLE IF EXISTS "images";
 CREATE TABLE "images" (
-	"name"        TEXT NOT NULL DEFAULT '',
-	"description" TEXT DEFAULT '',
-	"diskSizeGb"  REAL DEFAULT '0.0',
-	"project"     TEXT NOT NULL DEFAULT '',
-	"family"      TEXT NOT NULL DEFAULT '',
-	"creation"    REAL DEFAULT '0.0',
+	"name"         TEXT NOT NULL DEFAULT '',
+	"description"  TEXT DEFAULT '',
+	"diskSizeGb"   REAL DEFAULT '0.0',
+	"project"      TEXT NOT NULL DEFAULT '',
+	"family"       TEXT NOT NULL DEFAULT '',
+	"architecture" TEXT NOT NULL DEFAULT '',
+	"creation"     REAL DEFAULT '0.0',
 	PRIMARY KEY("name", "project", "family")
 );

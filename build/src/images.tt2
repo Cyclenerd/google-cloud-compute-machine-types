@@ -53,7 +53,10 @@ You can see the costs in the <a href="/instances.html">machine type</a> overview
 [% FOREACH family IN image_famlies; IF family.project == project.name; %]
 <tr>
 	<td>[% family.name %]</td>
-	<td>[% family.image %]</td>
+	<td>
+		[% family.image %]
+		[% badgeImageArch(family.architecture) %]
+	</td>
 	<td>[% IF family.description %][% family.description %][% ELSE %]<span class="text-muted">-</span>[% END %]</td>
 	<td>[% family.diskSizeGb %] GB</td>
 	<td>[% family.creation | replace('T.+$','') %]</td>

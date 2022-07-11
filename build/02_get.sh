@@ -67,10 +67,10 @@ gcloud compute disk-types list \
 echo "Executing: 'gcloud compute images list', please wait..."
 
 # Standard images
-echo "name;description;diskSizeGb;project;family;creation;deprecated;status" > "$CSV_GCLOUD_IMAGES" || exit 9
+echo "name;description;diskSizeGb;project;family;architecture;creation;deprecated;status" > "$CSV_GCLOUD_IMAGES" || exit 9
 gcloud compute images list \
 	--quiet \
-	--format="csv[no-heading,separator=';'](NAME,description,diskSizeGb,PROJECT,FAMILY,creationTimestamp,DEPRECATED,STATUS)" >> "$CSV_GCLOUD_IMAGES" || exit 9
+	--format="csv[no-heading,separator=';'](NAME,description,diskSizeGb,PROJECT,FAMILY,architecture,creationTimestamp,DEPRECATED,STATUS)" >> "$CSV_GCLOUD_IMAGES" || exit 9
 
 # Community images
 # https://cloud.google.com/compute/docs/images#almalinux
@@ -78,13 +78,13 @@ gcloud compute images list \
 	--project almalinux-cloud \
 	--no-standard-images \
 	--quiet \
-	--format="csv[no-heading,separator=';'](NAME,description,diskSizeGb,PROJECT,FAMILY,creationTimestamp,DEPRECATED,STATUS)" >> "$CSV_GCLOUD_IMAGES" || exit 9
+	--format="csv[no-heading,separator=';'](NAME,description,diskSizeGb,PROJECT,FAMILY,architecture,creationTimestamp,DEPRECATED,STATUS)" >> "$CSV_GCLOUD_IMAGES" || exit 9
 # https://cloud.google.com/compute/docs/images#freebsd
 gcloud compute images list \
 	--project freebsd-org-cloud-dev \
 	--no-standard-images \
 	--quiet \
-	--format="csv[no-heading,separator=';'](NAME,description,diskSizeGb,PROJECT,FAMILY,creationTimestamp,DEPRECATED,STATUS)" >> "$CSV_GCLOUD_IMAGES" || exit 9
+	--format="csv[no-heading,separator=';'](NAME,description,diskSizeGb,PROJECT,FAMILY,architecture,creationTimestamp,DEPRECATED,STATUS)" >> "$CSV_GCLOUD_IMAGES" || exit 9
 
 # Deep Learning on Linux images
 gcloud compute images list \
@@ -92,13 +92,13 @@ gcloud compute images list \
 	--filter="creationTimestamp > -P1Y" \
 	--no-standard-images \
 	--quiet \
-	--format="csv[no-heading,separator=';'](NAME,description,diskSizeGb,PROJECT,FAMILY,creationTimestamp,DEPRECATED,STATUS)" >> "$CSV_GCLOUD_IMAGES" || exit 9
+	--format="csv[no-heading,separator=';'](NAME,description,diskSizeGb,PROJECT,FAMILY,architecture,creationTimestamp,DEPRECATED,STATUS)" >> "$CSV_GCLOUD_IMAGES" || exit 9
 # https://cloud.google.com/deep-learning-vm/docs/images#listing-versions
 gcloud compute images list \
 	--project deeplearning-platform-release \
 	--filter="creationTimestamp > -P1Y" \
 	--no-standard-images \
 	--quiet \
-	--format="csv[no-heading,separator=';'](NAME,description,diskSizeGb,PROJECT,FAMILY,creationTimestamp,DEPRECATED,STATUS)" >> "$CSV_GCLOUD_IMAGES" || exit 9
+	--format="csv[no-heading,separator=';'](NAME,description,diskSizeGb,PROJECT,FAMILY,architecture,creationTimestamp,DEPRECATED,STATUS)" >> "$CSV_GCLOUD_IMAGES" || exit 9
 
 echo "DONE"

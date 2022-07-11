@@ -608,6 +608,7 @@ SELECT
 	project,
 	family AS name,
 	(SELECT name            FROM images WHERE project LIKE I.project AND family LIKE I.family ORDER BY creation DESC LIMIT 1) AS image,
+	(SELECT architecture    FROM images WHERE project LIKE I.project AND family LIKE I.family ORDER BY creation DESC LIMIT 1) AS architecture,
 	(SELECT description     FROM images WHERE project LIKE I.project AND family LIKE I.family ORDER BY creation DESC LIMIT 1) AS description,
 	(SELECT MAX(diskSizeGb) FROM images WHERE project LIKE I.project AND family LIKE I.family ORDER BY creation DESC LIMIT 1) AS diskSizeGb,
 	(SELECT creation        FROM images WHERE project LIKE I.project AND family LIKE I.family ORDER BY creation DESC LIMIT 1) AS creation

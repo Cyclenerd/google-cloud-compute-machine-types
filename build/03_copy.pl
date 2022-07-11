@@ -194,16 +194,17 @@ INSERT INTO images (
 	'diskSizeGb',
 	'project',
 	'family',
+	'architecture',
 	'creation'
 ) VALUES
 ~;
-my $select_images = "SELECT name, description, diskSizeGb, project, family, creation FROM $csv_gcloud_images WHERE status LIKE 'READY'";
+my $select_images = "SELECT name, description, diskSizeGb, project, family, architecture, creation FROM $csv_gcloud_images WHERE status LIKE 'READY'";
 $sth = $csv->prepare($select_images);
 $sth->execute;
-$sth->bind_columns (\my ($name, $description, $diskSizeGb, $project, $family, $creation));
+$sth->bind_columns (\my ($name, $description, $diskSizeGb, $project, $family, $architecture, $creation));
 while ($sth->fetch) {
 	print "$project, $family, $name\n";
-	my $value = "$insert_images ('$name', '$description', '$diskSizeGb', '$project', '$family', '$creation')";
+	my $value = "$insert_images ('$name', '$description', '$diskSizeGb', '$project', '$family', '$architecture', '$creation')";
 	$db->do($value) or die "ERROR: Cannot insert images $DBI::errstr\n";
 }
 $sth->finish;
