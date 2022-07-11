@@ -170,7 +170,6 @@ const gridOptions = {
 					cellClass: params => {
 						if (params.value <= 1) { return 'warning' }
 					},
-					tooltipField: 'zoneCount',
 					width: 90,
 					headerTooltip: 'Available in zones',
 				},
