@@ -27,6 +27,7 @@ The pricing differs.
 		<th scope="col" colspan="10">✅ Machine Series</th>
 		<th scope="col" colspan="2">✅ SAP</th>
 		<th scope="col" colspan="2">Costs (e2-standard-8)</th>
+		<th scope="col" colspan="2">Carbon</th>
 	</tr>
 	<tr>
 		<th scope="row" data-field="name" data-sortable="true">Name</th>
@@ -48,6 +49,9 @@ The pricing differs.
 		<!-- e2-standard-8 -->
 		<th scope="col" class="currancy" data-sortable="true">Hour</th>
 		<th scope="col" class="currancy" data-sortable="true">Month</th>
+		<!-- Carbon -->
+		<th scope="col" data-sortable="true" title="Google CFE%: Average percentage of carbon free energy consumed in a particular location on an hourly basis">CFE%</th>
+		<th scope="col" data-sortable="true" title="Grid carbon intensity (gCO2eq/kWh): Average lifecycle gross emissions per unit of energy from the grid">gCO2eq/kWh</th>
 	</tr>
 </thead>
 <tbody>
@@ -106,6 +110,8 @@ The pricing differs.
 		    title="Costs per month for machine type e2-standard-8 in region [% region.name %]: [% region.hour %] USD">
 			<span class="currency">[% region.e2Standard8Month %]</span>
 		</td>
+		<td>[% IF region.regionCfe    %][% region.regionCfe %] %[% ELSE %]?[% END %]</td>
+		<td>[% IF region.regionCo2Kwh %][% region.regionCo2Kwh %][% ELSE %]?[% END %]</td>
 	</tr>
 	[% END %]
 </tbody>
