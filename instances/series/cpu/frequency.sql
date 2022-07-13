@@ -42,7 +42,7 @@ UPDATE instances SET cpuBaseClock  = '2.25', cpuTurboClock  = '2.7', cpuSingleMa
 UPDATE instances SET cpuBaseClock  = '2.45', cpuTurboClock  = '2.8', cpuSingleMaxTurboClock = '3.5' WHERE availableCpuPlatform LIKE "%Milan%";
 
 
-/* ARM */
+/* Arm */
 
 /* Ampere Altra */
 /* https://cloud.google.com/compute/docs/cpu-platforms#amd_cpu_processors */

@@ -5,7 +5,7 @@
 [%- MACRO badgeCpuManufactur(instance) BLOCK -%]
 [% IF instance.intel %]<span class="badge bg-primary">Intel</span>[% END %]
 [% IF instance.amd   %]<span class="badge bg-danger">AMD</span>[% END %]
-[% IF instance.arm   %]<span class="badge bg-success">ARM</span>[% END %]
+[% IF instance.arm   %]<span class="badge bg-success">Arm</span>[% END %]
 [%- END -%]
 
 [%- MACRO badgeSud(instance) BLOCK -%]

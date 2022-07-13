@@ -82,7 +82,7 @@ AMD Zen based Epyc microarchitecture
 * Generation 3rd
 * Release date: 2022
 
-## ARM
+## Arm
 
 ### Ampere Altra
 
