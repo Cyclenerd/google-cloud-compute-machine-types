@@ -5,7 +5,7 @@
 /* 2022/05/15: m3-megamem-* and m3-ultramem-* */
 DELETE FROM machinetypes WHERE name LIKE 'm3-%';
 
-/* 2022-07-13: Add preview CPU platfrom Ampere Altra (ARM) */
+/* 2022-07-13: Add preview CPU platfrom Ampere Altra (Arm) */
 UPDATE zones SET availableCpuPlatforms = availableCpuPlatforms || ',Ampere Altra' WHERE name LIKE 'us-central1-a';
 UPDATE zones SET availableCpuPlatforms = availableCpuPlatforms || ',Ampere Altra' WHERE name LIKE 'us-central1-b';
 UPDATE zones SET availableCpuPlatforms = availableCpuPlatforms || ',Ampere Altra' WHERE name LIKE 'us-central1-f';
