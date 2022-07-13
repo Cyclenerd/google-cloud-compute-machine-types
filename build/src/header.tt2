@@ -55,6 +55,7 @@
 				template.name == 'instances.tt2' ||
 				template.name == 'intel.tt2' ||
 				template.name == 'amd.tt2' ||
+				template.name == 'arm.tt2' ||
 				template.name == 'sap.tt2' ||
 				template.name == 'hana.tt2'
 			-%]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %]

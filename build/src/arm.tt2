@@ -1,0 +1,34 @@
+[%- PROCESS header.tt2 -%]
+[%- PROCESS instances_header.tt2 -%]
+
+<h1>Google Compute Engine Machine Types with ARM CPU Platform</h1>
+
+[%- countArm = 0; FOREACH instance IN instances; IF instance.arm; countArm = countArm + 1; END; END -%]
+<blockquote class="blockquote">
+<p>
+There are <mark>[% countArm %]</mark> Google Compute Engine machine types with Ampere Altra ARM-based central processing unit (CPU) available.
+Not every Google Cloud VM with Ampere Altra ARM-based CPU is available in every region.
+</p>
+</blockquote>
+
+<p><a class="btn btn-success" href="/grid.html?arm=1" role="button">✅ Instance Picker with filter on ARM CPU</a></p>
+
+<div class="table-responsive">
+[%- PROCESS instances_tr.tt2; -%]
+<table
+	class="table table-hover table-bordered"
+	data-toggle="table"
+	data-sort-name="vcpu"
+	data-sort-order="asc"
+	data-sortable="true"
+	data-sticky-header="true"
+>
+<thead>
+[%- instancePlatformTh() -%]
+</thead>
+<tbody>
+[%- FOREACH instance IN instances; IF instance.arm; instancePlatformTr(instance); END; END -%]
+</tbody>
+</table>
+</div> <!-- // table-responsive -->
+[% PROCESS footer.tt2 %]

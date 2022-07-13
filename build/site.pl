@@ -98,6 +98,7 @@ SELECT
 	vCpus, LOWER(sharedCpu) AS sharedCpu,
 	MAX(intel) AS intel,
 	MAX(amd) AS amd,
+	MAX(arm) AS arm,
 	MAX(cpuPlatformCount) AS cpuPlatformCount,
 	(SELECT cpuPlatform FROM instances WHERE name LIKE I.name ORDER BY cpuPlatformCount) AS cpuPlatform,
 	MAX(cpuBaseClock) AS cpuBaseClock, MAX(cpuTurboClock) AS cpuTurboClock, MAX(cpuSingleMaxTurboClock) AS cpuSingleMaxTurboClock,
@@ -144,7 +145,8 @@ push(@files, 'intel.html');
 $template->process('intel.tt2', { 'instances' => \@instances }, '../site/intel.html') || die "Template process failed: ", $template->error(), "\n";
 push(@files, 'amd.html');
 $template->process('amd.tt2', { 'instances' => \@instances }, '../site/amd.html') || die "Template process failed: ", $template->error(), "\n";
-
+push(@files, 'arm.html');
+$template->process('arm.tt2', { 'instances' => \@instances }, '../site/arm.html') || die "Template process failed: ", $template->error(), "\n";
 # SAP
 push(@files, 'sap.html');
 $template->process('sap.tt2', { 'instances' => \@instances }, '../site/sap.html') || die "Template process failed: ", $template->error(), "\n";
@@ -233,6 +235,7 @@ SELECT
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Ice Lake%")     AS intelIceLake,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Rome%")         AS amdRome,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Milan%")        AS amdMilan,
+	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Altra%")        AS armAmpereAltra,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "a2")  AS a2,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "c2")  AS c2,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "c2d") AS c2d,
@@ -243,6 +246,7 @@ SELECT
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "n2")  AS n2,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "n2d") AS n2d,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "t2d") AS t2d,
+	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "t2a") AS t2a,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND sap >= 1) AS sap,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND hana >= 1) AS hana,
 	(SELECT ROUND(MIN(hour), 4)  FROM instances WHERE region LIKE I.region AND name LIKE "e2-standard-8") AS e2Standard8Hour,
@@ -281,7 +285,7 @@ foreach my $region (@regions) {
 		SELECT
 			UPPER(series) AS series, name, description, family,
 			vCpus, LOWER(sharedCpu) AS sharedCpu, 
-			intel, amd, availableCpuPlatformCount, cpuPlatformCount,
+			intel, amd, arm, availableCpuPlatformCount, cpuPlatformCount,
 			cpuBaseClock, cpuTurboClock, cpuSingleMaxTurboClock,
 			memoryGiB,
 			sap, saps, hana,
@@ -455,7 +459,7 @@ SELECT
 	UPPER(series) AS series, name, description, family,
 	vCpus, LOWER(sharedCpu) AS sharedCpu,
 	cpuPlatform, cpuPlatformCount,
-	intel, amd, availableCpuPlatform, availableCpuPlatformCount,
+	intel, amd, arm, availableCpuPlatform, availableCpuPlatformCount,
 	(cpuPlatformCount - availableCpuPlatformCount) AS notAvailableCpuPlatformCount,
 	cpuBaseClock, cpuTurboClock, cpuSingleMaxTurboClock,
 	coremarkScore, standardDeviation, sampleCount,

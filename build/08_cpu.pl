@@ -94,11 +94,14 @@ while ($sth->fetch) {
 	   $intel = '1' if ($update_availableCpuPlatform =~ m/intel/i );
 	my $amd   = '0';
 	   $amd   = '1' if ($update_availableCpuPlatform =~ m/amd/i );
+	my $arm   = '0';
+	   $arm   = '1' if ($update_availableCpuPlatform =~ m/ampere/i );
 	my $update = qq ~
 		UPDATE instances
 		SET
 			intel = '$intel',
 			amd   = '$amd',
+			arm   = '$arm',
 			cpuPlatformCount          = '$update_cpuPlatformCount',          cpuPlatform          = '$update_cpuPlatform',
 			availableCpuPlatformCount = '$update_availableCpuPlatformCount', availableCpuPlatform = '$update_availableCpuPlatform'
 		WHERE name LIKE '$name'

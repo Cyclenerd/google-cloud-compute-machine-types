@@ -81,3 +81,11 @@ AMD Zen based Epyc microarchitecture
 
 * Generation 3rd
 * Release date: 2022
+
+## ARM
+
+### Ampere Altra
+
+<https://amperecomputing.com/processors/ampere-altra/>
+
+3 Ghz = Ampere Altra Max

@@ -88,6 +88,7 @@
 <td>
 	[% badgeSap(instance) %]
 	[% badgeHana(instance) %]
+	[% badgeSpot(instance) %]
 </td>
 <td>[% instance.regionCount %]</td>
 <!-- Costs -->

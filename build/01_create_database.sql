@@ -44,6 +44,7 @@ CREATE TABLE "instances" (
 	"sharedCpu"                 TEXT DEFAULT 'false',
 	"intel"                     REAL DEFAULT '0.0',
 	"amd"                       REAL DEFAULT '0.0',
+	"arm"                       REAL DEFAULT '0.0',
 	"cpuPlatformCount"          REAL DEFAULT '0.0',
 	"cpuPlatform"               TEXT DEFAULT '',
 	"cpuBaseClock"              REAL DEFAULT '0.0',

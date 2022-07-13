@@ -11,6 +11,7 @@ const urlSAP      = urlParams.get('sap')      || '';
 const urlHANA     = urlParams.get('hana')     || '';
 const urlSeries   = urlParams.get('series')   || '';
 const urlPlatform = urlParams.get('platform') || '';
+const urlARM      = urlParams.get('arm') || '';
 
 const filterParamsNumber = {
 	filterOptions: ['equals', 'greaterThan', 'greaterThanOrEqual', 'lessThan', 'lessThanOrEqual'],
@@ -255,6 +256,15 @@ const gridOptions = {
 					filterParams: filterParamsBoolean,
 					valueFormatter: booleanFormatter,
 					headerTooltip: 'AMD CPU processors (1, 0)',
+					width: 90
+				},
+				{
+					headerName: 'ARM',
+					field: 'arm',
+					columnGroupShow: 'open',
+					filterParams: filterParamsBoolean,
+					valueFormatter: booleanFormatter,
+					headerTooltip: 'Ampere Altra ARM-based CPU processors (1, 0)',
 					width: 90
 				},
 				{
@@ -559,6 +569,7 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 	let filterPlatform = urlPlatform.replace(/[^\w\d]/g,"");
 	let filterSAP      = (urlSAP >= 1) ? '1' : '';
 	let filterHANA     = (urlHANA >= 1) ? '1' : '';
+	let filterARM      = (urlARM >= 1) ? '1' : '';
 	let filterSeries   = urlSeries.replace(/[^\w\d]/g,"");
 	// Set filter
 	var hardcodedFilter = {
@@ -582,6 +593,10 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 			type: 'equals',
 			filter: filterHANA,
 		},
+		arm: {
+			type: 'equals',
+			filter: filterARM,
+		},
 		series: {
 			type: 'equals',
 			filter: filterSeries,
@@ -592,7 +607,7 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 	if (filterSAP || filterHANA) {
 		hardcodedGroupState.push({ groupId: '9', open: true });
 	}
-	if (filterPlatform) {
+	if (filterPlatform || filterARM ) {
 		hardcodedGroupState.push({ groupId: '3', open: true });
 	}
 	if (filterSeries) {

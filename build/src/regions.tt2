@@ -24,7 +24,7 @@ The pricing differs.
 	<tr>
 		<th scope="col" colspan="2">Region</th>
 		<th scope="col">Zones</th>
-		<th scope="col" colspan="10">✅ Machine Series</th>
+		<th scope="col" colspan="11">✅ Machine Series</th>
 		<th scope="col" colspan="2">✅ SAP</th>
 		<th scope="col" colspan="2">Costs (e2-standard-8)</th>
 		<th scope="col" colspan="2">Carbon</th>
@@ -44,6 +44,7 @@ The pricing differs.
 		<th scope="col">N2</th>
 		<th scope="col">N2D</th>
 		<th scope="col">T2D</th>
+		<th scope="col">T2A</th>
 		<th scope="col" title="Certified for SAP applications on Google Cloud">App.</th>
 		<th scope="col" title="Certified for SAP HANA on Google Cloud">HANA</th>
 		<!-- e2-standard-8 -->
@@ -93,6 +94,9 @@ The pricing differs.
 		</td>
 		<td [% IF region.t2d == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series T2D in region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;series=t2d">[% region.t2d %]</a>
+		</td>
+		<td [% IF region.t2a == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series T2A in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;series=t2a">[% region.t2a %]</a>
 		</td>
 		<!-- SAP -->
 		<td [% IF region.sap  == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on certified for SAP applications machine types region [% region.name %]">

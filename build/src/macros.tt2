@@ -5,6 +5,7 @@
 [%- MACRO badgeCpuManufactur(instance) BLOCK -%]
 [% IF instance.intel %]<span class="badge bg-primary">Intel</span>[% END %]
 [% IF instance.amd   %]<span class="badge bg-danger">AMD</span>[% END %]
+[% IF instance.arm   %]<span class="badge bg-success">ARM</span>[% END %]
 [%- END -%]
 
 [%- MACRO badgeSud(instance) BLOCK -%]
@@ -17,6 +18,10 @@
 
 [%- MACRO badgeHana(instance) BLOCK -%]
 [% IF instance.hana %]<span class="badge bg-warning text-dark" title="Certified for SAP HANA">HANA</span>[% END %]
+[%- END -%]
+
+[%- MACRO badgeSpot(instance) BLOCK -%]
+[% IF instance.spot %]<span class="badge bg-secondary text-light" title="Spot Provisioning Mode (Spot VM)">Spot</span>[% END %]
 [%- END -%]
 
 [%- MACRO badgeImageArch(architecture) BLOCK -%]

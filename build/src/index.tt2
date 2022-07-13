@@ -29,11 +29,13 @@ A lot of information has been collected from various Google Cloud websites and d
 [%
 intel = 0;
 amd   = 0;
+arm   = 0;
 sap   = 0;
 hana  = 0;
 FOREACH instance IN instances;
 	IF instance.intel; intel = intel + 1; END;
 	IF instance.amd;   amd   = amd   + 1; END;
+	IF instance.arm;   arm   = arm   + 1; END;
 	IF instance.sap;   sap   = sap   + 1; END;
 	IF instance.hana;  hana  = hana  + 1; END;
 END;
@@ -45,7 +47,7 @@ You can also find the average costs per GCE machine type across all Google Cloud
 </p>
 
 <p>
-You have the choice between <mark>[% intel %] machine types with <a href="/intel.html">Intel</a> CPU</mark> and <mark>[% amd %] machine types with <a href="/amd.html">AMD</a> CPU</mark>.
+You have the choice between <mark>[% intel %] machine types with <a href="/intel.html">Intel</a> CPU</mark>, <mark>[% amd %] CPU machine types with <a href="/amd.html">AMD</a> CPU</mark> and <mark>[% arm %] CPU machine types with <a href="/arm.html">Ampere Altra ARM-based</a> processors</mark>.
 [% sap %] machine types are certified for <a href="/sap.html">SAP application</a> and [% hana %] machine types are certified for <a href="/hana.html">SAP HANA</a> on Google Cloud.
 </p>
 
