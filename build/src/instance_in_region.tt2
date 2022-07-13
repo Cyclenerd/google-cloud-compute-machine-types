@@ -353,7 +353,7 @@ function copy[% zone.remove('-') %]() {
 <span class="text-muted"># in the '[% zone %]' zone</span>
 <span class="text-muted"># with the latest 'Ubuntu 22.04 LTS' image available.</span>
 [% # do not remove this line %]
-[%- IF instance.sharedCpu < 1 -%]
+[%- IF instance.sharedCpu < 1 && !instance.arm -%]
 <span class="text-muted"># To specify minimum CPU platform replace min-cpu-platform:</span>
 [% # do not remove this line %]
 [%- FOREACH cpuPlatform IN instance.availableCpuPlatform.split(',').sort; cpu = cpuPlatform.remove('\s'); -%]
@@ -368,7 +368,7 @@ gcloud compute instances create [% instance.name %]-[% zone %] \
 --min-cpu-platform=<span class="text-primary">'AUTOMATIC'</span> \
 --boot-disk-type=<span class="text-primary">'pd-ssd'</span> \
 --image-project=<span class="text-primary">'ubuntu-os-cloud'</span> \
---image-family=<span class="text-primary">'ubuntu-2204-lts'</span></code></pre>
+--image-family=<span class="text-primary">[% IF instance.arm %]'ubuntu-2204-lts-arm64'[% ELSE %]'ubuntu-2204-lts'[% END %]</span></code></pre>
 </div> <!-- // position-relative -->
 <!-- // CLI snippet -->
 

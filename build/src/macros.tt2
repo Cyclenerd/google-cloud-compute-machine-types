@@ -25,7 +25,7 @@
 [%- END -%]
 
 [%- MACRO badgeImageArch(architecture) BLOCK -%]
-[% IF architecture %]<span class="badge bg-secondary" title="CPU Architecture">[% architecture %]</span>[% END %]
+[% IF architecture %]<span class="badge [% IF architecture == "ARM64" %]bg-success[% ELSE %]bg-primary[% END %]" title="CPU Architecture">[% architecture %]</span>[% END %]
 [%- END -%]
 
 [%- MACRO badgeLowCo2Region(region) BLOCK -%]
