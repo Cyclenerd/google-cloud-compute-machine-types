@@ -97,6 +97,24 @@
 <meta property="og:description"  content="List of all Google Compute Engine machine types with AMD processor (CPU) in Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:url"          content="[% site.url %]/amd.html">
 
+[%- ELSIF template.name == 'arm.tt2' -%]
+<title>Machine Types with Arm-based CPU in Google Cloud Platform</title>
+<meta name="description"         content="List of all Google Compute Engine machine types with Arm-based processor (CPU) in Google Cloud Platform. Sorted by CPU count.">
+<meta name="robots"              content="index, follow">
+<link rel="canonical"            href="[% site.url %]/arm.html">
+<meta name="twitter:image:src"   content="[% site.opengraph %]/instances.png?[% timestamp %]">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="GCE Machine Types with Arm-based CPU">
+<meta name="twitter:description" content="List of all Google Compute Engine machine types with Arm-based processor (CPU) in Google Cloud Platform. Sorted by CPU count.">
+<meta property="og:image"        content="[% site.opengraph %]/instances.png?[% timestamp %]">
+<meta property="og:image:alt"    content="Image: Google Compute Engine machine types">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:type"         content="website">
+<meta property="og:title"        content="GCE Machine Types with Arm-based CPU">
+<meta property="og:description"  content="List of all Google Compute Engine machine types with Arm-based processor (CPU) in Google Cloud Platform. Sorted by CPU count.">
+<meta property="og:url"          content="[% site.url %]/arm.html">
+
 [%- ELSIF template.name == 'sap.tt2' -%]
 <title>Certified machine types for SAP on Google Cloud Platform</title>
 <meta name="description"         content="List of all Google Compute Engine machine types certified for SAP application on Google Cloud Platform. Sorted by CPU count.">
