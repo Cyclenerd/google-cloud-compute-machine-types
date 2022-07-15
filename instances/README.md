@@ -20,6 +20,7 @@ The SQL files are read during the [build](../build/) process.
 	* [N2](./series/n2.sql)
 	* [N2D](./series/n2d.sql)
 	* [T2D](./series/t2d.sql)
+	* [T2A](./series/t2a.sql)
 * [CPU Platform](./series/cpu/)
 	* [Frequency (GHz)](./series/cpu/frequency.sql)
 	* [EEMBC CoreMark Benchmark](./series/cpu/coremark.sql)
@@ -50,8 +51,9 @@ The cost per machine type in region and licenses are added with the [gcosts](htt
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines" rel="nofollow">N1</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_machines" rel="nofollow">N2</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2d_machines" rel="nofollow">N2D</a> and
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2d_machines" rel="nofollow">T2D</a> general purpose machine series
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2d_machines" rel="nofollow">N2D</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2d_machines" rel="nofollow">T2D</a> and
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2a_machines" rel="nofollow">T2A</a> general purpose machine series
 			</li>
 		</ul>
 	</li>
