@@ -9,12 +9,14 @@ The SQL files are read during the [build](../build/) process.
 
 ## Carbon Data
 
-Carbon data across GCP regions from website <https://cloud.google.com/sustainability/region-carbon#data>
-and paste as unformatted text (<kbd>Crtl</kbd>+<kbd>Shift</kbd>+<kbd>V</kbd>) to spreadsheet (`carbon.ods`) and export as CSV (`carbon.csv`).
+Mirror [carbon data across GCP regions](https://cloud.google.com/sustainability/region-carbon#data) from GitHub repo <https://github.com/GoogleCloudPlatform/region-carbon-info>:
+
+```shell
+curl -o "carbon.csv" \
+  "https://raw.githubusercontent.com/GoogleCloudPlatform/region-carbon-info/main/data/yearly/2021.csv"
+```
 
 Run `carbon.pl` to convert CSV to SQL:
 ```shell
 perl carbon.pl > carbon.sql
 ```
-
-TODO: Use this repo as source <https://github.com/GoogleCloudPlatform/region-carbon-info/tree/main/data/yearly>

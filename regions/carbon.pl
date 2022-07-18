@@ -19,14 +19,20 @@ use DBI;
 
 my $dbh = DBI->connect("dbi:CSV:", undef, undef, {
 	f_ext        => ".csv/r",
-	csv_sep_char => ";",
+	csv_sep_char => ",",
 	csv_class    => "Text::CSV_XS",
 	RaiseError   => 1,
 }) or die "ERROR: Cannot connect $DBI::errstr\n";
 
-my $sth = $dbh->prepare("SELECT REGION, CFE, CO2_KWH FROM carbon");
+# CSV col names:
+#   Google Cloud Region,
+#   Location,
+#   Google CFE,
+#   Grid carbon intensity (gCO2eq / kWh),
+#   Google Cloud net carbon emissions
+my $sth = $dbh->prepare("SELECT * FROM carbon");
 $sth->execute();
-$sth->bind_columns(\my ($region, $cfe, $co2_kwh));
+$sth->bind_columns(\my ($region, $location, $cfe, $co2_kwh, $ghg));
 print "/*\n";
 print " * GENERATED WITH carbon.pl\n";
 print " * Please see: https://github.com/Cyclenerd/google-cloud-compute-machine-types/blob/master/regions/README.md\n";
@@ -36,13 +42,13 @@ while ($sth->fetch) {
 		# Google Cloud Region
 		$region  =~ s/\s//;
 		# Google CFE%
-		if ($cfe =~ /(\d+)/) {
-			$cfe = $1;
+		if ($cfe =~ /^([0,1]\.\d{2}$)/) {
+			$cfe = $1 * 100;
 		} else {
 			$cfe = "";
 		}
 		# Grid carbon intensity (gCO2eq/kWh)
-		if ($co2_kwh =~ /(\d+)/) {
+		if ($co2_kwh =~ /^(\d+)$/) {
 			$co2_kwh = $1;
 		} else {
 			$co2_kwh = "";
