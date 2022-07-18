@@ -26,6 +26,7 @@ Not every CPU is available in all Google Cloud region and zones.
 		<th scope="col">Zones</th>
 		<th scope="col" colspan="7">✅ Intel</th>
 		<th scope="col" colspan="2">✅ AMD</th>
+		<th scope="col" colspan="1">✅ Arm</th>
 	</tr>
 	<tr>
 		<th scope="col" data-field="name" data-sortable="true">Name</th>
@@ -39,7 +40,9 @@ Not every CPU is available in all Google Cloud region and zones.
 		<th scope="col" title="Intel Xeon E5 v2 (Ivy Bridge)">Ivy Bridge</th>
 		<th scope="col" title="Intel Xeon E5 (Sandy Bridge)">Sandy Bridge</th>
 		<th scope="col" title="AMD EPYC Milan 3rd Generation">Milan</th>
-		<th scope="col" title="AMD EPYC Rome 2nd Generation ">Rome</th>
+		<th scope="col" title="AMD EPYC Rome 2nd Generation">Rome</th>
+		<th scope="col" title="Ampere Altra">Ampere Altra</th>
+
 	</tr>
 </thead>
 <tbody>
@@ -77,6 +80,9 @@ Not every CPU is available in all Google Cloud region and zones.
 		</td>
 		<td [% IF region.amdRome           == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine types with AMD Rome in region [% region.name %]">
 			<a href="/grid.html?region=[% region.name %]&amp;platform=rome">[% region.amdRome %]</a>
+		</td>
+		<td [% IF region.armAmpereAltra    == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine types with Ampere Altra in region [% region.name %]">
+			<a href="/grid.html?region=[% region.name %]&amp;platform=altra">[% region.armAmpereAltra %]</a>
 		</td>
 	</tr>
 	[% END %]
