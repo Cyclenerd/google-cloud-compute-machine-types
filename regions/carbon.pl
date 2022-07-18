@@ -60,7 +60,7 @@ while ($sth->fetch) {
 			$low_co2 = "1";
 		# or, if CFE% information is not available,
 		# a grid carbon intensity of maximum 200 gCO2eq/kWh.
-		} elsif ($co2_kwh <= "200") {
+		} elsif (!$cfe && $co2_kwh <= "200") {
 			$low_co2 = "1";
 		}
 		print "UPDATE instances SET regionCfe = '$cfe', regionCo2Kwh = '$co2_kwh', regionLowCo2 = '$low_co2' WHERE region LIKE '$region';\n";
