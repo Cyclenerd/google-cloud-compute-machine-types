@@ -67,13 +67,16 @@ You have the choice between <mark>[% intel %] machine types with <a href="/intel
 
 [%
 regions_with_low_co2 = 0;
+total_public_ip_addr = 0;
 FOREACH region IN regions;
 	IF region.regionLowCo2; regions_with_low_co2 = regions_with_low_co2 + 1; END;
+	IF region.regionPublicIpv4Addr; total_public_ip_addr = total_public_ip_addr + region.regionPublicIpv4Addr; END;
 END;
 %]
 
 <p>
 <a href="/regions.html" title="All Google Cloud regions">Here</a> you can find an overview of all <mark>[% regions.size %] Google Cloud regions</mark> and the corresponding zones.
+A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] million public IPv4 addresses</mark> are assigned to all Google Cloud Platform regions.
 There is also a <a href="/map.html" title="Google Cloud Platform Region Map">map view</a> with all Google Cloud Platform regions.
 You can also find the available Google Compute Engine machine types per GCE machine series (<a href="/platforms.html">CPU type and CPU plattform</a>) in this overview.
 A cost overview of the <a href="/disks.html" title="Persistent disk pricing in Google Cloud regions">persistent disk types</a> in the regions can also be found in this section.

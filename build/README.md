@@ -17,8 +17,10 @@ bash build.sh
 1. Clean up (Remove disconnected data centers...)
 1. Copy machine types per region to database table `instances` and disk types per region to table `disks`
 1. Add costs for machine types in region from [pricing](https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator)
-1. Add [additional machine type informations](../instances/series/)
-1. Add available CPU platforms per instance in region
+7. Add [additional machine type informations](../instances/series/)
+1. Add CPU platforms and IP addresses
+	1. Add available CPU platforms per instance in region
+	1. Add number of public IP addresses for each GCP region
 1. Add even more
 	* Frequency (GHz)
 	* EEMBC CoreMark Benchmark

@@ -17,6 +17,7 @@ jobs:
             libapp-options-perl          \
             libencode-perl               \
             libyaml-libyaml-perl         \
+            libjson-xs-perl              \
             libdbd-csv-perl              \
             libdbd-sqlite3-perl          \
             libtemplate-perl             \

@@ -39,6 +39,7 @@ you need the following requirements.
 	* [App::Options](https://metacpan.org/pod/App::Options)
 	* [Encode](https://metacpan.org/pod/Encode)
 	* [YAML::XS](https://metacpan.org/pod/YAML::XS) (and `libyaml`)
+	* [JSON::XS](https://metacpan.org/pod/JSON::XS)
 	* [DBD::CSV](https://metacpan.org/pod/DBD::CSV)
 	* [DBD::SQLite](https://metacpan.org/pod/DBD::SQLite)
 	* [Template::Toolkit](https://metacpan.org/pod/Template::Toolkit)
@@ -57,6 +58,7 @@ sudo apt install \
 	libapp-options-perl \
 	libencode-perl \
 	libyaml-libyaml-perl \
+	libjson-xs-perl \
 	libdbd-csv-perl \
 	libdbd-sqlite3-perl \
 	libtemplate-perl \

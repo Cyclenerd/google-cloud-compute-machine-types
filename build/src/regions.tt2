@@ -3,11 +3,19 @@
 
 <h1>Google Cloud Platform Regions</h1>
 
+[%
+total_public_ip_addr = 0;
+FOREACH region IN regions;
+	IF region.regionPublicIpv4Addr; total_public_ip_addr = total_public_ip_addr + region.regionPublicIpv4Addr; END;
+END;
+%]
+
 <blockquote class="blockquote">
 <p>
 Worldwide, there are <mark>[% regions.size %]</mark> Google Cloud regions.
 Not every Google Compute Engine machine series is available in all Google Cloud region and zones.
 The pricing differs.
+A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] million public IPv4 addresses</mark> are assigned to all Google Cloud Platform regions.
 </p>
 </blockquote>
 
@@ -25,6 +33,7 @@ The pricing differs.
 <thead>
 	<tr>
 		<th scope="col" colspan="3">Region</th>
+		<th scope="col" colspan="2" title="Public IPv4 addresses (allows conclusions about the size of the region)">IP Addr.</th>
 		<th scope="col">Zones</th>
 		<th scope="col" colspan="11">✅ Machine Series</th>
 		<th scope="col" colspan="2">✅ SAP</th>
@@ -35,6 +44,8 @@ The pricing differs.
 		<th scope="col" data-field="name" data-sortable="true">Name</th>
 		<th scope="col" data-sortable="true">Location</th>
 		<th scope="col" data-sortable="true" title="ISO 3166-1 alpha-2 country code">Country</th>
+		<th scope="col" data-sortable="true" title="Public IPv4 addresses (allows conclusions about the size of the region)">#</th>
+		<th scope="col" data-sortable="true" title="Percent of total Google Cloud Platform usage">%</th>
 		<th scope="col" data-sortable="true">#</th>
 		<!-- Machine Series -->
 		<th scope="col">A2</th>
@@ -67,6 +78,12 @@ The pricing differs.
 			[% badgeLowCo2Region(region) %]
 		</td>
 		<td>[% IF region.regionLocationCountryCode %]<code>[% region.regionLocationCountryCode %]</code>[% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td [% IF region.regionPublicIpv4Addr %]title="[% region.regionPublicIpv4Addr FILTER format("%d") %] public IPv4 addresses are assigned to region [% region.name %]"[% END %]>
+			[% IF region.regionPublicIpv4Addr %][% region.regionPublicIpv4Addr FILTER format("%d") %][% ELSE %]<span class="text-muted">?</span>[% END %]
+		</td>
+		<td>
+			[% IF region.regionPublicIpv4Addr %][% region.regionPublicIpv4Addr / total_public_ip_addr * 100 FILTER format("%.2f") %][% ELSE %]<span class="text-muted">?</span>[% END %]
+		</td>
 		<td>[% region.zoneCount %]</td>
 		<!-- Machine Series -->
 		<td [% IF region.a2 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series A2 in region [% region.name %]">
@@ -118,8 +135,8 @@ The pricing differs.
 		    title="Costs per month for machine type e2-standard-8 in region [% region.name %]: [% region.hour %] USD">
 			<span class="currency">[% region.e2Standard8Month %]</span>
 		</td>
-		<td>[% IF region.regionCfe    %][% region.regionCfe %] %[% ELSE %]?[% END %]</td>
-		<td>[% IF region.regionCo2Kwh %][% region.regionCo2Kwh %][% ELSE %]?[% END %]</td>
+		<td>[% IF region.regionCfe    %][% region.regionCfe %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td>[% IF region.regionCo2Kwh %][% region.regionCo2Kwh %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 	</tr>
 	[% END %]
 </tbody>

@@ -42,6 +42,7 @@ CREATE TABLE "instances" (
 	"regionLowCo2"              REAL DEFAULT '0.0',
 	"regionLat"                 REAL DEFAULT '0.0',
 	"regionLng"                 REAL DEFAULT '0.0',
+	"regionPublicIpv4Addr"      REAL DEFAULT '0.0',
 	"zoneCount"                 REAL DEFAULT '0.0',
 	"zones"                     TEXT DEFAULT '',
 	"vCpus"                     REAL DEFAULT '0.0',
