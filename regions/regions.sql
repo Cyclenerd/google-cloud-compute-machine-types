@@ -7,8 +7,8 @@ UPDATE instances SET regionLocationLong = "Hong Kong, People's Republic of China
 UPDATE instances SET regionLocationLong = "Tokyo, Japan", regionLat = "35.6762", regionLng = "139.6503" WHERE region LIKE "asia-northeast1";
 UPDATE instances SET regionLocationLong = "Osaka, Japan", regionLat = "34.6937", regionLng = "135.5023" WHERE region LIKE "asia-northeast2";
 UPDATE instances SET regionLocationLong = "Seoul, South Korea", regionLat = "37.5665", regionLng = "126.978" WHERE region LIKE "asia-northeast3";
-UPDATE instances SET regionLocationLong = "Delhi, India", regionLat = "19.076", regionLng = "72.8777" WHERE region LIKE "asia-south1";
-UPDATE instances SET regionLocationLong = "Mumbai, India", regionLat = "28.7041", regionLng = "77.1025" WHERE region LIKE "asia-south2";
+UPDATE instances SET regionLocationLong = "Mumbai, India", regionLat = "19.076", regionLng = "72.8777" WHERE region LIKE "asia-south1";
+UPDATE instances SET regionLocationLong = "Delhi, India", regionLat = "28.7041", regionLng = "77.1025" WHERE region LIKE "asia-south2";
 UPDATE instances SET regionLocationLong = "Singapore", regionLat = "1.3521", regionLng = "103.8198" WHERE region LIKE "asia-southeast1";
 UPDATE instances SET regionLocationLong = "Jakarta, Indonesia", regionLat = "-6.2088", regionLng = "106.8456" WHERE region LIKE "asia-southeast2";
 UPDATE instances SET regionLocationLong = "Sydney, Australia", regionLat = "-33.8688", regionLng = "151.2093" WHERE region LIKE "australia-southeast1";
