@@ -30,13 +30,13 @@
       "longitude": 126.9780
    },
    "asia-south1":{
-      "name":"Delhi, India",
+      "name":"Mumbai, India",
       "flag": "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
       "latitude": 19.0760,
       "longitude": 72.8777
    },
    "asia-south2":{
-      "name":"Mumbai, India",
+      "name":"Delhi, India",
       "flag": "https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg",
       "latitude": 28.7041,
       "longitude": 77.1025
