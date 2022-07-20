@@ -7,8 +7,11 @@
 	<li class="nav-item">
 		<a [% IF template.name == 'platforms.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/platforms.html">CPU</a>
 	</li>
-		<li class="nav-item">
+	<li class="nav-item">
 		<a [% IF template.name == 'diskpricing.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/diskpricing.html">Disk</a>
+	</li>
+	<li class="nav-item">
+		<a [% IF template.name == 'map.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/map.html">Map</a>
 	</li>
 </ul>
 </div> <!-- // col -->

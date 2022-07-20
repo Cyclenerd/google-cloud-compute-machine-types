@@ -7,4 +7,5 @@ curl -OL "https://unpkg.com/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
 curl -OL "https://unpkg.com/jquery@3.6.0/dist/jquery.js"
 curl -OL "https://unpkg.com/bootstrap-table@1.19.1/dist/bootstrap-table.min.js"
 curl -OL "https://unpkg.com/bootstrap-table@1.19.1/dist/extensions/sticky-header/bootstrap-table-sticky-header.min.js"
+curl -OL "https://unpkg.com/leaflet@1.8.0/dist/leaflet.js"
 ```

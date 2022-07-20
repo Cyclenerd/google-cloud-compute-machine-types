@@ -205,6 +205,24 @@
 <meta property="og:description"  content="List of all Google Cloud regions available in all Google Cloud Platform locations. Overview of available Google Compute Engine machine types.">
 <meta property="og:url"          content="[% site.url %]/regions.html">
 
+[%- ELSIF template.name == 'map.tt2' -%]
+<title>Google Cloud Platform Region Map</title>
+<meta name="description"         content="Map of all Google Cloud regions available in all Google Cloud Platform locations. Overview of available Google Compute Engine machine types.">
+<meta name="robots"              content="index, follow">
+<link rel="canonical"            href="[% site.url %]/map.html">
+<meta name="twitter:image:src"   content="[% site.opengraph %]/regions.png?[% timestamp %]">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Google Cloud Regions Map">
+<meta name="twitter:description" content="Map of all Google Cloud regions available in all Google Cloud Platform locations. Overview of available Google Compute Engine machine types.">
+<meta property="og:image"        content="[% site.opengraph %]/regions.png?[% timestamp %]">
+<meta property="og:image:alt"    content="Image: Google Cloud Platform regions">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:type"         content="website">
+<meta property="og:title"        content="Google Cloud Regions Map">
+<meta property="og:description"  content="Map of all Google Cloud regions available in all Google Cloud Platform locations. Overview of available Google Compute Engine machine types.">
+<meta property="og:url"          content="[% site.url %]/map.html">
+
 [%- ELSIF template.name == 'platforms.tt2' -%]
 <title>Compute Engine CPU Platforms in Google Cloud Regions</title>
 <meta name="description"         content="Available CPU platforms in Google Cloud regions. Overview of the CPU generations from Intel and AMD.">

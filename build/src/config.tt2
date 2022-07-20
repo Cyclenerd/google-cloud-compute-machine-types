@@ -30,6 +30,10 @@ site = {
 		css => '/css/bootstrap-table-sticky-header.css?v1',
 		js  => '/js/bootstrap-table-sticky-header.min.js?v1',
 	},
+	leaflet = {
+		css => '/css/leaflet.css?v1',
+		js  => '/js/leaflet.js?v1',
+	},
 };
 PROCESS macros.tt2;
 -%]
