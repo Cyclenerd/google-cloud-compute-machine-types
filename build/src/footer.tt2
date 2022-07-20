@@ -18,7 +18,7 @@
 </p>
 </div> <!-- // col -->
 <div class="col-xxl-2 text-end">
-<p><a class="btn btn-secondary" href="[% site.github.repo %]" role="button">🖊️ Edit on GitHub</a></p>
+<p><a class="btn btn-outline-secondary" href="[% site.github.repo %]" role="button">🖊️ Edit on GitHub</a></p>
 </div> <!-- // col -->
 </div> <!-- // row -->
 </div> <!-- // container -->
