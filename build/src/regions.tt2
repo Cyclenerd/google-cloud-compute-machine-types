@@ -61,7 +61,7 @@ The pricing differs.
 <tbody>
 	[% FOREACH region IN regions %]
 	<tr>
-		<td><a href="[% region.name %].html" title="Google Cloud region [% region.name %]">[% region.name %]</a></td>
+		<td><a href="/[% region.name %].html" title="Google Cloud region [% region.name %][% IF region.regionLocationLong %] ([% region.regionLocationLong %])[% ELSIF region.regionLocation %] ([% region.regionLocation %])[% END %]">[% region.name %]</a></td>
 		<td>
 			[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]
 			[% badgeLowCo2Region(region) %]
