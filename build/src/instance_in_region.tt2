@@ -11,7 +11,8 @@
 		[% IF instance.family %][% instance.family %][% END %]
 		Google Compute Engine machine type <a href="/[% instance.name %].html" title="Show machine type [% instance.name %] in all regions">[% instance.name %]</a>
 		with [% instance.vCpus%] vCPU and [% instance.memoryGiB %] GB memory
-		in Google Cloud region <a href="/[% instance.region %].html" title="Show all machine types in region [% instance.region %]">[% instance.region %]</a>[% IF instance.regionLocation %] ([% instance.regionLocation %])[% END %].
+		in Google Cloud region <a href="/[% instance.region %].html" title="Show all machine types in region [% instance.region %]">[% instance.region %]</a>
+		[% IF instance.regionLocationLong %]([% instance.regionLocationLong %])[% ELSIF instance.regionLocation %]([% instance.regionLocation %])[% END %].
 		[%- IF instance.sap || instance.hana -%]
 			GCE machine type [% instance.name %] is certified for
 			[% IF instance.sap %]SAP applications[% END %]
