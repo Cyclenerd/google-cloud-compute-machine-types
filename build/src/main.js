@@ -125,8 +125,15 @@ const gridOptions = {
 					headerName: 'Location',
 					field: "regionLocation",
 					columnGroupShow: 'open',
-					tooltipField: 'regionLocation',
+					tooltipField: 'regionLocationLong',
 					width: 120
+				},
+				{
+					headerName: 'Country',
+					field: "regionLocationCountryCode",
+					headerTooltip: 'ISO 3166-1 alpha-2 country code',
+					columnGroupShow: 'open',
+					width: 90
 				},
 				{
 					headerName: 'Low CO2',
@@ -154,7 +161,7 @@ const gridOptions = {
 					filter: 'agNumberColumnFilter',
 					filterParams: filterLowerParamsNumber,
 					valueFormatter: nullFormatter,
-					width: 90
+					width: 120
 				},
 			]
 		},

@@ -9,11 +9,14 @@
 <blockquote class="blockquote">
 <p>
 Out of a total of [% instances.size %] Google Compute Engine machine types,
-<mark>[% instances_in_region.size %] machine types</mark> are available in Google Cloud region [% region.name %][% IF region.regionLocation %] ([% region.regionLocation %])[% END %].
+<mark>[% instances_in_region.size %] machine types</mark> are available in Google Cloud region [% region.name %][% IF region.regionLocationLong %] ([% region.regionLocationLong %])[% END %].
 </p>
 </blockquote>
 
-<p><a class="btn btn-success" href="/grid.html?region=[% region.name %]" role="button">✅ Instance Picker with filter on region [% region.name %]</a></p>
+<p>
+	<a class="btn btn-success" href="/grid.html?region=[% region.name %]" role="button">✅ Instance Picker with filter on region [% region.name %]</a>
+	[% IF region.regionLat && region.regionLng %]<a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&amp;query=[% region.regionLat %]%2C[% region.regionLng %]" role="button">🗺️ Google Maps</a>[% END %]
+</p>
 
 <div class="row">
 

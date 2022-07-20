@@ -22,7 +22,7 @@ Not every CPU is available in all Google Cloud region and zones.
 >
 <thead>
 	<tr>
-		<th scope="col" colspan="2">Region</th>
+		<th scope="col" colspan="3">Region</th>
 		<th scope="col">Zones</th>
 		<th scope="col" colspan="7">✅ Intel</th>
 		<th scope="col" colspan="2">✅ AMD</th>
@@ -31,6 +31,7 @@ Not every CPU is available in all Google Cloud region and zones.
 	<tr>
 		<th scope="col" data-field="name" data-sortable="true">Name</th>
 		<th scope="col" data-sortable="true">Location</th>
+		<th scope="col" data-sortable="true" title="ISO 3166-1 alpha-2 country code">Country</th>
 		<th scope="col" data-sortable="true">#</th>
 		<th scope="col" title="Intel Xeon Scalable Processor (Ice Lake) 3rd Generation">Ice Lake</th>
 		<th scope="col" title="Intel Xeon Scalable Processor (Cascade Lake) 2nd Generation">Cascade Lake</th>
@@ -53,6 +54,7 @@ Not every CPU is available in all Google Cloud region and zones.
 			[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]
 			[% badgeLowCo2Region(region) %]
 		</td>
+		<td>[% IF region.regionLocationCountryCode %]<code>[% region.regionLocationCountryCode %]</code>[% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td>[% region.zoneCount %]</td>
 		<td [% IF region.intelIceLake      == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine types with Intel Ice Lake in region [% region.name %]">
 			[% IF region.intelIceLake %]<a href="/grid.html?region=[% region.name %]&amp;platform=ice">[% region.intelIceLake %]</a>[% ELSE %]0[% END %]

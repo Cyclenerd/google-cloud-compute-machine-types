@@ -121,8 +121,8 @@ print "\nRegion Locations\n";
 foreach my $region (keys %{ $gcp->{'region'} }) {
 	my $regionLocation = $gcp->{'region'}->{$region}->{'location'};
 	print "$region : $regionLocation\n";
-	$db->do("UPDATE instances SET regionLocation = '$regionLocation' WHERE region LIKE '$region'") or die "ERROR: Cannot update $DBI::errstr\n";
-	$db->do("UPDATE disks     SET regionLocation = '$regionLocation' WHERE region LIKE '$region'") or die "ERROR: Cannot update $DBI::errstr\n";
+	$db->do("UPDATE instances SET regionLocation = '$regionLocation', regionLocationLong = '$regionLocation' WHERE region LIKE '$region'") or die "ERROR: Cannot update $DBI::errstr\n";
+	$db->do("UPDATE disks SET regionLocation = '$regionLocation' WHERE region LIKE '$region'") or die "ERROR: Cannot update $DBI::errstr\n";
 }
 
 

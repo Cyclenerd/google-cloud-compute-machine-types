@@ -22,7 +22,7 @@ The pricing differs.
 >
 <thead>
 	<tr>
-		<th scope="col" colspan="2">Region</th>
+		<th scope="col" colspan="3">Region</th>
 		<th scope="col">Zones</th>
 		<th scope="col" colspan="11">✅ Machine Series</th>
 		<th scope="col" colspan="2">✅ SAP</th>
@@ -30,8 +30,9 @@ The pricing differs.
 		<th scope="col" colspan="2">Carbon</th>
 	</tr>
 	<tr>
-		<th scope="row" data-field="name" data-sortable="true">Name</th>
-		<th scope="row" data-sortable="true">Location</th>
+		<th scope="col" data-field="name" data-sortable="true">Name</th>
+		<th scope="col" data-sortable="true">Location</th>
+		<th scope="col" data-sortable="true" title="ISO 3166-1 alpha-2 country code">Country</th>
 		<th scope="col" data-sortable="true">#</th>
 		<!-- Machine Series -->
 		<th scope="col">A2</th>
@@ -63,6 +64,7 @@ The pricing differs.
 			[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]
 			[% badgeLowCo2Region(region) %]
 		</td>
+		<td>[% IF region.regionLocationCountryCode %]<code>[% region.regionLocationCountryCode %]</code>[% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td>[% region.zoneCount %]</td>
 		<!-- Machine Series -->
 		<td [% IF region.a2 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series A2 in region [% region.name %]">
