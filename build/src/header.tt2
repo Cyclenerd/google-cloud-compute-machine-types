@@ -15,12 +15,6 @@
 	.diskSize::after  { content: " TB"; }
 	.memory::after    { content: " GB"; }
 </style>
-
-[%- IF template.name == 'map.tt2' -%]
-<link rel="stylesheet" href="[% site.leaflet.css %]">
-<script src="[% site.leaflet.js %]"></script>
-[%- END -%]
-
 </head>
 <body>
 <header>
@@ -85,7 +79,6 @@
 				template.name == 'instance_in_region.tt2' ||
 				template.name == 'region.tt2' ||
 				template.name == 'regions.tt2' ||
-				template.name == 'map.tt2' ||
 				template.name == 'diskpricing.tt2' ||
 				template.name == 'platforms.tt2'
 			-%]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %]
