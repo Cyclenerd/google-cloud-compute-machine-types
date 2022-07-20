@@ -8,17 +8,17 @@
 <script>
 var map = L.map('map').setView([32, -10], 3);
 
+/*
 var osmHotAttribution = '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors. ' +
 	'Tiles style by <a href="https://www.hotosm.org/">Humanitarian OpenStreetMap Team</a> ' +
 	'hosted by <a href="https://www.openstreetmap.fr/">OpenStreetMap France</a>';
 var osmUrl = 'https://tile-{s}.openstreetmap.fr/hot/{z}/{x}/{y}.png',
 	tiles = new L.tileLayer(osmUrl, {maxZoom: 18, attribution: osmHotAttribution}).addTo(map);
+*/
 
-/*
 var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
-*/
 
 [% FOREACH region IN regions %]
 [%- IF region.regionLat && region.regionLng -%]
