@@ -5,17 +5,6 @@
 /* 2022/05/15: m3-megamem-* and m3-ultramem-* */
 DELETE FROM machinetypes WHERE name LIKE 'm3-%';
 
-/* 2022-07-13: Add preview CPU platfrom Ampere Altra (Arm) */
-UPDATE zones SET availableCpuPlatforms = availableCpuPlatforms || ',Ampere Altra' WHERE name LIKE 'us-central1-a';
-UPDATE zones SET availableCpuPlatforms = availableCpuPlatforms || ',Ampere Altra' WHERE name LIKE 'us-central1-b';
-UPDATE zones SET availableCpuPlatforms = availableCpuPlatforms || ',Ampere Altra' WHERE name LIKE 'us-central1-f';
-UPDATE zones SET availableCpuPlatforms = availableCpuPlatforms || ',Ampere Altra' WHERE name LIKE 'us-central1-d';
-UPDATE zones SET availableCpuPlatforms = availableCpuPlatforms || ',Ampere Altra' WHERE name LIKE 'asia-southeast1-b';
-UPDATE zones SET availableCpuPlatforms = availableCpuPlatforms || ',Ampere Altra' WHERE name LIKE 'asia-southeast1-c';
-UPDATE zones SET availableCpuPlatforms = availableCpuPlatforms || ',Ampere Altra' WHERE name LIKE 'europe-west4-a';
-UPDATE zones SET availableCpuPlatforms = availableCpuPlatforms || ',Ampere Altra' WHERE name LIKE 'europe-west4-b';
-UPDATE zones SET availableCpuPlatforms = availableCpuPlatforms || ',Ampere Altra' WHERE name LIKE 'europe-west4-c';
-
 /* 
  * Delete not yet official 100% finished regions
  */
