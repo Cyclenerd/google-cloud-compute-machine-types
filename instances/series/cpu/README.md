@@ -4,9 +4,11 @@
 * Wikipedia
 	* Intel: <https://en.wikipedia.org/wiki/Xeon>
 	* AMD: <https://en.wikipedia.org/wiki/Epyc>
+	* AMPERE: <https://en.wikipedia.org/wiki/Ampere_Computing>
 * WikiChip
 	* Intel: <https://en.wikichip.org/wiki/intel/microarchitectures>
 	* AMD: <https://en.wikichip.org/wiki/amd/microarchitectures>
+	* AMPERE: <https://en.wikichip.org/wiki/ampere_computing>
 
 Performance benchmarks are created with [PerfKitBenchmarker](https://github.com/GoogleCloudPlatform/PerfKitBenchmarker) on Compute Engine VM instances.
 
@@ -88,4 +90,8 @@ AMD Zen based Epyc microarchitecture
 
 <https://amperecomputing.com/processors/ampere-altra/>
 
-3 Ghz = Ampere Altra Max
+* SKU: Q64-30
+	* Cores: 64
+	* Frequency: 3.0 GHz
+	* TDP: 180 W
+* Release date: 2020
