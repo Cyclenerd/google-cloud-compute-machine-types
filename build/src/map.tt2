@@ -25,6 +25,7 @@ body {
 
 <div id="map" style="width: 100%; height: 100%">
 <h1>Google Cloud Platform Region Map</h1>
+<p>Last Update: <a href=[% IF gitHubRunId %]"[% gitHubServerUrl %]/[% gitHubRepository %]/actions/runs/[% gitHubRunId %]"[% ELSE %]"#"[% END %]>[% gmttime %]</a> (GMT)</p>
 </div>
 
 <script>
