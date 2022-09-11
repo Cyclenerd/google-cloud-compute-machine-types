@@ -9,6 +9,10 @@ DELETE FROM machinetypes WHERE name LIKE 'm3-%';
 /* https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator/issues/41 */
 DELETE FROM machinetypes WHERE name LIKE 'a2-ultragpu-%';
 
+/* 2022/09/11: m2-hypermem-* */
+/* https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator/issues/43 */
+DELETE FROM machinetypes WHERE name LIKE 'm2-hypermem-%';
+
 
 /* 
  * Delete not yet official 100% finished regions
