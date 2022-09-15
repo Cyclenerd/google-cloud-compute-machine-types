@@ -17,8 +17,8 @@ sqlite3 "$DB" < ../regions/carbon.sql || exit 9
 echo "Add long location name, latitude and longitude of GCP regions"
 sqlite3 "$DB" < ../regions/regions.sql || exit 9
 
-echo "Add country names of GCP regions"
-sqlite3 "$DB" < ../regions/country.sql || exit 9
-
 echo "Add extra data for GCP regions"
 sqlite3 "$DB" < ../regions/extra.sql  || exit 9
+
+echo "Add country names of GCP regions"
+sqlite3 "$DB" < ../regions/country.sql || exit 9
