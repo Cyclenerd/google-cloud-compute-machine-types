@@ -1,5 +1,7 @@
 /* Extra Data for Regions */
 
+UPDATE instances SET regionLocationLong = "Tel Aviv, Israel", regionLat = "32.0858103", regionLng = "34.7697987" WHERE region LIKE "me-west1";
+
 /* Source: Google Maps search "Google Data Center" and 2021-carbon-free-energy-data-centers.pdf */
 UPDATE instances SET regionLocationLong = "St. Ghislain, Belgium",     regionLat = "50.4690", regionLng = "3.8658"    WHERE region LIKE "europe-west1";
 UPDATE instances SET regionLocationLong = "Eemshaven, Netherlands",    regionLat = "53.4259", regionLng = "6.8642"    WHERE region LIKE "europe-west4";

@@ -18,10 +18,6 @@ DELETE FROM machinetypes WHERE name LIKE 'm2-hypermem-%';
  * Delete not yet official 100% finished regions
  */
 
-/* Israel / Tel Aviv --> me-west1 */
-/* https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator/issues/33 */
-DELETE FROM machinetypes WHERE zone LIKE 'me-west1-%';
-DELETE FROM disktypes    WHERE zone LIKE 'me-west1-%';
 
 /*
  * Remove disconnected data centers
