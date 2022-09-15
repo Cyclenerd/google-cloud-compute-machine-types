@@ -5,6 +5,7 @@
 /build/*.json
 /build/*.conf
 /build/*.db
+/build/*.db-journal
 /build/machine-types-regions.sql
 /build/machine-types-regions.sql.gz
 /build/publicipranges.json
