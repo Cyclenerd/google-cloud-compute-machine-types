@@ -144,6 +144,10 @@ UPDATE instances SET sap = '1', saps = '100320' WHERE name LIKE 'n1-standard-96'
 UPDATE instances SET sap = '1', saps = '223325' WHERE name LIKE 'm2-ultramem-208' AND availableCpuPlatform LIKE "%Cascade Lake%";
 UPDATE instances SET sap = '1', saps = '446650' WHERE name LIKE 'm2-ultramem-416' AND availableCpuPlatform LIKE "%Cascade Lake%";
 UPDATE instances SET sap = '1', saps = '446650' WHERE name LIKE 'm2-megamem-416'  AND availableCpuPlatform LIKE "%Cascade Lake%";
+/* TODO: Add SAPS */
+/* https://cloud.google.com/solutions/sap/docs/certifications-sap-apps#sap-certified-vms-memory-optimized */
+UPDATE instances SET sap = '1'                  WHERE name LIKE 'm2-hypermem-416' AND availableCpuPlatform LIKE "%Cascade Lake%";
+
 
 /* M1 (Intel Broadwell or Intel Skylake) */
 UPDATE instances SET sap = '1', saps = '105050' WHERE name LIKE 'm1-megamem-96'   AND availableCpuPlatform LIKE "%Skylake%";
