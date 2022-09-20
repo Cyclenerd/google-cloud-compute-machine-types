@@ -142,11 +142,10 @@ UPDATE instances SET sap = '1', saps = '100320' WHERE name LIKE 'n1-standard-96'
 /* M2 */
 /* Intel Cascade Lake */
 UPDATE instances SET sap = '1', saps = '223325' WHERE name LIKE 'm2-ultramem-208' AND availableCpuPlatform LIKE "%Cascade Lake%";
+/* Same core count. All with 416 cores. All with 446650 SAPS */
 UPDATE instances SET sap = '1', saps = '446650' WHERE name LIKE 'm2-ultramem-416' AND availableCpuPlatform LIKE "%Cascade Lake%";
 UPDATE instances SET sap = '1', saps = '446650' WHERE name LIKE 'm2-megamem-416'  AND availableCpuPlatform LIKE "%Cascade Lake%";
-/* TODO: Add SAPS */
-/* https://cloud.google.com/solutions/sap/docs/certifications-sap-apps#sap-certified-vms-memory-optimized */
-UPDATE instances SET sap = '1'                  WHERE name LIKE 'm2-hypermem-416' AND availableCpuPlatform LIKE "%Cascade Lake%";
+UPDATE instances SET sap = '1', saps = '446650' WHERE name LIKE 'm2-hypermem-416' AND availableCpuPlatform LIKE "%Cascade Lake%";
 
 
 /* M1 (Intel Broadwell or Intel Skylake) */
