@@ -5,10 +5,6 @@
 /* 2022/05/15: m3-megamem-* and m3-ultramem-* */
 DELETE FROM machinetypes WHERE name LIKE 'm3-%';
 
-/* 2022/08/26: a2-ultragpu-* */
-/* https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator/issues/41 */
-DELETE FROM machinetypes WHERE name LIKE 'a2-ultragpu-%';
-
 /* 
  * Delete not yet official 100% finished regions
  */
