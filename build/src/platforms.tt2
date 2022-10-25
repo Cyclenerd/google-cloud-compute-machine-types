@@ -71,7 +71,7 @@ Not every CPU is available in all Google Cloud region and zones.
 			[% IF region.intelBroadwell %]<a href="/grid.html?region=[% region.name %]&amp;platform=broadwell">[% region.intelBroadwell %]</a>[% ELSE %]0[% END %]
 		</td>
 		<td [% IF region.intelHaswell      == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine types with Intel Haswell in region [% region.name %]">
-			[% IF region.amdRintelHaswellome %]<a href="/grid.html?region=[% region.name %]&amp;platform=haswell">[% region.intelHaswell %]</a>[% ELSE %]0[% END %]
+			[% IF region.intelHaswell %]<a href="/grid.html?region=[% region.name %]&amp;platform=haswell">[% region.intelHaswell %]</a>[% ELSE %]0[% END %]
 		</td>
 		<td [% IF region.intelIvy          == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine types with Intel Ivy Bridge in region [% region.name %]">
 			[% IF region.intelIvy %]<a href="/grid.html?region=[% region.name %]&amp;platform=ivy">[% region.intelIvy %]</a>[% ELSE %]0[% END %]
