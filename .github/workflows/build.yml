@@ -56,5 +56,7 @@ jobs:
           cat "site/europe-west4/n2-standard-8.html" | grep '249' || exit 9
           jq -e '.[] | .name' "site/instance_in_region.json" | grep '"n2-standard-8"' || exit 9
 
+      # https://cloud.google.com/sdk/gcloud/reference/storage/cp
       - name: Deploy
-        run: gsutil -m rsync -d -r site gs://gcloud-compute.com || exit 9
+        run: gcloud storage cp --gzip-in-flight=html,js,css,txt,json --recursive site/* gs://gcloud-compute.com || exit 9
+        #run: gsutil -m rsync -d -r site gs://gcloud-compute.com || exit 9
