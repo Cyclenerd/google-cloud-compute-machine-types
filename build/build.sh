@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 echo "1. Create"
-bash "01_create_database.sh" || exit 9 9
+bash "01_create_database.sh" || exit 9
 
 echo "2. Get"
 bash "02_get.sh" || exit 9
