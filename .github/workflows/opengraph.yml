@@ -52,4 +52,5 @@ jobs:
           perl opengraph.pl --processes=4 || exit 9
 
       - name: Deploy
-        run: gsutil -m rsync -r opengraph gs://opengraph.gcloud-compute.com || exit 9
+        run: gcloud storage cp --recursive opengraph/* gs://opengraph.gcloud-compute.com || exit 9
+        #run: gsutil -m rsync -r opengraph gs://opengraph.gcloud-compute.com || exit 9
