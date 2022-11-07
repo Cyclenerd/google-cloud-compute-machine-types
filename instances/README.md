@@ -16,6 +16,7 @@ The SQL files are read during the [build](../build/) process.
 	* [E2](./series/e2.sql)
 	* [M1](./series/m1.sql)
 	* [M2](./series/m2.sql)
+	* [M3](./series/m3.sql)
 	* [N1](./series/n1.sql)
 	* [N2](./series/n2.sql)
 	* [N2D](./series/n2d.sql)
@@ -44,8 +45,9 @@ The cost per machine type in region and licenses are added with the [gcosts](htt
 				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2d-standard" rel="nofollow">C2D</a> compute optimized machine series
 			</li>
 			<li>
-				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types" rel="nofollow">M1</a> and
-				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types" rel="nofollow">M2</a> memory optimized machine series
+				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types" rel="nofollow">M1</a>,
+				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types" rel="nofollow">M2</a> and
+				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m3_machine_types" rel="nofollow">M3</a> memory optimized machine series
 			</li>
 			<li>
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,

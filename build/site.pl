@@ -247,6 +247,7 @@ SELECT
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "e2")  AS e2,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "m1")  AS m1,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "m2")  AS m2,
+	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "m3")  AS m3,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "n1")  AS n1,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "n2")  AS n2,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "n2d") AS n2d,

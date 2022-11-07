@@ -35,7 +35,7 @@ A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] millio
 		<th scope="col" colspan="3">Region</th>
 		<th scope="col" colspan="2" title="Public IPv4 addresses (allows conclusions about the size of the region)">IP Addr.</th>
 		<th scope="col">Zones</th>
-		<th scope="col" colspan="11">✅ Machine Series</th>
+		<th scope="col" colspan="12">✅ Machine Series</th>
 		<th scope="col" colspan="2">✅ SAP</th>
 		<th scope="col" colspan="2">Costs (e2-standard-8)</th>
 		<th scope="col" colspan="2">Carbon</th>
@@ -54,6 +54,7 @@ A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] millio
 		<th scope="col">E2</th>
 		<th scope="col">M1</th>
 		<th scope="col">M2</th>
+		<th scope="col">M3</th>
 		<th scope="col">N1</th>
 		<th scope="col">N2</th>
 		<th scope="col">N2D</th>
@@ -103,6 +104,9 @@ A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] millio
 		</td>
 		<td [% IF region.m2 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series M2 in region [% region.name %]">
 			[% IF region.m2 %]<a href="/grid.html?region=[% region.name %]&amp;series=m2">[% region.m2 %]</a>[% ELSE %]0[% END %]
+		</td>
+		<td [% IF region.m3 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series M3 in region [% region.name %]">
+			[% IF region.m3 %]<a href="/grid.html?region=[% region.name %]&amp;series=m3">[% region.m3 %]</a>[% ELSE %]0[% END %]
 		</td>
 		<td [% IF region.n1 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series N1 in region [% region.name %]">
 			[% IF region.n1 %]<a href="/grid.html?region=[% region.name %]&amp;series=n1">[% region.n1 %]</a>[% ELSE %]0[% END %]

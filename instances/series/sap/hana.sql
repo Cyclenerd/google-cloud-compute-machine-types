@@ -15,3 +15,5 @@ UPDATE instances SET hana = '1' WHERE name LIKE 'n2-highmem-128';
 UPDATE instances SET hana = '1' WHERE name LIKE 'm1-%';
 
 UPDATE instances SET hana = '1' WHERE name LIKE 'm2-%';
+
+UPDATE instances SET hana = '1' WHERE name LIKE 'm3-%';

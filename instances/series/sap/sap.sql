@@ -154,8 +154,10 @@ UPDATE instances SET sap = '1', saps = '34475'  WHERE name LIKE 'm1-ultramem-40'
 UPDATE instances SET sap = '1', saps = '68950'  WHERE name LIKE 'm1-ultramem-80'  AND availableCpuPlatform LIKE "%Broadwell%";
 UPDATE instances SET sap = '1', saps = '137900' WHERE name LIKE 'm1-ultramem-160' AND availableCpuPlatform LIKE "%Broadwell%";
 
-
-
-
-
-
+/* M3 */
+/* Intel Ice Lake */
+UPDATE instances SET sap = '1', saps = '47835'  WHERE name LIKE 'm3-ultramem-32'  AND availableCpuPlatform LIKE "%Ice Lake%";
+UPDATE instances SET sap = '1', saps = '95670'  WHERE name LIKE 'm3-ultramem-64'  AND availableCpuPlatform LIKE "%Ice Lake%";
+UPDATE instances SET sap = '1', saps = '184800' WHERE name LIKE 'm3-ultramem-128' AND availableCpuPlatform LIKE "%Ice Lake%";
+UPDATE instances SET sap = '1', saps = '99170'  WHERE name LIKE 'm3-megamem-64'   AND availableCpuPlatform LIKE "%Ice Lake%";
+UPDATE instances SET sap = '1', saps = '187620' WHERE name LIKE 'm3-megamem-128'  AND availableCpuPlatform LIKE "%Ice Lake%";

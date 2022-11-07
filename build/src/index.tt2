@@ -234,8 +234,9 @@ n2-highcpu-8|8.0|0.315728</code></pre>
 				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2d-standard" rel="nofollow">C2D</a> compute optimized machine series
 			</li>
 			<li>
-				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types" rel="nofollow">M1</a> and
-				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types" rel="nofollow">M2</a> memory optimized machine series
+				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types" rel="nofollow">M1</a>,
+				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types" rel="nofollow">M2</a> and
+				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m3_machine_types" rel="nofollow">M3</a> memory optimized machine series
 			</li>
 			<li>
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,
