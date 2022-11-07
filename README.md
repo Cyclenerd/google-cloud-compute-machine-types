@@ -31,7 +31,7 @@ you need the following requirements.
 
 ### Requirements
 
-* Google Cloud SDK (`gcloud`)
+* [Google Cloud CLI](https://cloud.google.com/sdk/docs/install) (`gcloud`)
 * SQLite3 (`sqlite3`)
 * Perl 5 (`perl`)
 * Perl modules:
@@ -68,7 +68,7 @@ sudo apt install \
 	fonts-roboto
 ```
 
-[Google Cloud SDK](https://cloud.google.com/sdk/docs/install#deb):
+[Google Cloud CLI](https://cloud.google.com/sdk/docs/install#deb):
 ```shell
 sudo apt-get install apt-transport-https ca-certificates gnupg
 # Add the gcloud CLI distribution URI as a package source
