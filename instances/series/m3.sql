@@ -6,7 +6,7 @@ family      = 'Memory-optimized',
 cpuPlatform = 'Ice Lake',
 localSsd    = '1',
 bandwidth   = '32',
-sud         = '1',
+sud         = '0',
 spot        = '1'
 WHERE name LIKE 'm3-%';
 UPDATE instances SET tier1 = '50'  WHERE name LIKE 'm3-%-64';
