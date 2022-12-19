@@ -1,5 +1,5 @@
 blank_issues_enabled: false
 contact_links:
-  - name: Contact me on Twitter
-    url: https://twitter.com/realCyclenerd
-    about: Feel free to follow me on Twitter and send me a message
+  - name: Contact me on Mastodon
+    url: https://fosstodon.org/@cyclenerd
+    about: Feel free to follow me on Mastodon and send me a message
