@@ -5,7 +5,7 @@
 <div class="row">
 <div class="col-xxl-10">
 <p class="text-muted">
-	Copyright [% USE date; date.format(date.now, '%Y'); %] <a href="https://github.com/Cyclenerd">Nils Knieling</a> · All rights reserved
+	Copyright [% USE date; date.format(date.now, '%Y'); %] <a rel="me" href="https://fosstodon.org/@cyclenerd">Nils Knieling</a> · All rights reserved
 </p>
 <p class="text-muted">
 	Data and costs shown are not guaranteed to be accurate or current. Please <a href="[% site.github.issues %]">report issues</a> you see.<br>
