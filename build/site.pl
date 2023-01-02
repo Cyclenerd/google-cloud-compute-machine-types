@@ -666,6 +666,7 @@ $template->process('grid.tt2',                {},                  '../site/grid
 $template->process('instance_in_region.json', { 'json' => $json }, '../site/instance_in_region.json') || die "Template process failed: ", $template->error(), "\n";
 
 # Download
+push(@files, 'download.html');
 $template->process('download.tt2', {
 	'csvFileSize'      => $filesize_csv_export,
 	'sqlFileSize'      => $filesize_sql_export,
