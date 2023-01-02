@@ -6,6 +6,12 @@
 	PROCESS favicon.tt2;
 -%]
 [%  %]
+<link rel="preload" href="[% site.agGrid.css %]" as="style">
+<link rel="preload" href="[% site.agGrid.theme %]" as="style">
+<link rel="preload" href="[% site.bootstrap.css %]" as="style">
+<link rel="preload" href="main.js?[% timestamp %]" as="script">
+<link rel="preload" href="[% site.bootstrap.js %]" as="script">
+
 <script                 src="[% site.agGrid.js %]"></script>
 <link rel="stylesheet" href="[% site.agGrid.css %]">
 <link rel="stylesheet" href="[% site.agGrid.theme %]">
