@@ -6,8 +6,8 @@
 <h1>Download</h1>
 
 <p>
-You can download a <a href="/machine-types-regions.csv?[% timestamp %]" download="machine-types-regions.csv" rel="nofollow">CSV</a> file ([% csvFileSize %] MB)
-and <a href="/machine-types-regions.sql.gz?[% timestamp %]" download="machine-types-regions.sql.gz" rel="nofollow">SQL</a> export ([% sqlFileSize %] MB, gzip compressed) with all machine types, disk types, operating system images, Google Cloud regions and zones.
+You can download a <a href="/machine-types-regions.csv?[% timestamp %]" download="machine-types-regions.csv">CSV</a> file ([% csvFileSize %] MB)
+and <a href="/machine-types-regions.sql.gz?[% timestamp %]" download="machine-types-regions.sql.gz">SQL</a> export ([% sqlFileSize %] MB, gzip compressed) with all machine types, disk types, operating system images, Google Cloud regions and zones.
 You can import and edit the CSV file to your favorite spreadsheet program (MS Excel, LibreOffice or Google Sheets).
 You can import the SQL dump into your favorite database (like SQLite).
 </p>
@@ -29,11 +29,11 @@ You can import the SQL dump into your favorite database (like SQLite).
 
 <h2>Spreadsheet</h2>
 <p>Comma Separated Values (CSV) file with GCE machine types and Google Cloud regions.</p>
-<p><a class="btn btn-primary" href="/machine-types-regions.csv?[% timestamp %]" download="machine-types-regions.csv" rel="nofollow">Download CSV ([% csvFileSize %] MB)</a><p>
+<p><a class="btn btn-primary" href="/machine-types-regions.csv?[% timestamp %]" download="machine-types-regions.csv">Download CSV ([% csvFileSize %] MB)</a><p>
 
 <h2>Database</h2>
 <p>Gzip compressed Structured Query Language (SQL) export with GCE machine types, disk types, operating system images, Google Cloud regions and zones.</p>
-<p><a class="btn btn-primary" href="/machine-types-regions.sql.gz?[% timestamp %]" download="machine-types-regions.sql.gz" rel="nofollow">Download SQL ([% sqlFileSize %] MB)</a><p>
+<p><a class="btn btn-primary" href="/machine-types-regions.sql.gz?[% timestamp %]" download="machine-types-regions.sql.gz">Download SQL ([% sqlFileSize %] MB)</a><p>
 
 <h2>Command Line</h2>
 
