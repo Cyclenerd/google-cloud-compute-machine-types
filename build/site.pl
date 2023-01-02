@@ -668,8 +668,8 @@ $template->process('instance_in_region.json', { 'json' => $json }, '../site/inst
 # Download
 push(@files, 'download.html');
 $template->process('download.tt2', {
-	'csvFileSize'      => $filesize_csv_export,
-	'sqlFileSize'      => $filesize_sql_export,
+	'csvFileSize' => $filesize_csv_export,
+	'sqlFileSize' => $filesize_sql_export,
 }, '../site/download.html') || die "Template process failed: ", $template->error(), "\n";
 
 # Imprint
@@ -682,7 +682,9 @@ $template->process('404.tt2', {}, '../site/404.html') || die "Template process f
 $template->process('sitemap.tt2', { 'files' => \@files }, '../site/sitemap.txt') || die "Template process failed: ", $template->error(), "\n";
 
 # Robots.txt
-$template->process('robots.txt', {}, '../site/robots.txt')     || die "Template process failed: ", $template->error(), "\n";
+$template->process('robots.txt', {
+	'regions' => \@regions
+}, '../site/robots.txt')     || die "Template process failed: ", $template->error(), "\n";
 
 # SQL
 copy("$sql_export", '../site/machine-types-regions.sql.gz');

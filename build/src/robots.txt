@@ -3,7 +3,6 @@ Disallow: /img/
 Disallow: /index.html
 Disallow: /imprint.html
 Disallow: /grid.html?*
-Disallow: /comparison/*
 Disallow: /*.js
 Disallow: /*.csv
 Disallow: /*.sql
@@ -11,3 +10,6 @@ Disallow: /*.gz
 Disallow: /*.json
 Disallow: /404.html
 Disallow: /cdn-cgi/
+Disallow: /comparison/
+[% FOREACH region IN regions; IF region.name %]Disallow: /[% region.name %]/
+[% END; END; %]
