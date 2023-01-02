@@ -70,6 +70,8 @@ my $filesize_sql_export = -s "$sql_export" || die "ERROR: Cannot get SQL '$sql_e
 $filesize_csv_export = sprintf '%.2f', $filesize_csv_export / 1048576;
 $filesize_sql_export = sprintf '%.2f', $filesize_sql_export / 1048576;
 
+print "Create websites...\n";
+
 my $dbh = DBI->connect("dbi:SQLite:dbname=$db_file","","") or die "ERROR: Cannot connect $DBI::errstr\n";
 
 my $template = Template->new(

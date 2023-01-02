@@ -1,4 +1,8 @@
 [%- PROCESS header.tt2 -%]
+
+</div> <!-- // container-fluid -->
+<div class="container">
+
 <h1>Imprint</h1>
 
 <p>🇩🇪 German law demands this.</p>
