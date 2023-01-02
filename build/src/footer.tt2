@@ -24,49 +24,6 @@
 </div> <!-- // container -->
 </footer>
 
-<div class="modal fade" id="downloadModal" tabindex="-1" aria-labelledby="downloadModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-lg modal-fullscreen-lg-down">
-<div class="modal-content">
-<div class="modal-header">
-	<h5 class="modal-title" id="downloadModalLabel">Download Google Compute Machine Types</h5>
-	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-</div>
-<div class="modal-body">
-
-<p class="h4">Spreadsheet</p>
-<p>Comma Separated Values (CSV) file with GCE machine types and Google Cloud regions.</p>
-<p><a class="btn btn-primary" href="/machine-types-regions.csv?[% timestamp %]" download="machine-types-regions.csv">Download CSV ([% csvFileSize %] MB)</a><p>
-
-<p class="h4">Database</p>
-<p>Gzip compressed Structured Query Language (SQL) export with GCE machine types, disk types, operating system images, Google Cloud regions and zones.</p>
-<p><a class="btn btn-primary" href="/machine-types-regions.sql.gz?[% timestamp %]" download="machine-types-regions.sql.gz">Download SQL ([% sqlFileSize %] MB)</a><p>
-
-<p class="h4">Command Line</p>
-<pre class="bg-light"><code><span class="text-muted"># Download CSV file</span>
-curl -O [% site.url %]/machine-types-regions.csv
-<span class="text-muted"># Search CSV and count</span>
-grep <span class="text-primary">'europe-west4'</span> &lt; machine-types-regions.csv | wc -l
-<span class="text-muted"># Download SQL export</span>
-curl -O [% site.url %]/machine-types-regions.sql.gz
-<span class="text-muted"># Decompress SQL export</span>
-gzip -d machine-types-regions.sql.gz
-<span class="text-muted"># Import SQL dump</span>
-sqlite3 gce.db &lt; machine-types-regions.sql
-<span class="text-muted"># SQL query Google Cloud machine types (instances)</span>
-sqlite3 gce.db <span class="text-primary">&#39;SELECT * FROM instances&#39;</span></code></pre>
-
-<p class="h4">Source Code</p>
-<p>
-	This Google Cloud Platform and Google Compute Engine machine type comparison website is published as open source and licensed under the Apache License (version 2.0).
-	You can find the source code on <a href="[% site.github.repo %]">GitHub</a>.
-<p>
-
-</div> <!-- // modal-body -->
-<div class="modal-footer"><button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button></div>
-</div> <!-- // modal-content -->
-</div> <!-- // modal-dialog -->
-</div> <!-- // modal -->
-
 <script src="[% site.bootstrap.js %]"></script>
 <script src="[% site.jQuery.js %]"></script>
 <script src="[% site.bootstrapTable.js %]"></script>

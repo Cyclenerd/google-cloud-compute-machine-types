@@ -176,48 +176,6 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 
 <p>Press <kbd>?</kbd> to see the help with the keyboard shortcuts.</p>
 
-<h2>Download</h2>
-
-<p>
-You can download a <a href="/machine-types-regions.csv?[% timestamp %]" download="machine-types-regions.csv">CSV</a> file ([% csvFileSize %] MB)
-and <a href="/machine-types-regions.sql.gz?[% timestamp %]" download="machine-types-regions.sql.gz">SQL</a> export ([% sqlFileSize %] MB, gzip compressed) with all machine types, disk types, operating system images, Google Cloud regions and zones.
-You can import and edit the CSV file to your favorite spreadsheet program (MS Excel, LibreOffice or Google Sheets).
-You can import the SQL dump into your favorite database (like SQLite).
-</p>
-
-<div class="row">
-	<div class="col-xl-6">
-		<p>
-			Imported CSV file in LibreOffice spreadsheet program:
-			<img src="/img/spreadsheet.png?[% timestamp %]" alt="Screenshot: LibreOffice" class="img-fluid rounded">
-		</p>
-	</div>
-	<div class="col-xl-6">
-		<p>
-			Imported SQL export in DB Browser for SQLite:
-			<img src="/img/dbbrowser.png?[% timestamp %]" alt="Screenshot: DB Browser for SQLite" class="img-fluid rounded">
-		</p>
-	</div>
-</div>
-
-<p>With the SQL export you can also do great queries using the command line (CLI).</p>
-<p>Command line:</p>
-<pre class="bg-light"><code><span class="text-muted"># Download SQL export</span>
-curl -O [% site.url %]/machine-types-regions.sql.gz
-<span class="text-muted"># Decompress SQL export</span>
-gzip -d machine-types-regions.sql.gz
-<span class="text-muted"># Import SQL dump</span>
-sqlite3 gce.db &lt; machine-types-regions.sql
-<span class="text-muted"># SQL query</span>
-sqlite3 gce.db <span class="text-primary">&#39;SELECT name, vCpus, hour FROM instances WHERE vCpus &gt;= 8 AND region LIKE &quot;europe-west4&quot; ORDER BY hour ASC LIMIT 5&#39;</span></code></pre>
-
-<p>Example SQL output:</p>
-<pre class="bg-light"><code>e2-highcpu-8|8.0|0.21785232
-n2d-highcpu-8|8.0|0.274688
-e2-standard-8|8.0|0.29508816
-n1-highcpu-8|8.0|0.3119968
-n2-highcpu-8|8.0|0.315728</code></pre>
-
 <h2>Resources of the Information</h2>
 
 <p>The information was obtained from the following different Google websites:</p>
@@ -260,13 +218,5 @@ n2-highcpu-8|8.0|0.315728</code></pre>
 </ul>
 </div> <!-- // col -->
 </div> <!-- // row -->
-
-<h2>Open Source</h2>
-
-<p>
-	Everything you see here is published as open source software and licensed under the Apache License (version 2.0).
-	You can find the source code on <a href="[% site.github.repo %]">GitHub</a>.
-	Any improvements and pull requests are welcome.
-</p>
 
 [% PROCESS footer.tt2 %]

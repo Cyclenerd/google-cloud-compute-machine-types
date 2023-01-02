@@ -78,8 +78,6 @@ my $template = Template->new(
 	VARIABLES => {
 		'gmttime'          => $gmttime,
 		'timestamp'        => $timestamp,
-		'csvFileSize'      => $filesize_csv_export,
-		'sqlFileSize'      => $filesize_sql_export,
 		'gitHubServerUrl'  => $ENV{'GITHUB_SERVER_URL'} || '',
 		'gitHubRepository' => $ENV{'GITHUB_REPOSITORY'} || '',
 		'gitHubRunId'      => $ENV{'GITHUB_RUN_ID'}     || '',
@@ -664,6 +662,12 @@ $json    = decode('UTF-8', $json); # force UTF-8
 $template->process('main.js',                 {},                  '../site/main.js')                 || die "Template process failed: ", $template->error(), "\n";
 $template->process('grid.tt2',                {},                  '../site/grid.html')               || die "Template process failed: ", $template->error(), "\n";
 $template->process('instance_in_region.json', { 'json' => $json }, '../site/instance_in_region.json') || die "Template process failed: ", $template->error(), "\n";
+
+# Download
+$template->process('download.tt2', {
+	'csvFileSize'      => $filesize_csv_export,
+	'sqlFileSize'      => $filesize_sql_export,
+}, '../site/download.html') || die "Template process failed: ", $template->error(), "\n";
 
 # Imprint
 $template->process('imprint.tt2', {}, '../site/imprint.html') || die "Template process failed: ", $template->error(), "\n";

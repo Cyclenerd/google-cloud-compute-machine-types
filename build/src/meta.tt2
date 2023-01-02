@@ -367,6 +367,12 @@
 <meta property="og:description"  content="Overview of available operating system images in Google Cloud Platform. Breakdown per operating system developer.">
 <meta property="og:url"          content="[% site.url %]/images.html">
 
+[%- ELSIF template.name == 'download.tt2' -%]
+<title>Download Google Compute Engine Machine Types</title>
+<meta name="description"         content="Download all Google Compute Engine machine types available in Google Cloud Platform as CSV and SQL export.">
+<meta name="robots"              content="index, follow">
+<link rel="canonical"            href="[% site.url %]/download.html">
+
 [%- ELSIF template.name == 'imprint.tt2'-%]
 <title>Imprint - gcloud-compute.com</title>
 <meta name="robots" content="noindex, nofollow">

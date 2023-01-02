@@ -38,11 +38,11 @@
 			<div class="text-end">
 				<div class="d-none d-lg-block">
 					<a class="btn btn-success" href="/grid.html" role="button">✅ Instance Picker</a>
-					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#downloadModal">💾 Download</button>
+					<a class="btn btn-primary" href="/download.html" role="button">💾 Download</a>
 				</div>
 				<div class="d-lg-none">
 					<a class="btn btn-success" href="/grid.html" role="button">✅</a>
-					<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#downloadModal">💾</button>
+					<a class="btn btn-primary" href="/download.html" role="button">💾</a>
 				</div>
 			</div>
 		</div>
@@ -54,7 +54,7 @@
 <div class="col">
 <ul class="nav nav-tabs">
 	<li class="nav-item">
-		<a [% IF template.name == 'index.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/">👋</a>
+		<a [% IF template.name == 'index.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/">👋 Hi</a>
 	</li>
 	<li class="nav-item">
 		<a [%- IF
