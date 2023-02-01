@@ -27,7 +27,7 @@ Not every certified Google Cloud VM is available in every region.
 		<th scope="col" colspan="6">Machine Type</th>
 		<th scope="col">Regions</th>
 		<th scope="col" colspan="4">Costs (Avg. Region)</th>
-		<th scope="col" colspan="3">OS</th>
+		<th scope="col" colspan="2">OS with 3Y CUD</th>
 	</tr>
 	<tr>
 		<th scope="col" data-sortable="true">Name</th>
@@ -44,7 +44,6 @@ Not every certified Google Cloud VM is available in every region.
 		<th scope="col">3Y CUD</th>
 		<!-- OS -->
 		<th scope="col">SLES for SAP</th>
-		<th scope="col">SLES for SAP 3Y CUD</th>
 		<th scope="col">RHEL for SAP</th>
 	</tr>
 </thead>
@@ -67,9 +66,8 @@ Not every certified Google Cloud VM is available in every region.
 		<td class="currency" title="[% instance.name %] avg. per month w. 1Y CUD: [% instance.avgMonth1yCud %] USD">[% instance.avgMonth1yCud %]</td>
 		<td class="currency" title="[% instance.name %] avg. per month w. 3Y CUD: [% instance.avgMonth3yCud %] USD">[% instance.avgMonth3yCud %]</td>
 		<!-- OS -->
-		<td class="currency" title="[% instance.name %] license costs for SUSE Linux Enterprise Server for SAP: [% instance.monthSlesSap %] USD">[% instance.monthSlesSap %]</td>
-		<td class="currency" title="[% instance.name %] license costs for SUSE Linux Enterprise Server for SAP w. 3Y CUD: [% instance.monthSlesSap3yCud %] USD">[% instance.monthSlesSap3yCud %]</td>
-		<td class="currency" title="[% instance.name %] license costs for Red Hat Enterprise Linux for SAP: [% instance.monthRhelSap %] USD">[% instance.monthRhelSap %]</td>
+		<td class="currency" title="[% instance.name %] license costs for SUSE Linux Enterprise Server for SAP with 3 year CUD: [% instance.monthSlesSap3yCud %] USD">[% instance.monthSlesSap3yCud %]</td>
+		<td class="currency" title="[% instance.name %] license costs for Red Hat Enterprise Linux for SAP with 3 year CUD: [% instance.monthRhelSap3yCud %] USD">[% instance.monthRhelSap3yCud %]</td>
 	</tr>
 	[% END; END; %]
 </tbody>

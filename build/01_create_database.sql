@@ -82,7 +82,11 @@ CREATE TABLE "instances" (
 	"monthSlesSap1yCud"         REAL DEFAULT '0.0',
 	"monthSlesSap3yCud"         REAL DEFAULT '0.0',
 	"monthRhel"                 REAL DEFAULT '0.0',
+	"monthRhel1yCud"            REAL DEFAULT '0.0',
+	"monthRhel3yCud"            REAL DEFAULT '0.0',
 	"monthRhelSap"              REAL DEFAULT '0.0',
+	"monthRhelSap1yCud"         REAL DEFAULT '0.0',
+	"monthRhelSap3yCud"         REAL DEFAULT '0.0',
 	"monthWindows"              REAL DEFAULT '0.0',
 	PRIMARY KEY("name", "region")
 );

@@ -121,7 +121,11 @@ SELECT
 	ROUND(monthSlesSap1yCud, 2) AS monthSlesSap1yCud,
 	ROUND(monthSlesSap3yCud, 2) AS monthSlesSap3yCud,
 	ROUND(monthRhel, 2)         AS monthRhel,
+	ROUND(monthRhel1yCud, 2)    AS monthRhel1yCud,
+	ROUND(monthRhel3yCud, 2)    AS monthRhel3yCud,
 	ROUND(monthRhelSap, 2)      AS monthRhelSap,
+	ROUND(monthRhelSap1yCud, 2) AS monthRhelSap1yCud,
+	ROUND(monthRhelSap3yCud, 2) AS monthRhelSap3yCud,
 	ROUND(monthWindows, 2)      AS monthWindows
 FROM instances I
 GROUP BY name
@@ -309,7 +313,11 @@ foreach my $region (@regions) {
 			ROUND(monthSlesSap1yCud, 2) AS monthSlesSap1yCud,
 			ROUND(monthSlesSap3yCud, 2) AS monthSlesSap3yCud,
 			ROUND(monthRhel, 2)         AS monthRhel,
+			ROUND(monthRhel1yCud, 2)    AS monthRhel1yCud,
+			ROUND(monthRhel3yCud, 2)    AS monthRhel3yCud,
 			ROUND(monthRhelSap, 2)      AS monthRhelSap,
+			ROUND(monthRhelSap1yCud, 2) AS monthRhelSap1yCud,
+			ROUND(monthRhelSap3yCud, 2) AS monthRhelSap3yCud,
 			ROUND(monthWindows, 2)      AS monthWindows
 		FROM instances
 		WHERE region LIKE '$name'
@@ -366,24 +374,28 @@ foreach my $instance (@instances) {
 	my $name = $instance->{'name'} || 'missing';
 	my $sql_instance_regions = qq ~
 		SELECT
-			region                         AS name,
-			regionLocation                 AS regionLocation,
-			regionCfe                      AS regionCfe,
-			regionCo2Kwh                   AS regionCo2Kwh,
-			regionLowCo2                   AS regionLowCo2,
-			zoneCount                      AS zoneCount,
-			availableCpuPlatformCount      AS availableCpuPlatformCount,
-			ROUND(hour, 4)                 AS hour,
-			ROUND(month, 2)                AS month,
-			ROUND(month1yCud, 2)           AS month1yCud,
-			ROUND(month3yCud, 2)           AS month3yCud,
-			ROUND(monthSles, 2)            AS monthSles,
-			ROUND(monthSlesSap, 2)         AS monthSlesSap,
-			ROUND(monthSlesSap1yCud, 2)    AS monthSlesSap1yCud,
-			ROUND(monthSlesSap3yCud, 2)    AS monthSlesSap3yCud,
-			ROUND(monthRhel, 2)            AS monthRhel,
-			ROUND(monthRhelSap, 2)         AS monthRhelSap,
-			ROUND(monthWindows, 2)         AS monthWindows
+			region                      AS name,
+			regionLocation              AS regionLocation,
+			regionCfe                   AS regionCfe,
+			regionCo2Kwh                AS regionCo2Kwh,
+			regionLowCo2                AS regionLowCo2,
+			zoneCount                   AS zoneCount,
+			availableCpuPlatformCount   AS availableCpuPlatformCount,
+			ROUND(hour, 4)              AS hour,
+			ROUND(month, 2)             AS month,
+			ROUND(month1yCud, 2)        AS month1yCud,
+			ROUND(month3yCud, 2)        AS month3yCud,
+			ROUND(monthSles, 2)         AS monthSles,
+			ROUND(monthSlesSap, 2)      AS monthSlesSap,
+			ROUND(monthSlesSap1yCud, 2) AS monthSlesSap1yCud,
+			ROUND(monthSlesSap3yCud, 2) AS monthSlesSap3yCud,
+			ROUND(monthRhel, 2)         AS monthRhel,
+			ROUND(monthRhel1yCud, 2)    AS monthRhel1yCud,
+			ROUND(monthRhel3yCud, 2)    AS monthRhel3yCud,
+			ROUND(monthRhelSap, 2)      AS monthRhelSap,
+			ROUND(monthRhelSap1yCud, 2) AS monthRhelSap1yCud,
+			ROUND(monthRhelSap3yCud, 2) AS monthRhelSap3yCud,
+			ROUND(monthWindows, 2)      AS monthWindows
 		FROM instances
 		WHERE name LIKE '$name'
 		ORDER BY hour, region;
@@ -481,17 +493,21 @@ SELECT
 	region, regionLocation, regionLocationLong, regionLocationCountryCode, regionCfe, regionCo2Kwh, regionLowCo2, regionLat, regionLng, regionPublicIpv4Addr,
 	zoneCount, zones,
 	sud,
-	ROUND(hour, 4)              AS hour,
-	ROUND(month, 2)             AS month,
-	ROUND(month1yCud, 2)        AS month1yCud,
-	ROUND(month3yCud, 2)        AS month3yCud,
-	ROUND(monthSles, 2)         AS monthSles,
-	ROUND(monthSlesSap, 2)      AS monthSlesSap,
-	ROUND(monthSlesSap1yCud, 2) AS monthSlesSap1yCud,
-	ROUND(monthSlesSap3yCud, 2) AS monthSlesSap3yCud,
-	ROUND(monthRhel, 2)         AS monthRhel,
-	ROUND(monthRhelSap, 2)      AS monthRhelSap,
-	ROUND(monthWindows, 2)      AS monthWindows,
+	ROUND(hour, 4)               AS hour,
+	ROUND(month, 2)              AS month,
+	ROUND(month1yCud, 2)         AS month1yCud,
+	ROUND(month3yCud, 2)         AS month3yCud,
+	ROUND(monthSles, 2)          AS monthSles,
+	ROUND(monthSlesSap, 2)       AS monthSlesSap,
+	ROUND(monthSlesSap1yCud, 2)  AS monthSlesSap1yCud,
+	ROUND(monthSlesSap3yCud, 2)  AS monthSlesSap3yCud,
+	ROUND(monthRhel, 2)          AS monthRhel,
+	ROUND(monthRhel1yCud, 2)     AS monthRhel1yCud,
+	ROUND(monthRhel3yCud, 2)     AS monthRhel3yCud,
+	ROUND(monthRhelSap, 2)       AS monthRhelSap,
+	ROUND(monthRhelSap1yCud, 2)  AS monthRhelSap1yCud,
+	ROUND(monthRhelSap3yCud, 2)  AS monthRhelSap3yCud,
+	ROUND(monthWindows, 2)       AS monthWindows,
 	ROUND(coremarkScore/hour, 0) AS coremarkHour,
 	ROUND(saps/hour, 0)          AS sapsHour
 FROM instances

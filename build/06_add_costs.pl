@@ -58,7 +58,11 @@ foreach my $machine (keys %{ $gcp->{'compute'}->{'instance'} }) {
 	my $slesSap1y = $gcp->{'compute'}->{'license'}->{$machine}->{'cost'}->{'sles-sap'}->{'month_1y'} || $slesSap;
 	my $slesSap3y = $gcp->{'compute'}->{'license'}->{$machine}->{'cost'}->{'sles-sap'}->{'month_3y'} || $slesSap;
 	my $rhel      = $gcp->{'compute'}->{'license'}->{$machine}->{'cost'}->{'rhel'}->{'month'};
+	my $rhel1y    = $gcp->{'compute'}->{'license'}->{$machine}->{'cost'}->{'rhel'}->{'month_1y'} || $rhel;
+	my $rhel3y    = $gcp->{'compute'}->{'license'}->{$machine}->{'cost'}->{'rhel'}->{'month_3y'} || $rhel;
 	my $rhelSap   = $gcp->{'compute'}->{'license'}->{$machine}->{'cost'}->{'rhel-sap'}->{'month'};
+	my $rhelSap1y = $gcp->{'compute'}->{'license'}->{$machine}->{'cost'}->{'rhel-sap'}->{'month_1y'} || $rhelSap;
+	my $rhelSap3y = $gcp->{'compute'}->{'license'}->{$machine}->{'cost'}->{'rhel-sap'}->{'month_3y'} || $rhelSap;
 	my $windows   = $gcp->{'compute'}->{'license'}->{$machine}->{'cost'}->{'windows'}->{'month'};
 	foreach my $region (keys %{ $gcp->{'compute'}->{'instance'}->{$machine}->{'cost'} }) {
 		print "\t$region\n";
@@ -78,7 +82,11 @@ foreach my $machine (keys %{ $gcp->{'compute'}->{'instance'} }) {
 			monthSlesSap1yCud = '$slesSap1y',
 			monthSlesSap3yCud = '$slesSap3y',
 			monthRhel         = '$rhel',
+			monthRhel1yCud    = '$rhel1y',
+			monthRhel3yCud    = '$rhel3y',
 			monthRhelSap      = '$rhelSap',
+			monthRhelSap1yCud = '$rhelSap1y',
+			monthRhelSap3yCud = '$rhelSap3y',
 			monthWindows      = '$windows'
 		WHERE name LIKE '$machine' AND region LIKE '$region'
 		~;

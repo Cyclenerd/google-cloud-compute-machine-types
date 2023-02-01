@@ -247,34 +247,45 @@ function copy[% instance.name.remove('-') %]() {
 <h2>Operating System Licenses Costs for [% instance.name %]</h2>
 <p>Monthly costs for paid <i>premium</i> operating system licenses for Google Compute Engine machine type [% instance.name %].</p>
 <div class="table-responsive">
-<table class="table table-hover table-striped table-bordered">
+<table class="table table-sm table-hover table-striped table-bordered">
+<thead>
+	<tr>
+		<th scope="col">Operating System</th>
+		<th scope="col">Month</th>
+		<th scope="col">1Y CUD</th>
+		<th scope="col">3Y CUD</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th>Microsoft Windows Server</th>
+		<td class="currency">[% instance.monthWindows %]</td>
+		<td></td>
+		<td></td>
+	</tr>
 	<tr>
 		<th>SUSE Linux Enterprise Server</th>
 		<td class="currency">[% instance.monthSles %]</td>
+		<td></td>
+		<td></td>
 	</tr>
 	<tr>
 		<th>Red Hat Enterprise Linux</th>
 		<td class="currency">[% instance.monthRhel %]</td>
-	</tr>
-	<tr>
-		<th>Microsoft Windows Server</th>
-		<td class="currency">[% instance.monthWindows %]</td>
+		<td class="currency">[% instance.monthRhel1yCud %]</td>
+		<td class="currency">[% instance.monthRhel3yCud %]</td>
 	</tr>
 	<tr>
 		<th>SUSE Linux Enterprise Server for SAP</th>
 		<td class="currency">[% instance.monthSlesSap %]</td>
-	</tr>
-	<tr>
-		<th>SUSE Linux Enterprise Server for SAP w. 1 year CUD</th>
 		<td class="currency">[% instance.monthSlesSap1yCud %]</td>
-	</tr>
-	<tr>
-		<th>SUSE Linux Enterprise Server for SAP w. 3 year CUD</th>
 		<td class="currency">[% instance.monthSlesSap3yCud %]</td>
 	</tr>
 	<tr>
 		<th>Red Hat Enterprise Linux for SAP</th>
 		<td class="currency">[% instance.monthRhelSap %]</td>
+		<td class="currency">[% instance.monthRhelSap1yCud %]</td>
+		<td class="currency">[% instance.monthRhelSap3yCud %]</td>
 	</tr>
 </table>
 </div><!-- table-responsive -->

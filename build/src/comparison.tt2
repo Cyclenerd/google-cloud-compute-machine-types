@@ -256,6 +256,12 @@
 </thead>
 <tbody>
 	<tr>
+		<th>Microsoft Windows Server</th>
+		<td class="currency table-active">[% instance_a.monthWindows %]</td>
+		[% tableCompareCosts(instance_a.monthWindows || 0, instance_b.monthWindows || 0) %]
+		<td class="currency">[% instance_b.monthWindows %]</td>
+	</tr>
+	<tr>
 		<th>SUSE Linux Enterprise Server</th>
 		<td class="currency table-active">[% instance_a.monthSles %]</td>
 		[% tableCompareCosts(instance_a.monthSles || 0, instance_b.monthSles || 0) %]
@@ -268,10 +274,16 @@
 		<td class="currency">[% instance_b.monthRhel %]</td>
 	</tr>
 	<tr>
-		<th>Microsoft Windows Server</th>
-		<td class="currency table-active">[% instance_a.monthWindows %]</td>
-		[% tableCompareCosts(instance_a.monthWindows || 0, instance_b.monthWindows || 0) %]
-		<td class="currency">[% instance_b.monthWindows %]</td>
+		<th>Red Hat Enterprise Linux w. 1 year CUD</th>
+		<td class="currency table-active">[% instance_a.monthRhel1yCud %]</td>
+		[% tableCompareCosts(instance_a.monthRhel1yCud || 0, instance_b.monthRhel1yCud || 0) %]
+		<td class="currency">[% instance_b.monthRhel1yCud %]</td>
+	</tr>
+	<tr>
+		<th>Red Hat Enterprise Linux w. 3 year CUD</th>
+		<td class="currency table-active">[% instance_a.monthRhel3yCud %]</td>
+		[% tableCompareCosts(instance_a.monthRhel3yCud || 0, instance_b.monthRhel3yCud || 0) %]
+		<td class="currency">[% instance_b.monthRhel3yCud %]</td>
 	</tr>
 	<tr>
 		<th>SUSE Linux Enterprise Server for SAP</th>
@@ -296,6 +308,18 @@
 		<td class="currency table-active">[% instance_a.monthRhelSap %]</td>
 		[% tableCompareCosts(instance_a.monthRhelSap || 0, instance_b.monthRhelSap || 0) %]
 		<td class="currency">[% instance_b.monthRhelSap %]</td>
+	</tr>
+	<tr>
+		<th>Red Hat Enterprise Linux for SAP w. 1 year CUD</th>
+		<td class="currency table-active">[% instance_a.monthRhelSap1yCud %]</td>
+		[% tableCompareCosts(instance_a.monthRhelSap1yCud || 0, instance_b.monthRhelSap1yCud || 0) %]
+		<td class="currency">[% instance_b.monthRhelSap1yCud %]</td>
+	</tr>
+	<tr>
+		<th>Red Hat Enterprise Linux for SAP w. 3 year CUD</th>
+		<td class="currency table-active">[% instance_a.monthRhelSap3yCud %]</td>
+		[% tableCompareCosts(instance_a.monthRhelSap3yCud || 0, instance_b.monthRhelSap3yCud || 0) %]
+		<td class="currency">[% instance_b.monthRhelSap3yCud %]</td>
 	</tr>
 </tbody>
 </table>
