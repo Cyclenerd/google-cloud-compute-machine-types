@@ -2,6 +2,7 @@
  * Delete not yet official 100% released machine types
  */
 
+DELETE FROM machinetypes WHERE name LIKE 'c3-highcpu-%';
 
 /* 
  * Delete not yet official 100% finished regions
