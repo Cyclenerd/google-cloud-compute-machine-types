@@ -117,9 +117,8 @@ const gridOptions = {
 				{
 					headerName: 'Name',
 					field: "region",
-					columnGroupShow: 'close',
 					tooltipField: 'region',
-					width: 180,
+					width: 120,
 				},
 				{
 					headerName: 'Location',
@@ -182,7 +181,6 @@ const gridOptions = {
 				{
 					headerName: '#Zones',
 					field: "zoneCount",
-					columnGroupShow: 'close',
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
 					cellClass: params => {
@@ -209,7 +207,6 @@ const gridOptions = {
 				{ 
 					headerName: 'vCPU',
 					field: "vCpus",
-					columnGroupShow: 'close',
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
 					cellClass: params => {
@@ -221,7 +218,6 @@ const gridOptions = {
 				{ 
 					headerName: 'Base Frequency',
 					field: "cpuBaseClock",
-					columnGroupShow: 'close',
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
 					headerTooltip: 'CPU base clock frequency',
@@ -333,9 +329,9 @@ const gridOptions = {
 		{
 			headerName: 'Benchmark',
 			children: [
-				{ headerName: 'CoreMark', field: "coremarkScore",     columnGroupShow: 'close', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'EEMBC CoreMark Benchmark (please see www.eembc.org/coremark)', width: 120 },
-				{ headerName: 'StdDev%',  field: "standardDeviation", columnGroupShow: 'open',  filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'EEMBC CoreMark Standard Deviation (%)', width: 120 },
-				{ headerName: '#Samples', field: "sampleCount",       columnGroupShow: 'open',  filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'EEMBC CoreMark Sample Count', width: 120 },
+				{ headerName: 'CoreMark', field: "coremarkScore",                                filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'EEMBC CoreMark Benchmark (please see www.eembc.org/coremark)', width: 120 },
+				{ headerName: 'StdDev%',  field: "standardDeviation", columnGroupShow: 'open',   filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'EEMBC CoreMark Standard Deviation (%)', width: 120 },
+				{ headerName: '#Samples', field: "sampleCount",       columnGroupShow: 'open',   filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'EEMBC CoreMark Sample Count', width: 120 },
 			]
 		},
 		{
@@ -355,8 +351,8 @@ const gridOptions = {
 		{
 			headerName: 'Network',
 			children: [
-				{ headerName: 'Bandwidth', field: "bandwidth", cellClass: 'bandwidth', columnGroupShow: 'close', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'Maximum egress bandwidth (Gbps) cannot exceed the number given', width: 120, },
-				{ headerName: 'Tier 1',    field: "tier1",     cellClass: 'bandwidth', columnGroupShow: 'open',  filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'High-bandwidth (Gbps) networking for larger machine types', width: 120 },
+				{ headerName: 'Bandwidth', field: "bandwidth", cellClass: 'bandwidth',                            filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'Maximum egress bandwidth (Gbps) cannot exceed the number given', width: 120, },
+				{ headerName: 'Tier 1',    field: "tier1",     cellClass: 'bandwidth', columnGroupShow: 'open',   filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'High-bandwidth (Gbps) networking for larger machine types', width: 120 },
 			]
 		},
 		{
@@ -364,9 +360,7 @@ const gridOptions = {
 			children: [
 				{
 					headerName: 'Disk Size',
-					field: "diskSizeTiB",
-					columnGroupShow: 'close',
-					cellClass: 'diskSize',
+					field: "diskSizeTiB",					cellClass: 'diskSize',
 					width: 100,
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
@@ -402,14 +396,13 @@ const gridOptions = {
 					cellClass: 'currency',
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
-					columnGroupShow: 'close',
 					// Default sorting on the hour column
 					sort: 'asc',
 					headerTooltip: 'Costs per hour'
 				},
-				{ headerName: 'Month',                  field: 'month',             width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'close', headerTooltip: 'Costs per month' },
-				{ headerName: '1Y CUD',                 field: "month1yCud",        width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Costs per month with 1 year commitment (CUD)' },
-				{ headerName: '3Y CUD',                 field: "month3yCud",        width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Costs per month with 3 year commitment (CUD)' },
+				{ headerName: 'Month',                  field: 'month',             width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber,                            headerTooltip: 'Costs per month' },
+				{ headerName: '1Y CUD',                 field: "month1yCud",        width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',   headerTooltip: 'Costs per month with 1 year commitment (CUD)' },
+				{ headerName: '3Y CUD',                 field: "month3yCud",        width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',   headerTooltip: 'Costs per month with 3 year commitment (CUD)' },
 				{
 					headerName: 'CoreMark/$h',
 					field: "coremarkHour",
@@ -451,7 +444,6 @@ const gridOptions = {
 					cellClass: 'currency',
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
-					columnGroupShow: 'close',
 					headerTooltip: 'SUSE Linux Enterprise Server (cost per month)'
 				},
 				{ headerName: 'RHEL',                   field: 'monthRhel',         width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Red Hat Enterprise Linux (cost per month)' },
@@ -474,7 +466,6 @@ const gridOptions = {
 				{
 					headerName: 'SAP',
 					field: "sap",
-					columnGroupShow: 'close',
 					filterParams: filterParamsBoolean,
 					valueFormatter: booleanFormatter,
 					width: 90,
@@ -505,8 +496,8 @@ const gridOptions = {
 			// groupId is used in setColumnGroupState for inital filter
 			headerName: 'More...',
 			children: [
-				{ headerName: 'Family',         field: "family",          columnGroupShow: 'close', width: 180, tooltipField: 'family', headerTooltip: 'A curated set of processor and hardware configurations optimized for specific workloads' },
-				{ headerName: 'Series',         field: "series",          columnGroupShow: 'open',  width: 110, headerTooltip: 'Machine families are further classified by series and generation'},
+				{ headerName: 'Family',         field: "family",                                   width: 180, tooltipField: 'family', headerTooltip: 'A curated set of processor and hardware configurations optimized for specific workloads' },
+				{ headerName: 'Series',         field: "series",          columnGroupShow: 'open', width: 110, headerTooltip: 'Machine families are further classified by series and generation'},
 				{ headerName: 'GPUs',           field: "acceleratorCount",columnGroupShow: 'open', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, width: 100 },
 				{ headerName: 'GPU Type',       field: "acceleratorType", columnGroupShow: 'open' },
 				{

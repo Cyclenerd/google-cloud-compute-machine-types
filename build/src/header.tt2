@@ -5,15 +5,6 @@
 	PROCESS meta.tt2;
 	PROCESS favicon.tt2;
 %]
-<link rel="preload" href="[% site.bootstrap.css %]" as="style">
-<link rel="preload" href="[% site.bootstrapTable.css %]" as="style">
-<link rel="preload" href="[% site.bootstrapTableStickyHeader.css %]" as="style">
-<link rel="preload" href="[% site.bootstrap.js %]" as="script">
-<link rel="preload" href="[% site.jQuery.js %]" as="script">
-<link rel="preload" href="[% site.bootstrapTable.js %]" as="script">
-<link rel="preload" href="[% site.bootstrapTableStickyHeader.js %]" as="script">
-<link rel="preload" href="[% site.agCharts.js %]" as="script">
-
 <link rel="stylesheet" href="[% site.bootstrap.css %]">
 <link rel="stylesheet" href="[% site.bootstrapTable.css %]">
 <link rel="stylesheet" href="[% site.bootstrapTableStickyHeader.css %]">

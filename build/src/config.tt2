@@ -8,31 +8,43 @@ site = {
 		issues => 'https://github.com/Cyclenerd/google-cloud-compute-machine-types/issues',
 	},
 	agGrid = {
-		css   => 'https://unpkg.com/ag-grid-community@28.2.1/dist/styles/ag-grid.css',
-		theme => 'https://unpkg.com/ag-grid-community@28.2.1/dist/styles/ag-theme-balham.css'
-		js    => 'https://unpkg.com/ag-grid-community@28.2.1/dist/ag-grid-community.min.noStyle.js',
+		css   => 'https://cdn.jsdelivr.net/npm/ag-grid-community@29.0.0/styles/ag-grid.min.css'
+		#css   => 'https://unpkg.com/ag-grid-community@28.2.1/dist/styles/ag-grid.css',
+		theme  => 'https://cdn.jsdelivr.net/npm/ag-grid-community@29.0.0/styles/ag-theme-balham.min.css'
+		#theme => 'https://unpkg.com/ag-grid-community@28.2.1/dist/styles/ag-theme-balham.css'
+		js     => 'https://cdn.jsdelivr.net/npm/ag-grid-community@29.0.0/dist/ag-grid-community.min.noStyle.js'
+		#js    => 'https://unpkg.com/ag-grid-community@28.2.1/dist/ag-grid-community.min.noStyle.js',
 	},
 	agCharts = {
 		js => 'https://unpkg.com/ag-charts-community@6.2.1/dist/ag-charts-community.min.js'
 	}
 	jQuery = {
-		js => 'https://unpkg.com/jquery@3.6.3/dist/jquery.js'
+		js  => 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js'
+		#js => 'https://unpkg.com/jquery@3.6.3/dist/jquery.js'
 	},
 	bootstrap = {
-		css => 'https://unpkg.com/bootstrap@5.2.3/dist/css/bootstrap.min.css',
-		js  => 'https://unpkg.com/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js',
+		css  => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css'
+		#css => 'https://unpkg.com/bootstrap@5.2.3/dist/css/bootstrap.min.css',
+		js   => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js'
+		#js  => 'https://unpkg.com/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js',
 	},
 	bootstrapTable = {
-		css => 'https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css',
-		js  => 'https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js',
+		css  => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.21.2/bootstrap-table.min.css'
+		#css => 'https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.css',
+		js   => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.21.2/bootstrap-table.min.js'
+		#js  => 'https://unpkg.com/bootstrap-table@1.21.2/dist/bootstrap-table.min.js',
 	},
 	bootstrapTableStickyHeader = {
-		css => 'https://unpkg.com/bootstrap-table@1.21.2/dist/extensions/sticky-header/bootstrap-table-sticky-header.css',
-		js  => 'https://unpkg.com/bootstrap-table@1.21.2/dist/extensions/sticky-header/bootstrap-table-sticky-header.min.js',
+		css  => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.21.2/extensions/sticky-header/bootstrap-table-sticky-header.min.css'
+		#css => 'https://unpkg.com/bootstrap-table@1.21.2/dist/extensions/sticky-header/bootstrap-table-sticky-header.css',
+		js   => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.21.2/extensions/sticky-header/bootstrap-table-sticky-header.min.js'
+		#js  => 'https://unpkg.com/bootstrap-table@1.21.2/dist/extensions/sticky-header/bootstrap-table-sticky-header.min.js',
 	},
 	leaflet = {
-		css => 'https://unpkg.com/leaflet@1.9.3/dist/leaflet.css',
-		js  => 'https://unpkg.com/leaflet@1.9.3/dist/leaflet.js',
+		css  => 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.min.css'
+		#css => 'https://unpkg.com/leaflet@1.9.3/dist/leaflet.css',
+		js   => 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.3/leaflet.min.js'
+		#js  => 'https://unpkg.com/leaflet@1.9.3/dist/leaflet.js',
 	},
 };
 PROCESS macros.tt2;
