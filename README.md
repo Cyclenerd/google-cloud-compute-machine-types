@@ -48,7 +48,7 @@ you need the following requirements.
 * [Roboto Font](https://fonts.google.com/specimen/Roboto) (for Open Graph images)
 
 <details>
-<summary>Debian/Ubuntu</summary>
+<summary><b>Debian/Ubuntu</b></summary>
 
 Packages:
 ```shell
@@ -82,7 +82,7 @@ sudo apt-get install google-cloud-cli
 </details>
 
 <details>
-<summary>macOS</summary>
+<summary><b>macOS</b></summary>
 
 Homebrew packages:
 ```shell
