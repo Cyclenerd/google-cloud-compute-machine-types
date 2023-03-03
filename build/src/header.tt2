@@ -41,7 +41,26 @@
 </header>
 <main>
 <div class="container-fluid">
-<div class="row mt-2">
+
+<div class="alert alert-primary alert-dismissible mt-2" role="alert" id="please-star-on-github">
+	If you like this webapp, please give it a <a href="https://github.com/Cyclenerd/google-cloud-compute-machine-types" target="_blank">star on GitHub</a>! ⭐
+	<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" tabindex="-1"></button>
+</div>
+<script>
+	var myGitHubAlert = document.getElementById('please-star-on-github');
+	let cookie = decodeURIComponent(document.cookie); // Get cookie
+	if (cookie.search('hideGitHubAlert') >= 0) {
+		myGitHubAlert.classList.add("visually-hidden");
+	}
+	myGitHubAlert.addEventListener('closed.bs.alert', function () {
+		const d = new Date();
+		d.setTime(d.getTime() + (30*24*60*60*1000)); // 30 day
+		document.cookie = "hideGitHubAlert=true;expires="+d.toUTCString()+";SameSite=Strict;Secure";
+		console.log('GitHub alert closed');
+	})
+</script>
+
+<div class="row mt-2 mb-2">
 <div class="col">
 <ul class="nav nav-tabs">
 	<li class="nav-item">
@@ -87,3 +106,4 @@
 </ul>
 </div> <!-- // col -->
 </div> <!-- // row -->
+
