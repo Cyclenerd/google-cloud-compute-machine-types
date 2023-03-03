@@ -36,11 +36,6 @@ jobs:
           gcloud auth activate-service-account --key-file="/tmp/service_account_key.json" && \
           gcloud config set project "$GOOGLE_CLOUD_PROJECT_ID"
 
-      - name: Download pricing
-        run: |
-          cd build || exit 9
-          curl -OL "https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator/raw/master/pricing.yml" || exit 9
-
       - name: Run build script
         run: |
           cd build || exit 9

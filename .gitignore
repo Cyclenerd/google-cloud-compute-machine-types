@@ -3,6 +3,7 @@
 /build/*.csv
 /build/*.gz
 /build/*.json
+/build/*.yml
 /build/*.conf
 /build/*.db
 /build/*.db-journal

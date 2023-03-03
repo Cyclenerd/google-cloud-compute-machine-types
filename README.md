@@ -47,13 +47,13 @@ you need the following requirements.
 	* [plackup](https://metacpan.org/dist/Plack/view/script/plackup)
 * [Roboto Font](https://fonts.google.com/specimen/Roboto) (for Open Graph images)
 
-Debian/Ubuntu:
+<details>
+<summary>Debian/Ubuntu</summary>
+
+Packages:
 ```shell
 sudo apt update
 sudo apt install \
-	apt-transport-https \
-	ca-certificates \
-	gnupg \
 	sqlite3 \
 	libparallel-forkmanager-perl \
 	libapp-options-perl \
@@ -79,6 +79,26 @@ curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo tee /usr/share
 sudo apt-get update
 sudo apt-get install google-cloud-cli
 ```
+</details>
+
+<details>
+<summary>macOS</summary>
+
+Homebrew packages:
+```shell
+brew install perl
+brew install cpanminus pkg-config
+brew install sqlite3
+brew install gd
+brew install --cask google-cloud-sdk
+```
+
+
+Perl modules:
+```shell
+cpanm --installdeps .
+```
+</details>
 
 Build:
 ```shell
