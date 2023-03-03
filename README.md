@@ -110,7 +110,7 @@ perl site.pl
 Run:
 ```shell
 cd ../
-plackup
+plackup --host 127.0.0.1
 ```
 
 ## ❤️ Contributing
