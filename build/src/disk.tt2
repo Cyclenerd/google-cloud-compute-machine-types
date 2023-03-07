@@ -45,10 +45,17 @@ IF disk.name == 'local-ssd';  minDiskSize = 375; END;
 		<td>[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td [% IF region.zoneCount < 1%]class="table-danger"[% END%] title="Available [% region.zoneCount %] zone[% IF region.zoneCount > 1 %]s[% END %] in region [% region.name %]">[% IF region.zoneCount %][% region.zoneCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<!-- Costs -->
+		[% IF region.monthGb %]
 		<td title="Costs for 1 GB [% disk.name %] per month: [% region.monthGb %] USD" class="currency">[% region.monthGb %]</td>
 		<td title="Costs for 10 GB [% disk.name %] per month: [% region.monthGb %] USD" class="currency">[% region.monthGb*10   FILTER format("%.2f") %]</td>
 		<td title="Costs for 375 GB [% disk.name %] per month: [% region.monthGb %] USD" class="currency">[% region.monthGb*375 FILTER format("%.2f") %]</td>
 		<td title="Costs for 500 GB [% disk.name %] per month: [% region.monthGb %] USD" class="currency">[% region.monthGb*500 FILTER format("%.2f") %]</td>
+		[% ELSE %]
+		<td>???</td>
+		<td>???</td>
+		<td>???</td>
+		<td>???</td>
+		[% END %]
 	</tr>
 	[% END %]
 </tbody>

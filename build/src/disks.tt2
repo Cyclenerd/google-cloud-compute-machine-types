@@ -46,9 +46,15 @@ IF disk.name == 'local-ssd';  minDiskSize = 375; END;
 	<td>[% disk.description %]</td>
 	[% IF minDiskSize %]<td [% IF minDiskSize > 400 %]class="table-danger"[% ELSIF minDiskSize > 300 %]class="table-warning"[% END %]>[% minDiskSize %] GB</td>[% ELSE %]<td>???</td>[% END %]
 	<td>[% disk.regionCount %]</td>
+	[% IF disk.avgMonth %]
 	<td title="Avg. costs for 1 GB [% disk.name %] per month: [% disk.avgMonth %] USD" class="currency">[% disk.avgMonth %]</td>
 	<td title="Avg. costs for 10 GB [% disk.name %] per month: [% disk.avgMonth %] USD" class="currency">[% disk.avgMonth*10  FILTER format("%.2f") %]</td>
 	<td title="Avg. costs for 500 GB [% disk.name %] per month: [% disk.avgMonth %] USD" class="currency">[% disk.avgMonth*500 FILTER format("%.2f") %]</td>
+	[% ELSE %]
+	<td>???</td>
+	<td>???</td>
+	<td>???</td>
+	[% END %]
 </tr>
 [%- END -%]
 </tbody>

@@ -56,15 +56,15 @@
 	</tr>
 	<tr>
 		<th>CPU Base Frequency</th>
-		<td>[% instance.cpuBaseClock %] GHz</td>
+		<td>[% IF instance.cpuBaseClock > 0 %][% instance.cpuBaseClock %] GHz[% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 	</tr>
 	<tr>
 		<th>CPU Turbo Frequency</th>
-		<td>[% instance.cpuTurboClock %] GHz</td>
+		<td>[% IF instance.cpuTurboClock > 0 %][% instance.cpuTurboClock %] GHz[% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 	</tr>
 	<tr>
 		<th>CPU Max. Turbo Frequency</th>
-		<td>[% instance.cpuSingleMaxTurboClock %] GHz</td>
+		<td>[% IF instance.cpuSingleMaxTurboClock > 0 %][% instance.cpuSingleMaxTurboClock %] GHz[% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 	</tr>
 	[% IF instance.acceleratorCount %]
 	<tr>
