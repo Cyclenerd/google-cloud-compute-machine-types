@@ -102,11 +102,13 @@ print "\nDisks\n";
 
 # gcosts -> gcloud disk-types name mapping
 my %storage_types = (
-	'local'    => 'local-ssd',
-	'balanced' => 'pd-balanced',
-	'extreme'  => 'pd-extreme',
-	'ssd'      => 'pd-ssd',
-	'hdd'      => 'pd-standard',
+	'local'             => 'local-ssd',
+	'balanced'          => 'pd-balanced',
+	'extreme'           => 'pd-extreme',
+	'ssd'               => 'pd-ssd',
+	'hdd'               => 'pd-standard',
+	'hdd'               => 'pd-standard',
+	'hyperdisk-extreme' => 'hyperdisk-extreme',
 );
 foreach my $storage_type (keys %storage_types) {
 	my $disk_type = $storage_types{$storage_type};
