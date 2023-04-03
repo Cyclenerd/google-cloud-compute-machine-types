@@ -8,8 +8,11 @@ DELETE FROM machinetypes WHERE name LIKE 'g2-standard-%';
  * Delete not yet official 100% finished regions
  */
 
+/*
 DELETE FROM machinetypes WHERE zone LIKE 'me-central1-%';
 DELETE FROM disktypes    WHERE zone LIKE 'me-central1-%';
+*/
+
 /*
  * Remove disconnected data centers
  */
