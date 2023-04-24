@@ -30,6 +30,13 @@ UPDATE instances SET coremarkScore = '538530', standardDeviation = '0.56 ', samp
 UPDATE instances SET coremarkScore = '806668', standardDeviation = '1.07 ', sampleCount = '1080' WHERE name LIKE 'n2-highcpu-48';
 UPDATE instances SET coremarkScore = '1070807', standardDeviation = '0.87 ', sampleCount = '940' WHERE name LIKE 'n2-highcpu-64';
 UPDATE instances SET coremarkScore = '1329120', standardDeviation = '1.66 ', sampleCount = '992' WHERE name LIKE 'n2-highcpu-80';
+UPDATE instances SET coremarkScore = '23261', standardDeviation = '0.26 ', sampleCount = '104' WHERE name LIKE 't2a-standard-1';
+UPDATE instances SET coremarkScore = '46385', standardDeviation = '0.28 ', sampleCount = '104' WHERE name LIKE 't2a-standard-2';
+UPDATE instances SET coremarkScore = '92973', standardDeviation = '0.33 ', sampleCount = '104' WHERE name LIKE 't2a-standard-4';
+UPDATE instances SET coremarkScore = '185998', standardDeviation = '0.24 ', sampleCount = '104' WHERE name LIKE 't2a-standard-8';
+UPDATE instances SET coremarkScore = '371142', standardDeviation = '0.25 ', sampleCount = '104' WHERE name LIKE 't2a-standard-16';
+UPDATE instances SET coremarkScore = '736262', standardDeviation = '0.29 ', sampleCount = '104' WHERE name LIKE 't2a-standard-32';
+UPDATE instances SET coremarkScore = '1102993', standardDeviation = '0.13 ', sampleCount = '104' WHERE name LIKE 't2a-standard-48';
 UPDATE instances SET coremarkScore = '28961', standardDeviation = '3.78 ', sampleCount = '1888' WHERE name LIKE 't2d-standard-1';
 UPDATE instances SET coremarkScore = '58601', standardDeviation = '3.64 ', sampleCount = '1888' WHERE name LIKE 't2d-standard-2';
 UPDATE instances SET coremarkScore = '118761', standardDeviation = '3.67 ', sampleCount = '1888' WHERE name LIKE 't2d-standard-4';

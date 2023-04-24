@@ -11,3 +11,4 @@
 /build/machine-types-regions.sql.gz
 /build/publicipranges.json
 /build/publicipaddresses.sql
+.~lock*

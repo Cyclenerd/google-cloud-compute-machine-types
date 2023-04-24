@@ -30,6 +30,14 @@ n2-highcpu-48 ;Ice Lake ;48;806,668 ;1.07 ;1,080
 n2-highcpu-64 ;Ice Lake ;64;1,070,807 ;0.87 ;940
 n2-highcpu-80 ;Ice Lake ;80;1,329,120 ;1.66 ;992
 ;;;;;
+t2a-standard-1 ;Ampere ;1;23,261 ;0.26 ;104
+t2a-standard-2 ;Ampere ;2;46,385 ;0.28 ;104
+t2a-standard-4 ;Ampere ;4;92,973 ;0.33 ;104
+t2a-standard-8 ;Ampere ;8;185,998 ;0.24 ;104
+t2a-standard-16 ;Ampere ;16;371,142 ;0.25 ;104
+t2a-standard-32 ;Ampere ;32;736,262 ;0.29 ;104
+t2a-standard-48 ;Ampere ;48;1,102,993 ;0.13 ;104
+;;;;;
 t2d-standard-1 ;Milan ;1;28,961 ;3.78 ;1,888
 t2d-standard-2 ;Milan ;2;58,601 ;3.64 ;1,888
 t2d-standard-4 ;Milan ;4;118,761 ;3.67 ;1,888
