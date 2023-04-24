@@ -247,6 +247,7 @@ SELECT
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Milan%")        AS amdMilan,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Altra%")        AS armAmpereAltra,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "a2")  AS a2,
+	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "g2")  AS g2,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "c2")  AS c2,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "c2d") AS c2d,
 	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "c3")  AS c3,

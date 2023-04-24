@@ -2,7 +2,9 @@
  * Delete not yet official 100% released machine types
  */
 
+/*
 DELETE FROM machinetypes WHERE name LIKE 'g2-standard-%';
+*/
 
 /* 
  * Delete not yet official 100% finished regions

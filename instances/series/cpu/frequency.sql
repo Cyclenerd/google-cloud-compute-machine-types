@@ -27,6 +27,7 @@ UPDATE instances SET cpuBaseClock  = '2.8', cpuTurboClock  = '3.4', cpuSingleMax
 UPDATE instances SET cpuBaseClock  = '3.1', cpuTurboClock  = '3.8', cpuSingleMaxTurboClock = '3.9' WHERE availableCpuPlatform LIKE "%Cascade Lake%" AND series LIKE "c2";
 UPDATE instances SET cpuBaseClock  = '2.5', cpuTurboClock  = '3.4', cpuSingleMaxTurboClock = '4.0' WHERE availableCpuPlatform LIKE "%Cascade Lake%" AND series LIKE "m2";
 UPDATE instances SET cpuBaseClock  = '2.2', cpuTurboClock  = '2.9', cpuSingleMaxTurboClock = '3.7' WHERE availableCpuPlatform LIKE "%Cascade Lake%" AND series LIKE "a2";
+UPDATE instances SET cpuBaseClock  = '2.2', cpuTurboClock  = '2.9', cpuSingleMaxTurboClock = '3.7' WHERE availableCpuPlatform LIKE "%Cascade Lake%" AND series LIKE "g2";
 
 /* Intel Xeon Scalable Processor (Ice Lake) 3rd Generation */
 UPDATE instances SET cpuBaseClock  = '2.6', cpuTurboClock  = '3.4', cpuSingleMaxTurboClock = '3.5' WHERE availableCpuPlatform LIKE "%Ice Lake%" AND series LIKE "n2";
