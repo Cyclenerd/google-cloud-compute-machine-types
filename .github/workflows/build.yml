@@ -9,6 +9,11 @@ jobs:
   website:
     name: Website
     runs-on: ubuntu-latest
+
+    # Add "id-token" for Google Authentication
+    permissions:
+      id-token: write
+
     steps:
       - name: Install dependencies
         run: |
@@ -27,17 +32,22 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Setup Google Cloud SDK
-        env:
-          GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY: ${{ secrets.GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY }}
-          GOOGLE_CLOUD_PROJECT_ID: ${{ secrets.GOOGLE_CLOUD_PROJECT_ID }}
-        run: |
-          echo "$GOOGLE_CLOUD_SERVICE_ACCOUNT_KEY" > "/tmp/service_account_key.json" && \
-          gcloud auth activate-service-account --key-file="/tmp/service_account_key.json" && \
-          gcloud config set project "$GOOGLE_CLOUD_PROJECT_ID"
+      # Configure Workload Identity Federation via a credentials file.
+      - id: auth
+        name: 🔐 Authenticate to Google Cloud
+        uses: google-github-actions/auth@v1
+        with:
+          workload_identity_provider: 'projects/187514662523/locations/global/workloadIdentityPools/github-com/providers/github-com-oidc'
+          service_account: 'gh-compute-machine-types@gcloud-compute-344913.iam.gserviceaccount.com'
+          export_environment_variables: true
+      # Install gcloud, `setup-gcloud` automatically picks up authentication from `auth`.
+      - name: '🔧 Set up Google Cloud SDK'
+        uses: 'google-github-actions/setup-gcloud@v1'
+      # Now you can run gcloud commands authenticated as the impersonated service account.
 
       - name: Run build script
         run: |
+          gcloud config set project "gcloud-compute-344913" || exit 9
           cd build || exit 9
           bash build.sh || exit 9
 
