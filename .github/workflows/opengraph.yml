@@ -52,7 +52,6 @@ jobs:
 
       - name: Run build script
         run: |
-          gcloud config set project "gcloud-compute-344913" || exit 9
           cd build || exit 9
           bash build.sh || exit 9
 
