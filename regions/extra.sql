@@ -18,3 +18,9 @@ UPDATE instances SET regionLocationLong = "Jurong West, Singapore"              
 UPDATE instances SET regionLocationLong = "Osasco, São Paulo, Brazil"                  WHERE region LIKE "southamerica-east1";
 UPDATE instances SET regionLocationLong = "Moncks Corner, South Carolina, USA"         WHERE region LIKE "us-east1";
 UPDATE instances SET regionLocationLong = "Ashburn, Northern Virginia, USA"            WHERE region LIKE "us-east4";
+
+/*
+ * europe-west9 (Paris, France) is Global Switch data center in Clichy
+ * Source: https://lafibre.info/datacenter/incendie-maitrise-globalswitch-clichy/
+ */
+UPDATE instances SET regionLat = "48.8996", regionLng = "2.2961" WHERE region LIKE "europe-west9";
