@@ -129,6 +129,9 @@ Awesome! Follow these steps to have it accepted.
 
 All files in this repository are under the [Apache License, Version 2.0](LICENSE) unless noted otherwise.
 
+Portions of this webapp are modifications based on work created and shared by [Google](https://developers.google.com/readme/policies)
+and used according to terms described in the [Creative Commons 4.0 Attribution License](https://creativecommons.org/licenses/by/4.0/).
+
 Please note:
 
 * No warranty
