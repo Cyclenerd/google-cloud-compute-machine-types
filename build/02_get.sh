@@ -105,4 +105,11 @@ gcloud compute images list \
 	--quiet \
 	--format="csv[no-heading,separator=';'](NAME,description,diskSizeGb,PROJECT,FAMILY,architecture,creationTimestamp,DEPRECATED,STATUS)" >> "$CSV_GCLOUD_IMAGES" || exit 9
 
+# High Performance Computing (HPC)
+gcloud compute images list \
+	--project cloud-hpc-image-public \
+	--filter="creationTimestamp > -P1Y" \
+	--no-standard-images \
+	--quiet \
+	--format="csv[no-heading,separator=';'](NAME,description,diskSizeGb,PROJECT,FAMILY,architecture,creationTimestamp,DEPRECATED,STATUS)" >> "$CSV_GCLOUD_IMAGES" || exit 9
 echo "DONE"

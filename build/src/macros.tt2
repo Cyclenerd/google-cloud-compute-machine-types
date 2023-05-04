@@ -107,10 +107,11 @@ title="Region: [% region.name %],
 [%- ELSIF project == 'cos-cloud'                     -%]Container-Optimized OS
 [%- ELSIF project == 'debian-cloud'                  -%]Debian GNU/Linux
 [%- ELSIF project == 'deeplearning-platform-release' -%]Deep Learning
+[%- ELSIF project == 'cloud-hpc-image-public'        -%]HPC
 [%- ELSIF project == 'fedora-cloud'                  -%]Fedora
 [%- ELSIF project == 'fedora-coreos-cloud'           -%]Fedora CoreOS
 [%- ELSIF project == 'freebsd-org-cloud-dev'         -%]FreeBSD
-[%- ELSIF project == 'ml-images'                     -%]Machine Learning (ml-images)
+[%- ELSIF project == 'ml-images'                     -%]Machine Learning
 [%- ELSIF project == 'opensuse-cloud'                -%]openSUSE
 [%- ELSIF project == 'rhel-cloud'                    -%]Red Hat Enterprise Linux
 [%- ELSIF project == 'rhel-sap-cloud'                -%]Red Hat Enterprise Linux for SAP
