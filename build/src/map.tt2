@@ -43,11 +43,23 @@ var tiles = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 	attribution: '<a href="/regions.html">☁️ gcloud-compute.com</a> | &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
 
-[% FOREACH region IN regions %]
-[%- IF region.regionLat && region.regionLng -%]
-L.marker([[% region.regionLat %], [% region.regionLng %]], {alt: '[% region.name %]'}).addTo(map).bindPopup('<a href="/[% region.name %].html">[% region.name %]</a>[% IF region.regionLocation %] ([% region.regionLocation %])[% END %]');
-[%- END -%]
-[% END %]
+[% FOREACH region IN regions; IF region.regionLat && region.regionLng %]
+L.marker(
+	[
+		[% region.regionLat %],
+		[% region.regionLng %]
+	],
+	{
+		alt: '[% region.name %]'
+	}
+).addTo(map).bindPopup(
+	'<p><strong><a href="/[% region.name %].html">[% region.name %]</a></strong></p>' +
+	'<p>' + 
+	'[% countryFlag(region.regionLocationCountryCode) %] ' +
+	"[% IF region.regionLocationLong %][% region.regionLocationLong FILTER html %][% ELSIF region.regionLocation %][% region.regionLocation FILTER html %][% END %]" +
+	'</p>'
+);
+[% END; END %]
 </script>
 
 </body>
