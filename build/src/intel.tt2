@@ -16,7 +16,8 @@ Not every GCE machine type with Intel CPU is available in every Google Cloud reg
 <div class="table-responsive">
 [%- PROCESS instances_tr.tt2; -%]
 <table
-	class="table table-hover table-bordered"
+	class="table table-sm table-hover table-bordered"
+	data-classes="table table-sm table-hover table-bordered"
 	data-toggle="table"
 	data-sort-name="vcpu"
 	data-sort-order="asc"

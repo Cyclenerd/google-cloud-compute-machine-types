@@ -2,7 +2,7 @@
 <tr>
 <th scope="col" colspan="5">Machine Type</th>
 <th scope="col">Regions</th>
-<th scope="col" colspan="4">Costs (Avg. Region)</th>
+<th scope="col" colspan="5">Costs (Avg. Region)</th>
 <th scope="col" colspan="3">OS</th>
 </tr>
 <tr>
@@ -14,6 +14,7 @@
 <th scope="col">#</th>
 <!-- Costs -->
 <th scope="col" title="Costs per hour">Hour</th>
+<th scope="col" title="Costs per Spot VM hour">Spot</th>
 <th scope="col" title="Costs per month">Month</th>
 <th scope="col" title="Costs per month with 1 year commitment (CUD)">1Y CUD</th>
 <th scope="col" title="Costs per month with 3 year commitment (CUD)">3Y CUD</th>
@@ -38,6 +39,7 @@
 <td>[% instance.regionCount %]</td>
 <!-- Costs -->
 <td class="currency" title="[% instance.name %] avg. costs per hour: [% instance.avgHour %] USD">[% instance.avgHour %]</td>
+<td class="currency" title="[% instance.name %] avg. costs per hour with spot provisioning model (Spot VM): [% instance.avgHourSpot %] USD">[% instance.avgHourSpot %]</td>
 <td class="text-nowrap" title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 	<span class="currency">[% instance.avgMonth %]</span>
 	[% badgeSud(instance) %]
@@ -55,7 +57,7 @@
 <tr>
 <th scope="col" colspan="6">Machine Type</th>
 <th scope="col">Regions</th>
-<th scope="col" colspan="4">Costs (Avg. Region)</th>
+<th scope="col" colspan="5">Costs (Avg. Region)</th>
 <th scope="col" colspan="3">OS</th>
 </tr>
 <tr>
@@ -68,6 +70,7 @@
 <th scope="col">#</th>
 <!-- Costs -->
 <th scope="col">Hour</th>
+<th scope="col">Spot</th>
 <th scope="col">Month</th>
 <th scope="col">1Y CUD</th>
 <th scope="col">3Y CUD</th>
@@ -93,6 +96,7 @@
 <td>[% instance.regionCount %]</td>
 <!-- Costs -->
 <td class="currency" title="[% instance.name %] avg. costs per hour: [% instance.avgHour %] USD">[% instance.avgHour %]</td>
+<td class="currency" title="[% instance.name %] avg. costs per hour with spot provisioning model (Spot VM): [% instance.avgHourSpot %] USD">[% instance.avgHourSpot %]</td>
 <td class="text-nowrap" title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 	<span class="currency">[% instance.avgMonth %]</span>
 	[% badgeSud(instance) %]
