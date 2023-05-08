@@ -19,7 +19,10 @@ A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] millio
 </p>
 </blockquote>
 
-<p><a class="btn btn-secondary" href="/map.html" role="button">🗺️ Region Map</a></p>
+<p>
+	<a class="btn btn-success" href="/map.html" role="button">🗺️ Region Map</a>
+	<a class="btn btn-secondary" href="https://gcping.com/" role="button" rel="nofollow" title="Measure your latency to Google Cloud regions">⏱️ Ping</a>
+</p>
 
 <div class="table-responsive">
 <table

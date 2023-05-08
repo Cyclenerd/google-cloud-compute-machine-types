@@ -11,6 +11,11 @@ Breakdown by price per GB and minimum capacity per disk.
 </p>
 </blockquote>
 
+<p>
+	<a class="btn btn-success" href="/map.html" role="button">🗺️ Region Map</a>
+	<a class="btn btn-secondary" href="https://gcping.com/" role="button" rel="nofollow" title="Measure your latency to Google Cloud regions">⏱️ Ping</a>
+</p>
+
 <div class="table-responsive">
 <table
 	class="table table-sm table-hover table-bordered"
