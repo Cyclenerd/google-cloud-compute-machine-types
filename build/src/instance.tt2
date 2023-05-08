@@ -438,7 +438,7 @@ Between the most expensive and the cheapest region is a price <mark>difference o
 	[% ELSE %]
 	<tr>
 		<td>
-			<a href="/[% other.name %].html" title="Google Compute Engine machine type [% other.name %]">[% other.name %]</a>
+			<a href="/comparison/[% instance.name %]/vs/[% other.name %].html" title="Google Compute Engine machine type [% other.name %]">[% other.name %]</a>
 		</td>
 		<!-- vCPU -->
 		<td>[% other.vCpus %][% badgeSharedCpu(other) %]</td>
