@@ -46,9 +46,8 @@ The cost per machine type in region and licenses are added with the [gcosts](htt
 				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#g2-vms" rel="nofollow">G2</a> accelerator optimized machines
 			</li>
 			<li>
-				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types" rel="nofollow">C2</a>,
-				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2d_machine_typesd" rel="nofollow">C2D</a> and
-				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c3_machine_types" rel="nofollow">C3</a> compute optimized machine series
+				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types" rel="nofollow">C2</a> and
+				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2d_machine_typesd" rel="nofollow">C2D</a> compute optimized machine series
 			</li>
 			<li>
 				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types" rel="nofollow">M1</a>,
@@ -56,6 +55,7 @@ The cost per machine type in region and licenses are added with the [gcosts](htt
 				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m3_machine_types" rel="nofollow">M3</a> memory optimized machine series
 			</li>
 			<li>
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c3_series" rel="nofollow">C3</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines" rel="nofollow">N1</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_machines" rel="nofollow">N2</a>,
@@ -64,6 +64,7 @@ The cost per machine type in region and licenses are added with the [gcosts](htt
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2a_machines" rel="nofollow">T2A</a> general purpose machine series
 			</li>
 		</ul>
+	</li>
 	</li>
 	<li><a href="https://cloud.google.com/compute/docs/regions-zones#available">Available regions and zones</a></li>
 	<li><a href="https://cloud.google.com/compute/docs/cpu-platforms" rel="nofollow">CPU Platform</a></li>

@@ -36,7 +36,7 @@ UPDATE instances SET cpuBaseClock  = '2.6', cpuTurboClock  = '3.4', cpuSingleMax
 
 /* Intel Xeon Scalable Processor (Sapphire Rapids) 4rd Generation */
 /* TODO: Add clock speed from https://cloud.google.com/compute/docs/cpu-platforms if GA */
-UPDATE instances SET cpuBaseClock  = '0', cpuTurboClock  = '0', cpuSingleMaxTurboClock = '0' WHERE availableCpuPlatform LIKE "%Sapphire Rapids%" AND series LIKE "c3";
+UPDATE instances SET cpuBaseClock  = '1.9', cpuTurboClock  = '3.0', cpuSingleMaxTurboClock = '3.3' WHERE availableCpuPlatform LIKE "%Sapphire Rapids%" AND series LIKE "c3";
 
 /* AMD */
 /* https://cloud.google.com/compute/docs/cpu-platforms#amd_cpu_processors */
