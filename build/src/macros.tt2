@@ -127,3 +127,61 @@ title="Region: [% region.name %],
 [%- ELSIF project == 'windows-sql-cloud'             -%]Microsoft SQL Server
 [%- ELSE -%][% project %]
 [%- END; END; -%]
+
+[%- MACRO countryFlag(code) BLOCK -%]
+[%- IF    code == '??' -%]🏳️
+[%- ELSIF code == 'AU' -%]🇦🇺
+[%- ELSIF code == 'BE' -%]🇧🇪
+[%- ELSIF code == 'BR' -%]🇧🇷
+[%- ELSIF code == 'CA' -%]🇨🇦
+[%- ELSIF code == 'CH' -%]🇨🇭
+[%- ELSIF code == 'CL' -%]🇨🇱
+[%- ELSIF code == 'DE' -%]🇩🇪
+[%- ELSIF code == 'ES' -%]🇪🇸
+[%- ELSIF code == 'FI' -%]🇫🇮
+[%- ELSIF code == 'FR' -%]🇫🇷
+[%- ELSIF code == 'GB' -%]🇬🇧
+[%- ELSIF code == 'HK' -%]🇭🇰
+[%- ELSIF code == 'ID' -%]🇮🇩
+[%- ELSIF code == 'IL' -%]🇮🇱
+[%- ELSIF code == 'IN' -%]🇮🇳
+[%- ELSIF code == 'IT' -%]🇮🇹
+[%- ELSIF code == 'JP' -%]🇯🇵
+[%- ELSIF code == 'KR' -%]🇰🇷
+[%- ELSIF code == 'NL' -%]🇳🇱
+[%- ELSIF code == 'PL' -%]🇵🇱
+[%- ELSIF code == 'QA' -%]🇶🇦
+[%- ELSIF code == 'SG' -%]🇸🇬
+[%- ELSIF code == 'TW' -%]🇹🇼
+[%- ELSIF code == 'US' -%]🇺🇸
+[%- ELSE -%]🏴 ???
+[%- END; END; -%]
+
+[%- MACRO countryName(code) BLOCK -%]
+[%- IF    code == '??' -%]???
+[%- ELSIF code == 'AU' -%]Australia
+[%- ELSIF code == 'BE' -%]Belgium
+[%- ELSIF code == 'BR' -%]Brazil
+[%- ELSIF code == 'CA' -%]Canada
+[%- ELSIF code == 'CH' -%]Switzerland
+[%- ELSIF code == 'CL' -%]Chile
+[%- ELSIF code == 'DE' -%]Germany
+[%- ELSIF code == 'ES' -%]Spain
+[%- ELSIF code == 'FI' -%]Finland
+[%- ELSIF code == 'FR' -%]France
+[%- ELSIF code == 'GB' -%]United Kingdom
+[%- ELSIF code == 'HK' -%]Hong Kong SAR China
+[%- ELSIF code == 'ID' -%]Indonesia
+[%- ELSIF code == 'IL' -%]Israel
+[%- ELSIF code == 'IN' -%]India
+[%- ELSIF code == 'IT' -%]Italy
+[%- ELSIF code == 'JP' -%]Japan
+[%- ELSIF code == 'KR' -%]South Korea
+[%- ELSIF code == 'NL' -%]Netherlands
+[%- ELSIF code == 'PL' -%]Poland
+[%- ELSIF code == 'QA' -%]Qatar
+[%- ELSIF code == 'SG' -%]Singapore
+[%- ELSIF code == 'TW' -%]Taiwan
+[%- ELSIF code == 'US' -%]United States
+[%- ELSE -%]???
+[%- END; END; -%]

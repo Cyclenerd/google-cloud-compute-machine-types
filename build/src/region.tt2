@@ -10,7 +10,8 @@
 <p>
 	Out of a total of [% instances.size %] Google Compute Engine machine types,
 	<mark>[% instances_in_region.size %] machine types</mark> are available in Google Cloud region [% region.name %]
-	[% IF region.regionLocationLong %]([% region.regionLocationLong %])[% ELSIF region.regionLocation %]([% region.regionLocation %])[% END %].
+	([% countryFlag(region.regionLocationCountryCode) %]
+	[% IF region.regionLocationLong %][% region.regionLocationLong %][% ELSIF region.regionLocation %][% region.regionLocation %][% END %]).
 </p>
 </blockquote>
 

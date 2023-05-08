@@ -23,8 +23,9 @@ A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] millio
 
 <div class="table-responsive">
 <table
-	class="table table-hover table-bordered"
+	class="table table-sm table-hover table-bordered"
 	data-toggle="table"
+	data-classes="table table-sm table-hover table-bordered"
 	data-sort-name="name"
 	data-sort-order="asc"
 	data-sortable="true"
@@ -80,7 +81,14 @@ A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] millio
 			[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]
 			[% badgeLowCo2Region(region) %]
 		</td>
-		<td>[% IF region.regionLocationCountryCode %]<code>[% region.regionLocationCountryCode %]</code>[% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td>
+			[% IF region.regionLocationCountryCode %]
+				[% countryFlag(region.regionLocationCountryCode) %]
+				[% countryName(region.regionLocationCountryCode) %]
+			[% ELSE %]
+			<span class="text-muted">?</span>
+			[% END %]
+		</td>
 		<td [% IF region.regionPublicIpv4Addr %]title="[% region.regionPublicIpv4Addr FILTER format("%d") %] public IPv4 addresses are assigned to region [% region.name %]"[% END %]>
 			[% IF region.regionPublicIpv4Addr %][% region.regionPublicIpv4Addr FILTER format("%d") %][% ELSE %]<span class="text-muted">?</span>[% END %]
 		</td>
