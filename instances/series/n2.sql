@@ -3,7 +3,7 @@
 /* https://cloud.google.com/compute/docs/general-purpose-machines#n2_machines */
 UPDATE instances SET
 series      = 'n2',
-family      = 'Balanced',
+family      = 'General-purpose',
 cpuPlatform = 'Cascade Lake, Ice Lake',
 localSsd    = '1',
 sud         = '1',

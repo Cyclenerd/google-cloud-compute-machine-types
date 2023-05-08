@@ -93,12 +93,15 @@ title="Region: [% region.name %],
 [%- END; END; -%]
 
 [%- MACRO tableCompareCosts(a, b) BLOCK -%]
-[%- diff = b - a; IF b == a -%]
+[%- 
+	difference = b - a;
+-%]
+[%- IF b == a -%]
 	<td class="table-primary">=</td>
 [%- ELSIF b < a -%]
-	<td class="table-success">[% diff FILTER format("%.2f") %]</td>
+	<td class="table-success">[% difference FILTER format("%.4f") %]</td>
 [%- ELSE -%]
-	<td class="table-danger">+[% diff FILTER format("%.2f") %]</td>
+	<td class="table-danger">+[% difference FILTER format("%.4f") %]</td>
 [%- END; END; -%]
 
 [%- MACRO imageProjectName(project) BLOCK -%]

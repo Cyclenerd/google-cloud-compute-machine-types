@@ -23,6 +23,7 @@
 	}
 	.frequency::after { content: " GHz"; }
 	.currency::before { content: "$"; }
+	.percent::after   { content: "%"; }
 	.bandwidth::after { content: " Gbps"; }
 	.diskSize::after  { content: " TB"; }
 	.memory::after    { content: " GB"; }

@@ -99,7 +99,7 @@ IF disk.name == 'local-ssd';  minDiskSize = 375; END;
 	<tr>
 		<th scope="col" colspan="6">Machine Type</th>
 		<th scope="col">Zones</th>
-		<th scope="col" colspan="4">Costs</th>
+		<th scope="col" colspan="5">Costs</th>
 		<th scope="col" colspan="3">OS</th>
 	</tr>
 	<tr>
@@ -112,6 +112,7 @@ IF disk.name == 'local-ssd';  minDiskSize = 375; END;
 		<th scope="col">#</th>
 		<!-- Costs -->
 		<th scope="col">Hour</th>
+		<th scope="col">Spot</th>
 		<th scope="col">Month</th>
 		<th scope="col">1Y CUD</th>
 		<th scope="col">3Y CUD</th>
@@ -146,6 +147,10 @@ IF disk.name == 'local-ssd';  minDiskSize = 375; END;
 		<td
 			title="Costs per hour for machine type [% instance.name %] in region [% region.name %]: [% instance.hour %] USD">
 			<span class="currency">[% instance.hour %]</span>
+		</td>
+		<td
+			title="Costs per hour for machine type [% instance.name %] in region [% region.name %] with spot provisioning model (Spot VM): [% instance.hourSpot %] USD">
+			<span class="currency">[% instance.hourSpot %]</span>
 		</td>
 		<td
 		    class="text-nowrap"

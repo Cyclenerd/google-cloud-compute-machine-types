@@ -91,6 +91,7 @@ document.addEventListener('keydown', function(event) {
 
 const gridOptions = {
 	columnDefs: [
+		// groupId: 0
 		{
 			headerName: 'Machine Types',
 			children: [
@@ -199,7 +200,7 @@ const gridOptions = {
 				},
 			]
 		},
-		// groupId: 2
+		// groupId: 3
 		// groupId is used in setColumnGroupState for inital filter
 		{
 			headerName: 'Prozessor',
@@ -216,7 +217,7 @@ const gridOptions = {
 					width: 90,
 				},
 				{ 
-					headerName: 'Base Frequency',
+					headerName: 'Frequency',
 					field: "cpuBaseClock",
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
@@ -326,14 +327,48 @@ const gridOptions = {
 				},
 			]
 		},
+		// groupId: 4
 		{
 			headerName: 'Benchmark',
 			children: [
-				{ headerName: 'CoreMark', field: "coremarkScore",                                filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'EEMBC CoreMark Benchmark (please see www.eembc.org/coremark)', width: 120 },
-				{ headerName: 'StdDev%',  field: "standardDeviation", columnGroupShow: 'open',   filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'EEMBC CoreMark Standard Deviation (%)', width: 120 },
-				{ headerName: '#Samples', field: "sampleCount",       columnGroupShow: 'open',   filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'EEMBC CoreMark Sample Count', width: 120 },
+				{
+					headerName: 'CoreMark',
+					field: "coremarkScore",
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					headerTooltip: 'EEMBC CoreMark Benchmark (please see www.eembc.org/coremark)',
+					width: 120
+				},
+				{
+					headerName: 'StdDev%',
+					field: "standardDeviation",
+					columnGroupShow: 'open',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					headerTooltip: 'EEMBC CoreMark Standard Deviation (%)',
+					width: 120
+				},
+				{
+					headerName: '#Samples',
+					field: "sampleCount",
+					columnGroupShow: 'open',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					headerTooltip: 'EEMBC CoreMark Sample Count',
+					width: 120
+				},
+				{
+					headerName: 'SAPS',
+					field: 'saps',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					columnGroupShow: 'open',
+					headerTooltip: 'SAP Standard Benchmark (please see SAP Note 1612283 and 2456432)',
+					width: 90
+				}
 			]
 		},
+		// groupId: 5
 		{
 			headerName: 'Memory',
 			children: [
@@ -348,19 +383,22 @@ const gridOptions = {
 				},
 			]
 		},
+		// groupId: 6
 		{
 			headerName: 'Network',
 			children: [
-				{ headerName: 'Bandwidth', field: "bandwidth", cellClass: 'bandwidth',                            filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'Maximum egress bandwidth (Gbps) cannot exceed the number given', width: 120, },
-				{ headerName: 'Tier 1',    field: "tier1",     cellClass: 'bandwidth', columnGroupShow: 'open',   filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'High-bandwidth (Gbps) networking for larger machine types', width: 120 },
+				{ headerName: 'Bandwidth', field: "bandwidth", cellClass: 'bandwidth',                          filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'Maximum egress bandwidth (Gbps) cannot exceed the number given', width: 120, },
+				{ headerName: 'Tier 1',    field: "tier1",     cellClass: 'bandwidth', columnGroupShow: 'open', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, headerTooltip: 'High-bandwidth (Gbps) networking for larger machine types', width: 120 },
 			]
 		},
+		// groupId: 7
 		{
 			headerName: 'Storage',
 			children: [
 				{
 					headerName: 'Disk Size',
-					field: "diskSizeTiB",					cellClass: 'diskSize',
+					field: "diskSizeTiB",
+					cellClass: 'diskSize',
 					width: 100,
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
@@ -386,13 +424,14 @@ const gridOptions = {
 				},
 			]
 		},
+		// groupId: 8
 		{
-			headerName: 'Costs',
+			headerName: '$ Hour',
 			children: [
 				{
 					headerName: 'Hour',
 					field: "hour",
-					width: 120,
+					width: 90,
 					cellClass: 'currency',
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
@@ -400,9 +439,35 @@ const gridOptions = {
 					sort: 'asc',
 					headerTooltip: 'Costs per hour'
 				},
-				{ headerName: 'Month',                  field: 'month',             width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber,                            headerTooltip: 'Costs per month' },
-				{ headerName: '1Y CUD',                 field: "month1yCud",        width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',   headerTooltip: 'Costs per month with 1 year commitment (CUD)' },
-				{ headerName: '3Y CUD',                 field: "month3yCud",        width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',   headerTooltip: 'Costs per month with 3 year commitment (CUD)' },
+				{ 
+					headerName: 'Spot',
+					field: 'hourSpot',
+					width: 90,
+					cellClass: 'currency',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					headerTooltip: 'Costs per hour spot provisioning model (Spot VM)'
+				},
+				{ 
+					headerName: 'Discount',
+					field: 'hourSpotDiscount',
+					width: 110,
+					cellClass: 'currency',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					columnGroupShow: 'open',
+					headerTooltip: 'Discount per hour spot provisioning model (Spot VM) vs. hour price'
+				},
+				{ 
+					headerName: 'Percent',
+					field: 'hourSpotDiscountPercent',
+					width: 80,
+					cellClass: 'percent',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					columnGroupShow: 'open',
+					headerTooltip: 'Discount per hour spot provisioning model (Spot VM) vs. hour price'
+				},
 				{
 					headerName: 'CoreMark/$h',
 					field: "coremarkHour",
@@ -416,37 +481,143 @@ const gridOptions = {
 				{
 					headerName: 'SAPS/$h',
 					field: "sapsHour",
-					width: 120,
+					width: 110,
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
 					valueFormatter: nullFormatter,
 					columnGroupShow: 'open',
 					headerTooltip: 'SAP Standard Benchmark / costs per hour'
+				}
+			]
+		},
+		// groupId: 9
+		{
+			headerName: '$ Month',
+			children: [
+				{
+					headerName: 'Month',
+					field: "month",
+					width: 120,
+					cellClass: 'currency',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					headerTooltip: 'Costs per month'
 				},
 				{
 					headerName: 'SUD',
 					field: "sud",
-					columnGroupShow: 'open',
 					filterParams: filterParamsBoolean,
 					valueFormatter: booleanFormatter,
 					width: 90,
+					columnGroupShow: 'open',
 					headerTooltip: 'Instance with SUD (sustained use discounts are automatic discounts for running specific Compute Engine resources)'
 				},
+				{
+					headerName: '1Y CUD',
+					field: "month1yCud",
+					width: 120,
+					cellClass: 'currency',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					columnGroupShow: 'open',
+					headerTooltip: 'Costs per month with 1 year commitment (CUD)'
+				},
+				{ 
+					headerName: 'Disc. 1Y',
+					field: 'month1yCudDiscount',
+					width: 120,
+					cellClass: 'currency',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					columnGroupShow: 'open',
+					headerTooltip: 'Discount per month with 1 year commitment (CUD) vs. month price'
+				},
+				{ 
+					headerName: '% 1Y',
+					field: 'month1yCudDiscountPercent',
+					width: 80,
+					cellClass: 'percent',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					columnGroupShow: 'open',
+					headerTooltip: 'Discount in percent per month with 1 year commitment (CUD) vs. month price'
+				},
+				{
+					headerName: '3Y CUD',
+					field: "month3yCud",
+					width: 120,
+					cellClass: 'currency',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					columnGroupShow: 'open',
+					headerTooltip: 'Costs per month with 3 year commitment (CUD)'
+				},
+				{ 
+					headerName: 'Disc. 3Y',
+					field: 'month3yCudDiscount',
+					width: 120,
+					cellClass: 'currency',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					columnGroupShow: 'open',
+					headerTooltip: 'Discount per month with 3 year commitment (CUD) vs. month price'
+				},
+				{ 
+					headerName: '% 3Y',
+					field: 'month3yCudDiscountPercent',
+					width: 80,
+					cellClass: 'percent',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					columnGroupShow: 'open',
+					headerTooltip: 'Discount in percent per month with 3 year commitment (CUD) vs. month price'
+				},
+				{ 
+					headerName: 'Spot',
+					field: 'monthSpot',
+					width: 120,
+					cellClass: 'currency',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					columnGroupShow: 'open',
+					headerTooltip: 'Costs per month spot provisioning model (Spot VM)'
+				},
+				{ 
+					headerName: 'Disc. Spot',
+					field: 'monthSpotDiscount',
+					width: 120,
+					cellClass: 'currency',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					columnGroupShow: 'open',
+					headerTooltip: 'Discount per month spot provisioning model (Spot VM) vs. month price'
+				},
+				{ 
+					headerName: '% Spot',
+					field: 'monthSpotDiscountPercent',
+					width: 80,
+					cellClass: 'percent',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					columnGroupShow: 'open',
+					headerTooltip: 'Discount in percent per month spot provisioning model (Spot VM) vs. hour price'
+				}
 			]
 		},
+		// groupId: 10
 		{
 			headerName: 'Licenses',
 			children: [
 				{
 					headerName: 'SLES',
 					field: 'monthSles',
-					width: 120,
+					width: 100,
 					cellClass: 'currency',
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
 					headerTooltip: 'SUSE Linux Enterprise Server (cost per month)'
 				},
-				{ headerName: 'RHEL',                   field: 'monthRhel',         width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Red Hat Enterprise Linux (cost per month)' },
+				{ headerName: 'RHEL',                   field: 'monthRhel',         width: 100, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Red Hat Enterprise Linux (cost per month)' },
 				{ headerName: 'RHEL w. 1Y CUD',         field: 'monthRhel1yCud',    width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Red Hat Enterprise Linux with 1 year CUD (cost per month)' },
 				{ headerName: 'RHEL w. 3Y CUD',         field: 'monthRhel3yCud',    width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Red Hat Enterprise Linux with 3 year CUD (cost per month)' },
 				{ headerName: 'Windows',                field: 'monthWindows',      width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Microsoft Windows Server (cost per month)' },
@@ -458,58 +629,64 @@ const gridOptions = {
 				{ headerName: 'RHEL for SAP w. 3Y CUD', field: 'monthRhelSap3yCud', width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Red Hat Enterprise Linux for SAP with 3 year CUD (cost per month)' },
 			]
 		},
+		// groupId: 11
+		// groupId is used in setColumnGroupState for inital filter
 		{
-			// groupId: 9
-			// groupId is used in setColumnGroupState for inital filter
-			headerName: 'SAP',
+			headerName: 'More... (SAP, HANA, GPU)',
 			children: [
 				{
-					headerName: 'SAP',
-					field: "sap",
-					filterParams: filterParamsBoolean,
-					valueFormatter: booleanFormatter,
-					width: 90,
-					headerTooltip: 'Certified for SAP applications on Google Cloud'
+					headerName: 'Family',
+					field: "family",
+					width: 180,
+					tooltipField: 'family',
+					headerTooltip: 'A curated set of processor and hardware configurations optimized for specific workloads'
 				},
-				{
-					headerName: 'HANA',
-					field: "hana",
-					columnGroupShow: 'open',
-					filterParams: filterParamsBoolean,
-					valueFormatter: booleanFormatter,
-					width: 90,
-					headerTooltip: 'Certified for SAP HANA on Google Cloud'
-				},
-				{
-					headerName: 'SAPS',
-					field: 'saps',
-					columnGroupShow: 'open',
-					filter: 'agNumberColumnFilter',
-					filterParams: filterParamsNumber,
-					headerTooltip: 'SAP Standard Benchmark (please see SAP Note 1612283 and 2456432)',
-					width: 90
-				},
-			]
-		},
-		{
-			// groupId: 10
-			// groupId is used in setColumnGroupState for inital filter
-			headerName: 'More...',
-			children: [
-				{ headerName: 'Family',         field: "family",                                   width: 180, tooltipField: 'family', headerTooltip: 'A curated set of processor and hardware configurations optimized for specific workloads' },
-				{ headerName: 'Series',         field: "series",          columnGroupShow: 'open', width: 110, headerTooltip: 'Machine families are further classified by series and generation'},
-				{ headerName: 'GPUs',           field: "acceleratorCount",columnGroupShow: 'open', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, width: 100 },
-				{ headerName: 'GPU Type',       field: "acceleratorType", columnGroupShow: 'open' },
 				{
 					headerName: 'Spot',
 					field: "spot",
-					columnGroupShow: 'open',
 					filterParams: filterParamsBoolean,
 					valueFormatter: booleanFormatter,
 					width: 90,
 					headerTooltip: 'Instance supports spot provisioning mode (Spot VM)'
 				},
-
+				{
+					headerName: 'SAP',
+					field: "sap",
+					filterParams: filterParamsBoolean,
+					valueFormatter: booleanFormatter,
+					width: 80,
+					columnGroupShow: 'open',
+					headerTooltip: 'Certified for SAP applications on Google Cloud'
+				},
+				{
+					headerName: 'HANA',
+					field: "hana",
+					filterParams: filterParamsBoolean,
+					valueFormatter: booleanFormatter,
+					width: 90,
+					columnGroupShow: 'open',
+					headerTooltip: 'Certified for SAP HANA on Google Cloud'
+				},
+				{
+					headerName: 'Series',
+					field: "series",
+					width: 110,
+					columnGroupShow: 'open',
+					headerTooltip: 'Machine families are further classified by series and generation'
+				},
+				{
+					headerName: 'GPUs',
+					field: "acceleratorCount",
+					columnGroupShow: 'open',
+					filter: 'agNumberColumnFilter',
+					filterParams: filterParamsNumber,
+					width: 100
+				},
+				{
+					headerName: 'GPU Type',
+					field: "acceleratorType",
+					columnGroupShow: 'open'
+				}
 			]
 		}
 	],
@@ -579,9 +756,9 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 	let filterName     = urlName.replace(/[^\w\d\-]/g,"");
 	let filterRegion   = urlRegion.replace(/[^\w\d\-]/g,"");
 	let filterPlatform = urlPlatform.replace(/[^\w\d]/g,"");
-	let filterSAP      = (urlSAP >= 1) ? '1' : '';
+	let filterSAP      = (urlSAP >= 1)  ? '1' : '';
 	let filterHANA     = (urlHANA >= 1) ? '1' : '';
-	let filterARM      = (urlARM >= 1) ? '1' : '';
+	let filterARM      = (urlARM >= 1)  ? '1' : '';
 	let filterSeries   = urlSeries.replace(/[^\w\d]/g,"");
 	// Set filter
 	var hardcodedFilter = {
@@ -616,14 +793,11 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 	};
 	// Open groups
 	var hardcodedGroupState = [];
-	if (filterSAP || filterHANA) {
-		hardcodedGroupState.push({ groupId: '9', open: true });
-	}
 	if (filterPlatform || filterARM ) {
 		hardcodedGroupState.push({ groupId: '3', open: true });
 	}
-	if (filterSeries) {
-		hardcodedGroupState.push({ groupId: '10', open: true });
+	if (filterSAP || filterHANA || filterSeries) {
+		hardcodedGroupState.push({ groupId: '11', open: true });
 	}
 	// wait 500ms, because maybe the DOM isn't completely ready yet
 	setTimeout(function(){

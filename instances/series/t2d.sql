@@ -3,7 +3,7 @@
 /* https://cloud.google.com/compute/docs/general-purpose-machines#t2d_machines */
 UPDATE instances SET
 series      = 't2d',
-family      = 'Scale-out optimized',
+family      = 'General-purpose',
 cpuPlatform = 'Milan',
 spot        = '1'
 WHERE name LIKE 't2d-%';

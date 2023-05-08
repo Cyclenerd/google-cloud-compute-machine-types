@@ -242,23 +242,59 @@ function copy[% instance.name.remove('-') %]() {
 
 <h2>Costs (Pricing) in Region [% instance.region %]</h2>
 <p>Costs and pricing for Google Compute Engine machine type [% instance.name %] in Google Cloud region [% instance.region %][% IF instance.regionLocation %] ([% instance.regionLocation %])[% END %].</p>
+
+<h3>Price per Hour</h3>
 <div class="table-responsive">
 <table class="table table-hover table-striped table-bordered">
 	<tr>
-		<th>Costs per Hour</th>
+		<th>Standard price per hour</th>
 		<td class="currency">[% instance.hour %]</td>
 	</tr>
+	[% IF instance.spot && instance.hourSpot > 0 %]
 	<tr>
-		<th>Costs per month[% IF instance.sud %] with sustained use discount (SUD)[% END %]</th>
-		<td class="currency">[% instance.month %]</td>
+		<th>Spot provisioning model (Spot VM)</th>
+		<td class="currency">[% instance.hourSpot %]</td>
 	</tr>
 	<tr>
-		<th>Costs per month with 1 year commitment (CUD)</th>
+		<th>Discount Spot VM vs. standard</th>
+		<td class="currency">[% instance.hourSpotDiscount %] ([% instance.hourSpotDiscountPercent %]%)</td>
+	</tr>
+	[% END %]
+</table>
+</div>
+
+<h3>Price per Month</h3>
+<div class="table-responsive">
+<table class="table table-hover table-striped table-bordered">
+	<tr>
+		<th>Price per month[% IF instance.sud %] with sustained use discount (SUD)[% END %]</th>
+		<td class="currency">[% instance.month %]</td>
+	</tr>
+	[% IF instance.spot && instance.monthSpot > 0 %]
+	<tr>
+		<th>Spot provisioning model (Spot VM)</th>
+		<td class="currency">[% instance.monthSpot %]</td>
+	</tr>
+	<tr>
+		<th>Discount Spot VM vs. month</th>
+		<td class="currency">[% instance.monthSpotDiscount %] ([% instance.monthSpotDiscountPercent %]%)</td>
+	</tr>
+	[% END %]
+	<tr>
+		<th>1 year commitment (CUD)</th>
 		<td class="currency">[% instance.month1yCud %]</td>
 	</tr>
 	<tr>
-		<th>Costs per month with 3 year commitment (CUD)</th>
+		<th>Discount 1Y CUD vs. month</th>
+		<td class="currency">[% instance.month1yCudDiscount %] ([% instance.month1yCudDiscountPercent %]%)</td>
+	</tr>
+	<tr>
+		<th>3 year commitment (CUD)</th>
 		<td class="currency">[% instance.month3yCud %]</td>
+	</tr>
+		<tr>
+		<th>Discount 3Y CUD vs. month</th>
+		<td class="currency">[% instance.month3yCudDiscount %] ([% instance.month3yCudDiscountPercent %]%)</td>
 	</tr>
 </table>
 </div><!-- table-responsive -->

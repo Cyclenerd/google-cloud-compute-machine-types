@@ -3,7 +3,7 @@
 /* https://cloud.google.com/compute/docs/general-purpose-machines#n2d_machines */
 UPDATE instances SET
 series      = 'n2d',
-family      = 'Balanced',
+family      = 'General-purpose',
 cpuPlatform = 'Rome, Milan',
 localSsd    = '1',
 sud         = '1',

@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# Copyright 2022 Nils Knieling. All Rights Reserved.
+# Copyright 2022-2023 Nils Knieling. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -112,10 +112,20 @@ SELECT
 	COUNT(region) AS regionCount,
 	(SELECT GROUP_CONCAT(region) FROM instances WHERE name LIKE I.name ORDER BY region) AS regions,
 	MAX(sud) AS sud,
-	ROUND(MIN(hour), 4)         AS minHour,       ROUND(AVG(hour), 4)       AS avgHour,       ROUND(MAX(hour), 4)       AS maxHour,
-	ROUND(MIN(month), 2)        AS minMonth,      ROUND(AVG(month), 2)      AS avgMonth,      ROUND(MAX(month), 2)      AS maxMonth,
-	ROUND(MIN(month1yCud), 2)   AS minMonth1yCud, ROUND(AVG(month1yCud), 2) AS avgMonth1yCud, ROUND(MAX(month1yCud), 2) AS maxMonth1yCud,
-	ROUND(MIN(month3yCud), 2)   AS minMonth3yCud, ROUND(AVG(month3yCud), 2) AS avgMonth3yCud, ROUND(MAX(month3yCud), 2) AS maxMonth3yCud,
+	ROUND(MIN(hour), 4)                      AS minHour,                      ROUND(AVG(hour), 4)                      AS avgHour,                      ROUND(MAX(hour), 4)                      AS maxHour,
+	ROUND(MIN(hourSpot), 4)                  AS minHourSpot,                  ROUND(AVG(hourSpot), 4)                  AS avgHourSpot,                  ROUND(MAX(hourSpot), 4)                  AS maxHourSpot,
+	ROUND(MIN(hourSpotDiscount), 4)          AS minHourSpotDiscount,          ROUND(AVG(hourSpotDiscount), 4)          AS avgHourSpotDiscount,          ROUND(MAX(hourSpotDiscount), 4)          AS maxHourSpotDiscount,
+	ROUND(MIN(hourSpotDiscountPercent), 0)   AS minHourSpotDiscountPercent,   ROUND(AVG(hourSpotDiscountPercent), 0)   AS avgHourSpotDiscountPercent,   ROUND(MAX(hourSpotDiscountPercent), 0)   AS maxHourSpotDiscountPercent,
+	ROUND(MIN(month), 2)                     AS minMonth,                     ROUND(AVG(month), 2)                     AS avgMonth,                     ROUND(MAX(month), 2)                     AS maxMonth,
+	ROUND(MIN(month1yCud), 2)                AS minMonth1yCud,                ROUND(AVG(month1yCud), 2)                AS avgMonth1yCud,                ROUND(MAX(month1yCud), 2)                AS maxMonth1yCud,
+	ROUND(MIN(month1yCudDiscount), 2)        AS minMonth1yCudDiscount,        ROUND(AVG(month1yCudDiscount), 2)        AS avgMonth1yCudDiscount,        ROUND(MAX(month1yCudDiscount), 2)        AS maxMonth1yCudDiscount,
+	ROUND(MIN(month1yCudDiscountPercent), 0) AS minMonth1yCudDiscountPercent, ROUND(AVG(month1yCudDiscountPercent), 0) AS avgMonth1yCudDiscountPercent, ROUND(MAX(month1yCudDiscountPercent), 0) AS maxMonth1yCudDiscountPercent,
+	ROUND(MIN(month3yCud), 2)                AS minMonth3yCud,                ROUND(AVG(month3yCud), 2)                AS avgMonth3yCud,                ROUND(MAX(month3yCud), 2)                AS maxMonth3yCud,
+	ROUND(MIN(month3yCudDiscount), 2)        AS minMonth3yCudDiscount,        ROUND(AVG(month3yCudDiscount), 2)        AS avgMonth3yCudDiscount,        ROUND(MAX(month3yCudDiscount), 2)        AS maxMonth3yCudDiscount,
+	ROUND(MIN(month3yCudDiscountPercent), 0) AS minMonth3yCudDiscountPercent, ROUND(AVG(month3yCudDiscountPercent), 0) AS avgMonth3yCudDiscountPercent, ROUND(MAX(month3yCudDiscountPercent), 0) AS maxMonth3yCudDiscountPercent,
+	ROUND(MIN(monthSpot), 2)                 AS minMonthSpot,                 ROUND(AVG(monthSpot), 2)                 AS avgMonthSpot,                 ROUND(MAX(monthSpot), 2)                 AS maxMonthSpot,
+	ROUND(MIN(monthSpotDiscount), 2)         AS minMonthSpotDiscount,         ROUND(AVG(monthSpotDiscount), 2)         AS avgMonthSpotDiscount,         ROUND(MAX(monthSpotDiscount), 2)         AS maxMonthSpotDiscount,
+	ROUND(MIN(monthSpotDiscountPercent), 0)  AS minMonthSpotDiscountPercent,  ROUND(AVG(monthSpotDiscountPercent), 0)  AS avgMonthSpotDiscountPercent,  ROUND(MAX(monthSpotDiscountPercent), 0)  AS maxMonthSpotDiscountPercent,
 	ROUND(monthSles, 2)         AS monthSles,
 	ROUND(monthSlesSap, 2)      AS monthSlesSap,
 	ROUND(monthSlesSap1yCud, 2) AS monthSlesSap1yCud,
@@ -308,9 +318,11 @@ foreach my $region (@regions) {
 			zoneCount,
 			sud,
 			ROUND(hour, 4)              AS hour,
+			ROUND(hourSpot, 4)          AS hourSpot,
 			ROUND(month, 2)             AS month,
 			ROUND(month1yCud, 2)        AS month1yCud,
 			ROUND(month3yCud, 2)        AS month3yCud,
+			ROUND(monthSpot, 2)         AS monthSpot,
 			ROUND(monthSles, 2)         AS monthSles,
 			ROUND(monthSlesSap, 2)      AS monthSlesSap,
 			ROUND(monthSlesSap1yCud, 2) AS monthSlesSap1yCud,
@@ -385,9 +397,11 @@ foreach my $instance (@instances) {
 			zoneCount                   AS zoneCount,
 			availableCpuPlatformCount   AS availableCpuPlatformCount,
 			ROUND(hour, 4)              AS hour,
+			ROUND(hourSpot, 4)          AS hourSpot,
 			ROUND(month, 2)             AS month,
 			ROUND(month1yCud, 2)        AS month1yCud,
 			ROUND(month3yCud, 2)        AS month3yCud,
+			ROUND(monthSpot, 2)         AS monthSpot,
 			ROUND(monthSles, 2)         AS monthSles,
 			ROUND(monthSlesSap, 2)      AS monthSlesSap,
 			ROUND(monthSlesSap1yCud, 2) AS monthSlesSap1yCud,
@@ -433,9 +447,9 @@ foreach my $disk (@disks) {
 	my $name = $disk->{'name'} || 'missing';
 	my $sql_disk_regions = qq ~
 		SELECT
-			region                         AS name,
-			regionLocation                 AS regionLocation,
-			zoneCount                      AS zoneCount,
+			region         AS name,
+			regionLocation AS regionLocation,
+			zoneCount      AS zoneCount,
 			monthGb
 		FROM disks
 		WHERE name LIKE '$name'
@@ -496,23 +510,34 @@ SELECT
 	region, regionLocation, regionLocationLong, regionLocationCountryCode, regionCfe, regionCo2Kwh, regionLowCo2, regionLat, regionLng, regionPublicIpv4Addr,
 	zoneCount, zones,
 	sud,
-	ROUND(hour, 4)               AS hour,
-	ROUND(month, 2)              AS month,
-	ROUND(month1yCud, 2)         AS month1yCud,
-	ROUND(month3yCud, 2)         AS month3yCud,
-	ROUND(monthSles, 2)          AS monthSles,
-	ROUND(monthSlesSap, 2)       AS monthSlesSap,
-	ROUND(monthSlesSap1yCud, 2)  AS monthSlesSap1yCud,
-	ROUND(monthSlesSap3yCud, 2)  AS monthSlesSap3yCud,
-	ROUND(monthRhel, 2)          AS monthRhel,
-	ROUND(monthRhel1yCud, 2)     AS monthRhel1yCud,
-	ROUND(monthRhel3yCud, 2)     AS monthRhel3yCud,
-	ROUND(monthRhelSap, 2)       AS monthRhelSap,
-	ROUND(monthRhelSap1yCud, 2)  AS monthRhelSap1yCud,
-	ROUND(monthRhelSap3yCud, 2)  AS monthRhelSap3yCud,
-	ROUND(monthWindows, 2)       AS monthWindows,
-	ROUND(coremarkScore/hour, 0) AS coremarkHour,
-	ROUND(saps/hour, 0)          AS sapsHour
+	ROUND(hour, 4)                      AS hour,
+	ROUND(hourSpot, 4)                  AS hourSpot,
+	ROUND(hourSpotDiscount, 4)          AS hourSpotDiscount,
+	ROUND(hourSpotDiscountPercent, 0)   AS hourSpotDiscountPercent,
+	ROUND(month, 2)                     AS month,
+	ROUND(month1yCud, 2)                AS month1yCud,
+	ROUND(month1yCudDiscount, 2)        AS month1yCudDiscount,
+	ROUND(month1yCudDiscountPercent, 0) AS month1yCudDiscountPercent,
+	ROUND(month3yCud, 2)                AS month3yCud,
+	ROUND(month3yCudDiscount, 2)        AS month3yCudDiscount,
+	ROUND(month3yCudDiscountPercent, 0) AS month3yCudDiscountPercent,
+	ROUND(monthSpot, 2)                 AS monthSpot,
+	ROUND(monthSpotDiscount, 2)         AS monthSpotDiscount,
+	ROUND(monthSpotDiscountPercent, 0)  AS monthSpotDiscountPercent,
+	ROUND(monthSles, 2)                 AS monthSles,
+	ROUND(monthSlesSap, 2)              AS monthSlesSap,
+	ROUND(monthSlesSap1yCud, 2)         AS monthSlesSap1yCud,
+	ROUND(monthSlesSap3yCud, 2)         AS monthSlesSap3yCud,
+	ROUND(monthRhel, 2)                 AS monthRhel,
+	ROUND(monthRhel1yCud, 2)            AS monthRhel1yCud,
+	ROUND(monthRhel3yCud, 2)            AS monthRhel3yCud,
+	ROUND(monthRhelSap, 2)              AS monthRhelSap,
+	ROUND(monthRhelSap1yCud, 2)         AS monthRhelSap1yCud,
+	ROUND(monthRhelSap3yCud, 2)         AS monthRhelSap3yCud,
+	ROUND(monthWindows, 2)              AS monthWindows,
+	ROUND(coremarkScore/hour, 0)        AS coremarkHour,
+	ROUND(coremarkScore/hourSpot, 0)    AS coremarkHourSpot,
+	ROUND(saps/hour, 0)                 AS sapsHour
 FROM instances
 ORDER BY name, region
 ~;
@@ -559,17 +584,19 @@ if ($create_comparison) {
 			# Costs in regions for instance A
 			my $sql_regions_for_a = qq ~
 				SELECT
-					region                         AS region,
-					regionLocation                 AS regionLocation,
-					regionCfe                      AS regionCfe,
-					regionCo2Kwh                   AS regionCo2Kwh,
-					regionLowCo2                   AS regionLowCo2,
-					zoneCount                      AS zoneCount,
-					availableCpuPlatformCount      AS availableCpuPlatformCount,
-					ROUND(hour, 4)                 AS hour,
-					ROUND(month, 2)                AS month,
-					ROUND(month1yCud, 2)           AS month1yCud,
-					ROUND(month3yCud, 2)           AS month3yCud
+					region                    AS region,
+					regionLocation            AS regionLocation,
+					regionCfe                 AS regionCfe,
+					regionCo2Kwh              AS regionCo2Kwh,
+					regionLowCo2              AS regionLowCo2,
+					zoneCount                 AS zoneCount,
+					availableCpuPlatformCount AS availableCpuPlatformCount,
+					ROUND(hour, 4)            AS hour,
+					ROUND(hourSpot, 4)        AS hourSpot,
+					ROUND(month, 2)           AS month,
+					ROUND(month1yCud, 2)      AS month1yCud,
+					ROUND(month3yCud, 2)      AS month3yCud,
+					ROUND(monthSpot, 2)       AS monthSpot
 				FROM instances
 				WHERE name LIKE '$name_a'
 				ORDER BY region;
@@ -584,17 +611,19 @@ if ($create_comparison) {
 			# Costs in regions for instance B
 			my $sql_regions_for_b = qq ~
 				SELECT
-					region                         AS region,
-					regionLocation                 AS regionLocation,
-					regionCfe                      AS regionCfe,
-					regionCo2Kwh                   AS regionCo2Kwh,
-					regionLowCo2                   AS regionLowCo2,
-					zoneCount                      AS zoneCount,
-					availableCpuPlatformCount      AS availableCpuPlatformCount,
-					ROUND(hour, 4)                 AS hour,
-					ROUND(month, 2)                AS month,
-					ROUND(month1yCud, 2)           AS month1yCud,
-					ROUND(month3yCud, 2)           AS month3yCud
+					region                    AS region,
+					regionLocation            AS regionLocation,
+					regionCfe                 AS regionCfe,
+					regionCo2Kwh              AS regionCo2Kwh,
+					regionLowCo2              AS regionLowCo2,
+					zoneCount                 AS zoneCount,
+					availableCpuPlatformCount AS availableCpuPlatformCount,
+					ROUND(hour, 4)            AS hour,
+					ROUND(hourSpot, 4)        AS hourSpot,
+					ROUND(month, 2)           AS month,
+					ROUND(month1yCud, 2)      AS month1yCud,
+					ROUND(month3yCud, 2)      AS month3yCud,
+					ROUND(monthSpot, 2)       AS monthSpot
 				FROM instances
 				WHERE name LIKE '$name_b'
 				ORDER BY region;

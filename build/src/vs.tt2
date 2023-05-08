@@ -30,6 +30,8 @@
 		<th scope="col"></th>
 		<th scope="col">Avg. costs per hour</th>
 		<th scope="col"></th>
+		<th scope="col">Avg. costs per Spot VM hour</th>
+		<th scope="col"></th>
 		<th scope="col">Avg. costs per month</th>
 	</tr>
 </thead>
@@ -49,16 +51,25 @@
 			[% badgeSap(instance) %]
 			[% badgeHana(instance) %]
 		</td>
-		<!-- Costs -->
+		<!-- Hour -->
 		<td></td>
 		<td title="[% instance.name %] avg. costs per hour: [% instance.avgHour %] USD">
 			<span class="currency">[% instance.avgHour %]</span>
 		</td>
+		<!-- // Hour -->
+		<!-- Spot VM -->
+		<td></td>
+		<td title="[% instance.name %] avg. costs per Spot VM hour: [% instance.avgHourSpot %] USD">
+			<span class="currency">[% instance.avgHourSpot %]</span>
+		</td>
+		<!-- // Spot VM -->
+		<!-- Month -->
 		<td></td>
 		<td title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% instance.avgMonth %]</span>
 			[% badgeSud(instance) %]
 		</td>
+		<!-- // Month -->
 	</tr>
 	[% ELSE %]
 	<tr>
@@ -78,16 +89,25 @@
 			[% badgeSap(instance) %]
 			[% badgeHana(instance) %]
 		</td>
-		<!-- Costs -->
+		<!-- Hour -->
 		[% tableCompareCosts(instance_a.avgHour || 0, instance.avgHour || 0) %]
 		<td title="[% instance.name %] avg. costs per hour: [% instance.avgHour %] USD">
 			<span class="currency">[% instance.avgHour %]</span>
 		</td>
+		<!-- // Hour -->
+		<!-- Spot VM -->
+		[% tableCompareCosts(instance_a.avgHourSpot || 0, instance.avgHourSpot || 0) %]
+		<td title="[% instance.name %] avg. costs per Spot VM hour: [% instance.avgHourSpot %] USD">
+			<span class="currency">[% instance.avgHourSpot %]</span>
+		</td>
+		<!-- // Spot VM -->
+		<!-- Month -->
 		[% tableCompareCosts(instance_a.avgMonth || 0, instance.avgMonth || 0) %]
 		<td class="text-nowrap" title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% instance.avgMonth %]</span>
 			[% badgeSud(instance) %]
 		</td>
+		<!-- // Month -->
 	</tr>
 	[% END; END; %]
 </tbody>

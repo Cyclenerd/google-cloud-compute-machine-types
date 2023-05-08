@@ -2,7 +2,7 @@
 /* https://cloud.google.com/compute/docs/general-purpose-machines#t2a_machines */
 UPDATE instances SET
 series      = 't2a',
-family      = 'Scale-out optimized',
+family      = 'General-purpose',
 cpuPlatform = 'Ampere Altra',
 spot        = '1'
 WHERE name LIKE 't2a-%';

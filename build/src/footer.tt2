@@ -8,9 +8,9 @@
 	Copyright [% USE date; date.format(date.now, '%Y'); %] <a href="https://www.nkn-it.de/">Nils Knieling</a> · All rights reserved
 </p>
 <p class="text-muted">
-	Data and costs shown are not guaranteed to be accurate or current. Please <a href="[% site.github.issues %]">report issues</a> you see.<br>
-	This Google Cloud Platform and Google Compute Engine machine type comparison website is not maintained by or affiliated with Google.
-	All product names, logos, and brands are property of their respective owners.
+	The accuracy of the data is not guaranteed. Please <a href="[% site.github.repo %]/issues">report issues</a> you see.
+	Portions of this webapp are modifications based on work created and shared by <a href="https://developers.google.com/readme/policies">Google</a>
+	and used according to terms described in the <a href="https://creativecommons.org/licenses/by/4.0/">Creative Commons 4.0 Attribution License</a>.
 </p>
 <p class="text-muted small">
 	Last Update: <a href=[% IF gitHubRunId %]"[% gitHubServerUrl %]/[% gitHubRepository %]/actions/runs/[% gitHubRunId %]"[% ELSE %]"#"[% END %]>[% gmttime %]</a> (GMT)

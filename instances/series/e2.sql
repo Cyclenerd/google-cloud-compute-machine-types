@@ -3,7 +3,7 @@
 /* https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types */
 UPDATE instances SET
 series      = 'e2',
-family      = 'Cost-optimized',
+family      = 'General-purpose',
 cpuPlatform = 'Skylake, Broadwell, Haswell, Rome',
 spot        = '1'
 WHERE name LIKE 'e2-%';

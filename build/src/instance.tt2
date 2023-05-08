@@ -162,29 +162,113 @@ function copy[% instance.name.remove('-') %]() {
 <div class="col-xxl-6">
 
 <h2>Costs (Pricing) for [% instance.name %]</h2>
-<p>Average cost and pricing across all regions for Google Cloud VM [% instance.name %].</p>
+<p>Cost and pricing across all regions for Google Cloud VM [% instance.name %].</p>
+
+<h3>Price per Hour</h3>
 <div class="table-responsive">
 <table class="table table-hover table-striped table-bordered">
+<thead>
 	<tr>
-		<th>Avg. costs per hour</th>
+		<th scope="col"></th>
+		<th scope="col" title="Lowest price across all regions">Min.</th>
+		<th scope="col" title="Average price across all regions">Avg.</th>
+		<th scope="col" title="Highest price across all regions">Max.</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th>Standard price per hour</th>
+		<td class="currency">[% instance.minHour %]</td>
 		<td class="currency">[% instance.avgHour %]</td>
+		<td class="currency">[% instance.maxHour %]</td>
+	</tr>
+	[% IF instance.spot && instance.avgHourSpot > 0 %]
+	<tr>
+		<th>Spot provisioning model (Spot VM)</th>
+		<td class="currency">[% instance.minHourSpot %]</td>
+		<td class="currency">[% instance.avgHourSpot %]</td>
+		<td class="currency">[% instance.maxHourSpot %]</td>
 	</tr>
 	<tr>
-		<th>Avg. costs per month[% IF instance.sud %] with sustained use discount (SUD)[% END %]</th>
+		<th>Discount Spot VM vs. standard</th>
+		<td class="currency">[% instance.minHourSpotDiscount %] ([% instance.minHourSpotDiscountPercent %]%)</td>
+		<td class="currency">[% instance.avgHourSpotDiscount %] ([% instance.avgHourSpotDiscountPercent %]%)</td>
+		<td class="currency">[% instance.maxHourSpotDiscount %] ([% instance.maxHourSpotDiscountPercent %]%)</td>
+	</tr>
+	[% END %]
+</tbody>
+</table>
+</div>
+
+<h3>Price per Month</h3>
+<div class="table-responsive">
+<table class="table table-hover table-striped table-bordered">
+<thead>
+	<tr>
+		<th scope="col"></th>
+		<th scope="col" title="Lowest price across all regions">Min.</th>
+		<th scope="col" title="Average price across all regions">Avg.</th>
+		<th scope="col" title="Highest price across all regions">Max.</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th>Price per month[% IF instance.sud %] with sustained use discount (SUD)[% END %]</th>
+		<td class="currency">[% instance.minMonth %]</td>
 		<td class="currency">[% instance.avgMonth %]</td>
+		<td class="currency">[% instance.maxMonth %]</td>
+	</tr>
+	[% IF instance.spot && instance.avgMonthSpot > 0 %]
+	<tr>
+		<th>Spot provisioning model (Spot VM)</th>
+		<td class="currency">[% instance.minMonthSpot %]</td>
+		<td class="currency">[% instance.avgMonthSpot %]</td>
+		<td class="currency">[% instance.maxMonthSpot %]</td>
 	</tr>
 	<tr>
-		<th>Avg. costs per month with 1 year commitment (CUD)</th>
+		<th>Discount Spot VM vs. month</th>
+		<td class="currency">[% instance.minMonthSpotDiscount %] ([% instance.minMonthSpotDiscountPercent %]%)</td>
+		<td class="currency">[% instance.avgMonthSpotDiscount %] ([% instance.avgMonthSpotDiscountPercent %]%)</td>
+		<td class="currency">[% instance.maxMonthSpotDiscount %] ([% instance.maxMonthSpotDiscountPercent %]%)</td>
+	</tr>
+	[% END %]
+	<tr>
+		<th>1 year commitment (CUD)</th>
+		<td class="currency">[% instance.minMonth1yCud %]</td>
 		<td class="currency">[% instance.avgMonth1yCud %]</td>
+		<td class="currency">[% instance.maxMonth1yCud %]</td>
 	</tr>
 	<tr>
-		<th>Avg. costs per month with 3 year commitment (CUD)</th>
-		<td class="currency">[% instance.avgMonth3yCud %]</td>
+		<th>Discount 1Y CUD vs. month</th>
+		<td class="currency">[% instance.minMonth1yCudDiscount %] ([% instance.minMonth1yCudDiscountPercent %]%)</td>
+		<td class="currency">[% instance.avgMonth1yCudDiscount %] ([% instance.avgMonth1yCudDiscountPercent %]%)</td>
+		<td class="currency">[% instance.maxMonth1yCudDiscount %] ([% instance.maxMonth1yCudDiscountPercent %]%)</td>
 	</tr>
+	<tr>
+		<th>3 year commitment (CUD)</th>
+		<td class="currency">[% instance.minMonth3yCud %]</td>
+		<td class="currency">[% instance.avgMonth3yCud %]</td>
+		<td class="currency">[% instance.maxMonth3yCud %]</td>
+	</tr>
+		<tr>
+		<th>Discount 3Y CUD vs. month</th>
+		<td class="currency">[% instance.minMonth3yCudDiscount %] ([% instance.minMonth3yCudDiscountPercent %]%)</td>
+		<td class="currency">[% instance.avgMonth3yCudDiscount %] ([% instance.avgMonth3yCudDiscountPercent %]%)</td>
+		<td class="currency">[% instance.maxMonth3yCudDiscount %] ([% instance.maxMonth3yCudDiscountPercent %]%)</td>
+	</tr>
+</tbody>
 </table>
 </div><!-- table-responsive -->
 
-<p>Costs and pricing for Google Compute Engine machine type [% instance.name %] in Google Cloud regions in which the VM is available.</p>
+<h3>Price per Region</h3>
+[% 
+	cost_hour_difference = instance.maxHour - instance.minHour;
+	cost_hour_difference_percent = cost_hour_difference*100 / instance.maxHour
+%]
+<p>
+Costs and pricing for Google Compute Engine machine type [% instance.name %] in Google Cloud regions in which the VM is available.
+Between the most expensive and the cheapest region is a price <mark>difference of [% cost_hour_difference_percent FILTER format("%.0f") %]%</mark>.
+</p>
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
 <thead>
@@ -195,6 +279,7 @@ function copy[% instance.name.remove('-') %]() {
 		<th scope="col" title="CPU Platforms">#Platf.</th>
 		<!-- Costs -->
 		<th scope="col">Hour ⬇️</th>
+		[% IF instance.spot && instance.avgHourSpot > 0 %]<th scope="col">Spot</th>[% END %]
 		<th scope="col">Month</th>
 		<th scope="col">1Y CUD</th>
 		<th scope="col">3Y CUD</th>
@@ -222,6 +307,13 @@ function copy[% instance.name.remove('-') %]() {
 			title="Costs per hour for machine type [% instance.name %] in region [% region.name %]: [% region.hour %] USD">
 			<span class="currency">[% region.hour %]</span>
 		</td>
+		[% IF instance.spot && instance.avgHourSpot > 0 %]
+		<td
+		    class="[% IF region.hourSpot >= instance.maxHourSpot %]table-danger[% ELSIF region.hourSpot > instance.avgHourSpot %]table-warning[% ELSE %]table-success[% END %]"
+			title="Costs per hour for machine type [% instance.name %] in region [% region.name %] with spot provisioning model (Spot VM): [% region.hourSpot %] USD">
+			<span class="currency">[% region.hourSpot %]</span>
+		</td>
+		[% END %]
 		<td
 		    class="[% IF region.month >= instance.maxMonth %]table-danger[% ELSIF region.month > instance.avgMonth %]table-warning[% ELSE %]table-success[% END %]"
 		    title="Costs per month for machine type [% instance.name %] in region [% region.name %]: [% region.month %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
@@ -303,8 +395,8 @@ function copy[% instance.name.remove('-') %]() {
 		<th scope="col" colspan="2">Memory</th>
 		<th scope="col"></th>
 		<th scope="col" colspan="2">Avg. costs per hour</th>
+		<th scope="col" colspan="2">Avg. costs per Spot VM hour</th>
 		<th scope="col" colspan="2">Avg. costs per month</th>
-		<th scope="col"></th>
 	</tr>
 </thead>
 <tbody>
@@ -323,18 +415,25 @@ function copy[% instance.name.remove('-') %]() {
 			[% badgeSap(other) %]
 			[% badgeHana(other) %]
 		</td>
-		<!-- Costs -->
+		<!-- Hour -->
 		<td></td>
-		<td title="[% other.name %] avg. costs per hour: [% other.avgMonth %] USD">
+		<td title="[% other.name %] avg. costs per hour: [% other.avgHour %] USD">
 			<span class="currency">[% other.avgHour %]</span>
 		</td>
+		<!-- // Hour -->
+		<!-- Spot VM -->
+		<td></td>
+		<td title="[% other.name %] avg. costs per Spot VM hour: [% other.avgHourSpot %] USD">
+			<span class="currency">[% other.avgHourSpot %]</span>
+		</td>
+		<!-- // Spot VM -->
+		<!-- Month -->
 		<td></td>
 		<td title="[% other.name %] avg. costs per month: [% other.avgMonth %] USD[% IF other.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% other.avgMonth %]</span>
 			[% badgeSud(other) %]
 		</td>
-		<!-- Compare -->
-		<td></td>
+		<!-- // Month -->
 	</tr>
 	[% ELSE %]
 	<tr>
@@ -351,22 +450,25 @@ function copy[% instance.name.remove('-') %]() {
 			[% badgeSap(other) %]
 			[% badgeHana(other) %]
 		</td>
-		<!-- Costs -->
+		<!-- Hour -->
 		[% tableCompareCosts(instance.avgHour || 0, other.avgHour || 0) %]
 		<td title="[% other.name %] avg. costs per hour: [% other.avgHour %] USD">
 			<span class="currency">[% other.avgHour %]</span>
 		</td>
+		<!-- // Hour -->
+		<!-- Spot VM -->
+		[% tableCompareCosts(instance.avgHourSpot || 0, other.avgHourSpot || 0) %]
+		<td title="[% other.name %] avg. costs per Spot VM hour: [% other.avgHourSpot %] USD">
+			<span class="currency">[% other.avgHourSpot %]</span>
+		</td>
+		<!-- // Spot VM -->
+		<!-- Month -->
 		[% tableCompareCosts(instance.avgMonth || 0, other.avgMonth || 0) %]
 		<td title="[% other.name %] avg. costs per month: [% other.avgMonth %] USD[% IF other.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% other.avgMonth %]</span>
 			[% badgeSud(other) %]
 		</td>
-		<!-- Compare -->
-		<td>
-			<a href="/comparison/[% instance.name %]/vs/[% other.name %].html"
-			   title="Compare Google Compute Engine machine type [% instance.name %] vs. [% other.name %]"
-			   class="btn btn-warning btn-sm">Compare</a>
-		</td>
+		<!-- // Month -->
 	</tr>
 	[%- END; END; END -%]
 </tbody>

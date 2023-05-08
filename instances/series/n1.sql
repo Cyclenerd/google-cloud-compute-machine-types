@@ -3,7 +3,7 @@
 /* https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines */
 UPDATE instances SET
 series      = 'n1',
-family      = 'Balanced',
+family      = 'General-purpose',
 cpuPlatform = 'Skylake, Broadwell, Haswell, Sandy Bridge, Ivy Bridge',
 localSsd    = '1',
 sud         = '1',

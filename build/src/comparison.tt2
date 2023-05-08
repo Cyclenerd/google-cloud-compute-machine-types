@@ -196,7 +196,37 @@
 <div class="col-xxl-6">
 
 <h2>Costs (Pricing)</h2>
-<p>Costs for Google Compute Engine machine types [% instance_a.name %] and [% instance_b.name %].</p>
+<p>Average prices across all regions for Google Compute Engine machine types [% instance_a.name %] and [% instance_b.name %].</p>
+
+<h3>Price per Hour</h3>
+<div class="table-responsive">
+<table class="table table-hover table-striped table-bordered">
+<thead>
+	<tr>
+		<th scope="col"></th>
+		<th scope="col" class="table-active">[% instance_a.name %]</th>
+		<th scope="col"></th>
+		<th scope="col">[% instance_b.name %]</th>
+	</tr>
+</thead>
+<tbody>
+	<tr>
+		<th>Standard price per hour</th>
+		<td class="currency table-active">[% instance_a.avgHour %]</td>
+		[% tableCompareCosts(instance_a.avgHour || 0, instance_b.avgHour || 0) %]
+		<td class="currency">[% instance_b.avgHour %]</td>
+	</tr>
+	<tr>
+		<th>Spot provisioning model (Spot VM)</th>
+		<td class="currency table-active">[% instance_a.avgHourSpot %]</td>
+		[% tableCompareCosts(instance_a.avgHourSpot || 0, instance_b.avgHourSpot || 0) %]
+		<td class="currency">[% instance_b.avgHourSpot %]</td>
+	</tr>
+</tbody>
+</table>
+</div>
+
+<h3>Price per Month</h3>
 <div class="table-responsive">
 <table class="table table-hover table-bordered">
 <thead>
@@ -209,13 +239,7 @@
 </thead>
 <tbody>
 	<tr>
-		<th>Avg. costs per hour</th>
-		<td class="currency table-active">[% instance_a.avgHour %]</td>
-		[% tableCompareCosts(instance_a.avgHour || 0, instance_b.avgHour || 0) %]
-		<td class="currency">[% instance_b.avgHour %]</td>
-	</tr>
-	<tr>
-		<th>Avg. costs per month</th>
+		<th>Price per month</th>
 		<td class="table-active">
 			<span class="currency">[% instance_a.avgMonth %]</span>
 			[% badgeSud(instance_a) %]
@@ -227,13 +251,19 @@
 		</td>
 	</tr>
 	<tr>
-		<th>Avg. costs per month with 1 year CUD</th>
+		<th>Spot provisioning model (Spot VM)</th>
+		<td class="currency table-active">[% instance_a.avgMonthSpot %]</td>
+		[% tableCompareCosts(instance_a.avgMonthSpot || 0, instance_b.avgMonthSpot || 0) %]
+		<td class="currency">[% instance_b.avgMonthSpot %]</td>
+	</tr>
+	<tr>
+		<th>1 year commitment (CUD)</th>
 		<td class="currency table-active">[% instance_a.avgMonth1yCud %]</td>
 		[% tableCompareCosts(instance_a.avgMonth1yCud || 0, instance_b.avgMonth1yCud || 0) %]
 		<td class="currency">[% instance_b.avgMonth1yCud %]</td>
 	</tr>
 	<tr>
-		<th>Avg. costs per month with 3 year CUD</th>
+		<th>3 year commitment (CUD)</th>
 		<td class="currency table-active">[% instance_a.avgMonth3yCud %]</td>
 		[% tableCompareCosts(instance_a.avgMonth3yCud || 0, instance_b.avgMonth3yCud || 0) %]
 		<td class="currency">[% instance_b.avgMonth3yCud %]</td>
@@ -356,8 +386,9 @@ function copy[% instance_a.name.remove('-') %]() {
 <p>Costs for Google Compute Engine machine types [% instance_a.name %] and [% instance_b.name %] in Google Cloud regions in which the VMs are available.</p>
 <div class="table-responsive">
 <table
-	class="table table-hover table-bordered"
+	class="table table-sm table-hover table-bordered"
 	data-toggle="table"
+	data-classes="table table-sm table-hover table-bordered"
 	data-sort-name="name"
 	data-sort-order="asc"
 	data-sticky-header="true"
@@ -366,14 +397,19 @@ function copy[% instance_a.name.remove('-') %]() {
 	<tr>
 		<th scope="col" colspan="2">Region</th>
 		<th scope="col" colspan="3">Hour</th>
+		<th scope="col" colspan="3">Spot</th>
 		<th scope="col" colspan="3">Month</th>
-		<th scope="col" colspan="3">Month w. 1 year CUD</th>
-		<th scope="col" colspan="3">Month w. 3 year CUD</th>
+		<th scope="col" colspan="3">1 year CUD</th>
+		<th scope="col" colspan="3">3 year CUD</th>
 	</tr>
 	<tr>
 		<th scope="col" data-field="name" data-sortable="true">Name</th>
 		<th scope="col">Location</th>
 		<!-- Hour -->
+		<th scope="col" class="table-active">[% instance_a.name %]</th>
+		<th scope="col"></th>
+		<th scope="col">[% instance_b.name %]</th>
+		<!-- Spot -->
 		<th scope="col" class="table-active">[% instance_a.name %]</th>
 		<th scope="col"></th>
 		<th scope="col">[% instance_b.name %]</th>
@@ -426,6 +462,36 @@ function copy[% instance_a.name.remove('-') %]() {
 		[% ELSE %]
 		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
 		[% END %]
+		<!-- Spot -->
+		[%-
+			costs_a = 0;
+			costs_b = 0;
+			FOREACH region_a IN regions_a;
+				IF region_a.region == region.name;
+					costs_a = region_a.hourSpot;
+				END;
+			END;
+			FOREACH region_b IN regions_b;
+				IF region_b.region == region.name;
+					costs_b = region_b.hourSpot;
+				END;
+			END;
+		-%]
+		[% IF costs_a %]
+		<td class="currency table-active" title="Costs per hour [% instance_a.name %] in [% region.name %] with spot provisioning model (Spot VM): [% costs_a %] USD"><a href="/[% region.name %]/[% instance_a.name %].html">[% costs_a %]</a></td>
+		[% ELSE %]
+		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
+		[% END %]
+		[% IF costs_a && costs_b %]
+		[% tableCompareCosts(costs_a || 0, costs_b || 0) %]
+		[% ELSE %]
+		<td class="table-warning"><span class="text-muted">-</span></td>
+		[% END %]
+		[% IF costs_b %]
+		<td class="currency" title="Costs per hour [% instance_b.name %] in [% region.name %] with spot provisioning model (Spot VM): [% costs_b %] USD"><a href="/[% region.name %]/[% instance_b.name %].html">[% costs_b %]</a></td>
+		[% ELSE %]
+		<td class="table-warning" title="Machine type [% instance_a.name %] is not available in the region [% region.name %]"><span class="text-muted">N.A.</span></td>
+		[% END %]
 		<!-- Month -->
 		[%-
 			costs_a = 0;
@@ -442,7 +508,7 @@ function copy[% instance_a.name.remove('-') %]() {
 			END;
 		-%]
 		[% IF costs_a %]
-		<td class="text-nowrap" class="table-active" title="Costs per month [% instance_a.name %] in [% region.name %]: [% costs_a %] USD">
+		<td class="text-nowrap table-active" title="Costs per month [% instance_a.name %] in [% region.name %]: [% costs_a %] USD">
 			<span class="currency"><a href="/[% region.name %]/[% instance_a.name %].html">[% costs_a %]</a></span>
 			[% badgeSud(instance_a) %]
 		</td>
