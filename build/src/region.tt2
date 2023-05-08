@@ -89,7 +89,8 @@ IF disk.name == 'local-ssd';  minDiskSize = 375; END;
 <p>Costs and pricing for Google Compute Engine machine types in Google Cloud region [% region.name %][% IF region.regionLocation %] ([% region.regionLocation %])[% END %].</p>
 <div class="table-responsive">
 <table
-	class="table table-hover table-bordered"
+	class="table table-sm table-hover table-bordered"
+	data-classes="table table-sm table-hover table-bordered"
 	data-toggle="table"
 	data-sort-name="vcpu"
 	data-sort-order="asc"
