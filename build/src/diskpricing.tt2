@@ -13,7 +13,8 @@ Breakdown by price per GB and minimum capacity per disk.
 
 <div class="table-responsive">
 <table
-	class="table table-hover table-bordered"
+	class="table table-sm table-hover table-bordered"
+	data-classes="table table-sm table-hover table-bordered"
 	data-toggle="table"
 	data-sort-name="name"
 	data-sort-order="asc"

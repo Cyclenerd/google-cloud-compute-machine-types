@@ -387,8 +387,8 @@ function copy[% instance_a.name.remove('-') %]() {
 <div class="table-responsive">
 <table
 	class="table table-sm table-hover table-bordered"
-	data-toggle="table"
 	data-classes="table table-sm table-hover table-bordered"
+	data-toggle="table"
 	data-sort-name="name"
 	data-sort-order="asc"
 	data-sticky-header="true"

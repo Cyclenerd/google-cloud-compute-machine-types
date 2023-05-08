@@ -15,7 +15,8 @@ Not every CPU is available in all Google Cloud region and zones.
 
 <div class="table-responsive">
 <table
-	class="table table-hover table-bordered"
+	class="table table-sm table-hover table-bordered"
+	data-classes="table table-sm table-hover table-bordered"
 	data-toggle="table"
 	data-sort-name="name"
 	data-sort-order="asc"
@@ -57,7 +58,14 @@ Not every CPU is available in all Google Cloud region and zones.
 			[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]
 			[% badgeLowCo2Region(region) %]
 		</td>
-		<td>[% IF region.regionLocationCountryCode %]<code>[% region.regionLocationCountryCode %]</code>[% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td>
+			[% IF region.regionLocationCountryCode %]
+				[% countryFlag(region.regionLocationCountryCode) %]
+				[% countryName(region.regionLocationCountryCode) %]
+			[% ELSE %]
+			<span class="text-muted">?</span>
+			[% END %]
+		</td>
 		<td>[% region.zoneCount %]</td>
 		<td [% IF region.intelSapphireRapids      == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine types with Intel Sapphire Rapids in region [% region.name %]">
 			[% IF region.intelSapphireRapids %]<a href="/grid.html?region=[% region.name %]&amp;platform=sapphire">[% region.intelSapphireRapids %]</a>[% ELSE %]0[% END %]

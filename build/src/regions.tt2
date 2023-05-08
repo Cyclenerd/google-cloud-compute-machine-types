@@ -24,8 +24,8 @@ A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] millio
 <div class="table-responsive">
 <table
 	class="table table-sm table-hover table-bordered"
-	data-toggle="table"
 	data-classes="table table-sm table-hover table-bordered"
+	data-toggle="table"
 	data-sort-name="name"
 	data-sort-order="asc"
 	data-sortable="true"
