@@ -353,6 +353,11 @@
 <meta name="description"         content="Download all Google Compute Engine machine types available in Google Cloud Platform as CSV and SQL export.">
 <link rel="canonical"            href="[% site.url %]/download.html">
 
+[%- ELSIF template.name == 'gcosts.tt2' -%]
+<title>Google Cloud Platform Pricing and Cost Calculator</title>
+<meta name="description"         content="Calculate estimated monthly costs of Google Cloud Platform products and resources on your local computer.">
+<link rel="canonical"            href="[% site.url %]/gcosts.html">
+
 [%- ELSIF template.name == 'imprint.tt2'-%]
 <title>Imprint - gcloud-compute.com</title>
 <link rel="canonical" href="[% site.url %]/imprint.html">

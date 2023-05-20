@@ -1,0 +1,66 @@
+[%- PROCESS header.tt2 -%]
+
+</div> <!-- // container-fluid -->
+<div class="container">
+
+<h1>Google Cloud Platform Pricing and Cost Calculator</h1>
+
+<p>
+Calculate estimated monthly costs of Google Cloud Platform products and resources on your local computer.
+Optimized for DevOps, architects and engineers to quickly see a cost breakdown and compare different options upfront:
+</p>
+
+<ul>
+	<li>Mapping of resource usage is done in easy to learn YAML usage files</li>
+	<li>Price information is read from a local file</li>
+	<li>Calculation is done via <code>gcosts</code> CLI program</li>
+	<li>Calculated costs are saved in CSV file optimized for non-technical audience</li>
+</ul>
+
+<p>
+Full control and no disclosure of any information and costs to third parties.
+Everything is calculated on your local computer.
+No need to have a connection to the Internet.
+Everything tested and matched against the actual invoice in large Google Cloud migration projects.
+
+<p>
+<code>gcosts</code> works on various OS and terminals, including Linux, macOS and Windows.
+</p>
+
+<div class="row">
+	<div class="col-xl-4">
+		<p class="fw-bolder">1. Create YAML file</p>
+		<p><img src="/img/usage.png?[% timestamp %]" alt="Screenshot: Create YAML file" class="img-fluid"></p>
+	</div>
+	<div class="col-xl-4">
+		<p class="fw-bolder">2. Run gcosts CLI program</p>
+		<p><img src="/img/gcosts.png?[% timestamp %]" alt="Screenshot: Run gcosts CLI program" class="img-fluid"></p>
+	</div>
+	<div class="col-xl-4">
+		<p class="fw-bolder">3. Open CSV file</p>
+		<p><img src="/img/csv.png?[% timestamp %]" alt="Screenshot: Open CSV file" class="img-fluid"></p>
+	</div>
+</div>
+
+<h2>Download</h2>
+<p>
+	The <code>gcosts</code> pricing and cost calculator is Open Source software and free to use.
+	You can find a detailed documentation and all download options on
+	<a href="https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator#readme">GitHub</a>.
+</p>
+
+<p>
+	<a class="btn btn-lg btn-warning" href="https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator#-quick-start">Linux</a>
+	<a class="btn btn-lg btn-dark" href="https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator#-quick-start">macOS</a>
+	<a class="btn btn-lg btn-success" href="https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator#-quick-start">Windows</a>
+<p>
+
+<h2>Awarded</h2>
+
+<p>
+This project was the winner of the
+<a href="https://opensource.googleblog.com/2022/09/announcing-the-second-group-of-open-source-peer-bonus-winners-in-2022.html">Google Open Source Peer Bonus</a>
+in 2022.
+<p>
+
+[%- PROCESS footer.tt2 -%]
