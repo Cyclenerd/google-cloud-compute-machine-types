@@ -166,6 +166,8 @@ push(@files, 'sap.html');
 $template->process('sap.tt2', { 'instances' => \@instances }, '../site/sap.html') || die "Template process failed: ", $template->error(), "\n";
 push(@files, 'hana.html');
 $template->process('hana.tt2', { 'instances' => \@instances }, '../site/hana.html') || die "Template process failed: ", $template->error(), "\n";
+push(@files, 'discounts.html');
+$template->process('discounts.tt2', { 'instances' => \@instances }, '../site/discounts.html') || die "Template process failed: ", $template->error(), "\n";
 
 ###############################################################################
 # DISKS
@@ -721,6 +723,7 @@ $template->process('download.tt2', {
 }, '../site/download.html') || die "Template process failed: ", $template->error(), "\n";
 
 # gcosts
+push(@files, 'gcosts.html');
 $template->process('gcosts.tt2', {}, '../site/gcosts.html') || die "Template process failed: ", $template->error(), "\n";
 
 # Imprint

@@ -1,0 +1,110 @@
+[%- PROCESS header.tt2 -%]
+[%- PROCESS instances_header.tt2 -%]
+
+<h1>Google Compute Engine Discounts</h1>
+
+<blockquote class="blockquote">
+<p>
+	Overview of <mark>possible savings</mark> through discounts and good selection of the optimal region.
+	Comparison of the most expensive region and the cheapest region.
+</p>
+</blockquote>
+
+<div class="table-responsive">
+<table
+	class="table table-sm table-hover table-bordered"
+	data-classes="table table-sm table-hover table-bordered"
+	data-toggle="table"
+	data-sort-name="vcpu"
+	data-sort-order="asc"
+	data-sortable="true"
+	data-sticky-header="true"
+>
+<thead>
+
+<tr>
+<th scope="col" colspan="3">Machine Type</th>
+<th scope="col">Regions</th>
+<th scope="col" colspan="5" title="Costs per hour">Hour</th>
+<th scope="col" colspan="7" title="Costs per month">Month</th>
+</tr>
+
+<tr>
+<!-- Machine Type -->
+<th scope="col" data-sortable="true">Name</th>
+<th scope="col" data-field="vcpu" data-sortable="true">vCPU</th>
+<th scope="col" data-sortable="true">Memory</th>
+<!-- Regions -->
+<th scope="col">#</th>
+<!-- Hour -->
+<th scope="col" data-sortable="true" title="Highest standard price per hour across all regions">Max.</th>
+<th scope="col" data-sortable="true" title="Lowest standard price per hour across all regions">Min.</th>
+<th scope="col" data-sortable="true" title="Possible savings highest price compared to lowest price">%</th>
+<th scope="col" data-sortable="true" title="Lowest spot provisioning model (Spot VM) price per hour across all regions">Spot</th>
+<th scope="col" data-sortable="true" title="Possible savings highest standard price compared to lowest spot provisioning model (Spot VM)">%</th>
+<!-- Month -->
+<th scope="col" data-sortable="true" title="Highest standard price per month across all regions">Max.</th>
+<th scope="col" data-sortable="true" title="Lowest standard price per month across all regions">Min.</th>
+<th scope="col" data-sortable="true" title="Possible savings highest price compared to lowest price">%</th>
+<th scope="col" data-sortable="true" title="Lowest price per month with 1 year commitment (CUD) across all regions">1Y CUD</th>
+<th scope="col" data-sortable="true" title="Possible savings highest standard price compared to lowest price with 1 year CUD">%</th>
+<th scope="col" data-sortable="true" title="Lowest price per month with 3 year commitment (CUD) across all regions">3Y CUD</th>
+<th scope="col" data-sortable="true" title="Possible savings highest standard price compared to lowest price with 3 year CUD">%</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+[%- FOREACH instance IN instances -%]
+<tr>
+
+<!-- Machine Type -->
+<td><a href="/[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
+<td class="text-nowrap">[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
+<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
+<!-- Regions -->
+<td>[% instance.regionCount %]</td>
+<!-- Hour -->
+[% 
+	cost_hour_max_min_difference = instance.maxHour - instance.minHour;
+	cost_hour_max_min_difference_percent = cost_hour_max_min_difference*100 / instance.maxHour
+%]
+<td class="currency" title="[% instance.name %] max. standard price per hour: [% instance.maxHour %] USD">[% instance.maxHour %]</td>
+<td class="currency" title="[% instance.name %] min. standard price per hour: [% instance.minHour %] USD">[% instance.minHour %]</td>
+<td title="[% instance.name %] possible savings: [% cost_hour_max_min_difference FILTER format("%.2f") %] USD per hour">[% cost_hour_max_min_difference_percent FILTER format("%.0f") %]</td>
+[% 
+	cost_hour_max_min_difference = instance.maxHour - instance.minHourSpot;
+	cost_hour_max_min_difference_percent = cost_hour_max_min_difference*100 / instance.maxHour
+%]
+<td class="currency" title="[% instance.name %] min. Spot VM price per hour: [% instance.minHourSpot %] USD">[% instance.minHourSpot %]</td>
+<td title="[% instance.name %] possible savings Spot VM: [% cost_hour_max_min_difference FILTER format("%.2f") %] USD per hour">[% cost_hour_max_min_difference_percent FILTER format("%.0f") %]</td>
+<!-- Month -->
+[% 
+	cost_hour_max_min_difference = instance.maxMonth - instance.minMonth;
+	cost_hour_max_min_difference_percent = cost_hour_max_min_difference*100 / instance.maxMonth
+%]
+<td class="currency" title="[% instance.name %] max. standard price per month: [% instance.maxMonth %] USD">[% instance.maxMonth %]</td>
+<td class="currency" title="[% instance.name %] min. standard price per month: [% instance.minMonth %] USD">[% instance.minMonth %]</td>
+<td title="[% instance.name %] possible savings: [% cost_hour_max_min_difference FILTER format("%.2f") %] USD per month">[% cost_hour_max_min_difference_percent FILTER format("%.0f") %]</td>
+[% 
+	cost_hour_max_min_difference = instance.maxMonth - instance.minMonth1yCud;
+	cost_hour_max_min_difference_percent = cost_hour_max_min_difference*100 / instance.maxMonth
+%]
+<td class="currency" title="[% instance.name %] min. costs per month w. 1Y CUD: [% instance.minMonth1yCud %] USD">[% instance.minMonth1yCud %]</td>
+<td title="[% instance.name %] possible savings: [% cost_hour_max_min_difference FILTER format("%.2f") %] USD per month">[% cost_hour_max_min_difference_percent FILTER format("%.0f") %]</td>
+[% 
+	cost_hour_max_min_difference = instance.maxMonth - instance.minMonth3yCud;
+	cost_hour_max_min_difference_percent = cost_hour_max_min_difference*100 / instance.maxMonth
+%]
+<td class="currency" title="[% instance.name %] min. costs per month w. 3Y CUD: [% instance.minMonth3yCud %] USD">[% instance.minMonth3yCud %]</td>
+<td title="[% instance.name %] possible savings: [% cost_hour_max_min_difference FILTER format("%.2f") %] USD per month">[% cost_hour_max_min_difference_percent FILTER format("%.0f") %]</td>
+
+</tr>
+[%- END -%]
+
+</tbody>
+</table>
+</div> <!-- // table-responsive -->
+
+[% PROCESS footer.tt2 %]

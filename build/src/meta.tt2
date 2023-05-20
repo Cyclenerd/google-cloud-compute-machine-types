@@ -144,6 +144,23 @@
 <meta property="og:description"  content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:url"          content="[% site.url %]/hana.html">
 
+[%- ELSIF template.name == 'discounts.tt2' -%]
+<title>Google Compute Engine Discounts</title>
+<meta name="description"         content="Overview of possible discounts and savings for Google Compute Engine machine types that can be used in GCP.">
+<link rel="canonical"            href="[% site.url %]/discounts.html">
+<meta name="twitter:image:src"   content="[% site.opengraph %]/instances.png?[% timestamp %]">
+<meta name="twitter:card"        content="summary_large_image">
+<meta name="twitter:title"       content="Google Compute Engine Discounts">
+<meta name="twitter:description" content="Overview of possible discounts and savings for Google Compute Engine machine types that can be used in GCP.">
+<meta property="og:image"        content="[% site.opengraph %]/instances.png?[% timestamp %]">
+<meta property="og:image:alt"    content="Image: Google Compute Engine machine types">
+<meta property="og:image:width"  content="1200">
+<meta property="og:image:height" content="600">
+<meta property="og:type"         content="website">
+<meta property="og:title"        content="Google Compute Engine Discounts">
+<meta property="og:description"  content="Overview of possible discounts and savings for Google Compute Engine machine types that can be used in GCP.">
+<meta property="og:url"          content="[% site.url %]/discounts.html">
+
 [%- ELSIF template.name == 'disks.tt2' -%]
 <title>GCE Disk Types in Google Cloud Platform</title>
 <meta name="description"         content="Overview of all Google Compute Engine disk types that can be used in Google Cloud Platform. Sorted by price.">
@@ -350,13 +367,13 @@
 
 [%- ELSIF template.name == 'download.tt2' -%]
 <title>Download Google Compute Engine Machine Types</title>
-<meta name="description"         content="Download all Google Compute Engine machine types available in Google Cloud Platform as CSV and SQL export.">
-<link rel="canonical"            href="[% site.url %]/download.html">
+<meta name="description" content="Download all Google Compute Engine machine types available in Google Cloud Platform as CSV and SQL export.">
+<link rel="canonical"    href="[% site.url %]/download.html">
 
 [%- ELSIF template.name == 'gcosts.tt2' -%]
-<title>Google Cloud Platform Pricing and Cost Calculator</title>
-<meta name="description"         content="Calculate estimated monthly costs of Google Cloud Platform products and resources on your local computer.">
-<link rel="canonical"            href="[% site.url %]/gcosts.html">
+<title>Pricing and Cost Calculator</title>
+<meta name="description" content="Calculate estimated monthly costs of Google Cloud Platform products and resources on your local computer.">
+<link rel="canonical"    href="[% site.url %]/gcosts.html">
 
 [%- ELSIF template.name == 'imprint.tt2'-%]
 <title>Imprint - gcloud-compute.com</title>

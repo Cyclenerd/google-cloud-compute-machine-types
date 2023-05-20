@@ -19,6 +19,9 @@
 	<li class="nav-item">
 		<a [% IF template.name == 'hana.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/hana.html">HANA</a>
 	</li>
+	<li class="nav-item">
+		<a [% IF template.name == 'discounts.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/discounts.html">Discounts</a>
+	</li>
 </ul>
 </div> <!-- // col -->
 </div> <!-- // row -->
