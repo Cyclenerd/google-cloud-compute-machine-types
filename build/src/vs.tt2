@@ -48,8 +48,10 @@
 		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
 		<td>
 			[% badgeCpuManufactur(instance) %]
+			[% badgeGpu(instance) %]
 			[% badgeSap(instance) %]
 			[% badgeHana(instance) %]
+			[% badgeSpot(instance) %]
 		</td>
 		<!-- Hour -->
 		<td></td>
@@ -86,8 +88,10 @@
 		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
 		<td>
 			[% badgeCpuManufactur(instance) %]
+			[% badgeGpu(instance) %]
 			[% badgeSap(instance) %]
 			[% badgeHana(instance) %]
+			[% badgeSpot(instance) %]
 		</td>
 		<!-- Hour -->
 		[% tableCompareCosts(instance_a.avgHour || 0, instance.avgHour || 0) %]

@@ -412,8 +412,10 @@ Between the most expensive and the cheapest region is a price <mark>difference o
 		<td class="memory" title="Random-access memory: [% other.memoryGiB %] GiB">[% other.memoryGiB %]</td>
 		<td>
 			[% badgeCpuManufactur(other) %]
+			[% badgeGpu(other) %]
 			[% badgeSap(other) %]
 			[% badgeHana(other) %]
+			[% badgeSpot(other) %]
 		</td>
 		<!-- Hour -->
 		<td></td>
@@ -447,8 +449,10 @@ Between the most expensive and the cheapest region is a price <mark>difference o
 		<td class="memory" title="Random-access memory: [% other.memoryGiB %] GiB">[% other.memoryGiB %]</td>
 		<td>
 			[% badgeCpuManufactur(other) %]
+			[% badgeGpu(other) %]
 			[% badgeSap(other) %]
 			[% badgeHana(other) %]
+			[% badgeSpot(other) %]
 		</td>
 		<!-- Hour -->
 		[% tableCompareCosts(instance.avgHour || 0, other.avgHour || 0) %]
