@@ -10,11 +10,11 @@ This Google Compute Engine machine type comparison [webapp](https://gcloud-compu
 
 ## Instance Picker
 
-[![Screenshot: gcloud-compute.com - Instance Picker](./img/grid.png?v1)](https://gcloud-compute.com/)
+[![Screenshot: gcloud-compute.com - Instance Picker](./img/grid.png)](https://gcloud-compute.com/)
 
 ## Comparioson
 
-[![Screenshot: gcloud-compute.com - Comparison](./img/compare.png?v1)](https://gcloud-compute.com/comparison/e2-standard-4/vs/t2a-standard-4.html)
+[![Screenshot: gcloud-compute.com - Comparison](./img/compare.png)](https://gcloud-compute.com/comparison/e2-standard-4/vs/t2a-standard-4.html)
 
 ## 🖊️ Add, edit or change machine type information
 
