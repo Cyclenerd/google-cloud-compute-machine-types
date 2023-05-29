@@ -12,6 +12,9 @@ sqlite3 "$DB" < "../instances/series/cpu/frequency.sql" || exit 9
 echo "EEMBC CoreMark Benchmark"
 sqlite3 "$DB" < "../instances/series/cpu/coremark.sql" || exit 9
 
+echo "GPU Type Names"
+sqlite3 "$DB" < "../instances/series/gpu/gpu_names.sql" || exit 9
+
 echo "SAP certified machine types"
 sqlite3 "$DB" < "../instances/series/sap/sap.sql" || exit 9
 
