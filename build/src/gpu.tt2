@@ -30,7 +30,7 @@ Not every GCE machine type with GPU is available in every Google Cloud region.
 		<!-- Regions -->
 		<th scope="col">Regions</th>
 		<!-- Costs -->
-		<th scope="col" colspan="4">Costs (Avg. Region)</th>
+		<th scope="col" colspan="5">Costs (Avg. Region)</th>
 	</tr>
 	<tr>
 		<th scope="col" data-sortable="true">Name</th>
@@ -44,6 +44,7 @@ Not every GCE machine type with GPU is available in every Google Cloud region.
 		<th scope="col">#</th>
 		<!-- Costs -->
 		<th scope="col">Hour</th>
+		<th scope="col">Spot</th>
 		<th scope="col">Month</th>
 		<th scope="col">1Y CUD</th>
 		<th scope="col">3Y CUD</th>
@@ -66,6 +67,7 @@ Not every GCE machine type with GPU is available in every Google Cloud region.
 		<td>[% instance.regionCount %]</td>
 		<!-- Costs -->
 		<td class="currency" title="[% instance.name %] avg. per hour: [% instance.avgHour %] USD">[% instance.avgHour %]</td>
+		<td class="currency" title="[% instance.name %] avg. costs per hour with spot provisioning model (Spot VM): [% instance.avgHourSpot %] USD">[% instance.avgHourSpot %]</td>
 		<td class="text-nowrap" title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
 			<span class="currency">[% instance.avgMonth %]</span>
 			[% badgeSud(instance) %]
