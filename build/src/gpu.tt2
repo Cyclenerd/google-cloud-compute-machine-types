@@ -1,65 +1,68 @@
 [%- PROCESS header.tt2 -%]
 [%- PROCESS instances_header.tt2 -%]
 
-<h1>Certified for SAP HANA on Google Cloud Platform</h1>
+<h1>Google Compute Engine Machine Types with Graphics Processing Units (GPUs)</h1>
 
-[%- countSAP = 0; FOREACH instance IN instances; IF instance.hana; countSAP = countSAP + 1; END; END -%]
+[%- countGpu = 0; FOREACH instance IN instances; IF instance.acceleratorCount && instance.acceleratorCount > 0; countGpu = countGpu + 1; END; END -%]
 <blockquote class="blockquote">
 <p>
-There are <mark>[% countSAP %]</mark> Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform.
-Not every certified Google Cloud VM is available in every region.
+There are <mark>[% countGpu %]</mark> Google Compute Engine machine types with graphics processing units (GPUs) available.
+Not every GCE machine type with GPU is available in every Google Cloud region.
 </p>
 </blockquote>
 
-<p><a class="btn btn-success" href="/grid.html?hana=1" role="button">✅ Instance Picker with filter on SAP HANA</a></p>
+<p><a class="btn btn-success" href="/grid.html?gpu=1" role="button">✅ Instance Picker with filter on GPUs</a></p>
 
 <div class="table-responsive">
+[%- PROCESS instances_tr.tt2; -%]
 <table
 	class="table table-sm table-hover table-bordered"
 	data-classes="table table-sm table-hover table-bordered"
 	data-toggle="table"
-	data-sort-name="vcpu"
+	data-sort-name="gpus"
 	data-sort-order="asc"
 	data-sortable="true"
 	data-sticky-header="true"
 >
 <thead>
 	<tr>
-		<th scope="col" colspan="6">Machine Type</th>
+		<th scope="col" colspan="7">Machine Type</th>
+		<!-- Regions -->
 		<th scope="col">Regions</th>
+		<!-- Costs -->
 		<th scope="col" colspan="4">Costs (Avg. Region)</th>
-		<th scope="col" colspan="2">OS with 3Y CUD</th>
 	</tr>
 	<tr>
 		<th scope="col" data-sortable="true">Name</th>
 		<th scope="col" data-field="vcpu" data-sortable="true">vCPU</th>
 		<th scope="col" data-sortable="true">Base Clock</th>
 		<th scope="col" data-sortable="true">Memory</th>
-		<th scope="col" data-sortable="true">SAPS</th>
+		<th scope="col" data-field="gpus" data-sortable="true">GPUs</th>
+		<th scope="col" data-sortable="true">Type</th>
 		<th scope="col"></th>
+		<!-- Regions -->
 		<th scope="col">#</th>
 		<!-- Costs -->
 		<th scope="col">Hour</th>
 		<th scope="col">Month</th>
 		<th scope="col">1Y CUD</th>
 		<th scope="col">3Y CUD</th>
-		<!-- OS -->
-		<th scope="col">SLES for SAP</th>
-		<th scope="col">RHEL for SAP</th>
 	</tr>
 </thead>
 <tbody>
-	[% FOREACH instance IN instances; IF instance.hana; %]
+[%- FOREACH instance IN instances; IF instance.acceleratorCount && instance.acceleratorCount > 0; -%]
 	<tr>
 		<td><a href="[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
 		<td class="text-nowrap">[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
 		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
-		<td title="SAP Standard Benchmark: [% instance.saps %]">[% instance.saps %]</td>
+		<td title="Accelerator (GPUs): [% instance.acceleratorCount %]">[% instance.acceleratorCount %]</td>
+		<td title="Accelerator Type: [% instance.acceleratorType %]">[% instance.acceleratorType %]</td>
 		<td>
 			[% badgeCpuManufactur(instance) %]
 			[% badgeSpot(instance) %]
 		</td>
+		<!-- Regions -->
 		<td>[% instance.regionCount %]</td>
 		<!-- Costs -->
 		<td class="currency" title="[% instance.name %] avg. per hour: [% instance.avgHour %] USD">[% instance.avgHour %]</td>
@@ -69,11 +72,8 @@ Not every certified Google Cloud VM is available in every region.
 		</td>
 		<td class="currency" title="[% instance.name %] avg. per month w. 1Y CUD: [% instance.avgMonth1yCud %] USD">[% instance.avgMonth1yCud %]</td>
 		<td class="currency" title="[% instance.name %] avg. per month w. 3Y CUD: [% instance.avgMonth3yCud %] USD">[% instance.avgMonth3yCud %]</td>
-		<!-- OS -->
-		<td class="currency" title="[% instance.name %] license costs for SUSE Linux Enterprise Server for SAP with 3 year CUD: [% instance.monthSlesSap3yCud %] USD">[% instance.monthSlesSap3yCud %]</td>
-		<td class="currency" title="[% instance.name %] license costs for Red Hat Enterprise Linux for SAP with 3 year CUD: [% instance.monthRhelSap3yCud %] USD">[% instance.monthRhelSap3yCud %]</td>
 	</tr>
-	[% END; END; %]
+[% END; END; %]
 </tbody>
 </table>
 </div> <!-- // table-responsive -->

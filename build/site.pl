@@ -161,6 +161,8 @@ push(@files, 'amd.html');
 $template->process('amd.tt2', { 'instances' => \@instances }, '../site/amd.html') || die "Template process failed: ", $template->error(), "\n";
 push(@files, 'arm.html');
 $template->process('arm.tt2', { 'instances' => \@instances }, '../site/arm.html') || die "Template process failed: ", $template->error(), "\n";
+push(@files, 'gpu.html');
+$template->process('gpu.tt2', { 'instances' => \@instances }, '../site/gpu.html') || die "Template process failed: ", $template->error(), "\n";
 # SAP
 push(@files, 'sap.html');
 $template->process('sap.tt2', { 'instances' => \@instances }, '../site/sap.html') || die "Template process failed: ", $template->error(), "\n";

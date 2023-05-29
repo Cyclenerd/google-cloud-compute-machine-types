@@ -7,6 +7,7 @@ const queryString = window.location.search;
 const urlParams   = new URLSearchParams(queryString);
 const urlRegion   = urlParams.get('region')   || '';
 const urlName     = urlParams.get('name')     || '';
+const urlGPU      = urlParams.get('gpu')      || '';
 const urlSAP      = urlParams.get('sap')      || '';
 const urlHANA     = urlParams.get('hana')     || '';
 const urlSeries   = urlParams.get('series')   || '';
@@ -756,6 +757,7 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 	let filterName     = urlName.replace(/[^\w\d\-]/g,"");
 	let filterRegion   = urlRegion.replace(/[^\w\d\-]/g,"");
 	let filterPlatform = urlPlatform.replace(/[^\w\d]/g,"");
+	let filterGPU      = (urlGPU >= 1)  ? '1' : '';
 	let filterSAP      = (urlSAP >= 1)  ? '1' : '';
 	let filterHANA     = (urlHANA >= 1) ? '1' : '';
 	let filterARM      = (urlARM >= 1)  ? '1' : '';
@@ -773,6 +775,10 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 		availableCpuPlatform: {
 			type: 'contains',
 			filter: filterPlatform,
+		},
+		acceleratorCount: {
+			type: 'greaterThanOrEqual',
+			filter: filterGPU,
 		},
 		sap: {
 			type: 'equals',
@@ -796,7 +802,7 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 	if (filterPlatform || filterARM ) {
 		hardcodedGroupState.push({ groupId: '3', open: true });
 	}
-	if (filterSAP || filterHANA || filterSeries) {
+	if (filterGPU || filterSAP || filterHANA || filterSeries) {
 		hardcodedGroupState.push({ groupId: '11', open: true });
 	}
 	// wait 500ms, because maybe the DOM isn't completely ready yet

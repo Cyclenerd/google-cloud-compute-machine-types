@@ -12,6 +12,10 @@
 [% IF instance.sud %]<span class="badge bg-info">SUD</span>[% END %]
 [%- END -%]
 
+[%- MACRO badgeGpu(instance) BLOCK -%]
+[% IF instance.acceleratorCount && instance.acceleratorCount > 0; %]<span class="badge bg-light text-dark">GPU</span>[% END %]
+[%- END -%]
+
 [%- MACRO badgeSap(instance) BLOCK -%]
 [% IF instance.sap %]<span class="badge bg-warning text-dark" title="Certified for SAP">SAP</span>[% END %]
 [%- END -%]

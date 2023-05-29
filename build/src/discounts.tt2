@@ -23,7 +23,7 @@
 <thead>
 
 <tr>
-<th scope="col" colspan="3">Machine Type</th>
+<th scope="col" colspan="4">Machine Type</th>
 <th scope="col">Regions</th>
 <th scope="col" colspan="5" title="Costs per hour">Hour</th>
 <th scope="col" colspan="7" title="Costs per month">Month</th>
@@ -34,6 +34,7 @@
 <th scope="col" data-sortable="true">Name</th>
 <th scope="col" data-field="vcpu" data-sortable="true">vCPU</th>
 <th scope="col" data-sortable="true">Memory</th>
+<th scope="col"></th>
 <!-- Regions -->
 <th scope="col">#</th>
 <!-- Hour -->
@@ -63,6 +64,13 @@
 <td><a href="/[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
 <td class="text-nowrap">[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 <td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
+<td>
+	[% badgeCpuManufactur(instance) %]
+	[% badgeGpu(instance) %]
+	[% badgeSap(instance) %]
+	[% badgeHana(instance) %]
+	[% badgeSpot(instance) %]
+</td>
 <!-- Regions -->
 <td>[% instance.regionCount %]</td>
 <!-- Hour -->

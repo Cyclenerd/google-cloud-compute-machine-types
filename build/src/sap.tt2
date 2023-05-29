@@ -60,6 +60,7 @@ Not every certified GCE machine type is available in every Google Cloud region.
 		<td>
 			[% badgeCpuManufactur(instance) %]
 			[% badgeHana(instance) %]
+			[% badgeSpot(instance) %]
 		</td>
 		<td>[% instance.regionCount %]</td>
 		<!-- Costs -->

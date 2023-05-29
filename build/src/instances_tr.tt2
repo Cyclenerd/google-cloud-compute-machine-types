@@ -33,8 +33,10 @@
 <td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
 <td>
 	[% badgeCpuManufactur(instance) %]
+	[% badgeGpu(instance) %]
 	[% badgeSap(instance) %]
 	[% badgeHana(instance) %]
+	[% badgeSpot(instance) %]
 </td>
 <td>[% instance.regionCount %]</td>
 <!-- Costs -->
@@ -89,6 +91,7 @@
 <td title="CPU Platform: [% instance.cpuPlatform %]">[% instance.cpuPlatform | replace('\[','') | replace('\]','') | replace('Intel','') | replace('AMD','') %]</td>
 <td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
 <td>
+	[% badgeGpu(instance) %]
 	[% badgeSap(instance) %]
 	[% badgeHana(instance) %]
 	[% badgeSpot(instance) %]
