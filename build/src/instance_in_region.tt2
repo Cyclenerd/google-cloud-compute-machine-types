@@ -451,7 +451,6 @@ function gcosts[% instance.name.remove('-') %]() {
 <span class="text-primary">instances</span>:
   - <span class="text-primary">name</span>: [% instance.name %]-[% instance.region %]
     <span class="text-primary">type</span>: [% instance.name %]
-    <span class="text-primary">os</span>: free
     <span class="text-primary">commitment</span>: 0
     <span class="text-primary">disks</span>:
       - <span class="text-primary">name</span>: boot-[% instance.name %]-[% instance.region %]
