@@ -1,7 +1,10 @@
 /* Extra Data for Regions */
 
-UPDATE instances SET regionLocationLong = "Doha, Qatar",      regionLat = "25.2635283", regionLng = "51.4905302" WHERE region LIKE "me-central1";
+UPDATE instances SET regionLocationLong = "Doha, Qatar",          regionLat = "25.2409741", regionLng = "51.5126395" WHERE region LIKE "me-central1";
+UPDATE instances SET regionLocationLong = "Dammam, Saudi Arabia", regionLat = "26.3622236", regionLng = "49.6807149" WHERE region LIKE "me-central2";
+
 UPDATE instances SET regionLocationLong = "Tel Aviv, Israel", regionLat = "32.0858103", regionLng = "34.7697987" WHERE region LIKE "me-west1";
+UPDATE instances SET regionLocationLong = "Berlin, Germany",  regionLat = "52.2630",    regionLng = "13.5727"    WHERE region LIKE "europe-west10";
 
 /* Source: Google Maps search "Google Data Center" and 2021-carbon-free-energy-data-centers.pdf */
 UPDATE instances SET regionLocationLong = "St. Ghislain, Belgium",     regionLat = "50.4690", regionLng = "3.8658"    WHERE region LIKE "europe-west1";

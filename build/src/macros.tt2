@@ -155,6 +155,7 @@ title="Region: [% region.name %],
 [%- ELSIF code == 'NL' -%]🇳🇱
 [%- ELSIF code == 'PL' -%]🇵🇱
 [%- ELSIF code == 'QA' -%]🇶🇦
+[%- ELSIF code == 'SA' -%]🇸🇦
 [%- ELSIF code == 'SG' -%]🇸🇬
 [%- ELSIF code == 'TW' -%]🇹🇼
 [%- ELSIF code == 'US' -%]🇺🇸
@@ -184,6 +185,7 @@ title="Region: [% region.name %],
 [%- ELSIF code == 'NL' -%]Netherlands
 [%- ELSIF code == 'PL' -%]Poland
 [%- ELSIF code == 'QA' -%]Qatar
+[%- ELSIF code == 'SA' -%]Saudi Arabia
 [%- ELSIF code == 'SG' -%]Singapore
 [%- ELSIF code == 'TW' -%]Taiwan
 [%- ELSIF code == 'US' -%]United States

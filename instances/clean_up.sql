@@ -13,6 +13,9 @@ DELETE FROM machinetypes WHERE name LIKE 'g2-standard-%';
 DELETE FROM machinetypes WHERE zone LIKE 'me-central2-%';
 DELETE FROM disktypes    WHERE zone LIKE 'me-central2-%';
 
+DELETE FROM machinetypes WHERE zone LIKE 'europe-west10-%';
+DELETE FROM disktypes    WHERE zone LIKE 'europe-west10-%';
+
 /*
 DELETE FROM machinetypes WHERE zone LIKE 'me-central1-%';
 DELETE FROM disktypes    WHERE zone LIKE 'me-central1-%';

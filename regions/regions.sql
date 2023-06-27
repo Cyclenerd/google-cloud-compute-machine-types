@@ -23,7 +23,6 @@ UPDATE instances SET regionLocationLong = "Netherlands", regionLat = "52.1326", 
 UPDATE instances SET regionLocationLong = "Zurich, Switzerland", regionLat = "47.3769", regionLng = "8.5417" WHERE region LIKE "europe-west6";
 UPDATE instances SET regionLocationLong = "Milan, Italy", regionLat = "45.4669", regionLng = "9.19" WHERE region LIKE "europe-west8";
 UPDATE instances SET regionLocationLong = "Paris, France", regionLat = "48.8566", regionLng = "2.3522" WHERE region LIKE "europe-west9";
-UPDATE instances SET regionLocationLong = "Berlin, Germany", regionLat = "52.2630", regionLng = "13.5727" WHERE region LIKE "europe-west10";
 UPDATE instances SET regionLocationLong = "Montréal, Canada", regionLat = "45.5017", regionLng = "-73.5673" WHERE region LIKE "northamerica-northeast1";
 UPDATE instances SET regionLocationLong = "Toronto, Canada", regionLat = "43.7417", regionLng = "-79.3733" WHERE region LIKE "northamerica-northeast2";
 UPDATE instances SET regionLocationLong = "São Paulo, Brazil", regionLat = "-23.5505", regionLng = "-46.6333" WHERE region LIKE "southamerica-east1";
