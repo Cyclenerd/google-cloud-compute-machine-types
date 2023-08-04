@@ -2,9 +2,8 @@
  * Delete not yet official 100% released machine types
  */
 
-/*
-DELETE FROM machinetypes WHERE name LIKE 'g2-standard-%';
-*/
+DELETE FROM machinetypes WHERE name LIKE 'c3-standard-%-lssd';
+DELETE FROM machinetypes WHERE name LIKE 'h3-standard-%';
 
 /* 
  * Delete not yet official 100% finished regions
