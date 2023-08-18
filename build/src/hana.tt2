@@ -39,10 +39,10 @@ Not every certified Google Cloud VM is available in every region.
 		<th scope="col"></th>
 		<th scope="col">#</th>
 		<!-- Costs -->
-		<th scope="col">Hour</th>
-		<th scope="col">Month</th>
-		<th scope="col">1Y CUD</th>
-		<th scope="col">3Y CUD</th>
+		<th scope="col" data-sortable="true">Hour</th>
+		<th scope="col" data-sortable="true">Month</th>
+		<th scope="col" data-sortable="true">1Y CUD</th>
+		<th scope="col" data-sortable="true">3Y CUD</th>
 		<!-- OS -->
 		<th scope="col">SLES for SAP</th>
 		<th scope="col">RHEL for SAP</th>
@@ -59,14 +59,12 @@ Not every certified Google Cloud VM is available in every region.
 		<td>
 			[% badgeCpuManufactur(instance) %]
 			[% badgeSpot(instance) %]
+			[% badgeSud(instance) %]
 		</td>
 		<td>[% instance.regionCount %]</td>
 		<!-- Costs -->
 		<td class="currency" title="[% instance.name %] avg. per hour: [% instance.avgHour %] USD">[% instance.avgHour %]</td>
-		<td class="text-nowrap" title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
-			<span class="currency">[% instance.avgMonth %]</span>
-			[% badgeSud(instance) %]
-		</td>
+		<td class="currency" title="[% instance.name %] avg. costs per month: [% instance.avgMonth %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">[% instance.avgMonth %]</td>
 		<td class="currency" title="[% instance.name %] avg. per month w. 1Y CUD: [% instance.avgMonth1yCud %] USD">[% instance.avgMonth1yCud %]</td>
 		<td class="currency" title="[% instance.name %] avg. per month w. 3Y CUD: [% instance.avgMonth3yCud %] USD">[% instance.avgMonth3yCud %]</td>
 		<!-- OS -->
