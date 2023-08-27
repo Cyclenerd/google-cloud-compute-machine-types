@@ -9,13 +9,15 @@ bandwidth   = '32',
 spot        = '1'
 WHERE name LIKE 'c3-%';
 
-UPDATE instances SET bandwidth = '32'  WHERE name LIKE 'c3-%-4';
-UPDATE instances SET bandwidth = '32'  WHERE name LIKE 'c3-%-8';
-UPDATE instances SET bandwidth = '32'  WHERE name LIKE 'c3-%-22';
-UPDATE instances SET bandwidth = '32'  WHERE name LIKE 'c3-%-44';
-UPDATE instances SET bandwidth = '62'  WHERE name LIKE 'c3-%-88';
-UPDATE instances SET bandwidth = '100' WHERE name LIKE 'c3-%-176';
+UPDATE instances SET bandwidth = '32'  WHERE name LIKE 'c3-%-4%';
+UPDATE instances SET bandwidth = '32'  WHERE name LIKE 'c3-%-8%';
+UPDATE instances SET bandwidth = '32'  WHERE name LIKE 'c3-%-22%';
+UPDATE instances SET bandwidth = '32'  WHERE name LIKE 'c3-%-44%';
+UPDATE instances SET bandwidth = '62'  WHERE name LIKE 'c3-%-88%';
+UPDATE instances SET bandwidth = '100' WHERE name LIKE 'c3-%-176%';
 
-UPDATE instances SET tier1 = '50'  WHERE name LIKE 'c3-%-44';
-UPDATE instances SET tier1 = '100' WHERE name LIKE 'c3-%-88';
-UPDATE instances SET tier1 = '200' WHERE name LIKE 'c3-%-176';
+UPDATE instances SET tier1 = '50'  WHERE name LIKE 'c3-%-44%';
+UPDATE instances SET tier1 = '100' WHERE name LIKE 'c3-%-88%';
+UPDATE instances SET tier1 = '200' WHERE name LIKE 'c3-%-176%';
+
+UPDATE instances SET localSsd = '1' WHERE name LIKE 'c3-%-lssd';
