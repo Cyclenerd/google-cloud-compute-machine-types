@@ -166,3 +166,10 @@ n1-highcpu-96 ;Skylake ;96;1,245,251 ;1.46 ;9,235
 ;;;;;
 f1-micro ;Skylake ;1;4,111 ;13.19 ;82,456
 g1-small ;Skylake ;1;10,657 ;12.09 ;81,152
+;;;;;
+c3-highcpu-4 ;Sapphire Rapids ;4;80,791 ;0.22 ;224
+c3-highcpu-8 ;Sapphire Rapids ;8;160,579 ;0.17 ;112
+c3-highcpu-22 ;Sapphire Rapids ;22;441,256 ;0.15 ;40
+c3-highcpu-44 ;Sapphire Rapids ;44;881,707 ;0.11 ;24
+c3-highcpu-88 ;Sapphire Rapids ;88;1,687,311 ;0.97 ;8
+c3-highcpu-176 ;Sapphire Rapids ;176;3,399,913 ;0.50 ;8
