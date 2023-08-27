@@ -154,3 +154,8 @@ UPDATE instances SET coremarkScore = '441256', standardDeviation = '0.15 ', samp
 UPDATE instances SET coremarkScore = '881707', standardDeviation = '0.11 ', sampleCount = '24' WHERE name LIKE 'c3-highcpu-44';
 UPDATE instances SET coremarkScore = '1687311', standardDeviation = '0.97 ', sampleCount = '8' WHERE name LIKE 'c3-highcpu-88';
 UPDATE instances SET coremarkScore = '3399913', standardDeviation = '0.50 ', sampleCount = '8' WHERE name LIKE 'c3-highcpu-176';
+UPDATE instances SET coremarkScore = '171520', standardDeviation = '0.45 ', sampleCount = '4' WHERE name LIKE 'a2-highgpu-1g';
+UPDATE instances SET coremarkScore = '359881', standardDeviation = '0.33 ', sampleCount = '4' WHERE name LIKE 'a2-highgpu-2g';
+UPDATE instances SET coremarkScore = '646934', standardDeviation = '0.27 ', sampleCount = '4' WHERE name LIKE 'a2-highgpu-4g';
+UPDATE instances SET coremarkScore = '1287130', standardDeviation = '0.67 ', sampleCount = '4' WHERE name LIKE 'a2-highgpu-8g';
+UPDATE instances SET coremarkScore = '1293867', standardDeviation = '2.30 ', sampleCount = '64' WHERE name LIKE 'a2-megagpu-16g';

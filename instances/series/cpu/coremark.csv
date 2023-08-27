@@ -173,3 +173,10 @@ c3-highcpu-22 ;Sapphire Rapids ;22;441,256 ;0.15 ;40
 c3-highcpu-44 ;Sapphire Rapids ;44;881,707 ;0.11 ;24
 c3-highcpu-88 ;Sapphire Rapids ;88;1,687,311 ;0.97 ;8
 c3-highcpu-176 ;Sapphire Rapids ;176;3,399,913 ;0.50 ;8
+;;;;;
+a2-highgpu-1g;Cascade Lake ;12;171,520 ;0.45 ;4
+a2-highgpu-2g;Cascade Lake ;24;359,881 ;0.33 ;4
+a2-highgpu-4g;Cascade Lake ;48;646,934 ;0.27 ;4
+a2-highgpu-8g;Cascade Lake ;96;1,287,130 ;0.67 ;4
+;;;;;
+a2-megagpu-16g;Cascade Lake ;96 ;1,293,867 ;2.30 ;64
