@@ -65,6 +65,11 @@ Intel Xeon processor family
 * Code name: Ice Lake-SP
 * Release date: 2021
 
+### Sapphire Rapids
+
+* Code name: Sapphire Rapids
+* Release date: 2023
+
 ## AMD
 
 AMD Zen based Epyc microarchitecture

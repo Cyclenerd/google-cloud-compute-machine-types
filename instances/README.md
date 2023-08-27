@@ -46,8 +46,9 @@ The cost per machine type in region and licenses are added with the [gcosts](htt
 				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#g2-vms" rel="nofollow">G2</a> accelerator optimized machines
 			</li>
 			<li>
-				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types" rel="nofollow">C2</a> and
-				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2d_machine_typesd" rel="nofollow">C2D</a> compute optimized machine series
+				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types" rel="nofollow">C2</a>,
+				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2d_machine_types" rel="nofollow">C2D</a> and
+				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#h3_series" rel="nofollow">H3</a> compute optimized machine series
 			</li>
 			<li>
 				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types" rel="nofollow">M1</a>,
