@@ -1,5 +1,6 @@
 /* SAP certified machine types */
 /* https://cloud.google.com/solutions/sap/docs/certifications-sap-apps#sap-certified-vms */
+/* https://launchpad.support.sap.com/#/notes/2456432 */
 
 /* C2 */
 /* Intel Cascade Lake */
@@ -8,6 +9,12 @@ UPDATE instances SET sap = '1', saps = '12080' WHERE name LIKE 'c2-standard-8'  
 UPDATE instances SET sap = '1', saps = '24160' WHERE name LIKE 'c2-standard-16' AND availableCpuPlatform LIKE "%Cascade Lake%";
 UPDATE instances SET sap = '1', saps = '45300' WHERE name LIKE 'c2-standard-30' AND availableCpuPlatform LIKE "%Cascade Lake%";
 UPDATE instances SET sap = '1', saps = '90600' WHERE name LIKE 'c2-standard-60' AND availableCpuPlatform LIKE "%Cascade Lake%";
+
+/* C3 */
+/* Intel Sapphire Rapids */
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3-standard-%' AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3-highmem-%'  AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+/* TODO: Add SAPS from SAP note 2456432 */
 
 /* C2D */
 /* AMD EPYC Milan */
