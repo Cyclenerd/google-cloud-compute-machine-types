@@ -140,11 +140,11 @@ A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] millio
 		<td [% IF region.n2d == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series N2D in region [% region.name %]">
 			[% IF region.n2d %]<a href="/grid.html?region=[% region.name %]&amp;series=n2d">[% region.n2d %]</a>[% ELSE %]0[% END %]
 		</td>
-		<td [% IF region.t2d == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series T2D in region [% region.name %]">
-			[% IF region.t2d %]<a href="/grid.html?region=[% region.name %]&amp;series=t2d">[% region.t2d %]</a>[% ELSE %]0[% END %]
-		</td>
 		<td [% IF region.t2a == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series T2A in region [% region.name %]">
 			[% IF region.t2a %]<a href="/grid.html?region=[% region.name %]&amp;series=t2a">[% region.t2a %]</a>[% ELSE %]0[% END %]
+		</td>
+		<td [% IF region.t2d == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series T2D in region [% region.name %]">
+			[% IF region.t2d %]<a href="/grid.html?region=[% region.name %]&amp;series=t2d">[% region.t2d %]</a>[% ELSE %]0[% END %]
 		</td>
 		<!-- SAP -->
 		<td [% IF region.sap  == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on certified for SAP applications machine types region [% region.name %]">
