@@ -12,9 +12,17 @@ UPDATE instances SET sap = '1', saps = '90600' WHERE name LIKE 'c2-standard-60' 
 
 /* C3 */
 /* Intel Sapphire Rapids */
-UPDATE instances SET sap = '1' WHERE name LIKE 'c3-standard-%' AND availableCpuPlatform LIKE "%Sapphire Rapids%";
-UPDATE instances SET sap = '1' WHERE name LIKE 'c3-highmem-%'  AND availableCpuPlatform LIKE "%Sapphire Rapids%";
-/* TODO: Add SAPS from SAP note 2456432 */
+UPDATE instances SET sap = '1', saps = '7835'   WHERE name LIKE 'c3-standard-4'   AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+UPDATE instances SET sap = '1', saps = '15670'  WHERE name LIKE 'c3-standard-8'   AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+UPDATE instances SET sap = '1', saps = '41720'  WHERE name LIKE 'c3-standard-22'  AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+UPDATE instances SET sap = '1', saps = '140200' WHERE name LIKE 'c3-standard-88'  AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+UPDATE instances SET sap = '1', saps = '270320' WHERE name LIKE 'c3-standard-176' AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+UPDATE instances SET sap = '1', saps = '7840'   WHERE name LIKE 'c3-highmem-4'    AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+UPDATE instances SET sap = '1', saps = '15680'  WHERE name LIKE 'c3-highmem-8'    AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+UPDATE instances SET sap = '1', saps = '41580'  WHERE name LIKE 'c3-highmem-22'   AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+UPDATE instances SET sap = '1', saps = '76150'  WHERE name LIKE 'c3-highmem-44'   AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+UPDATE instances SET sap = '1', saps = '142420' WHERE name LIKE 'c3-highmem-88'   AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+UPDATE instances SET sap = '1', saps = '271550' WHERE name LIKE 'c3-highmem-176'  AND availableCpuPlatform LIKE "%Sapphire Rapids%";
 
 /* C2D */
 /* AMD EPYC Milan */
