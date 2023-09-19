@@ -12,8 +12,6 @@ DELETE FROM machinetypes WHERE name LIKE 'ct5lp-hightpu-%';
  * Delete not yet official 100% finished regions
  */
 
-DELETE FROM machinetypes WHERE zone LIKE 'me-central2-%';
-DELETE FROM disktypes    WHERE zone LIKE 'me-central2-%';
 
 DELETE FROM machinetypes WHERE zone LIKE 'africa-south1-%';
 DELETE FROM disktypes    WHERE zone LIKE 'africa-south1-%';

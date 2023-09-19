@@ -21,6 +21,7 @@ UPDATE instances SET regionLocationCountryCode = 'KR' WHERE regionLocationLong L
 UPDATE instances SET regionLocationCountryCode = 'NL' WHERE regionLocationLong LIKE '%Netherlands%';
 UPDATE instances SET regionLocationCountryCode = 'PL' WHERE regionLocationLong LIKE '%Poland%';
 UPDATE instances SET regionLocationCountryCode = 'QA' WHERE regionLocationLong LIKE '%Qatar%';
+UPDATE instances SET regionLocationCountryCode = 'SA' WHERE regionLocationLong LIKE '%Saudi Arabia%';
 UPDATE instances SET regionLocationCountryCode = 'SG' WHERE regionLocationLong LIKE '%Singapore%';
 UPDATE instances SET regionLocationCountryCode = 'TW' WHERE regionLocationLong LIKE '%Taiwan%';
 UPDATE instances SET regionLocationCountryCode = 'US' WHERE regionLocationLong LIKE '%USA%';
