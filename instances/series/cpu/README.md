@@ -89,6 +89,11 @@ AMD Zen based Epyc microarchitecture
 * Generation 3rd
 * Release date: 2022
 
+### Genoa
+
+* Generation 4rd
+* Release date: 2022
+
 ## Arm
 
 ### Ampere Altra

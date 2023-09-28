@@ -47,6 +47,9 @@ UPDATE instances SET cpuBaseClock  = '2.25', cpuTurboClock  = '2.7', cpuSingleMa
 /* AMD EPYC Milan 3rd Generation */
 UPDATE instances SET cpuBaseClock  = '2.45', cpuTurboClock  = '2.8', cpuSingleMaxTurboClock = '3.5' WHERE availableCpuPlatform LIKE "%Milan%";
 
+/* AMD EPYC Genoa 4rd Generation */
+UPDATE instances SET cpuBaseClock  = '2.6', cpuTurboClock  = '3.45', cpuSingleMaxTurboClock = '3.7' WHERE availableCpuPlatform LIKE "%Genoa%";
+
 
 /* Arm */
 

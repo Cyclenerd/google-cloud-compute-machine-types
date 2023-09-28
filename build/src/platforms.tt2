@@ -31,7 +31,7 @@ Not every CPU is available in all Google Cloud region and zones.
 		<th scope="col" colspan="3">Region</th>
 		<th scope="col">Zones</th>
 		<th scope="col" colspan="8">✅ Intel</th>
-		<th scope="col" colspan="2">✅ AMD</th>
+		<th scope="col" colspan="3">✅ AMD</th>
 		<th scope="col" colspan="1">✅ Arm</th>
 	</tr>
 	<tr>
@@ -47,6 +47,7 @@ Not every CPU is available in all Google Cloud region and zones.
 		<th scope="col" title="Intel Xeon E5 v3 (Haswell)">Haswell</th>
 		<th scope="col" title="Intel Xeon E5 v2 (Ivy Bridge)">Ivy Bridge</th>
 		<th scope="col" title="Intel Xeon E5 (Sandy Bridge)">Sandy Bridge</th>
+		<th scope="col" title="AMD EPYC Genoa 4rd Generation">Genoa</th>
 		<th scope="col" title="AMD EPYC Milan 3rd Generation">Milan</th>
 		<th scope="col" title="AMD EPYC Rome 2nd Generation">Rome</th>
 		<th scope="col" title="Ampere Altra">Ampere Altra</th>
@@ -93,6 +94,9 @@ Not every CPU is available in all Google Cloud region and zones.
 		</td>
 		<td [% IF region.intelSandy        == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine types with Intel Sandy Bridge in region [% region.name %]">
 			[% IF region.intelSandy %]<a href="/grid.html?region=[% region.name %]&amp;platform=sandy">[% region.intelSandy %]</a>[% ELSE %]0[% END %]
+		</td>
+		<td [% IF region.amdGenoa          == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine types with AMD Genoa in region [% region.name %]">
+			[% IF region.amdGenoa %]<a href="/grid.html?region=[% region.name %]&amp;platform=genoa">[% region.amdGenoa %]</a>[% ELSE %]0[% END %]
 		</td>
 		<td [% IF region.amdMilan          == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine types with AMD Milan in region [% region.name %]">
 			[% IF region.amdMilan %]<a href="/grid.html?region=[% region.name %]&amp;platform=milan">[% region.amdMilan %]</a>[% ELSE %]0[% END %]
