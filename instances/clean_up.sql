@@ -2,7 +2,9 @@
  * Delete not yet official 100% released machine types
  */
 
-DELETE FROM machinetypes WHERE name LIKE 'ct5lp-hightpu-%';
+DELETE FROM machinetypes WHERE name LIKE 'ct4p-%';
+DELETE FROM machinetypes WHERE name LIKE 'ct5l-%';
+DELETE FROM machinetypes WHERE name LIKE 'ct5lp-%';
 
 /* 
  * Delete not yet official 100% finished regions
