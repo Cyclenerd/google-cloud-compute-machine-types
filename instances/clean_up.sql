@@ -14,12 +14,9 @@ DELETE FROM machinetypes WHERE name LIKE 'ct5lp-%';
 DELETE FROM machinetypes WHERE zone LIKE 'africa-south1-%';
 DELETE FROM disktypes    WHERE zone LIKE 'africa-south1-%';
 
-/*
-DELETE FROM machinetypes WHERE zone LIKE 'europe-west10-%';
-DELETE FROM disktypes    WHERE zone LIKE 'europe-west10-%';
-DELETE FROM machinetypes WHERE zone LIKE 'me-central1-%';
-DELETE FROM disktypes    WHERE zone LIKE 'me-central1-%';
-*/
+DELETE FROM machinetypes WHERE zone LIKE 'us-west8-%';
+DELETE FROM disktypes    WHERE zone LIKE 'us-west8-%';
+
 
 /*
  * Remove disconnected data centers
