@@ -1,35 +1,37 @@
 Google Cloud Region,Location,Google CFE,Grid carbon intensity (gCO2eq / kWh),Google Cloud net carbon emissions
-asia-east1,Taiwan,0.17,456,0
+asia-east1,Taiwan,0.18,453,0
 asia-east2,Hong Kong,0.28,360,0
-asia-northeast1,Tokyo,0.16,464,0
-asia-northeast2,Osaka,0.31,384,0
+asia-northeast1,Tokyo,0.16,463,0
+asia-northeast2,Osaka,0.32,383,0
 asia-northeast3,Seoul,0.31,425,0
-asia-south1,Mumbai,0.23,633,0
-asia-south2,Delhi,0.23,633,0
+asia-south1,Mumbai,0.24,555,0
+asia-south2,Delhi,0.23,632,0
 asia-southeast1,Singapore,0.04,372,0
 asia-southeast2,Jakarta,0.13,580,0
-australia-southeast1,Sydney,0.11,723,0
-australia-southeast2,Melbourne,0.11,746,0
-europe-central2,Warsaw,0.20,576,0
-europe-north1,Finland,0.91,127,0
-europe-southwest1,Madrid,,121,0
-europe-west1,Belgium,0.82,110,0
-europe-west2,London,0.57,172,0
-europe-west3,Frankfurt,0.60,269,0
-europe-west4,Netherlands,0.53,283,0
-europe-west6,Zurich,0.85,86,0
-europe-west8,Milan,,298,0
-europe-west9,Paris,,59,0
-northamerica-northeast1,Montréal,0.95,142,0
-northamerica-northeast2,Toronto,0.86,142,0
-southamerica-east1,São Paulo,0.78,129,0
-southamerica-west1,Santiago,0.69,190,0
-us-central1,Iowa,0.97,394,0
-us-east1,South Carolina,0.25,434,0
-us-east4,Northern Virginia,0.64,309,0
-us-east5,Columbus,0.64,309,0
-us-south1,Dallas,0.40,296,0
-us-west1,Oregon,0.88,60,0
-us-west2,Los Angeles,0.53,190,0
-us-west3,Salt Lake City,0.31,448,0
-us-west4,Las Vegas,0.21,365,0
+australia-southeast1,Sydney,0.27,538,0
+australia-southeast2,Melbourne,0.34,490,0
+europe-central2,Warsaw,0.24,738,0
+europe-north1,Finland,0.97,112,0
+europe-southwest1,Madrid,0.67,160,0
+europe-west1,Belgium,0.80,123,0
+europe-west2,London,0.85,166,0
+europe-west3,Frankfurt,0.96,413,0
+europe-west4,Netherlands,0.57,317,0
+europe-west6,Zurich,0.85,118,0
+europe-west8,Milan,0.42,323,0
+europe-west9,Paris,0.87,71,0
+europe-west12,Turin,0.42,323,0
+me-west1,Tel Aviv,0.02,476,0
+northamerica-northeast1,Montréal,1.00,0,0
+northamerica-northeast2,Toronto,0.90,36,0
+southamerica-east1,São Paulo,0.89,65,0
+southamerica-west1,Santiago,0.90,165,0
+us-central1,Iowa,0.92,445,0
+us-east1,South Carolina,0.26,532,0
+us-east4,Northern Virginia,0.60,354,0
+us-east5,Columbus,0.60,354,0
+us-south1,Dallas,0.41,342,0
+us-west1,Oregon,0.89,67,0
+us-west2,Los Angeles,0.56,202,0
+us-west3,Salt Lake City,0.31,606,0
+us-west4,Las Vegas,0.27,396,0

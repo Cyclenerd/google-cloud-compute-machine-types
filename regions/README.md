@@ -13,7 +13,7 @@ Mirror [carbon data across GCP regions](https://cloud.google.com/sustainability/
 
 ```shell
 curl -o "carbon.csv" \
-  "https://raw.githubusercontent.com/GoogleCloudPlatform/region-carbon-info/main/data/yearly/2021.csv"
+  "https://raw.githubusercontent.com/GoogleCloudPlatform/region-carbon-info/main/data/yearly/2022.csv"
 ```
 
 Run `carbon.pl` to convert CSV to SQL:
