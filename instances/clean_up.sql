@@ -5,6 +5,7 @@
 DELETE FROM machinetypes WHERE name LIKE 'ct4p-%';
 DELETE FROM machinetypes WHERE name LIKE 'ct5l-%';
 DELETE FROM machinetypes WHERE name LIKE 'ct5lp-%';
+DELETE FROM machinetypes WHERE name LIKE 'a3-%';
 
 /* 
  * Delete not yet official 100% finished regions
