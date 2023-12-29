@@ -35,6 +35,7 @@ UPDATE instances SET cpuBaseClock  = '3.1', cpuTurboClock  = '3.8', cpuSingleMax
 UPDATE instances SET cpuBaseClock  = '2.6', cpuTurboClock  = '3.4', cpuSingleMaxTurboClock = '3.5' WHERE availableCpuPlatform LIKE "%Ice Lake%" AND series LIKE "m3";
 
 /* Intel Xeon Scalable Processor (Sapphire Rapids) 4rd Generation */
+UPDATE instances SET cpuBaseClock  = '1.9', cpuTurboClock  = '3.0', cpuSingleMaxTurboClock = '3.3' WHERE availableCpuPlatform LIKE "%Sapphire Rapids%" AND series LIKE "a3";
 UPDATE instances SET cpuBaseClock  = '1.9', cpuTurboClock  = '3.0', cpuSingleMaxTurboClock = '3.3' WHERE availableCpuPlatform LIKE "%Sapphire Rapids%" AND series LIKE "c3";
 UPDATE instances SET cpuBaseClock  = '1.9', cpuTurboClock  = '3.0', cpuSingleMaxTurboClock = '3.3' WHERE availableCpuPlatform LIKE "%Sapphire Rapids%" AND series LIKE "h3";
 
