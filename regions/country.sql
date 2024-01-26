@@ -25,3 +25,4 @@ UPDATE instances SET regionLocationCountryCode = 'SA' WHERE regionLocationLong L
 UPDATE instances SET regionLocationCountryCode = 'SG' WHERE regionLocationLong LIKE '%Singapore%';
 UPDATE instances SET regionLocationCountryCode = 'TW' WHERE regionLocationLong LIKE '%Taiwan%';
 UPDATE instances SET regionLocationCountryCode = 'US' WHERE regionLocationLong LIKE '%USA%';
+UPDATE instances SET regionLocationCountryCode = 'ZA' WHERE regionLocationLong LIKE '%South Africa%';

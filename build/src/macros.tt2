@@ -159,6 +159,7 @@ title="Region: [% region.name %],
 [%- ELSIF code == 'SG' -%]🇸🇬
 [%- ELSIF code == 'TW' -%]🇹🇼
 [%- ELSIF code == 'US' -%]🇺🇸
+[%- ELSIF code == 'ZA' -%]🇿🇦
 [%- ELSE -%]🏴 ???
 [%- END; END; -%]
 
@@ -189,5 +190,6 @@ title="Region: [% region.name %],
 [%- ELSIF code == 'SG' -%]Singapore
 [%- ELSIF code == 'TW' -%]Taiwan
 [%- ELSIF code == 'US' -%]United States
+[%- ELSIF code == 'ZA' -%]South Africa
 [%- ELSE -%]???
 [%- END; END; -%]
