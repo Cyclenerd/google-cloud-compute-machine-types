@@ -5,7 +5,9 @@ UPDATE instances SET regionLocationLong = "Dammam, Saudi Arabia", regionLat = "2
 
 UPDATE instances SET regionLocationLong = "Tel Aviv, Israel", regionLat = "32.0858103", regionLng = "34.7697987" WHERE region LIKE "me-west1";
 UPDATE instances SET regionLocationLong = "Berlin, Germany",  regionLat = "52.2630",    regionLng = "13.5727"    WHERE region LIKE "europe-west10";
-UPDATE instances SET regionLocationLong = "South Africa",     regionLat = "-30",        regionLng = "25"         WHERE region LIKE "africa-south1";
+
+/* https://cloud.google.com/blog/products/infrastructure/heita-south-africa-new-cloud-region */
+UPDATE instances SET regionLocationLong = "Johannesburg, South Africa", regionLat = "-26.1714376", regionLng = "27.8841339" WHERE region LIKE "africa-south1";
 
 /* Source: Google Maps search "Google Data Center" and 2021-carbon-free-energy-data-centers.pdf */
 UPDATE instances SET regionLocationLong = "St. Ghislain, Belgium",     regionLat = "50.4690", regionLng = "3.8658"    WHERE region LIKE "europe-west1";
