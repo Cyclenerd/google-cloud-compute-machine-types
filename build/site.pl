@@ -58,7 +58,7 @@ my $limit_comparison  = $App::options{limit_comparison};
 
 my $db_file  = 'gce.db';
 
-my $gmttime   = gmtime();
+my $gmtime = gmtime();
 my $timestamp = time();
 
 # Exports
@@ -78,7 +78,7 @@ my $template = Template->new(
 	INCLUDE_PATH => './src',
 	PRE_PROCESS  => 'config.tt2',
 	VARIABLES => {
-		'gmttime'          => $gmttime,
+		'gmtime'          => $gmtime,
 		'timestamp'        => $timestamp,
 		'gitHubServerUrl'  => $ENV{'GITHUB_SERVER_URL'} || '',
 		'gitHubRepository' => $ENV{'GITHUB_REPOSITORY'} || '',
