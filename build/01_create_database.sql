@@ -135,3 +135,14 @@ CREATE TABLE "images" (
 	"creation"     REAL DEFAULT '0.0',
 	PRIMARY KEY("name", "project", "family")
 );
+
+/* Index */
+CREATE INDEX IF NOT EXISTS "instances-name-index" ON instances(name COLLATE NOCASE);
+CREATE INDEX IF NOT EXISTS "instances-region-index" ON instances(region COLLATE NOCASE);
+CREATE INDEX IF NOT EXISTS "instances-region-name-index" ON instances(region, name COLLATE NOCASE);
+CREATE INDEX IF NOT EXISTS "instances-region-hana-index" ON instances(region, hana);
+CREATE INDEX IF NOT EXISTS "instances-region-sap-index" ON instances(region, sap);
+CREATE INDEX IF NOT EXISTS "instances-region-series-index" ON instances(region, series COLLATE NOCASE);
+
+CREATE INDEX IF NOT EXISTS "disks-name-index" ON disks(name COLLATE NOCASE);
+CREATE INDEX IF NOT EXISTS "disks-region-index" ON disks(region COLLATE NOCASE);

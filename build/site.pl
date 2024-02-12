@@ -100,7 +100,7 @@ SELECT
 	MAX(amd) AS amd,
 	MAX(arm) AS arm,
 	MAX(cpuPlatformCount) AS cpuPlatformCount,
-	(SELECT cpuPlatform FROM instances WHERE name LIKE I.name ORDER BY cpuPlatformCount) AS cpuPlatform,
+	(SELECT cpuPlatform FROM instances WHERE name = I.name ORDER BY cpuPlatformCount) AS cpuPlatform,
 	MAX(cpuBaseClock) AS cpuBaseClock, MAX(cpuTurboClock) AS cpuTurboClock, MAX(cpuSingleMaxTurboClock) AS cpuSingleMaxTurboClock,
 	MAX(coremarkScore) AS coremarkScore, MAX(standardDeviation) AS standardDeviation, MAX(sampleCount) AS sampleCount,
 	memoryGiB,
@@ -110,7 +110,7 @@ SELECT
 	MAX(sap) AS sap, MAX(saps) AS saps, MAX(hana) AS hana,
 	MAX(spot) AS spot,
 	COUNT(region) AS regionCount,
-	(SELECT GROUP_CONCAT(region) FROM instances WHERE name LIKE I.name ORDER BY region) AS regions,
+	(SELECT GROUP_CONCAT(region) FROM instances WHERE name = I.name ORDER BY region) AS regions,
 	MAX(sud) AS sud,
 	ROUND(MIN(hour), 4)                      AS minHour,                      ROUND(AVG(hour), 4)                      AS avgHour,                      ROUND(MAX(hour), 4)                      AS maxHour,
 	ROUND(MIN(hourSpot), 4)                  AS minHourSpot,                  ROUND(AVG(hourSpot), 4)                  AS avgHourSpot,                  ROUND(MAX(hourSpot), 4)                  AS maxHourSpot,
@@ -139,7 +139,7 @@ SELECT
 	ROUND(monthWindows, 2)      AS monthWindows
 FROM instances I
 GROUP BY name
-ORDER BY vCpus, name
+ORDER BY vCpus, name;
 ~;
 my $sth = $dbh->prepare($sql_instances);
 $sth->execute();
@@ -185,7 +185,7 @@ SELECT
 	ROUND(MAX(monthGb), 2) AS maxMonth
 FROM disks D
 GROUP BY name
-ORDER BY name
+ORDER BY name;
 ~;
 $sth = $dbh->prepare($sql_disks);
 $sth->execute();
@@ -211,14 +211,14 @@ SELECT
 	region          AS name,
 	regionLocation  AS regionLocation,
 	MAX(zoneCount)  AS zoneCount,
-	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region LIKE D.region AND name LIKE "local-ssd")   AS local,
-	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region LIKE D.region AND name LIKE "pd-balanced") AS balanced,
-	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region LIKE D.region AND name LIKE "pd-extreme")  AS extreme,
-	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region LIKE D.region AND name LIKE "pd-ssd")      AS ssd,
-	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region LIKE D.region AND name LIKE "pd-standard") AS standard
+	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region = D.region AND name = "local-ssd")   AS local,
+	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region = D.region AND name = "pd-balanced") AS balanced,
+	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region = D.region AND name = "pd-extreme")  AS extreme,
+	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region = D.region AND name = "pd-ssd")      AS ssd,
+	(SELECT ROUND(MAX(monthGb), 3) FROM disks WHERE region = D.region AND name = "pd-standard") AS standard
 FROM disks D
 GROUP BY region
-ORDER BY region
+ORDER BY region;
 ~;
 $sth = $dbh->prepare($sql_disks_regions);
 $sth->execute();
@@ -249,41 +249,41 @@ SELECT
 	regionLng                 AS regionLng,
 	MAX(regionPublicIpv4Addr) AS regionPublicIpv4Addr,
 	MAX(zoneCount)            AS zoneCount,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Sandy%")        AS intelSandy,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Ivy%")          AS intelIvy,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Haswell%")      AS intelHaswell,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Broadwell%")    AS intelBroadwell,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Skylake%")      AS intelSkylake,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Cascade Lake%") AS intelCascadeLake,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Ice Lake%")     AS intelIceLake,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Sapphire%")     AS intelSapphireRapids,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Rome%")         AS amdRome,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Milan%")        AS amdMilan,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Genoa%")        AS amdGenoa,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND availableCpuPlatform LIKE "%Altra%")        AS armAmpereAltra,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "a2")  AS a2,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "c2")  AS c2,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "c2d") AS c2d,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "c3")  AS c3,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "c3d") AS c3d,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "e2")  AS e2,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "g2")  AS g2,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "h3")  AS h3,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "m1")  AS m1,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "m2")  AS m2,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "m3")  AS m3,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "n1")  AS n1,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "n2")  AS n2,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "n2d") AS n2d,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "t2a") AS t2a,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND series LIKE "t2d") AS t2d,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND sap >= 1) AS sap,
-	(SELECT COUNT(name) FROM instances WHERE region LIKE I.region AND hana >= 1) AS hana,
-	(SELECT ROUND(MIN(hour), 4)  FROM instances WHERE region LIKE I.region AND name LIKE "e2-standard-8") AS e2Standard8Hour,
-	(SELECT ROUND(MIN(month), 2) FROM instances WHERE region LIKE I.region AND name LIKE "e2-standard-8") AS e2Standard8Month
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Sandy%")        AS intelSandy,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Ivy%")          AS intelIvy,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Haswell%")      AS intelHaswell,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Broadwell%")    AS intelBroadwell,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Skylake%")      AS intelSkylake,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Cascade Lake%") AS intelCascadeLake,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Ice Lake%")     AS intelIceLake,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Sapphire%")     AS intelSapphireRapids,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Rome%")         AS amdRome,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Milan%")        AS amdMilan,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Genoa%")        AS amdGenoa,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Altra%")        AS armAmpereAltra,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "a2")  AS a2,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "c2")  AS c2,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "c2d") AS c2d,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "c3")  AS c3,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "c3d") AS c3d,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "e2")  AS e2,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "g2")  AS g2,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "h3")  AS h3,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "m1")  AS m1,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "m2")  AS m2,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "m3")  AS m3,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "n1")  AS n1,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "n2")  AS n2,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "n2d") AS n2d,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "t2a") AS t2a,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND series LIKE "t2d") AS t2d,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND sap >= 1) AS sap,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND hana >= 1) AS hana,
+	(SELECT ROUND(MIN(hour), 4)  FROM instances WHERE region = I.region AND name LIKE "e2-standard-8") AS e2Standard8Hour,
+	(SELECT ROUND(MIN(month), 2) FROM instances WHERE region = I.region AND name LIKE "e2-standard-8") AS e2Standard8Month
 FROM instances I
 GROUP BY region
-ORDER BY region
+ORDER BY region;
 ~;
 $sth = $dbh->prepare($sql_regions);
 $sth->execute();
@@ -546,7 +546,7 @@ SELECT
 	ROUND(coremarkScore/hourSpot, 0)    AS coremarkHourSpot,
 	ROUND(saps/hour, 0)                 AS sapsHour
 FROM instances
-ORDER BY name, region
+ORDER BY name, region;
 ~;
 my $sth = $dbh->prepare($sql_instance_in_region);
 $sth->execute();
