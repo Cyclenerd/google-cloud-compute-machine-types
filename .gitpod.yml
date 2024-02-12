@@ -4,21 +4,18 @@ tasks:
       echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
       curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo tee /usr/share/keyrings/cloud.google.gpg
       sudo apt-get update -y
-      sudo apt-get install -y        \
-        google-cloud-cli             \
-        jq                           \
-        sqlite3                      \
-        libparallel-forkmanager-perl \
-        libapp-options-perl          \
-        libencode-perl               \
-        libyaml-libyaml-perl         \
-        libjson-xs-perl              \
-        libdbd-csv-perl              \
-        libdbd-sqlite3-perl          \
-        libtemplate-perl             \
-        libplack-perl                \
-        libgd-perl                   \
-        fonts-roboto
+      sudo apt-get install -y \
+        google-cloud-cli      \
+        jq                    \
+        sqlite3               \
+        libapp-options-perl   \
+        libencode-perl        \
+        libyaml-libyaml-perl  \
+        libjson-xs-perl       \
+        libdbd-csv-perl       \
+        libdbd-sqlite3-perl   \
+        libtemplate-perl      \
+        libplack-perl
     command: plackup
 
 ports:

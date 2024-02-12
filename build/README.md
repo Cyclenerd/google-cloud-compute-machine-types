@@ -56,16 +56,6 @@ The websites are stored in the directory `../site/`.
 
 The JavaScript grid library [AG Grid Community](https://www.ag-grid.com/) is used.
 
-## Open Graph
-
-Run:
-```shell
-perl opengraph.pl
-```
-
-This Perl script creates [Open Graph](https://ogp.me/) images for all GCE machines in all regions.
-The images are stored in the directory `../opengraph/`.
-
 ## Publish
 
 The static webapp is stored in a Google Cloud Storage bucket.
@@ -89,23 +79,3 @@ Cloudflare is used as CDN. The following must be added to the DNS management for
 ```text
 gcloud-compute.com CNAME c.storage.googleapis.com
 ```
-
-### Open Graph Images
-
-Open Graph images are stored in a separate Google Cloud Storage bucket.
-
-Copy:
-```shell
-gsutil -m rsync -r opengraph gs://opengraph.gcloud-compute.com
-```
-
-Cloudflare is used as CDN. The following must be added to the DNS management for gcloud-compute.com:
-
-```text
-opengraph.gcloud-compute.com CNAME c.storage.googleapis.com
-```
-
-Test:
-
-* [Twitter Card Validator](https://cards-dev.twitter.com/validator)
-* [LinkedIn Post Inspector](https://www.linkedin.com/post-inspector/inspect/)

@@ -33,8 +33,6 @@ you need the following requirements.
 * SQLite3 (`sqlite3`)
 * Perl 5 (`perl`)
 * Perl modules:
-	* [GD::Simple](https://metacpan.org/pod/GD::Simple)
-	* [Parallel::ForkManager](https://metacpan.org/pod/Parallel::ForkManager)
 	* [App::Options](https://metacpan.org/pod/App::Options)
 	* [Encode](https://metacpan.org/pod/Encode)
 	* [YAML::XS](https://metacpan.org/pod/YAML::XS) (and `libyaml`)
@@ -43,7 +41,6 @@ you need the following requirements.
 	* [DBD::SQLite](https://metacpan.org/pod/DBD::SQLite)
 	* [Template::Toolkit](https://metacpan.org/pod/Template::Toolkit)
 	* [plackup](https://metacpan.org/dist/Plack/view/script/plackup)
-* [Roboto Font](https://fonts.google.com/specimen/Roboto) (for Open Graph images)
 
 <details>
 <summary><b>Debian/Ubuntu</b></summary>
@@ -53,7 +50,6 @@ Packages:
 sudo apt update
 sudo apt install \
 	sqlite3 \
-	libparallel-forkmanager-perl \
 	libapp-options-perl \
 	libencode-perl \
 	libyaml-libyaml-perl \
@@ -61,9 +57,7 @@ sudo apt install \
 	libdbd-csv-perl \
 	libdbd-sqlite3-perl \
 	libtemplate-perl \
-	libplack-perl \
-	libgd-perl \
-	fonts-roboto
+	libplack-perl
 ```
 
 [Google Cloud CLI](https://cloud.google.com/sdk/docs/install#deb):
@@ -87,7 +81,6 @@ Homebrew packages:
 brew install perl
 brew install cpanminus pkg-config
 brew install sqlite3
-brew install gd
 brew install --cask google-cloud-sdk
 ```
 

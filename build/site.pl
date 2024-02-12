@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# Copyright 2022-2023 Nils Knieling. All Rights Reserved.
+# Copyright 2022-2024 Nils Knieling. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -758,6 +758,7 @@ copy( './src/img/dbbrowser.png',      '../site/img/dbbrowser.png');
 copy( './src/img/filter.png',         '../site/img/filter.png');
 copy( './src/img/gcosts.png',         '../site/img/gcosts.png');
 copy( './src/img/show-more.png',      '../site/img/show-more.png');
+copy( './src/img/social.png',         '../site/img/social.png');
 copy( './src/img/sort.png',           '../site/img/sort.png');
 copy( './src/img/spreadsheet.png',    '../site/img/spreadsheet.png');
 copy( './src/img/usage.png',          '../site/img/usage.png');
