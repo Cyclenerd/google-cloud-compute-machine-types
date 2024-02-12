@@ -21,10 +21,8 @@
 	<nav class="navbar navbar-dark bg-dark">
 		<div class="container-fluid">
 			<a class="navbar-brand mb-0 h1" href="/">
-				<!-- hide on screens smaller than lg -->
-				<span class="d-none d-lg-block">Google Cloud Platform ☁️ Google Compute Engine</span>
-				<!-- hide on lg and wider screens -->
-				<span class="d-lg-none">GCP ☁️ GCE</span>
+				<span class="d-none d-lg-block">Google Cloud Platform 💸 Pricing</span>
+				<span class="d-lg-none">GCP 💸 Pricing</span>
 			</a>
 			<div class="text-end">
 				<div class="d-none d-lg-block">
@@ -108,7 +106,7 @@
 		<a [%- IF
 				template.name == 'gcosts.tt2'
 			-%]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %]
-			href="/gcosts.html">💸 Calculator</a>
+			href="/gcosts.html">Calculator</a>
 	</li>
 </ul>
 </div> <!-- // col -->
