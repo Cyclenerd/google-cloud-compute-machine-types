@@ -16,6 +16,7 @@ tasks:
         libdbd-sqlite3-perl   \
         libtemplate-perl      \
         libplack-perl
+      cd build
     command: plackup
 
 ports:

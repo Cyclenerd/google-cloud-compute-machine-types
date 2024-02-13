@@ -272,7 +272,7 @@
 </table>
 </div> <!-- // table-responsive -->
 
-<h2>Operating System Licenses Costs</h2>
+<h3>Operating System Licenses Costs</h3>
 <p>Monthly costs for paid <i>premium</i> operating system licenses for Google Compute Engine machine types [% instance_a.name %] and [% instance_b.name %].</p>
 <div class="table-responsive">
 <table class="table table-hover table-bordered">
@@ -354,29 +354,6 @@
 </tbody>
 </table>
 </div> <!-- // table-responsive -->
-
-<h2 id="share">Share [% instance_a.name %] vs. [% instance_b.name %]</h2>
-<p>Share a link to the Google Cloud machine type comparison [% instance_a.name %] versus [% instance_b.name %].</p>
-<script>
-function copy[% instance_a.name.remove('-') %]() {
-	var url = document.getElementById("url[% instance_a.name.remove('-') %]").value;
-	navigator.clipboard.writeText(url);
-}
-</script>
-<div class="input-group mb-3">
-	<span class="input-group-text">Link to share</span>
-	<input type="text" class="form-control" id="url[% instance_a.name.remove('-') %]" value="[% site.url %]/comparison/[% instance_a.name %]/vs/[% instance_b.name %].html" disabled readonly>
-	<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Copy link</button>
-	<ul class="dropdown-menu dropdown-menu-end">
-		<li><a class="dropdown-item" href="#share" onclick="copy[% instance_a.name.remove('-') %]();">Clipboard</a></li>
-		<li><hr class="dropdown-divider"></li>
-		<li><a class="dropdown-item" rel="nofollow" href="mailto:?subject=[% instance_a.name | uri %][% ' vs. ' | uri %][% instance_b.name | uri %]&amp;body=[% site.url | uri %][% '/comparison/' | uri %][% instance_a.name | uri %][% '/vs/' | uri %][% instance_b.name | uri %].html">Email</a></li>
-		<li><a class="dropdown-item" rel="nofollow" target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url=[% site.url | uri %][% '/comparison/' | uri %][% instance_a.name | uri %][% '/vs/' | uri %][% instance_b.name | uri %].html">LinkedIn</a></li>
-		<li><a class="dropdown-item" rel="nofollow" target="_blank" href="https://twitter.com/intent/tweet?url=[% site.url | uri %][% '/comparison/' | uri %][% instance_a.name | uri %][% '/vs/' | uri %][% instance_b.name | uri %].html">Twitter</a></li>
-		<li><a class="dropdown-item" rel="nofollow" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=[% site.url | uri %][% '/comparison/' | uri %][% instance_a.name | uri %][% '/vs/' | uri %][% instance_b.name | uri %].html">Facebook</a></li>
-		<li><a class="dropdown-item" rel="nofollow" target="_blank" href="https://www.reddit.com/submit?url=[% site.url | uri %][% '/comparison/' | uri %][% instance_a.name | uri %][% '/vs/' | uri %][% instance_b.name | uri %].html">Reddit</a></li>
-	</ul>
-</div>
 
 </div> <!-- // col -->
 </div> <!-- // row -->

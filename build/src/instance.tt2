@@ -135,29 +135,6 @@
 </table>
 </div><!-- table-responsive -->
 
-<h2 id="share">Share [% instance.name %]</h2>
-<p>Share a link to the Google Cloud machine type [% instance.name %].</p>
-<script>
-function copy[% instance.name.remove('-') %]() {
-	var url = document.getElementById("url[% instance.name.remove('-') %]").value;
-	navigator.clipboard.writeText(url);
-}
-</script>
-<div class="input-group mb-3">
-	<span class="input-group-text">Link to share</span>
-	<input type="text" class="form-control" id="url[% instance.name.remove('-') %]" value="[% site.url %]/[% instance.name %].html" disabled readonly>
-	<button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">Copy link</button>
-	<ul class="dropdown-menu dropdown-menu-end">
-		<li><a class="dropdown-item" href="#share" onclick="copy[% instance.name.remove('-') %]();">Clipboard</a></li>
-		<li><hr class="dropdown-divider"></li>
-		<li><a class="dropdown-item" rel="nofollow" href="mailto:?subject=[% instance.name | uri %]&amp;body=[% site.url | uri %][% '/' | uri %][% instance.name | uri %].html">Email</a></li>
-		<li><a class="dropdown-item" rel="nofollow" target="_blank" href="https://www.linkedin.com/sharing/share-offsite/?url=[% site.url | uri %][% '/' | uri %][% instance.name | uri %].html">LinkedIn</a></li>
-		<li><a class="dropdown-item" rel="nofollow" target="_blank" href="https://twitter.com/intent/tweet?url=[% site.url | uri %][% '/' | uri %][% instance.name | uri %].html">Twitter</a></li>
-		<li><a class="dropdown-item" rel="nofollow" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=[% site.url | uri %][% '/' | uri %][% instance.name | uri %].html">Facebook</a></li>
-		<li><a class="dropdown-item" rel="nofollow" target="_blank" href="https://www.reddit.com/submit?url=[% site.url | uri %][% '/' | uri %][% instance.name | uri %].html">Reddit</a></li>
-	</ul>
-</div>
-
 </div> <!-- // col -->
 <div class="col-xxl-6">
 
@@ -260,78 +237,7 @@ function copy[% instance.name.remove('-') %]() {
 </table>
 </div><!-- table-responsive -->
 
-<h3>Price per Region</h3>
-[% 
-	cost_hour_difference = instance.maxHour - instance.minHour;
-	cost_hour_difference_percent = cost_hour_difference*100 / instance.maxHour
-%]
-<p>
-Costs and pricing for Google Compute Engine machine type [% instance.name %] in Google Cloud regions in which the VM is available.
-Between the most expensive and the cheapest region is a price <mark>difference of [% cost_hour_difference_percent FILTER format("%.0f") %]%</mark>.
-</p>
-<div class="table-responsive">
-<table
-	class="table table-sm table-hover table-striped table-bordered"
-	data-toggle="table"
-	data-sort-name="hour"
-	data-sort-order="asc"
-	data-sortable="true"
->
-<thead>
-	<tr>
-		<th scope="col">Region</th>
-		<th scope="col">Location</th>
-		<th scope="col">#Zones</th>
-		<th scope="col" title="CPU Platforms">#Platf.</th>
-		<!-- Costs -->
-		<th scope="col" data-field="hour" data-sortable="true">Hour</th>
-		[% IF instance.spot && instance.avgHourSpot > 0 %]<th scope="col" data-sortable="true">Spot</th>[% END %]
-		<th scope="col" data-sortable="true">Month</th>
-		<th scope="col" data-sortable="true">1Y CUD</th>
-		<th scope="col" data-sortable="true">3Y CUD</th>
-	</tr>
-</thead>
-<tbody>
-	[% FOREACH region IN regions %]
-	<tr>
-		<td>
-			<a
-			   href="/[% region.name %]/[% instance.name %].html"
-			   title="Google Compute Engine machine type [% instance.name %] in Google Cloud region [% region.name %]">
-				[% region.name %]
-			</a>
-		</td>
-		<td>
-			[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]
-			[% iconLowCo2Region(region) %]
-		</td>
-		<td [% IF region.zoneCount < 1%]class="table-danger"[% END%] title="Available [% region.zoneCount %] zone[% IF region.zoneCount > 1 %]s[% END %] in region [% region.name %]">[% IF region.zoneCount %][% region.zoneCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
-		<td [% IF region.availableCpuPlatformCount < instance.cpuPlatformCount %]class="table-warning"[% END%] title="Available CPU platforms in region [% region.name %]">[% IF region.availableCpuPlatformCount %][% region.availableCpuPlatformCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
-		<!-- Costs -->
-		<td
-		    class="currency [% IF region.hour >= instance.maxHour %]table-danger[% ELSIF region.hour > instance.avgHour %]table-warning[% ELSE %]table-success[% END %]"
-			title="Costs per hour for machine type [% instance.name %] in region [% region.name %]: [% region.hour %] USD">[% region.hour %]</td>
-		[% IF instance.spot && instance.avgHourSpot > 0 %]
-		<td
-		    class="currency [% IF region.hourSpot >= instance.maxHourSpot %]table-danger[% ELSIF region.hourSpot > instance.avgHourSpot %]table-warning[% ELSE %]table-success[% END %]"
-			title="Costs per hour for machine type [% instance.name %] in region [% region.name %] with spot provisioning model (Spot VM): [% region.hourSpot %] USD">[% region.hourSpot %]</td>
-		[% END %]
-		<td
-		    class="currency [% IF region.month >= instance.maxMonth %]table-danger[% ELSIF region.month > instance.avgMonth %]table-warning[% ELSE %]table-success[% END %]"
-		    title="Costs per month for machine type [% instance.name %] in region [% region.name %]: [% region.month %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">[% region.month %]</td>
-		<td
-		    class="currency [% IF region.month1yCud >= instance.maxMonth1yCud %]table-danger[% ELSIF region.month1yCud > instance.avgMonth1yCud %]table-warning[% ELSE %]table-success[% END %]"
-		    title="Costs per month for machine type [% instance.name %] in region [% region.name %] with 1 year commitment (CUD): [% region.month1yCud %] USD">[% region.month1yCud %]</td>
-		<td
-		    class="currency [% IF region.month3yCud >= instance.maxMonth3yCud %]table-danger[% ELSIF region.month3yCud > instance.avgMonth3yCud %]table-warning[% ELSE %]table-success[% END %]"
-		    title="Costs per month for machine type [% instance.name %] in region [% region.name %] with 3 year commitment (CUD): [% region.month3yCud %] USD">[% region.month3yCud %]</td>
-	</tr>
-	[% END %]
-</tbody>
-</table>
-</div><!-- table-responsive -->
-
-<h2>Operating System Licenses Costs for [% instance.name %]</h2>
+<h3>Operating System Licenses Costs</h3>
 <p>Monthly costs for paid <i>premium</i> operating system licenses for Google Compute Engine machine type [% instance.name %].</p>
 <div class="table-responsive">
 <table class="table table-sm table-hover table-striped table-bordered">
@@ -380,98 +286,85 @@ Between the most expensive and the cheapest region is a price <mark>difference o
 </div> <!-- // col -->
 </div> <!-- // row -->
 
-<h2>Machine Types with [% instance.vCpus %] vCPU</h2>
+<h2>Price per Region</h2>
+[% 
+	cost_hour_difference = instance.maxHour - instance.minHour;
+	cost_hour_difference_percent = cost_hour_difference*100 / instance.maxHour
+%]
+<p>
+Costs and pricing for Google Compute Engine machine type [% instance.name %] in Google Cloud regions in which the VM is available.
+Between the most expensive and the cheapest region is a price <mark>difference of [% cost_hour_difference_percent FILTER format("%.0f") %]%</mark>.
+</p>
 <div class="table-responsive">
-<table class="table table-sm table-hover table-striped table-bordered">
+<table
+	class="table table-sm table-hover table-striped table-bordered"
+	data-classes="table table-sm table-hover table-striped table-bordered"
+	data-toggle="table"
+	data-sort-name="hour"
+	data-sort-order="asc"
+	data-sortable="true"
+	data-sticky-header="true"
+>
 <thead>
 	<tr>
-		<th scope="row">Name ⬇️</th>
-		<th scope="col">vCPU</th>
-		<th scope="col" colspan="2">Memory</th>
-		<th scope="col"></th>
-		<th scope="col" colspan="2">Avg. costs per hour</th>
-		<th scope="col" colspan="2">Avg. costs per Spot VM hour</th>
-		<th scope="col" colspan="2">Avg. costs per month</th>
+		<th scope="col" data-sortable="true">Region</th>
+		<th scope="col" data-sortable="true">Location</th>
+		<th scope="col" data-sortable="true">#Zones</th>
+		<th scope="col" data-sortable="true" title="CPU Platforms" >#Platf.</th>
+		<!-- Costs -->
+		<th scope="col" data-field="hour" data-sortable="true">Hour</th>
+		[% IF instance.spot && instance.avgHourSpot > 0 %]<th scope="col" data-sortable="true">Spot</th>[% END %]
+		<th scope="col" data-sortable="true">Month</th>
+		<th scope="col" data-sortable="true">1Y CUD</th>
+		<th scope="col" data-sortable="true">3Y CUD</th>
 	</tr>
 </thead>
 <tbody>
-	[%- FOREACH other IN instances -%]
-	[% IF other.vCpus == instance.vCpus %]
-	[% IF other.name == instance.name %]
-	<tr class="table-info">
-		<td>[% other.name %]</td>
-		<!-- vCPU -->
-		<td>[% other.vCpus %][% badgeSharedCpu(other) %]</td>
-		<!-- Memory -->
-		<td></td>
-		<td class="memory" title="Random-access memory: [% other.memoryGiB %] GiB">[% other.memoryGiB %]</td>
-		<td>
-			[% badgeCpuManufactur(other) %]
-			[% badgeGpu(other) %]
-			[% badgeSap(other) %]
-			[% badgeHana(other) %]
-			[% badgeSpot(other) %]
-		</td>
-		<!-- Hour -->
-		<td></td>
-		<td title="[% other.name %] avg. costs per hour: [% other.avgHour %] USD">
-			<span class="currency">[% other.avgHour %]</span>
-		</td>
-		<!-- // Hour -->
-		<!-- Spot VM -->
-		<td></td>
-		<td title="[% other.name %] avg. costs per Spot VM hour: [% other.avgHourSpot %] USD">
-			<span class="currency">[% other.avgHourSpot %]</span>
-		</td>
-		<!-- // Spot VM -->
-		<!-- Month -->
-		<td></td>
-		<td title="[% other.name %] avg. costs per month: [% other.avgMonth %] USD[% IF other.sud %] with sustained use discounts (SUD) applied[% END %]">
-			<span class="currency">[% other.avgMonth %]</span>
-			[% badgeSud(other) %]
-		</td>
-		<!-- // Month -->
-	</tr>
-	[% ELSE %]
+	[% FOREACH region IN regions %]
 	<tr>
 		<td>
-			<a href="/comparison/[% instance.name %]/vs/[% other.name %].html" title="Google Compute Engine machine type [% other.name %]">[% other.name %]</a>
+			<a
+			   href="/[% region.name %]/[% instance.name %].html"
+			   title="Google Compute Engine machine type [% instance.name %] in Google Cloud region [% region.name %]">
+				[% region.name %]
+			</a>
 		</td>
-		<!-- vCPU -->
-		<td>[% other.vCpus %][% badgeSharedCpu(other) %]</td>
-		<!-- Memory -->
-		[% tableCompareNumber(instance.memoryGiB || 0, other.memoryGiB || 0) %]
-		<td class="memory" title="Random-access memory: [% other.memoryGiB %] GiB">[% other.memoryGiB %]</td>
 		<td>
-			[% badgeCpuManufactur(other) %]
-			[% badgeGpu(other) %]
-			[% badgeSap(other) %]
-			[% badgeHana(other) %]
-			[% badgeSpot(other) %]
+			[% IF region.regionLocation %][% region.regionLocation %][% ELSE %]<span class="text-muted">?</span>[% END %]
+			[% iconLowCo2Region(region) %]
 		</td>
-		<!-- Hour -->
-		[% tableCompareCosts(instance.avgHour || 0, other.avgHour || 0) %]
-		<td title="[% other.name %] avg. costs per hour: [% other.avgHour %] USD">
-			<span class="currency">[% other.avgHour %]</span>
-		</td>
-		<!-- // Hour -->
-		<!-- Spot VM -->
-		[% tableCompareCosts(instance.avgHourSpot || 0, other.avgHourSpot || 0) %]
-		<td title="[% other.name %] avg. costs per Spot VM hour: [% other.avgHourSpot %] USD">
-			<span class="currency">[% other.avgHourSpot %]</span>
-		</td>
-		<!-- // Spot VM -->
-		<!-- Month -->
-		[% tableCompareCosts(instance.avgMonth || 0, other.avgMonth || 0) %]
-		<td title="[% other.name %] avg. costs per month: [% other.avgMonth %] USD[% IF other.sud %] with sustained use discounts (SUD) applied[% END %]">
-			<span class="currency">[% other.avgMonth %]</span>
-			[% badgeSud(other) %]
-		</td>
-		<!-- // Month -->
+		<td [% IF region.zoneCount < 1%]class="table-danger"[% END%] title="Available [% region.zoneCount %] zone[% IF region.zoneCount > 1 %]s[% END %] in region [% region.name %]">[% IF region.zoneCount %][% region.zoneCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td [% IF region.availableCpuPlatformCount < instance.cpuPlatformCount %]class="table-warning"[% END%] title="Available CPU platforms in region [% region.name %]">[% IF region.availableCpuPlatformCount %][% region.availableCpuPlatformCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<!-- Costs -->
+		<td
+		    class="currency [% IF region.hour >= instance.maxHour %]table-danger[% ELSIF region.hour > instance.avgHour %]table-warning[% ELSE %]table-success[% END %]"
+			title="Costs per hour for machine type [% instance.name %] in region [% region.name %]: [% region.hour %] USD">[% region.hour %]</td>
+		[% IF instance.spot && instance.avgHourSpot > 0 %]
+		<td
+		    class="currency [% IF region.hourSpot >= instance.maxHourSpot %]table-danger[% ELSIF region.hourSpot > instance.avgHourSpot %]table-warning[% ELSE %]table-success[% END %]"
+			title="Costs per hour for machine type [% instance.name %] in region [% region.name %] with spot provisioning model (Spot VM): [% region.hourSpot %] USD">[% region.hourSpot %]</td>
+		[% END %]
+		<td
+		    class="currency [% IF region.month >= instance.maxMonth %]table-danger[% ELSIF region.month > instance.avgMonth %]table-warning[% ELSE %]table-success[% END %]"
+		    title="Costs per month for machine type [% instance.name %] in region [% region.name %]: [% region.month %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">[% region.month %]</td>
+		<td
+		    class="currency [% IF region.month1yCud >= instance.maxMonth1yCud %]table-danger[% ELSIF region.month1yCud > instance.avgMonth1yCud %]table-warning[% ELSE %]table-success[% END %]"
+		    title="Costs per month for machine type [% instance.name %] in region [% region.name %] with 1 year commitment (CUD): [% region.month1yCud %] USD">[% region.month1yCud %]</td>
+		<td
+		    class="currency [% IF region.month3yCud >= instance.maxMonth3yCud %]table-danger[% ELSIF region.month3yCud > instance.avgMonth3yCud %]table-warning[% ELSE %]table-success[% END %]"
+		    title="Costs per month for machine type [% instance.name %] in region [% region.name %] with 3 year commitment (CUD): [% region.month3yCud %] USD">[% region.month3yCud %]</td>
 	</tr>
-	[%- END; END; END -%]
+	[% END %]
 </tbody>
 </table>
-</div> <!-- // table-responsive -->
+</div><!-- table-responsive -->
+
+<nav class="mt-2">
+<ul class="pagination justify-content-center">
+	[%- FOREACH other IN instances; IF other.vCpus == instance.vCpus; %]
+	<li class="page-item"><a class="page-link" href="/[% other.name %].html" role="button">[% other.name %]</a></li>
+	[%- END; END; -%]
+</ul>
+</nav>
 
 [% PROCESS footer.tt2 %]
