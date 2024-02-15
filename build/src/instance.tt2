@@ -335,10 +335,4 @@ Between the most expensive and the cheapest region is a price <mark>difference o
 </table>
 </div><!-- table-responsive -->
 
-<ul class="nav justify-content-center">
-	[%- FOREACH other IN instances; IF other.vCpus == instance.vCpus; %]
-	<li class="nav-item"><a class="nav-link" href="/[% other.name %].html" role="button">[% other.name %]</a></li>
-	[%- END; END; -%]
-</ul>
-
 [% PROCESS footer.tt2 %]
