@@ -9,7 +9,6 @@
 <script src="[% site.agGrid.js %]"></script>
 <link rel="stylesheet" href="[% site.agGrid.css %]">
 <link rel="stylesheet" href="[% site.agGrid.theme %]">
-<link rel="stylesheet" href="[% site.bootstrap.css %]">
 <style>
 	html {
 		width: 100%;
@@ -32,85 +31,7 @@
 </style>
 </head>
 <body>
-<h1 class="visually-hidden">Google Cloud Machine Type Instance Picker</h1>
-<p class="visually-hidden">Choose between over 3,000 different combinations of Google Compute Engine machine types and Google Cloud regions.</p>
 <div id="myGrid" class="ag-theme-balham" style="height: 100%; width:100%"></div>
-
-<!-- help -->
-<div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
-<div class="modal-dialog modal-lg modal-fullscreen-lg-down modal-dialog-scrollable">
-<div class="modal-content">
-<div class="modal-header">
-	<h5 class="modal-title" id="helpModalLabel">Google Compute Engine Machine Type Instance Picker</h5>
-	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-</div>
-<div class="modal-body">
-<p class="h4">Keyboard Shortcuts</p>
-<p>Press <kbd>Ctrl</kbd> + <kbd>/</kbd> to focus the vCPU filter.</p>
-
-<p>
-Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>) to move focus up, down, left and right.
-<kbd>Tab</kbd> will move the focus horizontally until the last cell and then move on to the next row.
-<kbd>Shift</kbd> + <kbd>Tab</kbd> will move the focus horizontal backward until the first cell and then move back to the previous row.
-</p>
-
-<p>Pressing the <kbd>Space</kbd> key on a cell will select the cells row, or deselect the row if already selected.</p>
-
-<p>With the following keyboard shortcuts you can copy selected row from the table in CSV format to your clipboard:</p>
-<ul>
-	<li><kbd>Ctrl</kbd> + <kbd>c</kbd> : Copy selected rows with shown column</li>
-	<li><kbd>Ctrl</kbd> + <kbd>x</kbd> : Copy selected rows with all   column</li>
-</ul>
-
-<p>The grid header also supports full keyboard navigation:</p>
-<ul>
-	<li>Press <kbd>Enter</kbd> to toggle the sorting state of that column.</li>
-	<li>Press <kbd>Ctrl</kbd> + <kbd>Enter</kbd> to open the menu for the focused header.</li>
-	<li>When a menu is open, simply press <kbd>Esc</kbd> to close it and the focus will return to the header.</li>
-</ul>
-
-<p class="h4">About</p>
-<p>
-	This Google Cloud Platform and Google Compute Engine machine type comparison website is published as open source and licensed under the Apache License (version 2.0).
-	You can find the source code on <a href="[% site.github.repo %]">GitHub</a>.
-	This site is not maintained by or affiliated with Google.
-	All product names, logos, and brands are property of their respective owners.
-	Data and costs shown are not guaranteed to be accurate or current.
-	Please <a href="[% site.github.issues %]">report issues</a> you see.
-</p>
-<p>Last Update: <a href=[% IF gitHubRunId %]"[% gitHubServerUrl %]/[% gitHubRepository %]/actions/runs/[% gitHubRunId %]"[% ELSE %]"#"[% END %]>[% gmtime %]</a> (GMT)</p>
-</div> <!-- // modal-body -->
-<div class="modal-footer">
-	<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-</div> <!-- // modal-footer -->
-</div> <!-- // modal-content -->
-</div> <!-- // modal-dialog -->
-</div> <!-- // modal -->
-<!-- // help -->
-
-<!-- welcome toast -->
-<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
-<div id="welcomeToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="10000">
-<div class="toast-header">
-	<strong class="me-auto">✅ Instance Picker</strong>
-	<small>Last update: [% USE date; date.format(timestamp, '%Y-%m-%d'); %]</small>
-	<button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-</div>
-<div class="toast-body">
-	<p>You can navigate with your keyboard.</p>
-	<p>Press <kbd>Ctrl</kbd> + <kbd>/</kbd> to focus the vCPU filter.</p>
-	<p>Press <kbd>?</kbd> to see the help with all keyboard shortcuts.</p>
-	<div class="mt-2 pt-2 border-top">
-		<button type="button" class="btn btn-primary btn-sm" data-bs-toggle="modal" data-bs-target="#helpModal">Help</button>
-		<button type="button" class="btn btn-secondary btn-sm" data-bs-dismiss="toast">Close <i>(10 sec)</i></button>
-	</div>
-</div> <!-- // toast-body -->
-</div> <!-- // toast -->
-</div> <!-- // position-fixed -->
-<!-- // welcome toast -->
-
 <script src="main.js?[% timestamp %]"></script>
-<script src="[% site.bootstrap.js %]"></script>
-
 </body>
 </html>

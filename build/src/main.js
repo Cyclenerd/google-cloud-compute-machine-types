@@ -78,12 +78,6 @@ document.addEventListener('keydown', function(event) {
 	if (event.ctrlKey && event.key === '/') {
 		document.querySelector('[aria-label="vCPU Filter Input"]').focus();
 	}
-	if (event.key === '?') {
-		var helpModal = new bootstrap.Modal(document.getElementById('helpModal'), {
-			//keyboard: false
-		})
-		helpModal.show();
-	}
 });
 
 /*
@@ -634,7 +628,7 @@ const gridOptions = {
 	//rowDragManaged: true,
 	//rowDragMultiRow: true,
 	pagination: true,
-	paginationPageSize: 45,
+	paginationPageSize: 50,
 	//domLayout: 'autoHeight',
 };
 
@@ -651,24 +645,6 @@ fetch('instance_in_region.json?[% timestamp %]')
 		gridOptions.api.setRowData(data);
 	}
 );
-
-// page has finished loading
-document.addEventListener('DOMContentLoaded', function () {
-	console.log('DOMContentLoaded');
-	// Welcome toast
-	var welcomeToast = document.getElementById('welcomeToast');
-	var toast = new bootstrap.Toast(welcomeToast);
-	let cookie = decodeURIComponent(document.cookie); // Get cookie
-	if (cookie.search('instancePickerWelcomeToast') >= 0) {
-		console.log('welcome toast already shown');
-	} else {
-		console.log('welcome toast');
-		const d = new Date();
-		d.setTime(d.getTime() + (24*60*60*1000)); // 1 day
-		document.cookie = "instancePickerWelcomeToast=true;expires="+d.toUTCString()+";SameSite=Strict;Secure";
-		toast.show();
-	}
-});
 
 // fist time data is rendered into the grid
 gridOptions.api.addEventListener('firstDataRendered', function () {
