@@ -449,26 +449,6 @@ const gridOptions = {
 					filterParams: filterParamsNumber,
 					headerTooltip: 'Costs per hour spot provisioning model (Spot VM)'
 				},
-				{ 
-					headerName: 'Discount',
-					field: 'hourSpotDiscount',
-					width: 110,
-					cellClass: 'currency',
-					filter: 'agNumberColumnFilter',
-					filterParams: filterParamsNumber,
-					columnGroupShow: 'open',
-					headerTooltip: 'Discount per hour spot provisioning model (Spot VM) vs. hour price'
-				},
-				{ 
-					headerName: 'Percent',
-					field: 'hourSpotDiscountPercent',
-					width: 80,
-					cellClass: 'percent',
-					filter: 'agNumberColumnFilter',
-					filterParams: filterParamsNumber,
-					columnGroupShow: 'open',
-					headerTooltip: 'Discount per hour spot provisioning model (Spot VM) vs. hour price'
-				},
 				{
 					headerName: 'CoreMark/$h',
 					field: "coremarkHour",
@@ -523,26 +503,6 @@ const gridOptions = {
 					columnGroupShow: 'open',
 					headerTooltip: 'Costs per month with 1 year commitment (CUD)'
 				},
-				{ 
-					headerName: 'Disc. 1Y',
-					field: 'month1yCudDiscount',
-					width: 120,
-					cellClass: 'currency',
-					filter: 'agNumberColumnFilter',
-					filterParams: filterParamsNumber,
-					columnGroupShow: 'open',
-					headerTooltip: 'Discount per month with 1 year commitment (CUD) vs. month price'
-				},
-				{ 
-					headerName: '% 1Y',
-					field: 'month1yCudDiscountPercent',
-					width: 80,
-					cellClass: 'percent',
-					filter: 'agNumberColumnFilter',
-					filterParams: filterParamsNumber,
-					columnGroupShow: 'open',
-					headerTooltip: 'Discount in percent per month with 1 year commitment (CUD) vs. month price'
-				},
 				{
 					headerName: '3Y CUD',
 					field: "month3yCud",
@@ -554,26 +514,6 @@ const gridOptions = {
 					headerTooltip: 'Costs per month with 3 year commitment (CUD)'
 				},
 				{ 
-					headerName: 'Disc. 3Y',
-					field: 'month3yCudDiscount',
-					width: 120,
-					cellClass: 'currency',
-					filter: 'agNumberColumnFilter',
-					filterParams: filterParamsNumber,
-					columnGroupShow: 'open',
-					headerTooltip: 'Discount per month with 3 year commitment (CUD) vs. month price'
-				},
-				{ 
-					headerName: '% 3Y',
-					field: 'month3yCudDiscountPercent',
-					width: 80,
-					cellClass: 'percent',
-					filter: 'agNumberColumnFilter',
-					filterParams: filterParamsNumber,
-					columnGroupShow: 'open',
-					headerTooltip: 'Discount in percent per month with 3 year commitment (CUD) vs. month price'
-				},
-				{ 
 					headerName: 'Spot',
 					field: 'monthSpot',
 					width: 120,
@@ -582,26 +522,6 @@ const gridOptions = {
 					filterParams: filterParamsNumber,
 					columnGroupShow: 'open',
 					headerTooltip: 'Costs per month spot provisioning model (Spot VM)'
-				},
-				{ 
-					headerName: 'Disc. Spot',
-					field: 'monthSpotDiscount',
-					width: 120,
-					cellClass: 'currency',
-					filter: 'agNumberColumnFilter',
-					filterParams: filterParamsNumber,
-					columnGroupShow: 'open',
-					headerTooltip: 'Discount per month spot provisioning model (Spot VM) vs. month price'
-				},
-				{ 
-					headerName: '% Spot',
-					field: 'monthSpotDiscountPercent',
-					width: 80,
-					cellClass: 'percent',
-					filter: 'agNumberColumnFilter',
-					filterParams: filterParamsNumber,
-					columnGroupShow: 'open',
-					headerTooltip: 'Discount in percent per month spot provisioning model (Spot VM) vs. hour price'
 				}
 			]
 		},

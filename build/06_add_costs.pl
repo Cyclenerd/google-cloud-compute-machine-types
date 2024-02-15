@@ -74,48 +74,14 @@ foreach my $machine (keys %{ $gcp->{'compute'}->{'instance'} }) {
 		my $month_3y   = $gcp->{'compute'}->{'instance'}->{$machine}->{'cost'}->{$region}->{'month_3y'}   || $month;
 		my $month_spot = $gcp->{'compute'}->{'instance'}->{$machine}->{'cost'}->{$region}->{'month_spot'} || $month;
 
-		# Calc discounts
-		my $hour_spot_discount = '0.0';
-		my $hour_spot_discount_percent = '0.0';
-		if ($hour > 0 && $hour_spot > 0 && $hour > $hour_spot) {
-			$hour_spot_discount = $hour - $hour_spot;
-			$hour_spot_discount_percent = $hour_spot_discount*100 / $hour;
-		}
-		my $month_1y_discount = '0.0';
-		my $month_1y_discount_percent = '0.0';
-		if ($month > 0 && $month_1y > 0 && $month > $month_1y) {
-			$month_1y_discount = $month - $month_1y;
-			$month_1y_discount_percent = $month_1y_discount*100 / $month;
-		}
-		my $month_3y_discount = '0.0';
-		my $month_3y_discount_percent = '0.0';
-		if ($month > 0 && $month_3y > 0 && $month > $month_3y) {
-			$month_3y_discount = $month - $month_3y;
-			$month_3y_discount_percent = $month_3y_discount*100 / $month;
-		}
-		my $month_spot_discount = '0.0';
-		my $month_spot_discount_percent = '0.0';
-		if ($month > 0 && $month_spot > 0 && $month > $month_spot) {
-			$month_spot_discount = $month - $month_spot;
-			$month_spot_discount_percent = $month_spot_discount*100 / $month;
-		}
-
 		my $update = qq ~
 		UPDATE instances SET
 			hour                      = '$hour',
 			hourSpot                  = '$hour_spot',
-			hourSpotDiscount          = '$hour_spot_discount',
-			hourSpotDiscountPercent   = '$hour_spot_discount_percent',
 			month                     = '$month',
 			month1yCud                = '$month_1y',
-			month1yCudDiscount        = '$month_1y_discount',
-			month1yCudDiscountPercent = '$month_1y_discount_percent',
 			month3yCud                = '$month_3y',
-			month3yCudDiscount        = '$month_3y_discount',
-			month3yCudDiscountPercent = '$month_3y_discount_percent',
 			monthSpot                 = '$month_spot',
-			monthSpotDiscount         = '$month_spot_discount',
-			monthSpotDiscountPercent  = '$month_spot_discount_percent',
 			monthSles                 = '$sles',
 			monthSlesSap              = '$slesSap',
 			monthSlesSap1yCud         = '$slesSap1y',

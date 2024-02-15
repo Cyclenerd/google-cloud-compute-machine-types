@@ -114,18 +114,10 @@ SELECT
 	MAX(sud) AS sud,
 	ROUND(MIN(hour), 4)                      AS minHour,                      ROUND(AVG(hour), 4)                      AS avgHour,                      ROUND(MAX(hour), 4)                      AS maxHour,
 	ROUND(MIN(hourSpot), 4)                  AS minHourSpot,                  ROUND(AVG(hourSpot), 4)                  AS avgHourSpot,                  ROUND(MAX(hourSpot), 4)                  AS maxHourSpot,
-	ROUND(MIN(hourSpotDiscount), 4)          AS minHourSpotDiscount,          ROUND(AVG(hourSpotDiscount), 4)          AS avgHourSpotDiscount,          ROUND(MAX(hourSpotDiscount), 4)          AS maxHourSpotDiscount,
-	ROUND(MIN(hourSpotDiscountPercent), 0)   AS minHourSpotDiscountPercent,   ROUND(AVG(hourSpotDiscountPercent), 0)   AS avgHourSpotDiscountPercent,   ROUND(MAX(hourSpotDiscountPercent), 0)   AS maxHourSpotDiscountPercent,
 	ROUND(MIN(month), 2)                     AS minMonth,                     ROUND(AVG(month), 2)                     AS avgMonth,                     ROUND(MAX(month), 2)                     AS maxMonth,
 	ROUND(MIN(month1yCud), 2)                AS minMonth1yCud,                ROUND(AVG(month1yCud), 2)                AS avgMonth1yCud,                ROUND(MAX(month1yCud), 2)                AS maxMonth1yCud,
-	ROUND(MIN(month1yCudDiscount), 2)        AS minMonth1yCudDiscount,        ROUND(AVG(month1yCudDiscount), 2)        AS avgMonth1yCudDiscount,        ROUND(MAX(month1yCudDiscount), 2)        AS maxMonth1yCudDiscount,
-	ROUND(MIN(month1yCudDiscountPercent), 0) AS minMonth1yCudDiscountPercent, ROUND(AVG(month1yCudDiscountPercent), 0) AS avgMonth1yCudDiscountPercent, ROUND(MAX(month1yCudDiscountPercent), 0) AS maxMonth1yCudDiscountPercent,
 	ROUND(MIN(month3yCud), 2)                AS minMonth3yCud,                ROUND(AVG(month3yCud), 2)                AS avgMonth3yCud,                ROUND(MAX(month3yCud), 2)                AS maxMonth3yCud,
-	ROUND(MIN(month3yCudDiscount), 2)        AS minMonth3yCudDiscount,        ROUND(AVG(month3yCudDiscount), 2)        AS avgMonth3yCudDiscount,        ROUND(MAX(month3yCudDiscount), 2)        AS maxMonth3yCudDiscount,
-	ROUND(MIN(month3yCudDiscountPercent), 0) AS minMonth3yCudDiscountPercent, ROUND(AVG(month3yCudDiscountPercent), 0) AS avgMonth3yCudDiscountPercent, ROUND(MAX(month3yCudDiscountPercent), 0) AS maxMonth3yCudDiscountPercent,
 	ROUND(MIN(monthSpot), 2)                 AS minMonthSpot,                 ROUND(AVG(monthSpot), 2)                 AS avgMonthSpot,                 ROUND(MAX(monthSpot), 2)                 AS maxMonthSpot,
-	ROUND(MIN(monthSpotDiscount), 2)         AS minMonthSpotDiscount,         ROUND(AVG(monthSpotDiscount), 2)         AS avgMonthSpotDiscount,         ROUND(MAX(monthSpotDiscount), 2)         AS maxMonthSpotDiscount,
-	ROUND(MIN(monthSpotDiscountPercent), 0)  AS minMonthSpotDiscountPercent,  ROUND(AVG(monthSpotDiscountPercent), 0)  AS avgMonthSpotDiscountPercent,  ROUND(MAX(monthSpotDiscountPercent), 0)  AS maxMonthSpotDiscountPercent,
 	ROUND(monthSles, 2)         AS monthSles,
 	ROUND(monthSlesSap, 2)      AS monthSlesSap,
 	ROUND(monthSlesSap1yCud, 2) AS monthSlesSap1yCud,
@@ -168,8 +160,6 @@ push(@files, 'sap.html');
 $template->process('sap.tt2', { 'instances' => \@instances }, '../site/sap.html') || die "Template process failed: ", $template->error(), "\n";
 push(@files, 'hana.html');
 $template->process('hana.tt2', { 'instances' => \@instances }, '../site/hana.html') || die "Template process failed: ", $template->error(), "\n";
-push(@files, 'discounts.html');
-$template->process('discounts.tt2', { 'instances' => \@instances }, '../site/discounts.html') || die "Template process failed: ", $template->error(), "\n";
 
 ###############################################################################
 # DISKS
@@ -519,18 +509,10 @@ SELECT
 	sud,
 	ROUND(hour, 4)                      AS hour,
 	ROUND(hourSpot, 4)                  AS hourSpot,
-	ROUND(hourSpotDiscount, 4)          AS hourSpotDiscount,
-	ROUND(hourSpotDiscountPercent, 0)   AS hourSpotDiscountPercent,
 	ROUND(month, 2)                     AS month,
 	ROUND(month1yCud, 2)                AS month1yCud,
-	ROUND(month1yCudDiscount, 2)        AS month1yCudDiscount,
-	ROUND(month1yCudDiscountPercent, 0) AS month1yCudDiscountPercent,
 	ROUND(month3yCud, 2)                AS month3yCud,
-	ROUND(month3yCudDiscount, 2)        AS month3yCudDiscount,
-	ROUND(month3yCudDiscountPercent, 0) AS month3yCudDiscountPercent,
 	ROUND(monthSpot, 2)                 AS monthSpot,
-	ROUND(monthSpotDiscount, 2)         AS monthSpotDiscount,
-	ROUND(monthSpotDiscountPercent, 0)  AS monthSpotDiscountPercent,
 	ROUND(monthSles, 2)                 AS monthSles,
 	ROUND(monthSlesSap, 2)              AS monthSlesSap,
 	ROUND(monthSlesSap1yCud, 2)         AS monthSlesSap1yCud,

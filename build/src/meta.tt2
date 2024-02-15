@@ -98,16 +98,6 @@
 <meta property="og:description"  content="List of all Google Compute Engine machine types certified for SAP HANA on Google Cloud Platform. Sorted by CPU count.">
 <meta property="og:url"          content="[% site.url %]/hana.html">
 
-[%- ELSIF template.name == 'discounts.tt2' -%]
-<title>Google Compute Engine Discounts</title>
-<meta name="description"         content="Overview of possible discounts and savings for Google Compute Engine machine types that can be used in GCP.">
-<link rel="canonical"            href="[% site.url %]/discounts.html">
-<meta name="twitter:title"       content="Google Compute Engine Discounts">
-<meta name="twitter:description" content="Overview of possible discounts and savings for Google Compute Engine machine types that can be used in GCP.">
-<meta property="og:title"        content="Google Compute Engine Discounts">
-<meta property="og:description"  content="Overview of possible discounts and savings for Google Compute Engine machine types that can be used in GCP.">
-<meta property="og:url"          content="[% site.url %]/discounts.html">
-
 [%- ELSIF template.name == 'disks.tt2' -%]
 <title>GCE Disk Types in Google Cloud Platform</title>
 <meta name="description"         content="Overview of all Google Compute Engine disk types that can be used in Google Cloud Platform. Sorted by price.">

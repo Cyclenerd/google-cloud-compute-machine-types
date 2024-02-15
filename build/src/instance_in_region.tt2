@@ -232,10 +232,6 @@
 		<th>Spot provisioning model (Spot VM)</th>
 		<td class="currency">[% instance.hourSpot %]</td>
 	</tr>
-	<tr>
-		<th>Discount Spot VM vs. standard</th>
-		<td class="currency">[% instance.hourSpotDiscount %] ([% instance.hourSpotDiscountPercent %]%)</td>
-	</tr>
 	[% END %]
 </table>
 </div>
@@ -252,26 +248,14 @@
 		<th>Spot provisioning model (Spot VM)</th>
 		<td class="currency">[% instance.monthSpot %]</td>
 	</tr>
-	<tr>
-		<th>Discount Spot VM vs. month</th>
-		<td class="currency">[% instance.monthSpotDiscount %] ([% instance.monthSpotDiscountPercent %]%)</td>
-	</tr>
 	[% END %]
 	<tr>
 		<th>1 year commitment (CUD)</th>
 		<td class="currency">[% instance.month1yCud %]</td>
 	</tr>
 	<tr>
-		<th>Discount 1Y CUD vs. month</th>
-		<td class="currency">[% instance.month1yCudDiscount %] ([% instance.month1yCudDiscountPercent %]%)</td>
-	</tr>
-	<tr>
 		<th>3 year commitment (CUD)</th>
 		<td class="currency">[% instance.month3yCud %]</td>
-	</tr>
-		<tr>
-		<th>Discount 3Y CUD vs. month</th>
-		<td class="currency">[% instance.month3yCudDiscount %] ([% instance.month3yCudDiscountPercent %]%)</td>
 	</tr>
 </table>
 </div><!-- table-responsive -->

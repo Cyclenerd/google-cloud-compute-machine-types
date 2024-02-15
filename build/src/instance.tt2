@@ -166,12 +166,6 @@
 		<td class="currency">[% instance.avgHourSpot %]</td>
 		<td class="currency">[% instance.maxHourSpot %]</td>
 	</tr>
-	<tr>
-		<th>Discount Spot VM vs. standard</th>
-		<td class="currency">[% instance.minHourSpotDiscount %] ([% instance.minHourSpotDiscountPercent %]%)</td>
-		<td class="currency">[% instance.avgHourSpotDiscount %] ([% instance.avgHourSpotDiscountPercent %]%)</td>
-		<td class="currency">[% instance.maxHourSpotDiscount %] ([% instance.maxHourSpotDiscountPercent %]%)</td>
-	</tr>
 	[% END %]
 </tbody>
 </table>
@@ -202,12 +196,6 @@
 		<td class="currency">[% instance.avgMonthSpot %]</td>
 		<td class="currency">[% instance.maxMonthSpot %]</td>
 	</tr>
-	<tr>
-		<th>Discount Spot VM vs. month</th>
-		<td class="currency">[% instance.minMonthSpotDiscount %] ([% instance.minMonthSpotDiscountPercent %]%)</td>
-		<td class="currency">[% instance.avgMonthSpotDiscount %] ([% instance.avgMonthSpotDiscountPercent %]%)</td>
-		<td class="currency">[% instance.maxMonthSpotDiscount %] ([% instance.maxMonthSpotDiscountPercent %]%)</td>
-	</tr>
 	[% END %]
 	<tr>
 		<th>1 year commitment (CUD)</th>
@@ -216,22 +204,10 @@
 		<td class="currency">[% instance.maxMonth1yCud %]</td>
 	</tr>
 	<tr>
-		<th>Discount 1Y CUD vs. month</th>
-		<td class="currency">[% instance.minMonth1yCudDiscount %] ([% instance.minMonth1yCudDiscountPercent %]%)</td>
-		<td class="currency">[% instance.avgMonth1yCudDiscount %] ([% instance.avgMonth1yCudDiscountPercent %]%)</td>
-		<td class="currency">[% instance.maxMonth1yCudDiscount %] ([% instance.maxMonth1yCudDiscountPercent %]%)</td>
-	</tr>
-	<tr>
 		<th>3 year commitment (CUD)</th>
 		<td class="currency">[% instance.minMonth3yCud %]</td>
 		<td class="currency">[% instance.avgMonth3yCud %]</td>
 		<td class="currency">[% instance.maxMonth3yCud %]</td>
-	</tr>
-		<tr>
-		<th>Discount 3Y CUD vs. month</th>
-		<td class="currency">[% instance.minMonth3yCudDiscount %] ([% instance.minMonth3yCudDiscountPercent %]%)</td>
-		<td class="currency">[% instance.avgMonth3yCudDiscount %] ([% instance.avgMonth3yCudDiscountPercent %]%)</td>
-		<td class="currency">[% instance.maxMonth3yCudDiscount %] ([% instance.maxMonth3yCudDiscountPercent %]%)</td>
 	</tr>
 </tbody>
 </table>
