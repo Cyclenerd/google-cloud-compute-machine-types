@@ -88,7 +88,7 @@ const gridOptions = {
 	columnDefs: [
 		// groupId: 0
 		{
-			headerName: 'Machine Types',
+			headerName: 'Machine Type',
 			children: [
 				{
 					headerName: 'Name',
