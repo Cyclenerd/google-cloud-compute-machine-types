@@ -504,7 +504,7 @@ SELECT
 	acceleratorCount, acceleratorType,
 	sap, saps, hana,
 	spot,
-	region, regionLocation, regionLocationLong, regionLocationCountryCode, regionCfe, regionCo2Kwh, regionLowCo2, regionLat, regionLng, regionPublicIpv4Addr,
+	region, regionLocation, regionLocationLong, regionLocationCountryCode, regionCfe, regionCo2Kwh, regionLowCo2, regionLat, regionLng,
 	zoneCount, zones,
 	sud,
 	ROUND(hour, 4)                      AS hour,

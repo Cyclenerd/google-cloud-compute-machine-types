@@ -124,16 +124,6 @@ const gridOptions = {
 					width: 120
 				},
 				{
-					headerName: 'IP Addr.',
-					headerTooltip: 'Public IPv4 addresses (allows conclusions about the size of the region)',
-					field: "regionPublicIpv4Addr",
-					columnGroupShow: 'open',
-					filter: 'agNumberColumnFilter',
-					filterParams: filterParamsNumber,
-					valueFormatter: nullFormatter,
-					width: 90
-				},
-				{
 					headerName: 'Country',
 					field: "regionLocationCountryCode",
 					headerTooltip: 'ISO 3166-1 alpha-2 country code',
