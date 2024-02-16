@@ -537,7 +537,7 @@ const gridOptions = {
 		// groupId: 11
 		// groupId is used in setColumnGroupState for inital filter
 		{
-			headerName: 'More... (SAP, HANA, GPU)',
+			headerName: 'More... (SAP, GPU)',
 			children: [
 				{
 					headerName: 'Family',
@@ -552,6 +552,7 @@ const gridOptions = {
 					filterParams: filterParamsBoolean,
 					valueFormatter: booleanFormatter,
 					width: 90,
+					columnGroupShow: 'open',
 					headerTooltip: 'Instance supports spot provisioning mode (Spot VM)'
 				},
 				{
