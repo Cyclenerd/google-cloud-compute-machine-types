@@ -4,20 +4,20 @@
 [![Badge: CI](https://github.com/Cyclenerd/google-cloud-compute-machine-types/actions/workflows/build.yml/badge.svg)](https://github.com/Cyclenerd/google-cloud-compute-machine-types/actions/workflows/build.yml)
 [![Badge: GitHub](https://img.shields.io/github/license/cyclenerd/google-cloud-compute-machine-types)](https://github.com/Cyclenerd/google-cloud-compute-machine-types/blob/master/LICENSE)
 
-This Google Compute Engine machine type comparison [webapp](https://gcloud-compute.com/) helps to find the optimal GCE machine type or instance in the many Google Cloud Platfrom (GCP) regions. A lot of information has been collected from various Google Cloud websites and different sources.
+This Google Compute Engine machine type comparison [webapp](https://gcloud-compute.com/) helps to find the optimal GCE machine type or instance in the many Google Cloud Platform (GCP) regions. A lot of information has been collected from various Google Cloud websites and different sources.
 
 ## Instance Picker
 
 [![Screenshot: gcloud-compute.com - Instance Picker](./img/grid.png)](https://gcloud-compute.com/)
 
-## Comparioson
+## Comparison
 
 [![Screenshot: gcloud-compute.com - Comparison](./img/compare.png)](https://gcloud-compute.com/comparison/e2-standard-4/vs/t2a-standard-4.html)
 
 ## 🖊️ Add, edit or change machine type information
 
 The Google Compute Engine API is used to get all machine types in all regions and zones.
-Additional information is read in via SQL files during the build process.
+Additional information is read via SQL files during the build process.
 These files can be found in the [instances](./instances/) folder.
 
 ## 🧑‍💻 Development
