@@ -2,7 +2,7 @@
 <div class="col">
 <ul class="nav nav-tabs">
 	<li class="nav-item">
-		<a [% IF template.name == 'regions.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/regions.html">Series</a>
+		<a [% IF template.name == 'regions.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/regions.html">Regions (All)</a>
 	</li>
 	<li class="nav-item">
 		<a [% IF template.name == 'platforms.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/platforms.html">CPU</a>

@@ -13,9 +13,8 @@ END;
 <blockquote class="blockquote">
 <p>
 Worldwide, there are <mark>[% regions.size %]</mark> Google Cloud regions.
-Not every Google Compute Engine machine series is available in all Google Cloud region and zones.
-The pricing differs.
 A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] million public IPv4 addresses</mark> are assigned to all Google Cloud Platform regions.
+The pricing differs.
 </p>
 </blockquote>
 
@@ -39,8 +38,8 @@ A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] millio
 		<th scope="col" colspan="3">Region</th>
 		<th scope="col" colspan="2" title="Public IPv4 addresses (allows conclusions about the size of the region)">IP Addr.</th>
 		<th scope="col">Zones</th>
-		<th scope="col" colspan="16">✅ Machine Series</th>
-		<th scope="col" colspan="2">✅ SAP</th>
+		<th scope="col" colspan="5">Machine Family</th>
+		<th scope="col" colspan="2">SAP</th>
 		<th scope="col" colspan="2">Costs (e2-standard-8)</th>
 		<th scope="col" colspan="2">Carbon</th>
 	</tr>
@@ -51,25 +50,15 @@ A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] millio
 		<th scope="col" data-sortable="true" title="Public IPv4 addresses (allows conclusions about the size of the region)">#</th>
 		<th scope="col" data-sortable="true" title="Percent of total Google Cloud Platform usage">%</th>
 		<th scope="col" data-sortable="true">#</th>
-		<!-- Machine Series -->
-		<th scope="col">A2</th>
-		<th scope="col">C2</th>
-		<th scope="col">C2D</th>
-		<th scope="col">C3</th>
-		<th scope="col">C3D</th>
-		<th scope="col">E2</th>
-		<th scope="col">G2</th>
-		<th scope="col">H3</th>
-		<th scope="col">M1</th>
-		<th scope="col">M2</th>
-		<th scope="col">M3</th>
-		<th scope="col">N1</th>
-		<th scope="col">N2</th>
-		<th scope="col">N2D</th>
-		<th scope="col">T2A</th>
-		<th scope="col">T2D</th>
-		<th scope="col" title="Certified for SAP applications on Google Cloud">App.</th>
-		<th scope="col" title="Certified for SAP HANA on Google Cloud">HANA</th>
+		<!-- Machine Family -->
+		<th scope="col" title="General-purpose" data-sortable="true">General</th>
+		<th scope="col" title="Compute-optimized" data-sortable="true">Compute</th>
+		<th scope="col" title="Memory-optimized" data-sortable="true">Memory</th>
+		<th scope="col" title="Accelerator-optimized" data-sortable="true">GPU</th>
+		<th scope="col" title="Storage-optimized" data-sortable="true">Storage</th>
+		<!-- SAP -->
+		<th scope="col" data-sortable="true" title="Certified for SAP applications on Google Cloud">App.</th>
+		<th scope="col" data-sortable="true" title="Certified for SAP HANA on Google Cloud">HANA</th>
 		<!-- e2-standard-8 -->
 		<th scope="col" class="currancy" data-sortable="true">Hour</th>
 		<th scope="col" class="currancy" data-sortable="true">Month</th>
@@ -102,61 +91,14 @@ A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] millio
 		</td>
 		<td>[% region.zoneCount %]</td>
 		<!-- Machine Series -->
-		<td [% IF region.a2 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series A2 in region [% region.name %]">
-			[% IF region.a2 %]<a href="/grid.html?region=[% region.name %]&amp;series=a2">[% region.a2 %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.c2 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series C2 in region [% region.name %]">
-			[% IF region.c2 %]<a href="/grid.html?region=[% region.name %]&amp;series=c2">[% region.c2 %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.c2d == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series C2D in region [% region.name %]">
-			[% IF region.c2d %]<a href="/grid.html?region=[% region.name %]&amp;series=c2d">[% region.c2d %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.c3 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series C3 in region [% region.name %]">
-			[% IF region.c3 %]<a href="/grid.html?region=[% region.name %]&amp;series=c3">[% region.c3 %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.c3d == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series C3D in region [% region.name %]">
-			[% IF region.c3d %]<a href="/grid.html?region=[% region.name %]&amp;series=c3d">[% region.c3d %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.e2 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series E2 in region [% region.name %]">
-			[% IF region.e2 %]<a href="/grid.html?region=[% region.name %]&amp;series=e2">[% region.e2 %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.g2 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series G2 in region [% region.name %]">
-			[% IF region.g2 %]<a href="/grid.html?region=[% region.name %]&amp;series=g2">[% region.g2 %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.h3 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series H3 in region [% region.name %]">
-			[% IF region.h3 %]<a href="/grid.html?region=[% region.name %]&amp;series=h3">[% region.h3 %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.m1 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series M1 in region [% region.name %]">
-			[% IF region.m1 %]<a href="/grid.html?region=[% region.name %]&amp;series=m1">[% region.m1 %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.m2 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series M2 in region [% region.name %]">
-			[% IF region.m2 %]<a href="/grid.html?region=[% region.name %]&amp;series=m2">[% region.m2 %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.m3 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series M3 in region [% region.name %]">
-			[% IF region.m3 %]<a href="/grid.html?region=[% region.name %]&amp;series=m3">[% region.m3 %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.n1 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series N1 in region [% region.name %]">
-			[% IF region.n1 %]<a href="/grid.html?region=[% region.name %]&amp;series=n1">[% region.n1 %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.n2 == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series N2 in region [% region.name %]">
-			[% IF region.n2 %]<a href="/grid.html?region=[% region.name %]&amp;series=n2">[% region.n2 %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.n2d == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series N2D in region [% region.name %]">
-			[% IF region.n2d %]<a href="/grid.html?region=[% region.name %]&amp;series=n2d">[% region.n2d %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.t2a == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series T2A in region [% region.name %]">
-			[% IF region.t2a %]<a href="/grid.html?region=[% region.name %]&amp;series=t2a">[% region.t2a %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.t2d == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on machine type series T2D in region [% region.name %]">
-			[% IF region.t2d %]<a href="/grid.html?region=[% region.name %]&amp;series=t2d">[% region.t2d %]</a>[% ELSE %]0[% END %]
-		</td>
+		[% IF region.generalCount     %]<td>[% region.generalCount      %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
+		[% IF region.computeCount     %]<td>[% region.computeCount      %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
+		[% IF region.memoryCount      %]<td>[% region.memoryCount       %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
+		[% IF region.acceleratorCount %]<td>[% region.acceleratorCount  %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
+		[% IF region.storageCount     %]<td>[% region.storageCount      %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
 		<!-- SAP -->
-		<td [% IF region.sap  == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on certified for SAP applications machine types region [% region.name %]">
-			[% IF region.sap %]<a href="/grid.html?region=[% region.name %]&amp;sap=1">[% region.sap %]</a>[% ELSE %]0[% END %]
-		</td>
-		<td [% IF region.hana == '0' %]class="table-danger"[% END %] title="Instance Picker with filter on certified for SAP HANA machine types region [% region.name %]">
-			[% IF region.hana %]<a href="/grid.html?region=[% region.name %]&amp;hana=1">[% region.hana %]</a>[% ELSE %]0[% END %]
-		</td>
+		[% IF region.sap  %]<td>[% region.sap  %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
+		[% IF region.hana %]<td>[% region.hana %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
 		<!-- e2-standard-8 -->
 		<td
 		    title="Costs per hour for machine type e2-standard-8 in region [% region.name %]: [% region.hour %] USD">
@@ -166,7 +108,7 @@ A total of <mark>[% total_public_ip_addr / 1000000 FILTER format("%d") %] millio
 		    title="Costs per month for machine type e2-standard-8 in region [% region.name %]: [% region.hour %] USD">
 			<span class="currency">[% region.e2Standard8Month %]</span>
 		</td>
-		<td>[% IF region.regionCfe    %][% region.regionCfe %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
+		<td>[% IF region.regionCfe    %][% region.regionCfe    %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td>[% IF region.regionCo2Kwh %][% region.regionCo2Kwh %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 	</tr>
 	[% END %]

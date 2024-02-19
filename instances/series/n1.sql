@@ -23,7 +23,7 @@ UPDATE instances SET bandwidth = '32' WHERE name LIKE 'n1-%-96';
 /* https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines */
 UPDATE instances SET
 series      = 'n1',
-family      = 'Balanced',
+family      = 'General-purpose',
 cpuPlatform = 'Skylake, Broadwell, Haswell, Sandy Bridge, Ivy Bridge',
 bandwidth   = '1',
 sud         = '1',
