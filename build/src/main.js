@@ -41,11 +41,11 @@ const filterParamsBoolean = {
  */
 
 function booleanFormatter(params) {
-	return (params.value >= 1) ? '✔️' : '❌';
+	return (params.value >= 1) ? '✅ (1)' : '❌ (0)';
 }
 
 function lowCo2Formatter(params) {
-	return (params.value >= 1) ? '🍃' : '❌';
+	return (params.value >= 1) ? '🍃 (1)' : '❌ (0)';
 }
 
 function nullFormatter(params) {
