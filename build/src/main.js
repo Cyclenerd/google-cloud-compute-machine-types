@@ -18,17 +18,6 @@
  * FILTERS
  */
 
-// URL params for initial filter
-const queryString = window.location.search;
-const urlParams   = new URLSearchParams(queryString);
-const urlRegion   = urlParams.get('region')   || '';
-const urlName     = urlParams.get('name')     || '';
-const urlGPU      = urlParams.get('gpu')      || '';
-const urlSAP      = urlParams.get('sap')      || '';
-const urlHANA     = urlParams.get('hana')     || '';
-const urlPlatform = urlParams.get('platform') || '';
-const urlARM      = urlParams.get('arm')      || '';
-
 const filterParamsNumber = {
 	filterOptions: ['equals', 'greaterThan', 'greaterThanOrEqual', 'lessThan', 'lessThanOrEqual'],
 	defaultOption: 'greaterThanOrEqual',
@@ -47,7 +36,7 @@ const filterParamsText = {
 const filterParamsBoolean = {
 	filterOptions: ['equals'],
 	defaultOption: 'equals',
-	suppressAndOrCondition: true,
+	maxNumConditions: 1,
 	debounceMs: 0,
 };
 
@@ -66,34 +55,6 @@ function lowCo2Formatter(params) {
 function nullFormatter(params) {
 	return (params.value >= 0.01) ? params.value : '?';
 }
-
-/*
- * KEYBOARD
- */
-
-document.addEventListener('keydown', function(event) {
-	// Copy selected rows with shown column
-	if ((event.ctrlKey || event.metaKey) && event.key === 'c') {
-		navigator.clipboard.writeText(gridOptions.api.getDataAsCsv({
-			skipColumnGroupHeaders: true,
-			skipColumnHeaders: true,
-			allColumns: false,
-			onlySelected: true,
-		}));
-	}
-	// Copy selected rows with all column
-	if ((event.ctrlKey || event.metaKey) && event.key === 'x') {
-		navigator.clipboard.writeText(gridOptions.api.getDataAsCsv({
-			skipColumnGroupHeaders: true,
-			skipColumnHeaders: true,
-			allColumns: true,
-			onlySelected: true,
-		}));
-	}
-	if ((event.ctrlKey || event.metaKey) && event.key === '/') {
-		document.querySelector('[aria-label="vCPUs Filter Input"]').focus();
-	}
-});
 
 /*
  * GRID
@@ -642,18 +603,33 @@ const gridOptions = {
 const eGridDiv = document.querySelector('#myGrid');
 
 // create the grid passing in the div to use together with the columns & data we want to use
-new agGrid.Grid(eGridDiv, gridOptions);
+const gridApi = agGrid.createGrid(eGridDiv, gridOptions);
 
 // fetch the row data to use and one ready provide it to the Grid via the Grid API
 fetch('instance_in_region.json?[% timestamp %]')
 	.then(response => response.json())
 	.then(data => {
-		gridOptions.api.setRowData(data);
+		gridApi.setGridOption('rowData', data)
 	}
 );
 
+/*
+ * URL FILTER
+ */
+
+// URL params for initial filter
+const queryString = window.location.search;
+const urlParams   = new URLSearchParams(queryString);
+const urlRegion   = urlParams.get('region')   || '';
+const urlName     = urlParams.get('name')     || '';
+const urlGPU      = urlParams.get('gpu')      || '';
+const urlSAP      = urlParams.get('sap')      || '';
+const urlHANA     = urlParams.get('hana')     || '';
+const urlPlatform = urlParams.get('platform') || '';
+const urlARM      = urlParams.get('arm')      || '';
+
 // fist time data is rendered into the grid
-gridOptions.api.addEventListener('firstDataRendered', function () {
+gridApi.setGridOption('onFirstDataRendered', function () {
 	console.log('firstDataRendered');
 	// Initial filter with URL params
 	let filterName     = urlName.replace(/[^\w\d\-]/g,"");
@@ -704,7 +680,35 @@ gridOptions.api.addEventListener('firstDataRendered', function () {
 	}
 	// wait 500ms, because maybe the DOM isn't completely ready yet
 	setTimeout(function(){
-		gridOptions.columnApi.setColumnGroupState(hardcodedGroupState);
-		gridOptions.api.setFilterModel(hardcodedFilter);
+		gridApi.setColumnGroupState(hardcodedGroupState);
+		gridApi.setFilterModel(hardcodedFilter);
 	}, 500);
+});
+
+/*
+ * KEYBOARD
+ */
+
+document.addEventListener('keydown', function(event) {
+	// Copy selected rows with shown column
+	if ((event.ctrlKey || event.metaKey) && event.key === 'c') {
+		navigator.clipboard.writeText(gridApi.getDataAsCsv({
+			skipColumnGroupHeaders: true,
+			skipColumnHeaders: true,
+			allColumns: false,
+			onlySelected: true,
+		}));
+	}
+	// Copy selected rows with all column
+	if ((event.ctrlKey || event.metaKey) && event.key === 'x') {
+		navigator.clipboard.writeText(gridApi.getDataAsCsv({
+			skipColumnGroupHeaders: true,
+			skipColumnHeaders: true,
+			allColumns: true,
+			onlySelected: true,
+		}));
+	}
+	if ((event.ctrlKey || event.metaKey) && event.key === '/') {
+		document.querySelector('[aria-label="vCPUs Filter Input"]').focus();
+	}
 });
