@@ -715,33 +715,40 @@ $template->process('sitemap.tt2', { 'files' => \@files }, '../site/sitemap.txt')
 # Robots.txt
 $template->process('robots.txt', {
 	'regions' => \@regions
-}, '../site/robots.txt')     || die "Template process failed: ", $template->error(), "\n";
+}, '../site/robots.txt') || die "Template process failed: ", $template->error(), "\n";
 
-# SQL
+# SQL and CSV Export
 copy("$sql_export", '../site/machine-types-regions.sql.gz');
-# CSV
 copy("$csv_export", '../site/machine-types-regions.csv');
 
 # Images
 mkdir('../site/img/');
-copy( './src/img/combine-filter.png', '../site/img/combine-filter.png');
-copy( './src/img/csv.png',            '../site/img/csv.png');
-copy( './src/img/dbbrowser.png',      '../site/img/dbbrowser.png');
-copy( './src/img/filter.png',         '../site/img/filter.png');
-copy( './src/img/gcosts.png',         '../site/img/gcosts.png');
-copy( './src/img/show-more.png',      '../site/img/show-more.png');
-copy( './src/img/social.png',         '../site/img/social.png');
-copy( './src/img/sort.png',           '../site/img/sort.png');
-copy( './src/img/spreadsheet.png',    '../site/img/spreadsheet.png');
-copy( './src/img/usage.png',          '../site/img/usage.png');
+my @images = (
+	'combine-filter.png',
+	'csv.png',
+	'filter.png',
+	'gcosts.png',
+	'show-more.png',
+	'social.png',
+	'sort.png',
+	'usage.png',
+);
+foreach my $image (@images) {
+	copy("./src/img/$image", "../site/img/$image");
+}
 
 # Favicon
-copy( './src/img/favicon/favicon.ico',                '../site/favicon.ico');
-copy( './src/img/favicon/favicon-16x16.png',          '../site/favicon-16x16.png');
-copy( './src/img/favicon/favicon-32x32.png',          '../site/favicon-32x32.png');
-copy( './src/img/favicon/apple-touch-icon.png',       '../site/apple-touch-icon.png');
-copy( './src/img/favicon/android-chrome-192x192.png', '../site/android-chrome-192x192.png');
-copy( './src/img/favicon/android-chrome-512x512.png', '../site/android-chrome-512x512.png');
-copy( './src/img/favicon/site.webmanifest',           '../site/site.webmanifest');
+my @favicons = (
+	'favicon.ico',
+	'favicon-16x16.png',
+	'favicon-32x32.png',
+	'apple-touch-icon.png',
+	'android-chrome-192x192.png',
+	'android-chrome-512x512.png',
+	'site.webmanifest',
+);
+foreach my $favicon (@favicons) {
+	copy("./src/img/favicon/$favicon", "../site/$favicon");
+}
 
 print "DONE\n";

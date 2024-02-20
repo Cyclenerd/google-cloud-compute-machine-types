@@ -12,21 +12,6 @@ You can import and edit the CSV file to your favorite spreadsheet program (MS Ex
 You can import the SQL dump into your favorite database (like SQLite).
 </p>
 
-<div class="row">
-	<div class="col-xl-6">
-		<p>
-			Imported CSV file in LibreOffice spreadsheet program:
-			<img src="/img/spreadsheet.png?[% timestamp %]" alt="Screenshot: LibreOffice" class="img-fluid rounded">
-		</p>
-	</div>
-	<div class="col-xl-6">
-		<p>
-			Imported SQL export in DB Browser for SQLite:
-			<img src="/img/dbbrowser.png?[% timestamp %]" alt="Screenshot: DB Browser for SQLite" class="img-fluid rounded">
-		</p>
-	</div>
-</div>
-
 <h2>Spreadsheet</h2>
 <p>Comma Separated Values (CSV) file with GCE machine types and Google Cloud regions.</p>
 <p><a class="btn btn-primary" href="/machine-types-regions.csv?[% timestamp %]" download="machine-types-regions.csv">Download CSV ([% csvFileSize %] MB)</a><p>
