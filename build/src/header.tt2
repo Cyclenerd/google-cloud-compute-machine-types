@@ -1,20 +1,19 @@
 <!doctype html>
 <html lang="en">
 <head>
-[%
-	PROCESS meta.tt2;
-	PROCESS favicon.tt2;
-%]
+[% PROCESS meta.tt2; %]
+[% PROCESS favicon.tt2 %]
 <link rel="stylesheet" href="[% site.bootstrap.css %]">
 <link rel="stylesheet" href="[% site.bootstrapTable.css %]">
 <link rel="stylesheet" href="[% site.bootstrapTableStickyHeader.css %]">
 <style>
-	.frequency::after { content: " GHz"; }
-	.currency::before { content: "$"; }
-	.bandwidth::after { content: " Gbps"; }
-	.diskSize::after  { content: " TB"; }
-	.memory::after    { content: " GB"; }
+.frequency::after { content: " GHz"; }
+.currency::before { content: "$"; }
+.bandwidth::after { content: " Gbps"; }
+.diskSize::after  { content: " TB"; }
+.memory::after    { content: " GB"; }
 </style>
+<meta name="robots" content="noindex, nofollow">
 </head>
 <body>
 <header>

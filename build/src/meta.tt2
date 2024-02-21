@@ -18,16 +18,6 @@
 <meta property="og:description"  content="Choose the right Google Compute Engine machine type available in Google Cloud Platform. Compare different families like N1 with N2.">
 <meta property="og:url"          content="[% site.url %]/">
 
-[%- ELSIF template.name == 'grid.tt2' -%]
-<title>Google Cloud Compute Engine Instance Picker</title>
-<meta name="description"         content="Choose with the Instance Picker between over 3,000 different combinations of Google Compute Engine machine types and Google Cloud regions.">
-<link rel="canonical"            href="[% site.url %]/grid.html">
-<meta name="twitter:title"       content="Google Cloud Compute Engine Instance Picker">
-<meta name="twitter:description" content="Choose with the Instance Picker between over 3,000 different combinations of Google Compute Engine machine types and Google Cloud regions.">
-<meta property="og:title"        content="Google Cloud Compute Engine Instance Picker">
-<meta property="og:description"  content="Choose with the Instance Picker between over 3,000 different combinations of Google Compute Engine machine types and Google Cloud regions.">
-<meta property="og:url"          content="[% site.url %]/grid.html">
-
 [%- ELSIF template.name == 'instances.tt2' -%]
 <title>GCE Machine Types in Google Cloud Platform</title>
 <meta name="description"         content="Overview of all Google Compute Engine machine types that can be used in Google Cloud Platform. Sorted by CPU count.">
@@ -127,16 +117,6 @@
 <meta property="og:description"  content="List of all Google Cloud regions available in all Google Cloud Platform locations. Overview of available Google Compute Engine machine types.">
 <meta property="og:url"          content="[% site.url %]/regions.html">
 
-[%- ELSIF template.name == 'map.tt2' -%]
-<title>Google Cloud Platform Region Map</title>
-<meta name="description"         content="Map of all Google Cloud regions available in all Google Cloud Platform locations. Overview of available Google Compute Engine machine types.">
-<link rel="canonical"            href="[% site.url %]/map.html">
-<meta name="twitter:title"       content="Google Cloud Regions Map">
-<meta name="twitter:description" content="Map of all Google Cloud regions available in all Google Cloud Platform locations. Overview of available Google Compute Engine machine types.">
-<meta property="og:title"        content="Google Cloud Regions Map">
-<meta property="og:description"  content="Map of all Google Cloud regions available in all Google Cloud Platform locations. Overview of available Google Compute Engine machine types.">
-<meta property="og:url"          content="[% site.url %]/map.html">
-
 [%- ELSIF template.name == 'platforms.tt2' -%]
 <title>Compute Engine CPU Platforms in Google Cloud Regions</title>
 <meta name="description"         content="Available CPU platforms in Google Cloud regions. Overview of the CPU generations from Intel and AMD.">
@@ -219,13 +199,23 @@
 
 [%- ELSIF template.name == 'download.tt2' -%]
 <title>Download Google Compute Engine Machine Types</title>
-<meta name="description" content="Download all Google Compute Engine machine types available in Google Cloud Platform as CSV and SQL export.">
-<link rel="canonical"    href="[% site.url %]/download.html">
+<meta name="description"         content="Download all Google Compute Engine machine types available in Google Cloud Platform as CSV and SQL export.">
+<link rel="canonical"            href="[% site.url %]/download.html">
+<meta name="twitter:title"       content="Download Google Compute Engine Machine Types">
+<meta name="twitter:description" content="Download all Google Compute Engine machine types available in Google Cloud Platform as CSV and SQL export.">
+<meta property="og:title"        content="Download Google Compute Engine Machine Types">
+<meta property="og:description"  content="Download all Google Compute Engine machine types available in Google Cloud Platform as CSV and SQL export.">
+<meta property="og:url"          content="[% site.url %]/download.html">
 
 [%- ELSIF template.name == 'gcosts.tt2' -%]
-<title>Pricing and Cost Calculator</title>
-<meta name="description" content="Calculate estimated monthly costs of Google Cloud Platform products and resources on your local computer.">
-<link rel="canonical"    href="[% site.url %]/gcosts.html">
+<title>Google Cloud Pricing and Cost Calculator</title>
+<meta name="description"         content="Calculate estimated monthly costs of Google Cloud Platform products and resources on your local computer.">
+<link rel="canonical"            href="[% site.url %]/gcosts.html">
+<meta name="twitter:title"       content="Google Cloud Pricing and Cost Calculator">
+<meta name="twitter:description" content="Calculate estimated monthly costs of Google Cloud Platform products and resources on your local computer.">
+<meta property="og:title"        content="Google Cloud Pricing and Cost Calculator">
+<meta property="og:description"  content="Calculate estimated monthly costs of Google Cloud Platform products and resources on your local computer.">
+<meta property="og:url"          content="[% site.url %]/gcosts.html">
 
 [%- ELSIF template.name == 'imprint.tt2'-%]
 <title>Imprint - gcloud-compute.com</title>

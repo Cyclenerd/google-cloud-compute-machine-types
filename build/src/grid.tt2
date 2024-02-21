@@ -1,34 +1,25 @@
 <!doctype html>
 <html lang="en">
 <head>
-[%-
-	PROCESS meta.tt2;
-	PROCESS favicon.tt2;
--%]
-
-<script src="[% site.agGrid.js %]"></script>
+<title>GCE Instance Picker</title>
+<link rel="canonical" href="[% site.url %]/grid.html">
+[% PROCESS favicon.tt2 %]
 <link rel="stylesheet" href="[% site.agGrid.css %]">
 <link rel="stylesheet" href="[% site.agGrid.theme %]">
 <style>
-	html {
-		width: 100%;
-		height: 100%;
-	}
-	body {
-		width: 100%;
-		height: 100%;
-		margin: 0;
-		padding: 0;
-	}
-	.frequency::after { content: " GHz"; }
-	.currency::before { content: "$"; }
-	.percent::after   { content: "%"; }
-	.bandwidth::after { content: " Gbps"; }
-	.diskSize::after  { content: " TB"; }
-	.memory::after    { content: " GB"; }
-	.warning::before  { content: "⚠️ "; }
-	.sharedCpu::after { content: " (shared)"; }
+html              { width: 100%; height: 100%; }
+body              { width: 100%; height: 100%; margin: 0; padding: 0; }
+.frequency::after { content: " GHz"; }
+.currency::before { content: "$"; }
+.percent::after   { content: "%"; }
+.bandwidth::after { content: " Gbps"; }
+.diskSize::after  { content: " TB"; }
+.memory::after    { content: " GB"; }
+.warning::before  { content: "⚠️ "; }
+.sharedCpu::after { content: " (shared)"; }
 </style>
+<meta name="robots" content="noindex, nofollow">
+<script src="[% site.agGrid.js %]"></script>
 </head>
 <body>
 <div id="myGrid" class="ag-theme-balham" style="height: 100%; width:100%"></div>

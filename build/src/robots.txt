@@ -3,7 +3,7 @@ Disallow: /img/
 Disallow: /index.html
 Disallow: /imprint.html
 Disallow: /grid.html
-Disallow: /grid.html?*
+Disallow: /map.html
 Disallow: /*.js
 Disallow: /*.csv
 Disallow: /*.sql
