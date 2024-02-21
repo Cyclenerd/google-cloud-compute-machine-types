@@ -24,14 +24,15 @@ jobs:
       - name: 🐧 Install dependencies
         run: |
           sudo apt-get install   \
-            sqlite3              \
             libapp-options-perl  \
-            libencode-perl       \
-            libyaml-libyaml-perl \
-            libjson-xs-perl      \
             libdbd-csv-perl      \
             libdbd-sqlite3-perl  \
-            libtemplate-perl
+            libencode-perl       \
+            libjson-xs-perl      \
+            libtemplate-perl     \
+            libyaml-libyaml-perl \
+            rclone               \
+            sqlite3
 
       # https://github.com/marketplace/actions/checkout
       - name: 🛎️ Checkout
