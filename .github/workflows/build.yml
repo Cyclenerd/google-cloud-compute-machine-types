@@ -5,9 +5,15 @@ on:
   schedule:
     - cron: '45 3 * * 5' # At 03:45 on Friday
 
+env:
+  R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+  R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+  R2_API_ENDPOINT: ${{ secrets.R2_API_ENDPOINT }}
+
 jobs:
   website:
     name: Website
+    # https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md
     runs-on: ubuntu-latest
 
     # Add "id-token" for Google Authentication
@@ -15,10 +21,9 @@ jobs:
       id-token: write
 
     steps:
-      - name: Install dependencies
+      - name: 🐧 Install dependencies
         run: |
           sudo apt-get install   \
-            jq                   \
             sqlite3              \
             libapp-options-perl  \
             libencode-perl       \
@@ -29,7 +34,7 @@ jobs:
             libtemplate-perl
 
       # https://github.com/marketplace/actions/checkout
-      - name: Checkout
+      - name: 🛎️ Checkout
         uses: actions/checkout@v4
 
       # Configure Workload Identity Federation via a credentials file.
@@ -45,22 +50,31 @@ jobs:
         uses: 'google-github-actions/setup-gcloud@v2'
       # Now you can run gcloud commands authenticated as the impersonated service account.
 
-      - name: Run build script
+      - name: 🔨 Run build script
         run: |
           cd build || exit 9
           bash build.sh || exit 9
 
-      - name: Create site
+      - name: 📑 Create website
         run: |
           cd build || exit 9
           perl site.pl || exit 9
 
-      - name: More tests
+      - name: 🧪 Tests
         run: |
           cat "site/europe-west4/n2-standard-8.html" | grep '249' || exit 9
           jq -e '.[] | .name' "site/instance_in_region.json" | grep '"n2-standard-8"' || exit 9
 
-      # https://cloud.google.com/sdk/gcloud/reference/storage/cp
-      - name: Deploy
-        run: gcloud storage cp --gzip-in-flight=html,js,css,txt,json --recursive site/* gs://gcloud-compute.com || exit 9
-        #run: gsutil -m rsync -d -r site gs://gcloud-compute.com || exit 9
+      - name: 🪣 Publish website
+        #run: gcloud storage cp --gzip-in-flight=html,js,css,txt,json --recursive site/* gs://gcloud-compute.com || exit 9
+        run: |
+          mkdir -p "$HOME/.config/rclone" || exit 9
+          echo "[r2]"                                       > "$HOME/.config/rclone/rclone.conf" || exit 9
+          echo "type = s3"                                 >> "$HOME/.config/rclone/rclone.conf"
+          echo "provider = Cloudflare"                     >> "$HOME/.config/rclone/rclone.conf"
+          echo "access_key_id = $R2_ACCESS_KEY_ID"         >> "$HOME/.config/rclone/rclone.conf"
+          echo "secret_access_key = $R2_SECRET_ACCESS_KEY" >> "$HOME/.config/rclone/rclone.conf"
+          echo "endpoint = $R2_API_ENDPOINT"               >> "$HOME/.config/rclone/rclone.conf"
+          echo "acl = private"                             >> "$HOME/.config/rclone/rclone.conf"
+          echo "no_check_bucket = true"                    >> "$HOME/.config/rclone/rclone.conf"
+          rclone sync "site/" "r2:gcloud-compute/" || exit 9
