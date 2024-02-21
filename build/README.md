@@ -1,12 +1,80 @@
 # Build
 
-The build process is handled by [GitHub Actions](https://github.com/Cyclenerd/google-cloud-compute-machine-types/actions/workflows/build.yml).
+This project uses GitHub Actions for automated builds and deployments.
+Ready to tweak and test this webapp locally?
+Follow these instructions:
 
-[![Build](https://github.com/Cyclenerd/google-cloud-compute-machine-types/actions/workflows/build.yml/badge.svg)](https://github.com/Cyclenerd/google-cloud-compute-machine-types/actions/workflows/build.yml)
+## Requirements
 
-## Database and CSV
+* [Google Cloud CLI](https://cloud.google.com/sdk/docs/install) (`gcloud`)
+* SQLite3 (`sqlite3`)
+* Perl 5 (`perl`)
+* Perl modules:
+	* [App::Options](https://metacpan.org/pod/App::Options)
+	* [Encode](https://metacpan.org/pod/Encode)
+	* [YAML::XS](https://metacpan.org/pod/YAML::XS) (and `libyaml`)
+	* [JSON::XS](https://metacpan.org/pod/JSON::XS)
+	* [DBD::CSV](https://metacpan.org/pod/DBD::CSV)
+	* [DBD::SQLite](https://metacpan.org/pod/DBD::SQLite)
+	* [Template::Toolkit](https://metacpan.org/pod/Template::Toolkit)
+	* [plackup](https://metacpan.org/dist/Plack/view/script/plackup)
+
+<details>
+<summary><b>Debian/Ubuntu</b></summary>
+
+Packages:
+
+```shell
+sudo apt update
+sudo apt install \
+	libapp-options-perl \
+	libdbd-csv-perl \
+	libdbd-sqlite3-perl \
+	libencode-perl \
+	libjson-xs-perl \
+	libplack-perl \
+	libtemplate-perl \
+	libyaml-libyaml-perl \
+	sqlite3
+```
+
+[Google Cloud CLI](https://cloud.google.com/sdk/docs/install#deb):
+
+```shell
+sudo apt-get install apt-transport-https ca-certificates gnupg
+# Add the gcloud CLI distribution URI as a package source
+echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.cloud.google.com/apt cloud-sdk main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+# Import the Google Cloud public key.
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo tee /usr/share/keyrings/cloud.google.gpg
+# Update and install the gcloud CLI
+sudo apt-get update
+sudo apt-get install google-cloud-cli
+```
+</details>
+
+<details>
+<summary><b>macOS</b></summary>
+
+Homebrew packages:
+
+```shell
+brew install perl
+brew install cpanminus pkg-config
+brew install sqlite3
+brew install --cask google-cloud-sdk
+```
+
+Perl modules:
+
+```shell
+cpanm --installdeps .
+```
+</details>
+
+## Database
 
 Run:
+
 ```shell
 bash build.sh
 ```
@@ -28,14 +96,16 @@ bash build.sh
 1. Export CSV and SQL file
 1. Test
 
-## Website and JSON
+## Websites
 
-Run:
+Create:
+
 ```shell
 perl site.pl
 ```
 
 No regions and comparison:
+
 ```shell
 perl site.pl \
   --comparison=0 \
@@ -43,6 +113,7 @@ perl site.pl \
 ```
 
 Only `g1-small` and `europe-west4`:
+
 ```shell
 perl site.pl \
   --comparison=1 \
@@ -56,26 +127,8 @@ The websites are stored in the directory `../site/`.
 
 The JavaScript grid library [AG Grid Community](https://www.ag-grid.com/) is used.
 
-## Publish
+Run:
 
-The static webapp is stored in a Google Cloud Storage bucket.
-
-» [Host a static website](https://cloud.google.com/storage/docs/hosting-static-website)
-
-Create:
-```shell
-gsutil mb -p PROJECT_ID -c Standard -l us-central1 -b on gs://gcloud-compute.com
-gsutil iam ch allUsers:objectViewer gs://gcloud-compute.com
-gsutil web set -m index.html -e 404.html gs://gcloud-compute.com
-```
-
-Copy:
-```shell
-gsutil -m rsync -d -r site gs://gcloud-compute.com
-```
-
-Cloudflare is used as CDN. The following must be added to the DNS management for gcloud-compute.com:
-
-```text
-gcloud-compute.com CNAME c.storage.googleapis.com
+```bash
+plackup --host "127.0.0.1" --port "8080"
 ```
