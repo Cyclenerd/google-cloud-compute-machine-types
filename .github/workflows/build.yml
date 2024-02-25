@@ -78,4 +78,4 @@ jobs:
           echo "endpoint = $R2_API_ENDPOINT"               >> "$HOME/.config/rclone/rclone.conf"
           echo "acl = private"                             >> "$HOME/.config/rclone/rclone.conf"
           echo "no_check_bucket = true"                    >> "$HOME/.config/rclone/rclone.conf"
-          rclone copy --transfers 64 --checkers 128 --fast-list "site/" "r2:gcloud-compute/" || exit 9
+          rclone copy --transfers 32 --checkers 64 --fast-list "site/" "r2:gcloud-compute/" || exit 9
