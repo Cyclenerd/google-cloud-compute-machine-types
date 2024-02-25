@@ -13,7 +13,6 @@
 .diskSize::after  { content: " TB"; }
 .memory::after    { content: " GB"; }
 </style>
-<meta name="robots" content="noindex, nofollow">
 </head>
 <body>
 <header>
