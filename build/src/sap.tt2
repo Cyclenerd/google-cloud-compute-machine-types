@@ -55,7 +55,7 @@ Not every certified GCE machine type is available in every Google Cloud region.
 		<td><a href="[% instance.name %].html">[% instance.name %]</a></td>
 		<td class="text-nowrap">[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
-		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
+		<td class="memory" title="Random-access memory: [% instance.memoryGB %] GB">[% instance.memoryGB %]</td>
 		<td title="SAP Standard Benchmark: [% instance.saps %]">[% instance.saps %]</td>
 		<td>
 			[% badgeCpuManufactur(instance) %]

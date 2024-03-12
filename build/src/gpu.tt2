@@ -56,7 +56,7 @@ Not every GCE machine type with GPU is available in every Google Cloud region.
 		<td><a href="[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
 		<td class="text-nowrap">[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
-		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
+		<td class="memory" title="Random-access memory: [% instance.memoryGB %] GB">[% instance.memoryGB %]</td>
 		<td title="Accelerator (GPUs): [% instance.acceleratorCount %]">[% instance.acceleratorCount %]</td>
 		<td title="Accelerator Type: [% instance.acceleratorType %]">[% instance.acceleratorType %]</td>
 		<td>

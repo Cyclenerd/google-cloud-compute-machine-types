@@ -30,7 +30,7 @@
 <td><a href="/[% instance.name %].html" title="Google Compute Engine machine type [% instance.name %]">[% instance.name %]</a></td>
 <td class="text-nowrap">[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 <td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
-<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
+<td class="memory" title="Random-access memory: [% instance.memoryGB %] GB">[% instance.memoryGB %]</td>
 <td>
 	[% badgeCpuManufactur(instance) %]
 	[% badgeGpu(instance) %]
@@ -87,7 +87,7 @@
 <td class="text-nowrap">[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 <td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
 <td title="CPU Platform: [% instance.cpuPlatform %]">[% instance.cpuPlatform | replace('\[','') | replace('\]','') | replace('Intel','') | replace('AMD','') %]</td>
-<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
+<td class="memory" title="Random-access memory: [% instance.memoryGB %] GB">[% instance.memoryGB %]</td>
 <td>
 	[% badgeGpu(instance) %]
 	[% badgeSap(instance) %]

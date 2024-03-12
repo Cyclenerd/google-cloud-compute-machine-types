@@ -6,7 +6,7 @@
 <p>
 	Compare Google Compute Engine machine type
 	<a href="/[% instance_a.name %].html" title="Show machine type [% instance_a.name %] in all regions">[% instance_a.name %]</a>
-	([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory)
+	([% instance_a.vCpus %] vCPU, [% instance_a.memoryGB %] GB memory)
 	with other GCE machine types.
 </p>
 </blockquote>
@@ -45,7 +45,7 @@
 		<td class="text-nowrap">[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 		<!-- Memory -->
 		<td></td>
-		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
+		<td class="memory" title="Random-access memory: [% instance.memoryGB %] GB">[% instance.memoryGB %]</td>
 		<td>
 			[% badgeCpuManufactur(instance) %]
 			[% badgeGpu(instance) %]
@@ -84,8 +84,8 @@
 		[% tableCompareNumber(instance_a.vCpus || 0, instance.vCpus || 0) %]
 		<td>[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 		<!-- Memory -->
-		[% tableCompareNumber(instance_a.memoryGiB || 0, instance.memoryGiB || 0) %]
-		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
+		[% tableCompareNumber(instance_a.memoryGB || 0, instance.memoryGB || 0) %]
+		<td class="memory" title="Random-access memory: [% instance.memoryGB %] GB">[% instance.memoryGB %]</td>
 		<td>
 			[% badgeCpuManufactur(instance) %]
 			[% badgeGpu(instance) %]

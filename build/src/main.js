@@ -73,7 +73,7 @@ const gridOptions = {
 						return '<a href="./'+ params.data.region +'/'+ params.value +'.html">'+ params.value + '</a>';
 					},
 					tooltipValueGetter: params => {
-						return 'Machine type '+  params.value +' ('+ params.data.vCpus + ' vCPUs, '+ params.data.memoryGiB + ' GB, '+ params.data.bandwidth + ' Gbps) in region '+ params.data.region;
+						return 'Machine type '+  params.value +' ('+ params.data.vCpus + ' vCPUs, '+ params.data.memoryGB + ' GB, '+ params.data.bandwidth + ' Gbps) in region '+ params.data.region;
 					},
 					pinned: 'left',
 					//rowDrag: true,
@@ -335,11 +335,11 @@ const gridOptions = {
 			children: [
 				{
 					headerName: 'RAM',
-					field: "memoryGiB",
+					field: "memoryGB",
 					cellClass: 'memory',
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
-					headerTooltip: 'Random-access memory (GiB)',
+					headerTooltip: 'Random-access memory (GB)',
 					width: 120,
 				},
 			]

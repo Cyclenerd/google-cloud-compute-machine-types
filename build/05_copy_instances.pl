@@ -41,7 +41,7 @@ SELECT
 	(SELECT COUNT(zone)        FROM machinetypes WHERE name LIKE M.name AND region LIKE M.region)               AS zoneCount,
 	(SELECT GROUP_CONCAT(zone) FROM machinetypes WHERE name LIKE M.name AND region LIKE M.region ORDER BY zone) AS zones,
 	guestCpus, isSharedCpu,
-	memoryGiB,
+	memoryGB,
 	guestAcceleratorCount, guestAcceleratorType,
 	maximumPersistentDisks, maximumPersistentDisksSizeGb
 FROM machinetypes M
@@ -54,7 +54,7 @@ $sth->bind_columns ( \my (
 	$zoneCount,
 	$zones,
 	$guestCpus, $isSharedCpu,
-	$memoryGiB,
+	$memoryGB,
 	$guestAcceleratorCount, $guestAcceleratorType,
 	$maximumPersistentDisks, $maximumPersistentDisksSizeGb
 ));
@@ -77,7 +77,7 @@ while ($sth->fetch) {
 		 (
 			'$name', '$description', '$location', '$region', '$zoneCount', '$zones',
 			'$guestCpus', '$isSharedCpu',
-			'$memoryGiB',
+			'$memoryGB',
 			'$guestAcceleratorCount', '$guestAcceleratorType',
 			'$maximumPersistentDisks', '$maximumPersistentDisksSizeGb'
 		)
@@ -91,7 +91,7 @@ my $insert = qq ~
 INSERT INTO instances (
 	'name', 'description', 'location', 'region', 'zoneCount', 'zones',
 	'vCpus', 'sharedCpu',
-	'memoryGiB',
+	'memoryGB',
 	'acceleratorCount', 'acceleratorType',
 	'disks', 'disksSizeGb'
 ) VALUES

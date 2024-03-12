@@ -10,7 +10,7 @@
 	<p>
 		[% IF instance.family %][% instance.family %][% END %]
 		Google Compute Engine machine type <a href="/[% instance.name %].html" title="Show machine type [% instance.name %] in all regions">[% instance.name %]</a>
-		with [% instance.vCpus%] vCPU and [% instance.memoryGiB %] GB memory
+		with [% instance.vCpus%] vCPU and [% instance.memoryGB %] GB memory
 		in Google Cloud region <a href="/[% instance.region %].html" title="Show all machine types in region [% instance.region %]">[% instance.region %]</a>
 		[% IF instance.regionLocationLong %]([% instance.regionLocationLong %])[% ELSIF instance.regionLocation %]([% instance.regionLocation %])[% END %].
 		[%- IF instance.sap || instance.hana -%]
@@ -67,7 +67,7 @@
 	</tr>
 	<tr>
 		<th>Memory</th>
-		<td>[% instance.memoryGiB %] GB</td>
+		<td>[% instance.memoryGB %] GB</td>
 	</tr>
 	<tr>
 		<th>CPU Manufactur</th>

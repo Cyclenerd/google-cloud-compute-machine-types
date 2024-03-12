@@ -139,32 +139,32 @@
 
 [%- ELSIF template.name == 'instance.tt2' -%]
 <title>[% instance.name %] - Google Cloud Compute Machine</title>
-<meta name="description"         content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
+<meta name="description"         content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
 <link rel="canonical"            href="[% site.url %]/[% instance.name %].html">
 <meta name="twitter:title"       content="Google Machine Type [% instance.name %]">
-<meta name="twitter:description" content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
+<meta name="twitter:description" content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
 <meta property="og:title"        content="Google Machine Type [% instance.name %]">
-<meta property="og:description"  content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
+<meta property="og:description"  content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
 <meta property="og:url"          content="[% site.url %]/[% instance.name %].html">
 
 [%- ELSIF template.name == 'comparison.tt2' -%]
 <title>[% instance_a.name %] / [% instance_b.name %] - Google Cloud</title>
-<meta name="description"         content="Google Compute Engine machine type comparison [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) versus [% instance_b.name %] ([% instance_b.vCpus %] vCPU, [% instance_b.memoryGiB %] GB memory).">
+<meta name="description"         content="Google Compute Engine machine type comparison [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGB %] GB memory) versus [% instance_b.name %] ([% instance_b.vCpus %] vCPU, [% instance_b.memoryGB %] GB memory).">
 <link rel="canonical"            href="[% site.url %]/comparison/[% instance_a.name %]/vs/[% instance_b.name %].html">
 <meta name="twitter:title"       content="Comparison [% instance_a.name %] vs. [% instance_b.name %]">
-<meta name="twitter:description" content="Google Compute Engine machine type comparison [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) versus [% instance_b.name %] ([% instance_b.vCpus %] vCPU, [% instance_b.memoryGiB %] GB memory).">
+<meta name="twitter:description" content="Google Compute Engine machine type comparison [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGB %] GB memory) versus [% instance_b.name %] ([% instance_b.vCpus %] vCPU, [% instance_b.memoryGB %] GB memory).">
 <meta property="og:title"        content="Comparison [% instance_a.name %] vs. [% instance_b.name %]">
-<meta property="og:description"  content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
+<meta property="og:description"  content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGB %] GB memory. Available in [% regions.size %] Google Cloud Platform region[% IF regions.size > 1 %]s[% END %].">
 <meta property="og:url"          content="[% site.url %]/comparison/[% instance_a.name %]/vs/[% instance_b.name %].html">
 
 [%- ELSIF template.name == 'vs.tt2'-%]
 <title>[% instance_a.name %] - GCE Machine Type Comparison</title>
-<meta name="description"         content="Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) with other Google Cloud Platform GCE machine types.">
+<meta name="description"         content="Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGB %] GB memory) with other Google Cloud Platform GCE machine types.">
 <link rel="canonical"            href="[% site.url %]/comparison/[% instance_a.name %]/vs.html">
 <meta name="twitter:title"       content="Compare Machine Type [% instance_a.name %]">
-<meta name="twitter:description" content="Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) with other Google Cloud Platform GCE machine types.">
+<meta name="twitter:description" content="Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGB %] GB memory) with other Google Cloud Platform GCE machine types.">
 <meta property="og:title"        content="Compare Machine Type [% instance_a.name %]">
-<meta property="og:description"  content="Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGiB %] GB memory) with other Google Cloud Platform GCE machine types.">
+<meta property="og:description"  content="Compare Google Compute Engine machine type [% instance_a.name %] ([% instance_a.vCpus %] vCPU, [% instance_a.memoryGB %] GB memory) with other Google Cloud Platform GCE machine types.">
 <meta property="og:url"          content="[% site.url %]/comparison/[% instance_a.name %]/vs.html">
 
 [%- ELSIF template.name == 'region.tt2'-%]
@@ -179,12 +179,12 @@
 
 [%- ELSIF template.name == 'instance_in_region.tt2'-%]
 <title>[% instance.name %] in [% instance.region %] - Google Cloud</title>
-<meta name="description"         content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory in Google Cloud region [% instance.region %].">
+<meta name="description"         content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGB %] GB memory in Google Cloud region [% instance.region %].">
 <link rel="canonical"            href="[% site.url %]/[% instance.region %]/[% instance.name %].html">
 <meta name="twitter:title"       content="Machine Type [% instance.name %] in Region [% instance.region %]">
-<meta name="twitter:description" content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory in Google Cloud region [% instance.region %].">
+<meta name="twitter:description" content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGB %] GB memory in Google Cloud region [% instance.region %].">
 <meta property="og:title"        content="Machine Type [% instance.name %] in Region [% instance.region %]">
-<meta property="og:description"  content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGiB %] GB memory in Google Cloud region [% instance.region %].">
+<meta property="og:description"  content="Google Compute Engine machine type [% instance.name %] with [% instance.vCpus %] vCPU and [% instance.memoryGB %] GB memory in Google Cloud region [% instance.region %].">
 <meta property="og:url"          content="[% site.url %]/[% instance.region %]/[% instance.name %].html">
 
 [%- ELSIF template.name == 'images.tt2' -%]

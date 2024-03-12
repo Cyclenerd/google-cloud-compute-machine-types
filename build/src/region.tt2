@@ -136,7 +136,7 @@ IF disk.name == 'local-ssd';  minDiskSize = 375; END;
 		</td>
 		<td class="text-nowrap">[% instance.vCpus %][% badgeSharedCpu(instance) %]</td>
 		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
-		<td class="memory" title="Random-access memory: [% instance.memoryGiB %] GiB">[% instance.memoryGiB %]</td>
+		<td class="memory" title="Random-access memory: [% instance.memoryGB %] GB">[% instance.memoryGB %]</td>
 		<td>
 			[% IF instance.intel %]<span class="badge bg-primary">Intel</span>[% END %]
 			[% IF instance.amd   %]<span class="badge bg-success">AMD</span>[% END %]

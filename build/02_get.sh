@@ -19,7 +19,7 @@ printf "%s;" \
 	"zone" \
 	"guestCpus" \
 	"isSharedCpu" \
-	"memoryGiB" \
+	"memoryGB" \
 	"guestAcceleratorCount" \
 	"guestAcceleratorType" \
 	"maximumPersistentDisks" \

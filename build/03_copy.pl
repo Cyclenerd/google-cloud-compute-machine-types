@@ -58,7 +58,7 @@ my $select = qq ~
 SELECT 
 	name, description, zone,
 	guestCpus, isSharedCpu,
-	memoryGiB,
+	memoryGB,
 	guestAcceleratorCount, guestAcceleratorType,
 	maximumPersistentDisks, maximumPersistentDisksSizeGb,
 	deprecated
@@ -69,7 +69,7 @@ $sth->execute;
 $sth->bind_columns (\my (
 	$name, $description, $zone,
 	$guestCpus, $isSharedCpu,
-	$memoryGiB,
+	$memoryGB,
 	$guestAcceleratorCount, $guestAcceleratorType,
 	$maximumPersistentDisks, $maximumPersistentDisksSizeGb,
 	$deprecated
@@ -89,7 +89,7 @@ while ($sth->fetch) {
 		 (
 			'$name', '$description', '$location', '$region', '$zone',
 			'$guestCpus', '$isSharedCpu',
-			'$memoryGiB',
+			'$memoryGB',
 			'$guestAcceleratorCount', '$guestAcceleratorType',
 			'$maximumPersistentDisks', '$maximumPersistentDisksSizeGb'
 		)
@@ -103,7 +103,7 @@ my $insert = qq ~
 INSERT INTO machinetypes (
 	'name', 'description', 'location', 'region', 'zone',
 	'guestCpus', 'isSharedCpu',
-	'memoryGiB',
+	'memoryGB',
 	'guestAcceleratorCount', 'guestAcceleratorType',
 	'maximumPersistentDisks', 'maximumPersistentDisksSizeGb'
 ) VALUES
