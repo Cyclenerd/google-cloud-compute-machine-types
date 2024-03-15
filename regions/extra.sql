@@ -2,9 +2,10 @@
 
 UPDATE instances SET regionLocationLong = "Doha, Qatar",          regionLat = "25.2409741", regionLng = "51.5126395" WHERE region LIKE "me-central1";
 UPDATE instances SET regionLocationLong = "Dammam, Saudi Arabia", regionLat = "26.3622236", regionLng = "49.6807149" WHERE region LIKE "me-central2";
+UPDATE instances SET regionLocationLong = "Tel Aviv, Israel",     regionLat = "32.0858103", regionLng = "34.7697987" WHERE region LIKE "me-west1";
 
-UPDATE instances SET regionLocationLong = "Tel Aviv, Israel", regionLat = "32.0858103", regionLng = "34.7697987" WHERE region LIKE "me-west1";
-UPDATE instances SET regionLocationLong = "Berlin, Germany",  regionLat = "52.2630",    regionLng = "13.5727"    WHERE region LIKE "europe-west10";
+/* Source: On-site inspection ;) */
+UPDATE instances SET regionLocationLong = "Berlin, Germany", regionLat = "52.2630", regionLng = "13.5727" WHERE region LIKE "europe-west10";
 
 /* https://cloud.google.com/blog/products/infrastructure/heita-south-africa-new-cloud-region */
 UPDATE instances SET regionLocationLong = "Johannesburg, South Africa", regionLat = "-26.1714376", regionLng = "27.8841339" WHERE region LIKE "africa-south1";
