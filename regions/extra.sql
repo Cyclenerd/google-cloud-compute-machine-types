@@ -19,6 +19,12 @@ UPDATE instances SET regionLocationLong = "The Dalles, Oregon, USA",   regionLat
 UPDATE instances SET regionLocationLong = "Las Vegas, Nevada, USA",    regionLat = "36.0563", regionLng = "-115.0090" WHERE region LIKE "us-west4";
 UPDATE instances SET regionLocationLong = "Council Bluffs, Iowa, USA", regionLat = "41.2210", regionLng = "-95.8639"  WHERE region LIKE "us-central1";
 
+/*
+Source: https://cloud.google.com/blog/products/infrastructure/new-google-cloud-region-in-madrid-spain-now-open
+[...] Built in partnership with Telefónica [...]
+*/
+UPDATE instances SET regionLat = "40.5195333", regionLng = "3.3409366" WHERE region LIKE "europe-southwest1";
+
 /* https://cloud.google.com/compute/docs/regions-zones/ */
 UPDATE instances SET regionLocationLong = "Changhua County, Taiwan, Republic of China" WHERE region LIKE "asia-east1";
 UPDATE instances SET regionLocationLong = "Jurong West, Singapore"                     WHERE region LIKE "asia-southeast1";
