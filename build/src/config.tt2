@@ -7,8 +7,8 @@ site = {
 	},
 	agGrid = {
 		css   => 'https://cdn.jsdelivr.net/npm/ag-grid-community@31.0.3/styles/ag-grid.min.css'
-		theme  => 'https://cdn.jsdelivr.net/npm/ag-grid-community@31.0.3/styles/ag-theme-balham.min.css'
-		js     => 'https://cdn.jsdelivr.net/npm/ag-grid-community@31.0.3/dist/ag-grid-community.min.noStyle.js'
+		theme => 'https://cdn.jsdelivr.net/npm/ag-grid-community@31.0.3/styles/ag-theme-balham.min.css'
+		js    => 'https://cdn.jsdelivr.net/npm/ag-grid-community@31.0.3/dist/ag-grid-community.min.noStyle.js'
 	},
 	agCharts = {
 		js => 'https://cdn.jsdelivr.net/npm/ag-charts-community@9.0.2/dist/umd/ag-charts-community.min.js'
