@@ -22,6 +22,7 @@ The SQL files are read during the [build](../build/) process.
 	* [N1](./series/n1.sql)
 	* [N2](./series/n2.sql)
 	* [N2D](./series/n2d.sql)
+	* [N4](./series/n4.sql)
 	* [T2D](./series/t2d.sql)
 	* [T2A](./series/t2a.sql)
 * [CPU Platform](./series/cpu/)

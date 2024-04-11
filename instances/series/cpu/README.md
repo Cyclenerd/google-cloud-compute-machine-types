@@ -70,6 +70,11 @@ Intel Xeon processor family
 * Code name: Sapphire Rapids
 * Release date: 2023
 
+### Emerald Rapids
+
+* Code name: Emerald Rapids
+* Release date: 2023
+
 ## AMD
 
 AMD Zen based Epyc microarchitecture
