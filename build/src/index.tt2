@@ -184,8 +184,12 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 		<a href="https://cloud.google.com/compute/docs/machine-types#machine_type_comparison" rel="nofollow">Machine series comparison</a>
 		<ul>
 			<li>
-				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#a2_vms" rel="nofollow">A2</a> and
+				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#a2-vms" rel="nofollow">A2</a>,
+				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#a3-vms" rel="nofollow">A3</a> and
 				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#g2-vms" rel="nofollow">G2</a> accelerator optimized machines
+			</li>
+			<li>
+				<a href="https://cloud.google.com/compute/docs/storage-optimized-machines#z3_series" rel="nofollow">Z3</a> storage optimized machines
 			</li>
 			<li>
 				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types" rel="nofollow">C2</a>,
@@ -202,7 +206,8 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c3d_series" rel="nofollow">C3D</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines" rel="nofollow">N1</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_machines" rel="nofollow">N2</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_series" rel="nofollow">N2</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n4_series" rel="nofollow">N4</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2d_machines" rel="nofollow">N2D</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2d_machines" rel="nofollow">T2D</a> and
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2a_machines" rel="nofollow">T2A</a> general purpose machine series
