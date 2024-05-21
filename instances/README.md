@@ -25,6 +25,7 @@ The SQL files are read during the [build](../build/) process.
 	* [N4](./series/n4.sql)
 	* [T2D](./series/t2d.sql)
 	* [T2A](./series/t2a.sql)
+	* [Z3](./series/z3.sql)
 * [CPU Platform](./series/cpu/)
 	* [Frequency (GHz)](./series/cpu/frequency.sql)
 	* [EEMBC CoreMark Benchmark](./series/cpu/coremark.sql)
