@@ -47,7 +47,15 @@ title="Region: [% region.name %],
 [%- END -%]
 
 [%- MACRO booleanLocalSsd(instance) BLOCK -%]
-[% IF instance.localSsd  %]✔️[% ELSE %]❌[% END %]
+[% IF instance.localSsd %]✔️[% ELSE %]❌[% END %]
+[%- END -%]
+
+[%- MACRO bundledLocalSsd(instance) BLOCK -%]
+[% IF instance.localSsd > 1 %]
+<span class="badge text-bg-danger" title="Mandatory bundled local SSD">
+Bundled with [% instance.localSsd FILTER format("%.0f") %] GB
+</span>
+[% END %]
 [%- END -%]
 
 [%- MACRO booleanSpot(instance) BLOCK -%]

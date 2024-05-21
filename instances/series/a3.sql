@@ -8,3 +8,5 @@ localSsd    = '1',
 bandwidth   = '1000',
 spot        = '0'
 WHERE name LIKE 'a3-%';
+
+UPDATE instances SET localSsd = '6000' WHERE name LIKE 'a3-highgpu-8g';

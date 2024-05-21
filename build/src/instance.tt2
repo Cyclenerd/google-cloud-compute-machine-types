@@ -5,6 +5,7 @@
 	<p>
 		[% IF instance.family %][% instance.family %][% END %]
 		Google Compute Engine machine type [% instance.name %] with [% instance.vCpus%] vCPU and [% instance.memoryGB %] GB memory.
+		[% IF instance.localSsd > 1 %]Bundled with [% instance.localSsd FILTER format("%.0f") %] GB local SSD.[% END %]
 		[%- IF instance.sap || instance.hana -%]
 			GCE machine type [% instance.name %] is certified for
 			[% IF instance.sap %]SAP applications[% END %]
@@ -110,7 +111,10 @@
 	</tr>
 	<tr>
 		<th>Local SSD</th>
-		<td>[% booleanLocalSsd(instance) %]</td>
+		<td>
+			[% booleanLocalSsd(instance) %]
+			[% bundledLocalSsd(instance) %]
+		</td>
 	</tr>
 	<tr>
 		<th>SAP Application</th>

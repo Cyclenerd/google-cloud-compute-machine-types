@@ -4,7 +4,7 @@ UPDATE instances SET
 series      = 'z3',
 family      = 'Storage-optimized',
 cpuPlatform = 'Sapphire Rapids',
-localSsd    = '1',
+localSsd    = '36000',
 spot        = '1'
 WHERE name LIKE 'z3-%';
 

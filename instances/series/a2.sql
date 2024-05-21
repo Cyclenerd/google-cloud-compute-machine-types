@@ -13,3 +13,8 @@ UPDATE instances SET bandwidth = '32'  WHERE name LIKE 'a2-%-2g';
 UPDATE instances SET bandwidth = '50'  WHERE name LIKE 'a2-%-4g';
 UPDATE instances SET bandwidth = '100' WHERE name LIKE 'a2-%-8g';
 UPDATE instances SET bandwidth = '100' WHERE name LIKE 'a2-%-16g';
+
+UPDATE instances SET localSsd = '375'  WHERE name LIKE 'a2-ultragpu-1g';
+UPDATE instances SET localSsd = '750'  WHERE name LIKE 'a2-ultragpu-2g';
+UPDATE instances SET localSsd = '1500' WHERE name LIKE 'a2-ultragpu-4g';
+UPDATE instances SET localSsd = '3000' WHERE name LIKE 'a2-ultragpu-8g';
