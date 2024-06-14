@@ -13,6 +13,8 @@ DELETE FROM machinetypes WHERE name LIKE 'x4-%';
 
 DELETE FROM machinetypes WHERE name LIKE 'c4-%';
 
+DELETE FROM machinetypes WHERE name LIKE 'c3-%-metal';
+
 /* 
  * Delete not yet official 100% finished regions
  */
