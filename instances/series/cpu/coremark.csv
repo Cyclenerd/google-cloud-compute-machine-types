@@ -1,182 +1,270 @@
 MACHINE_TYPE;CPU;vCores;COREMARK_SCORE;STANDARD_DEVIATION;SAMPLE_COUNT
-n2-standard-2 ;Ice Lake ;2;33,676 ;0.96 ;964
-n2-standard-4 ;Ice Lake ;4;67,643 ;1.29 ;907
-n2-standard-8 ;Ice Lake ;8;135,272 ;0.75 ;989
-n2-standard-16 ;Ice Lake ;16;269,760 ;0.67 ;871
-n2-standard-32 ;Ice Lake ;32;538,050 ;1.45 ;862
-n2-standard-48 ;Ice Lake ;48;806,235 ;1.85 ;811
-n2-standard-64 ;Ice Lake ;64;1,069,840 ;1.19 ;768
-n2-standard-80 ;Ice Lake ;80;1,338,406 ;1.39 ;795
-n2-standard-96 ;Ice Lake ;96;1,590,273 ;1.20 ;685
-n2-standard-128 ;Ice Lake ;128;2,065,382 ;1.70 ;524
+n2-standard-2 ;Ice Lake ;2;34,735 ;0.53 ;3672
+n2-standard-4 ;Ice Lake ;4;66,884 ;0.61 ;2336
+n2-standard-8 ;Ice Lake ;8;138,567 ;0.67 ;1592
+n2-standard-16 ;Ice Lake ;16;277,010 ;0.72 ;616
+n2-standard-32 ;Ice Lake ;32;553,662 ;0.77 ;312
+n2-standard-48 ;Ice Lake ;48;824,915 ;1.18 ;216
+n2-standard-64 ;Ice Lake ;64;1,091,008 ;1.34 ;168
+n2-standard-80 ;Ice Lake ;80;1,365,998 ;1.53 ;128
+n2-standard-96 ;Ice Lake ;96;1,651,980 ;0.93 ;112
+n2-standard-128 ;Ice Lake ;128;2,169,248 ;2.33 ;88
 ;;;;;
-n2-highmem-2 ;Ice Lake ;2;33,649 ;0.81 ;1,454
-n2-highmem-4 ;Ice Lake ;4;67,702 ;1.39 ;1,446
-n2-highmem-8 ;Ice Lake ;8;135,364 ;0.46 ;1,422
-n2-highmem-16 ;Ice Lake ;16;269,842 ;1.39 ;1,390
-n2-highmem-32 ;Ice Lake ;32;538,032 ;1.96 ;1,274
-n2-highmem-48 ;Ice Lake ;48;806,506 ;1.18 ;1,141
-n2-highmem-64 ;Ice Lake ;64;1,071,112 ;1.15 ;975
-n2-highmem-80 ;Ice Lake ;80;1,330,008 ;0.79 ;995
-n2-highmem-96 ;Ice Lake ;96;1,590,062 ;0.95 ;756
-n2-highmem-128 ;Ice Lake ;128;2,072,337 ;1.29 ;572
+n2-highmem-2 ;Ice Lake ;2;34,695 ;0.82 ;3688
+n2-highmem-4 ;Ice Lake ;4;66,798 ;0.60 ;2344
+n2-highmem-8 ;Ice Lake ;8;138,406 ;0.79 ;1192
+n2-highmem-16 ;Ice Lake ;16;276,327 ;0.91 ;624
+n2-highmem-32 ;Ice Lake ;32;550,448 ;1.23 ;320
+n2-highmem-48 ;Ice Lake ;48;814,034 ;1.88 ;208
+n2-highmem-64 ;Ice Lake ;64;1,097,943 ;1.34 ;160
+n2-highmem-80 ;Ice Lake ;80;1,361,752 ;1.97 ;128
+n2-highmem-96 ;Ice Lake ;96;1,643,949 ;1.10 ;112
+n2-highmem-128 ;Ice Lake ;128;2,191,510 ;0.81 ;88
 ;;;;;
-n2-highcpu-2 ;Ice Lake ;2;33,719 ;1.02 ;1,404
-n2-highcpu-4 ;Ice Lake ;4;67,817 ;0.83 ;1,406
-n2-highcpu-8 ;Ice Lake ;8;135,527 ;0.64 ;1,422
-n2-highcpu-16 ;Ice Lake ;16;270,110 ;0.48 ;1,452
-n2-highcpu-32 ;Ice Lake ;32;538,530 ;0.56 ;1,151
-n2-highcpu-48 ;Ice Lake ;48;806,668 ;1.07 ;1,080
-n2-highcpu-64 ;Ice Lake ;64;1,070,807 ;0.87 ;940
-n2-highcpu-80 ;Ice Lake ;80;1,329,120 ;1.66 ;992
+n2-highcpu-2 ;Ice Lake ;2;34,740 ;0.53 ;3688
+n2-highcpu-4 ;Ice Lake ;4;66,908 ;0.64 ;2328
+n2-highcpu-8 ;Ice Lake ;8;138,600 ;0.75 ;1208
+n2-highcpu-16 ;Ice Lake ;16;276,855 ;0.71 ;632
+n2-highcpu-32 ;Ice Lake ;32;550,940 ;1.60 ;312
+n2-highcpu-48 ;Ice Lake ;48;822,890 ;1.82 ;216
+n2-highcpu-64 ;Ice Lake ;64;1,100,249 ;1.18 ;160
+n2-highcpu-80 ;Ice Lake ;80;1,377,373 ;1.08 ;128
 ;;;;;
-t2a-standard-1 ;Ampere ;1;23,261 ;0.26 ;104
-t2a-standard-2 ;Ampere ;2;46,385 ;0.28 ;104
-t2a-standard-4 ;Ampere ;4;92,973 ;0.33 ;104
-t2a-standard-8 ;Ampere ;8;185,998 ;0.24 ;104
-t2a-standard-16 ;Ampere ;16;371,142 ;0.25 ;104
-t2a-standard-32 ;Ampere ;32;736,262 ;0.29 ;104
-t2a-standard-48 ;Ampere ;48;1,102,993 ;0.13 ;104
+t2a-standard-1 ;Ampere ;1;23,509 ;0.29 ;5240
+t2a-standard-2 ;Ampere ;2;47,054 ;0.18 ;1846
+t2a-standard-4 ;Ampere ;4;94,096 ;0.20 ;1176
+t2a-standard-8 ;Ampere ;8;188,206 ;0.11 ;1168
+t2a-standard-16 ;Ampere ;16;375,477 ;0.15 ;308
+t2a-standard-32 ;Ampere ;32;748,166 ;0.11 ;160
+t2a-standard-48 ;Ampere ;48;1,118,158 ;0.17 ;680
 ;;;;;
-t2d-standard-1 ;Milan ;1;28,961 ;3.78 ;1,888
-t2d-standard-2 ;Milan ;2;58,601 ;3.64 ;1,888
-t2d-standard-4 ;Milan ;4;118,761 ;3.67 ;1,888
-t2d-standard-8 ;Milan ;8;229,103 ;3.78 ;1,876
-t2d-standard-16 ;Milan ;16;451,682 ;2.87 ;1,876
-t2d-standard-32 ;Milan ;32;886,865 ;1.69 ;980
-t2d-standard-48 ;Milan ;48;1,305,259 ;1.64 ;672
-t2d-standard-60 ;Milan ;60;1,588,850 ;1.20 ;672
+t2d-standard-1 ;Milan ;1;29,363 ;1.43 ;5264
+t2d-standard-2 ;Milan ;2;59,889 ;1.06 ;1840
+t2d-standard-4 ;Milan ;4;119,587 ;0.98 ;1176
+t2d-standard-8 ;Milan ;8;238,534 ;1.06 ;596
+t2d-standard-16 ;Milan ;16;475,405 ;1.45 ;308
+t2d-standard-32 ;Milan ;32;945,524 ;1.88 ;160
+t2d-standard-48 ;Milan ;48;1,395,082 ;2.13 ;108
+t2d-standard-60 ;Milan ;60;1,667,024 ;1.00 ;88
 ;;;;;
-n2d-standard-2 ;Milan ;2;38,897 ;3.61 ;2,264
-n2d-standard-4 ;Milan ;4;79,682 ;3.02 ;2,040
-n2d-standard-8 ;Milan ;8;145,022 ;3.03 ;1,824
-n2d-standard-16 ;Milan ;16;303,974 ;2.52 ;1,712
-n2d-standard-32 ;Milan ;32;611,375 ;1.77 ;905
-n2d-standard-48 ;Milan ;48;916,485 ;2.31 ;648
-n2d-standard-64 ;Milan ;64;1,217,192 ;2.71 ;512
-n2d-standard-80 ;Milan ;80;1,553,066 ;3.33 ;488
-n2d-standard-96 ;Milan ;96;1,826,345 ;4.00 ;388
-n2d-standard-128 ;Milan ;128;2,425,400 ;3.89 ;312
-n2d-standard-224 ;Milan ;224;3,938,461 ;1.49 ;212
+n2d-standard-2 ;Milan ;2;41,092 ;0.94 ;3704
+n2d-standard-4 ;Milan ;4;80,098 ;1.29 ;2344
+n2d-standard-8 ;Milan ;8;163,858 ;1.01 ;1256
+n2d-standard-16 ;Milan ;16;327,484 ;0.93 ;664
+n2d-standard-32 ;Milan ;32;651,986 ;1.39 ;312
+n2d-standard-48 ;Milan ;48;967,312 ;3.54 ;280
+n2d-standard-64 ;Milan ;64;1,162,499 ;5.05 ;160
+n2d-standard-80 ;Milan ;80;1,425,708 ;4.12 ;128
+n2d-standard-96 ;Milan ;96;1,768,996 ;4.32 ;112
+n2d-standard-128 ;Milan ;128;2,305,562 ;4.48 ;144
+n2d-standard-224 ;Milan ;224;3,835,775 ;1.46 ;104
 ;;;;;
-n2d-highmem-2 ;Milan ;2;39,065 ;3.61 ;2,692
-n2d-highmem-4 ;Milan ;4;80,661 ;3.56 ;2,476
-n2d-highmem-8 ;Milan ;8;145,124 ;3.29 ;1,996
-n2d-highmem-16 ;Milan ;16;304,101 ;2.97 ;1,964
-n2d-highmem-32 ;Milan ;32;611,819 ;2.05 ;1,004
-n2d-highmem-48 ;Milan ;48;917,010 ;1.56 ;688
-n2d-highmem-64 ;Milan ;64;1,220,465 ;1.60 ;496
-n2d-highmem-80 ;Milan ;80;1,567,766 ;2.32 ;532
-n2d-highmem-96 ;Milan ;96;1,868,649 ;3.48 ;404
+n2d-highmem-2 ;Milan ;2;41,073 ;1.04 ;3682
+n2d-highmem-4 ;Milan ;4;80,065 ;1.00 ;2344
+n2d-highmem-8 ;Milan ;8;163,486 ;1.36 ;1208
+n2d-highmem-16 ;Milan ;16;327,341 ;1.29 ;632
+n2d-highmem-32 ;Milan ;32;652,572 ;1.59 ;312
+n2d-highmem-48 ;Milan ;48;975,016 ;2.19 ;216
+n2d-highmem-64 ;Milan ;64;1,198,883 ;3.25 ;160
+n2d-highmem-80 ;Milan ;80;1,484,925 ;2.95 ;128
+n2d-highmem-96 ;Milan ;96;1,794,083 ;4.69 ;112
 ;;;;;
-n2d-highcpu-2 ;Milan ;2;39,106 ;3.40 ;2,784
-n2d-highcpu-4 ;Milan ;4;79,859 ;3.15 ;2,568
-n2d-highcpu-8 ;Milan ;8;144,995 ;3.06 ;2,076
-n2d-highcpu-16 ;Milan ;16;304, 014 ;2.62 ;1,940
-n2d-highcpu-32 ;Milan ;32;611,726 ;1.61 ;992
-n2d-highcpu-48 ;Milan ;48;916,993 ;1.84 ;684
-n2d-highcpu-64 ;Milan ;64;1,218,165 ;2.03 ;516
-n2d-highcpu-80 ;Milan ;80;1,562,713 ;3.02 ;508
-n2d-highcpu-96 ;Milan ;96;1,870,287 ;4.07 ;420
+n2d-highcpu-2 ;Milan ;2;41,112 ;0.76 ;3696
+n2d-highcpu-4 ;Milan ;4;80,173 ;0.93 ;2352
+n2d-highcpu-8 ;Milan ;8;163,935 ;0.83 ;1192
+n2d-highcpu-16 ;Milan ;16;327,122 ;1.22 ;628
+n2d-highcpu-32 ;Milan ;32;654,523 ;0.82 ;320
+n2d-highcpu-48 ;Milan ;48;973,067 ;2.52 ;216
+n2d-highcpu-64 ;Milan ;64;1,174,712 ;4.22 ;160
+n2d-highcpu-80 ;Milan ;80;1,478,174 ;3.51 ;128
+n2d-highcpu-96 ;Milan ;96;1,801,312 ;4.94 ;112
 ;;;;;
-e2-standard-2 ;Skylake ;2;26,471 ;2.72 ;18,423
-e2-standard-4 ;Skylake ;4;54,585 ;2.69 ;18,712
-e2-standard-8 ;Skylake ;8;104,906 ;2.52 ;18,465
-e2-standard-16 ;Skylake ;16;220,997 ;1.91 ;18,497
-e2-standard-32 ;Skylake ;32;439,445 ;1.75 ;9,304
+e2-standard-2 ;Intel ;2;26,255 ;1.94 ;712
+e2-standard-4 ;Intel ;4;52,043 ;0.53 ;464
+e2-standard-8 ;Intel ;8;103,957 ;0.65 ;80
+e2-standard-16 ;Intel ;16;208,075 ;0.83 ;72
+e2-standard-32 ;Intel ;32;417,535 ;0.74 ;48
 ;;;;;
-e2-highmem-2 ;Skylake ;2;26,470 ;3.01 ;18,430
-e2-highmem-4 ;Skylake ;4;54,535 ;3.38 ;18,811
-e2-highmem-8 ;Skylake ;8;104,887 ;2.84 ;18,520
-e2-highmem-16 ;Skylake ;16;221,049 ;2.17 ;18,668
+e2-highmem-2 ;Skylake ;2;26,243 ;1.20 ;696
+e2-highmem-4 ;Skylake ;4;51,736 ;0.88 ;472
+e2-highmem-8 ;Skylake ;8;104,083 ;0.63 ;128
+e2-highmem-16 ;Skylake ;16;208,433 ;0.72 ;56
 ;;;;;
-e2-highcpu-2 ;Skylake ;2;26,499 ;2.45 ;18,576
-e2-highcpu-4 ;Skylake ;4;54,785 ;2.74 ;18,673
-e2-highcpu-8 ;Skylake ;8;104,953 ;2.17 ;18,529
-e2-highcpu-16 ;Skylake ;16;220,277 ;1.81 ;18,483
-e2-highcpu-32 ;Skylake ;32;438,843 ;1.95 ;9,432
+e2-highcpu-2 ;Skylake ;2;26,092 ;1.39 ;592
+e2-highcpu-4 ;Skylake ;4;51,937 ;0.64 ;360
+e2-highcpu-8 ;Skylake ;8;104,080 ;0.65 ;128
+e2-highcpu-16 ;Skylake ;16;207,561 ;0.77 ;88
+e2-highcpu-32 ;Skylake ;32;416,599 ;0.86 ;32
 ;;;;;
 e2-micro ;Skylake ;2;3,238 ;3.57 ;18,499
 e2-small ;Skylake ;2;6,745 ;4.32 ;18,614
 e2-medium ;Skylake ;2;14,529 ;6.35 ;18,423
 ;;;;;
-m2-megamem-416 ;Cascade Lake ;416;5,365,802 ;4.22 ;196
-m2-ultramem-416 ;Cascade Lake ;416;5,378,985 ;4.32 ;152
-m2-ultramem-208 ;Cascade Lake ;208;3,117,739 ;1.79 ;280
+m2-megamem-416 ;Cascade Lake ;416;6,193,999 ;2.50 ;1097
+m2-hypermem-416 ;Cascade Lake ;416;6,192,759 ;2.61 ;1107
+m2-ultramem-416 ;Cascade Lake ;416;6,205,665 ;2.04 ;1100
+m2-ultramem-208 ;Cascade Lake ;208;3,124,387 ;0.71 ;1141
 ;;;;;
-m1-megamem-96 ;Skylake ;96;1,254,891 ;1.11 ;2,852
-m1-ultramem-40 ;Broadwell ;40;498,947 ;0.50 ;8,431
-m1-ultramem-80 ;Broadwell ;80;994,301 ;0.76 ;4,412
-m1-ultramem-160 ;Broadwell ;160;1,967,211 ;0.59 ;2,092
+m1-megamem-96 ;Skylake ;96;1,223,742 ;0.35 ;2264
+m1-ultramem-40 ;Broadwell ;40;516,435 ;0.27 ;2272
+m1-ultramem-80 ;Broadwell ;80;1,010,128 ;0.41 ;2280
+m1-ultramem-160 ;Broadwell ;160;2,015,006 ;0.56 ;2280
 ;;;;;
-c2-standard-4 ;Cascade Lake ;4;77,310 ;1.15 ;7,035
-c2-standard-8 ;Cascade Lake ;8;148,689 ;1.22 ;4,828
-c2-standard-16 ;Cascade Lake ;16;313,768 ;1.32 ;4,292
-c2-standard-30 ;Cascade Lake ;30;571,147 ;1.86 ;2,467
-c2-standard-60 ;Cascade Lake ;60;1,142,234 ;1.51 ;1,535
+c2-standard-4 ;Cascade Lake ;4;73,269 ;0.65 ;1180
+c2-standard-8 ;Cascade Lake ;8;146,712 ;0.69 ;596
+c2-standard-16 ;Cascade Lake ;16;292,366 ;0.73 ;312
+c2-standard-30 ;Cascade Lake ;30;531,709 ;1.31 ;168
+c2-standard-60 ;Cascade Lake ;60;1,060,101 ;1.14 ;84
 ;;;;;
-c2d-standard-2 ;Milan ;2;41,509 ;1.36 ;4,788
-c2d-standard-4 ;Milan ;4;85,847 ;1.00 ;4,858
-c2d-standard-8 ;Milan ;8;156,295 ;0.84 ;4,756
-c2d-standard-16 ;Milan ;16;327,768 ;0.87 ;4,456
-c2d-standard-32 ;Milan ;32;655,858 ;0.85 ;2,376
-c2d-standard-56 ;Milan ;56;1,147,023 ;0.66 ;1,588
-c2d-standard-112 ;Milan ;112;2,378,171 ;1.06 ;828
+c2d-standard-2 ;Milan ;2;44,674 ;0.74 ;1832
+c2d-standard-4 ;Milan ;4;86,943 ;0.79 ;1176
+c2d-standard-8 ;Milan ;8;177,921 ;0.70 ;600
+c2d-standard-16 ;Milan ;16;354,249 ;0.88 ;312
+c2d-standard-32 ;Milan ;32;709,399 ;0.59 ;160
+c2d-standard-56 ;Milan ;56;1,244,451 ;0.48 ;92
+c2d-standard-112 ;Milan ;112;2,299,545 ;0.58 ;40
 ;;;;;
-c2d-highmem-2 ;Milan ;2;41,429 ;1.53 ;72
-c2d-highmem-4 ;Milan ;4;85,938 ;1.35 ;64
-c2d-highmem-8 ;Milan ;8;156,488 ;1.00 ;52
-c2d-highmem-16 ;Milan ;16;328,023 ;1.22 ;48
-c2d-highmem-32 ;Milan ;32;655,657 ;1.14 ;40
-c2d-highmem-56 ;Milan ;56;1,146,835 ;0.91 ;44
-c2d-highmem-112 ;Milan ;112;2,374,591 ;0.75 ;36
+c2d-highmem-2 ;Milan ;2;44,649 ;0.88 ;1848
+c2d-highmem-4 ;Milan ;4;86,956 ;0.81 ;1176
+c2d-highmem-8 ;Milan ;8;177,882 ;0.77 ;596
+c2d-highmem-16 ;Milan ;16;354,656 ;0.89 ;317
+c2d-highmem-32 ;Milan ;32;709,754 ;0.63 ;160
+c2d-highmem-56 ;Milan ;56;1,242,783 ;0.43 ;92
+c2d-highmem-112 ;Milan ;112;2,294,226 ;0.78 ;40
 ;;;;;
-c2d-highcpu-2 ;Milan ;2;41,513 ;1.55 ;76
-c2d-highcpu-4 ;Milan ;4;85,822 ;.81 ;80
-c2d-highcpu-8 ;Milan ;8;156,259 ;1.15 ;68
-c2d-highcpu-16 ;Milan ;16;328,057 ;0.93 ;56
-c2d-highcpu-32 ;Milan ;32;656,020 ;0.51 ;44
-c2d-highcpu-56 ;Milan ;56;1,146,929 ;0.93 ;44
-c2d-highcpu-112 ;Milan ;112;2,379,950 ;0.75 ;36
+c2d-highcpu-2 ;Milan ;2;44,678 ;0.74 ;1844
+c2d-highcpu-4 ;Milan ;4;86,953 ;0.72 ;1176
+c2d-highcpu-8 ;Milan ;8;177,774 ;0.81 ;596
+c2d-highcpu-16 ;Milan ;16;354,771 ;0.79 ;308
+c2d-highcpu-32 ;Milan ;32;710,036 ;0.62 ;160
+c2d-highcpu-56 ;Milan ;56;1,244,008 ;0.56 ;92
+c2d-highcpu-112 ;Milan ;112;2,299,260 ;0.37 ;40
 ;;;;;
-n1-standard-1 ;Skylake ;1;20,090 ;2.47 ;79,672
-n1-standard-2 ;Skylake ;2;26,532 ;3.28 ;82,204
-n1-standard-4 ;Skylake ;4;54,678 ;3.10 ;81,744
-n1-standard-8 ;Skylake ;8;105,383 ;3.22 ;79,268
-n1-standard-16 ;Skylake ;16;221,834 ;2.18 ;67,668
-n1-standard-32 ;Skylake ;32;440,755 ;2.13 ;36,300
-n1-standard-64 ;Skylake ;64;883,369 ;1.67 ;18,568
-n1-standard-96 ;Skylake ;96;1,247,197 ;1.40 ;8,772
+n1-standard-1 ;Skylake ;1;20,060 ;0.78 ;10434
+n1-standard-2 ;Skylake ;2;26,293 ;0.72 ;3696
+n1-standard-4 ;Skylake ;4;52,091 ;0.74 ;2368
+n1-standard-8 ;Skylake ;8;104,161 ;0.56 ;1200
+n1-standard-16 ;Skylake ;16;208,193 ;0.58 ;624
+n1-standard-32 ;Skylake ;32;414,412 ;1.54 ;320
+n1-standard-64 ;Skylake ;64;812,905 ;3.64 ;160
+n1-standard-96 ;Skylake ;96;1,231,358 ;0.49 ;112
 ;;;;;
-n1-highmem-2 ;Skylake ;2;26,438 ;2.87 ;85,084
-n1-highmem-4 ;Skylake ;4;54,337 ;2.66 ;84,532
-n1-highmem-8 ;Skylake ;8;104,640 ;2.79 ;82,608
-n1-highmem-16 ;Skylake ;16;220,547 ;2.37 ;70,820
-n1-highmem-32 ;Skylake ;32;439,129 ;2.45 ;38,340
-n1-highmem-64 ;Skylake ;64;879,708 ;1.75 ;19,732
-n1-highmem-96 ;Skylake ;96;1,248,277 ;1.30 ;9,644
+n1-highmem-2 ;Skylake ;2;26,293 ;0.65 ;3688
+n1-highmem-4 ;Skylake ;4;52,095 ;0.66 ;2344
+n1-highmem-8 ;Skylake ;8;104,145 ;0.84 ;1200
+n1-highmem-16 ;Skylake ;16;208,446 ;0.55 ;616
+n1-highmem-32 ;Skylake ;32;415,396 ;0.75 ;320
+n1-highmem-64 ;Skylake ;64;817,050 ;0.88 ;160
+n1-highmem-96 ;Skylake ;96;1,233,066 ;0.53 ;112
 ;;;;;
-n1-highcpu-2 ;Skylake ;2;26,517 ;2.80 ;84,520
-n1-highcpu-4 ;Skylake ;4;54,676 ;2.81 ;84,564
-n1-highcpu-8 ;Skylake ;8;105,053 ;2.59 ;84,324
-n1-highcpu-16 ;Skylake ;16;221,443 ;2.10 ;72,496
-n1-highcpu-32 ;Skylake ;32;438,006 ;2.17 ;38,764
-n1-highcpu-64 ;Skylake ;64;874,912 ;1.64 ;19,184
-n1-highcpu-96 ;Skylake ;96;1,245,251 ;1.46 ;9,235
+n1-highcpu-2 ;Skylake ;2;26,348 ;0.58 ;3696
+n1-highcpu-4 ;Skylake ;4;52,108 ;0.58 ;2352
+n1-highcpu-8 ;Skylake ;8;104,238 ;0.60 ;1192
+n1-highcpu-16 ;Skylake ;16;207,968 ;0.60 ;640
+n1-highcpu-32 ;Skylake ;32;414,526 ;1.27 ;320
+n1-highcpu-64 ;Skylake ;64;815,329 ;0.86 ;160
+n1-highcpu-96 ;Skylake ;96;1,232,561 ;0.30 ;112
 ;;;;;
-f1-micro ;Skylake ;1;4,111 ;13.19 ;82,456
-g1-small ;Skylake ;1;10,657 ;12.09 ;81,152
-;;;;;
-c3-highcpu-4 ;Sapphire Rapids ;4;80,791 ;0.22 ;224
-c3-highcpu-8 ;Sapphire Rapids ;8;160,579 ;0.17 ;112
-c3-highcpu-22 ;Sapphire Rapids ;22;441,256 ;0.15 ;40
-c3-highcpu-44 ;Sapphire Rapids ;44;881,707 ;0.11 ;24
-c3-highcpu-88 ;Sapphire Rapids ;88;1,687,311 ;0.97 ;8
-c3-highcpu-176 ;Sapphire Rapids ;176;3,399,913 ;0.50 ;8
+f1-micro ;Skylake ;1;3,949 ;3.24 ;2318
+g1-small ;Skylake ;1;10,191 ;2.94 ;2256
 ;;;;;
 a2-highgpu-1g;Cascade Lake ;12;171,520 ;0.45 ;4
 a2-highgpu-2g;Cascade Lake ;24;359,881 ;0.33 ;4
 a2-highgpu-4g;Cascade Lake ;48;646,934 ;0.27 ;4
-a2-highgpu-8g;Cascade Lake ;96;1,287,130 ;0.67 ;4
+a2-highgpu-8g ;Cascade Lake ;96 ;1,269,327 ;0.76 ;8
 ;;;;;
-a2-megagpu-16g;Cascade Lake ;96 ;1,293,867 ;2.30 ;64
+a2-megagpu-16g;Cascade Lake ;96 ;1,258,852 ;6.56 ;172
+;;;;;
+n4-standard-2 ;Emerald Rapids ;2;44,377 ;0.26 ;80
+n4-standard-4 ;Emerald Rapids ;4;86,569 ;0.61 ;84
+n4-standard-8 ;Emerald Rapids ;8;177,655 ;0.29 ;88
+n4-standard-16 ;Emerald Rapids ;16;354,249 ;0.29 ;81
+n4-standard-32 ;Emerald Rapids ;32;706,433 ;0.28 ;80
+n4-standard-48 ;Emerald Rapids ;48;1,057,781 ;2.09 ;84
+n4-standard-64 ;Emerald Rapids ;64;1,351,294 ;2.44 ;84
+n4-standard-80 ;Emerald Rapids ;80;1,626,413 ;3.18 ;84
+;;;;;
+n4-highcpu-2 ;Emerald Rapids ;2;44,397 ;0.26 ;80
+n4-highcpu-4 ;Emerald Rapids ;4;86,649 ;0.58 ;80
+n4-highcpu-8 ;Emerald Rapids ;8;177,628 ;0.29 ;87
+n4-highcpu-16 ;Emerald Rapids ;16;354,814 ;0.29 ;84
+n4-highcpu-32 ;Emerald Rapids ;32;707,229 ;0.30 ;80
+n4-highcpu-48 ;Emerald Rapids ;48;1,058,224 ;0.19 ;88
+n4-highcpu-64 ;Emerald Rapids ;64;1,351,265 ;1.23 ;80
+n4-highcpu-80 ;Emerald Rapids ;80;1,651,766 ;0.87 ;84
+;;;;;
+n4-highmem-2 ;Emerald Rapids ;2;44,371 ;2.22 ;84
+n4-highmem-4 ;Emerald Rapids ;4;86,305 ;0.89 ;80
+n4-highmem-8 ;Emerald Rapids ;8;177,336 ;3.06 ;80
+n4-highmem-16 ;Emerald Rapids ;16;354,343 ;3.61 ;84
+n4-highmem-32 ;Emerald Rapids ;32;704,876 ;2.13 ;84
+n4-highmem-48 ;Emerald Rapids ;48;1,027,463 ;2.89 ;80
+n4-highmem-64 ;Emerald Rapids ;64;1,256,257 ;3.45 ;84
+n4-highmem-80 ;Emerald Rapids ;80;1,536,069 ;2.82 ;80
+;;;;;
+c3d-standard-4 ;Genoa ;4;94,572 ;0.78 ;1732
+c3d-standard-8 ;Genoa ;8;192,584 ;0.72 ;1168
+c3d-standard-16 ;Genoa ;16;384,420 ;0.97 ;884
+c3d-standard-30 ;Genoa ;30;681,460 ;0.94 ;752
+c3d-standard-60 ;Genoa ;60;1,360,072 ;1.18 ;659
+c3d-standard-90 ;Genoa ;90;2,138,141 ;1.18 ;616
+c3d-standard-180 ;Genoa ;180;3,905,736 ;1.83 ;552
+c3d-standard-360 ;Genoa ;360;8,026,988 ;0.88 ;60
+;;;;;
+c3d-highcpu-4 ;Genoa ;4;94,611 ;0.46 ;1168
+c3d-highcpu-8 ;Genoa ;8;192,661 ;0.51 ;592
+c3d-highcpu-16 ;Genoa ;16;384,658 ;0.75 ;304
+c3d-highcpu-30 ;Genoa ;30;682,826 ;0.48 ;168
+c3d-highcpu-60 ;Genoa ;60;1,363,944 ;0.47 ;84
+c3d-highcpu-90 ;Genoa ;90;2,149,508 ;0.30 ;64
+c3d-highcpu-180 ;Genoa ;180;3,940,383 ;1.44 ;28
+c3d-highcpu-360 ;Genoa ;360;7,977,725 ;1.41 ;16
+;;;;;
+c3d-highmem-4 ;Genoa ;4;94,477 ;0.49 ;304
+c3d-highmem-8 ;Genoa ;8;192,283 ;0.66 ;164
+c3d-highmem-16 ;Genoa ;16;384,623 ;0.67 ;88
+c3d-highmem-30 ;Genoa ;30;681,272 ;0.85 ;44
+c3d-highmem-60 ;Genoa ;60;1,364,173 ;0.55 ;24
+c3d-highmem-90 ;Genoa ;90;2,143,972 ;0.57 ;16
+c3d-highmem-180 ;Genoa ;180;3,958,388 ;1.13 ;8
+c3d-highmem-360 ;Genoa ;360;8,069,686 ;0.17 ;4
+;;;;;
+c3-standard-4 ;Sapphire Rapids ;4;80,609 ;0.39 ;1180
+c3-standard-8 ;Sapphire Rapids ;8;160,341 ;0.32 ;1116
+c3-standard-22 ;Sapphire Rapids ;22;440,662 ;0.34 ;252
+c3-standard-44 ;Sapphire Rapids ;44;878,867 ;0.80 ;612
+c3-standard-88 ;Sapphire Rapids ;88;1,691,035 ;1.18 ;528
+c3-standard-176 ;Sapphire Rapids ;176;3,377,967 ;0.91 ;484
+;;;;;
+c3-highcpu-4 ;Sapphire Rapids ;4;80,641 ;0.47 ;1176
+c3-highcpu-8 ;Sapphire Rapids ;8;160,329 ;0.48 ;600
+c3-highcpu-22 ;Sapphire Rapids ;22;441,164 ;0.29 ;224
+c3-highcpu-44 ;Sapphire Rapids ;44;880,832 ;0.87 ;112
+c3-highcpu-88 ;Sapphire Rapids ;88;1,696,613 ;1.07 ;56
+c3-highcpu-176 ;Sapphire Rapids ;176;3,388,373 ;0.62 ;28
+;;;;;
+c3-highmem-4 ;Sapphire Rapids ;4;80,742 ;0.44 ;1200
+c3-highmem-8 ;Sapphire Rapids ;8;160,478 ;0.29 ;612
+c3-highmem-22 ;Sapphire Rapids ;22;441,229 ;0.21 ;252
+c3-highmem-44 ;Sapphire Rapids ;44;877,637 ;1.12 ;136
+c3-highmem-88 ;Sapphire Rapids ;88;1,689,147 ;1.48 ;72
+c3-highmem-176 ;Sapphire Rapids ;176;3,347,332 ;1.44 ;56
+;;;;;
+m3-ultramem-32;Ice Lake ;32;556,066 ;0.22 ;1020
+m3-ultramem-64;Ice Lake ;64;1,101,308 ;0.73 ;1144
+m3-ultramem-128;Ice Lake ;128;2,190,379 ;0.62 ;1128
+;;;;;
+m3-megamem-64;Ice Lake ;64;1,094,465 ;0.98 ;1132
+m3-megamem-128;Ice Lake ;128;2,182,236 ;0.89 ;1144
+;;;;;
+z3-highmem-88 ;Sapphire Rapids ;88;1,691,169 ;1.02 ;84
+z3-highmem-176 ;Sapphire Rapids ;176;3,373,295 ;0.97 ;88
+;;;;;
+g2-standard-4 ;Cascade Lake ;4;56,273 ;0.66 ;88
+g2-standard-8 ;Cascade Lake ;8;111,997 ;0.64 ;48
+g2-standard-12 ;Cascade Lake ;12;167,604 ;0.52 ;36
+g2-standard-16 ;Cascade Lake ;16;223,514 ;0.51 ;28
+g2-standard-24 ;Cascade Lake ;24;334,411 ;0.53 ;20
+g2-standard-32 ;Cascade Lake ;32;446,322 ;0.64 ;16
+g2-standard-48 ;Cascade Lake ;48;656,106 ;2.97 ;12
+g2-standard-96 ;Cascade Lake ;96;1,249,876 ;0.20 ;8
