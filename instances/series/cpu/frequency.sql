@@ -41,7 +41,8 @@ UPDATE instances SET cpuBaseClock  = '1.9', cpuTurboClock  = '3.0', cpuSingleMax
 UPDATE instances SET cpuBaseClock  = '1.9', cpuTurboClock  = '3.0', cpuSingleMaxTurboClock = '3.3' WHERE availableCpuPlatform LIKE "%Sapphire Rapids%" AND series LIKE "z3";
 
 /* Intel Xeon Scalable Processor (Emerald Rapids) 5th Generation */
-UPDATE instances SET cpuBaseClock  = '2.1', cpuTurboClock  = '3.3', cpuSingleMaxTurboClock = '4.0' WHERE availableCpuPlatform LIKE "%Emerald Rapids%" AND series LIKE "n4";
+UPDATE instances SET cpuBaseClock  = '2.1', cpuTurboClock  = '2.9', cpuSingleMaxTurboClock = '3.3' WHERE availableCpuPlatform LIKE "%Emerald Rapids%" AND series LIKE "n4";
+UPDATE instances SET cpuBaseClock  = '2.3', cpuTurboClock  = '3.1', cpuSingleMaxTurboClock = '4.0' WHERE availableCpuPlatform LIKE "%Emerald Rapids%" AND series LIKE "с4";
 
 /* AMD */
 /* https://cloud.google.com/compute/docs/cpu-platforms#amd_cpu_processors */
