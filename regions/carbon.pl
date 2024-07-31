@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# Copyright 2022 Nils Knieling. All Rights Reserved.
+# Copyright 2022-2024 Nils Knieling. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -28,11 +28,10 @@ my $dbh = DBI->connect("dbi:CSV:", undef, undef, {
 #   Google Cloud Region,
 #   Location,
 #   Google CFE,
-#   Grid carbon intensity (gCO2eq / kWh),
-#   Google Cloud net carbon emissions
+#   Grid carbon intensity (gCO2eq / kWh)
 my $sth = $dbh->prepare("SELECT * FROM carbon");
 $sth->execute();
-$sth->bind_columns(\my ($region, $location, $cfe, $co2_kwh, $ghg));
+$sth->bind_columns(\my ($region, $location, $cfe, $co2_kwh));
 print "/*\n";
 print " * GENERATED WITH carbon.pl\n";
 print " * Please see: https://github.com/Cyclenerd/google-cloud-compute-machine-types/blob/master/regions/README.md\n";
