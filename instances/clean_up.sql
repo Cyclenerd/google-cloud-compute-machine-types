@@ -11,8 +11,6 @@ DELETE FROM machinetypes WHERE name LIKE 'a3-megagpu-8g';
 
 DELETE FROM machinetypes WHERE name LIKE 'x4-%';
 
-DELETE FROM machinetypes WHERE name LIKE 'c3-%-metal';
-
 /* 
  * Delete not yet official 100% finished regions
  */
