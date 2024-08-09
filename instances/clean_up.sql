@@ -11,6 +11,9 @@ DELETE FROM machinetypes WHERE name LIKE 'a3-megagpu-8g';
 
 DELETE FROM machinetypes WHERE name LIKE 'x4-%';
 
+/* https://github.com/Cyclenerd/google-cloud-compute-machine-types/issues/26 */
+DELETE FROM machinetypes WHERE name LIKE 'c4-%' AND region LIKE 'asia-southeast1';
+
 /* 
  * Delete not yet official 100% finished regions
  */
