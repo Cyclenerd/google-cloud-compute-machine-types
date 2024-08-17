@@ -7,12 +7,14 @@ DELETE FROM machinetypes WHERE name LIKE 'ct5l-%';
 DELETE FROM machinetypes WHERE name LIKE 'ct5lp-%';
 DELETE FROM machinetypes WHERE name LIKE 'ct5p-%';
 
-DELETE FROM machinetypes WHERE name LIKE 'a3-megagpu-8g';
-
 DELETE FROM machinetypes WHERE name LIKE 'x4-%';
 
 /* https://github.com/Cyclenerd/google-cloud-compute-machine-types/issues/26 */
 DELETE FROM machinetypes WHERE name LIKE 'c4-%' AND region LIKE 'asia-southeast1';
+
+/* https://github.com/Cyclenerd/google-cloud-compute-machine-types/issues/27 */
+DELETE FROM machinetypes WHERE name LIKE 'a3-megagpu-%' AND region LIKE 'us-central1';
+DELETE FROM machinetypes WHERE name LIKE 'a3-megagpu-%' AND region LIKE 'us-west1';
 
 /* 
  * Delete not yet official 100% finished regions
