@@ -2,6 +2,8 @@
  * Delete not yet official 100% released machine types
  */
 
+DELETE FROM machinetypes WHERE name LIKE 'ct3-%';
+DELETE FROM machinetypes WHERE name LIKE 'ct3p-%';
 DELETE FROM machinetypes WHERE name LIKE 'ct4p-%';
 DELETE FROM machinetypes WHERE name LIKE 'ct5l-%';
 DELETE FROM machinetypes WHERE name LIKE 'ct5lp-%';
