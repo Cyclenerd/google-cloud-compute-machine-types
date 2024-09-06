@@ -19,6 +19,9 @@ DELETE FROM machinetypes WHERE name LIKE 'a3-megagpu-%' AND region LIKE 'us-west
  * Delete not yet official 100% finished regions
  */
 
+DELETE FROM machinetypes WHERE zone LIKE 'northamerica-south1-%';
+DELETE FROM disktypes    WHERE zone LIKE 'northamerica-south1-%';
+
 DELETE FROM machinetypes WHERE zone LIKE 'us-west8-%';
 DELETE FROM disktypes    WHERE zone LIKE 'us-west8-%';
 
