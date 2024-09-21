@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# Copyright 2022-2023 Nils Knieling. All Rights Reserved.
+# Copyright 2022-2024 Nils Knieling. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -146,46 +146,32 @@ foreach my $region (keys %{ $gcp->{'region'} }) {
 ###############################################################################
 print "\nTest\n";
 
-# Check regions
+# Check regions without location
 my $sth = $db->prepare("SELECT region FROM instances WHERE regionLocation LIKE '' GROUP BY region");
 $sth->execute;
 $sth->bind_columns (\my ($region));
-my $without_location = 0;
 while ($sth->fetch) {
-	print "ERROR: Location of region '$region' missing!\n";
-	$without_location++;
-}
-if ($without_location) {
-	print "\n";
-	print "ERROR: Location of region missing! Maybe there is a new region?\n";
-	print "       Please update pricing.yml in Cyclenerd/google-cloud-pricing-cost-calculator.\n";
-	die "ERROR: Location of region missing!\n";
+	print "WARNING: Location of region '$region' missing!\n";
+	my $deleteLocation = "DELETE FROM instances WHERE region LIKE '$region'";
+	$db->do($deleteLocation) or die "ERROR: Cannot delete instances in unknown location $DBI::errstr\n";
 }
 
-# Check costs
-# Disks
+# Check disks without price
 $sth = $db->prepare("SELECT name, region FROM disks WHERE monthGb <= 0");
 $sth->execute;
 $sth->bind_columns (\my ($name, $region));
 while ($sth->fetch) {
 	print "WARNING: Costs per month missing for disk type '$name' in region '$region'.\n";
 }
-# Instances
+
+# Chech instances without price
 $sth = $db->prepare("SELECT name, region FROM instances WHERE hour <= 0");
 $sth->execute;
 $sth->bind_columns (\my ($name, $region));
-my $without_costs = 0;
 while ($sth->fetch) {
-	print "ERROR: Costs per hour missing for machine type '$name' in region '$region'.\n";
-	$without_costs++;
+	print "WARNING: Costs per hour missing for machine type '$name' in region '$region'.\n";
+	my $deleteInstance = "DELETE FROM instances WHERE name LIKE '$name' AND region LIKE '$region'";
+	$db->do($deleteInstance) or die "ERROR: Cannot delete instance without price $DBI::errstr\n";
 }
-# Error
-if ($without_costs) {
-	print "\n";
-	print "ERROR: Costs missing! Maybe there is a new machine type, disk type or region.\n";
-	print "       Please update pricing.yml in Cyclenerd/google-cloud-pricing-cost-calculator.\n";
-	die "ERROR: Costs missing!\n";
-}
-
 
 print "DONE\n";
