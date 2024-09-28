@@ -66,6 +66,11 @@ jobs:
           cat "site/europe-west4/n2-standard-8.html" | grep '249' || exit 9
           jq -e '.[] | .name' "site/instance_in_region.json" | grep '"n2-standard-8"' || exit 9
 
+      - name: Commit last build
+        run: |
+          cd build || exit 9
+          bash commit.sh || exit 9
+
       - name: 🪣 Publish website
         #run: gcloud storage cp --gzip-in-flight=html,js,css,txt,json --recursive site/* gs://gcloud-compute.com || exit 9
         run: |
