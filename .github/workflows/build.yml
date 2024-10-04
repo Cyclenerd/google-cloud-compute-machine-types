@@ -10,15 +10,17 @@ env:
   R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
   R2_API_ENDPOINT: ${{ secrets.R2_API_ENDPOINT }}
 
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   website:
     name: Website
     # https://github.com/actions/runner-images/blob/main/images/ubuntu/Ubuntu2204-Readme.md
     runs-on: ubuntu-latest
-
-    # Add "id-token" for Google Authentication
-    permissions:
-      id-token: write
 
     steps:
       - name: 🐧 Install dependencies
