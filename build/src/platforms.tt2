@@ -8,7 +8,7 @@
 You have the choice between Google Compute Engine machine types with
 <a href="/intel.html">Intel</a>,
 <a href="/amd.html">AMD</a>, or
-<a href="/arm.html">Ampere Altra Arm-based</a>
+<a href="/arm.html">Arm-based</a>
 central processing units (CPUs).
 The different CPU platforms differ from the year of release and performance.
 Not every CPU is available in all Google Cloud region and zones.
@@ -36,7 +36,7 @@ Not every CPU is available in all Google Cloud region and zones.
 		<th scope="col">Zones</th>
 		<th scope="col" colspan="6">Intel</th>
 		<th scope="col" colspan="3">AMD</th>
-		<th scope="col" colspan="1">Arm</th>
+		<th scope="col" colspan="2">Arm (Ampere, Google)</th>
 	</tr>
 	<tr>
 		<th scope="col" data-field="name" data-sortable="true">Name</th>
@@ -52,8 +52,8 @@ Not every CPU is available in all Google Cloud region and zones.
 		<th scope="col" data-sortable="true" title="AMD EPYC Genoa 4rd Generation">Genoa</th>
 		<th scope="col" data-sortable="true" title="AMD EPYC Milan 3rd Generation">Milan</th>
 		<th scope="col" data-sortable="true" title="AMD EPYC Rome 2nd Generation">Rome</th>
-		<th scope="col" data-sortable="true" title="Ampere Altra">Ampere Altra</th>
-
+		<th scope="col" data-sortable="true" title="Ampere Altra">Altra</th>
+		<th scope="col" data-sortable="true" title="Google Axion">Axion</th>
 	</tr>
 </thead>
 <tbody>
@@ -83,6 +83,7 @@ Not every CPU is available in all Google Cloud region and zones.
 		[% IF region.amdMilan            %]<td>[% region.amdMilan            %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
 		[% IF region.amdRome             %]<td>[% region.amdRome             %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
 		[% IF region.armAmpereAltra      %]<td>[% region.armAmpereAltra      %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
+		[% IF region.armGoogleAxion      %]<td>[% region.armGoogleAxion      %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
 	</tr>
 	[% END %]
 </tbody>

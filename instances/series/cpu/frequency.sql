@@ -1,5 +1,5 @@
 /* Intel */
-/* https://cloud.google.com/compute/docs/cpu-platforms#intel_cpu_processors */
+/* https://cloud.google.com/compute/docs/cpu-platforms#intel_processors */
 
 /* Intel Xeon E5 (Sandy Bridge) */
 UPDATE instances SET cpuBaseClock  = '2.6', cpuTurboClock  = '3.2', cpuSingleMaxTurboClock = '3.6' WHERE availableCpuPlatform LIKE "%Sandy%" AND series LIKE "n1";
@@ -45,7 +45,7 @@ UPDATE instances SET cpuBaseClock  = '2.1', cpuTurboClock  = '2.9', cpuSingleMax
 UPDATE instances SET cpuBaseClock  = '2.3', cpuTurboClock  = '3.1', cpuSingleMaxTurboClock = '4.0' WHERE availableCpuPlatform LIKE "%Emerald Rapids%" AND series LIKE "c4";
 
 /* AMD */
-/* https://cloud.google.com/compute/docs/cpu-platforms#amd_cpu_processors */
+/* https://cloud.google.com/compute/docs/cpu-platforms#amd_processors */
 
 /* AMD EPYC Rome 2nd Generation */
 UPDATE instances SET cpuBaseClock  = '2.25', cpuTurboClock  = '2.7', cpuSingleMaxTurboClock = '3.3' WHERE availableCpuPlatform LIKE "%Rome%";
@@ -58,7 +58,12 @@ UPDATE instances SET cpuBaseClock  = '2.6', cpuTurboClock  = '3.45', cpuSingleMa
 
 
 /* Arm */
+/* https://cloud.google.com/compute/docs/cpu-platforms#arm_processors */
 
-/* Ampere Altra */
-/* https://cloud.google.com/compute/docs/cpu-platforms#amd_cpu_processors */
+/* Ampere Altra Q64-30 */
+/* https://amperecomputing.com/briefs/ampere-altra-family-product-brief */
 UPDATE instances SET cpuBaseClock = '3.0', cpuTurboClock = '3.0', cpuSingleMaxTurboClock = '3.0' WHERE availableCpuPlatform LIKE "%Ampere Altra%";
+
+/* Google Axion Processors */
+/* https://gist.github.com/Cyclenerd/57ffee632dcb3d7e537fbcdc9779cb50 */
+UPDATE instances SET cpuBaseClock = '3.0', cpuTurboClock = '3.0', cpuSingleMaxTurboClock = '3.0' WHERE availableCpuPlatform LIKE "%Google Axion%";

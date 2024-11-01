@@ -250,6 +250,7 @@ SELECT
 	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Milan%")        AS amdMilan,
 	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Genoa%")        AS amdGenoa,
 	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Altra%")        AS armAmpereAltra,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Axion%")        AS armGoogleAxion,
 	(SELECT COUNT(name) FROM instances WHERE region = I.region AND family LIKE "%General%")     AS generalCount,
 	(SELECT COUNT(name) FROM instances WHERE region = I.region AND family LIKE "%Compute%")     AS computeCount,
 	(SELECT COUNT(name) FROM instances WHERE region = I.region AND family LIKE "%Memory%")      AS memoryCount,

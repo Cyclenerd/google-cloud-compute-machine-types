@@ -96,6 +96,7 @@ while ($sth->fetch) {
 	   $amd   = '1' if ($update_availableCpuPlatform =~ m/amd/i );
 	my $arm   = '0';
 	   $arm   = '1' if ($update_availableCpuPlatform =~ m/ampere/i );
+	   $arm   = '1' if ($update_availableCpuPlatform =~ m/axion/i );
 	my $update = qq ~
 		UPDATE instances
 		SET

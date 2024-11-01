@@ -11,7 +11,7 @@
 		<a [% IF template.name == 'amd.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/amd.html">AMD</a>
 	</li>
 	<li class="nav-item">
-		<a [% IF template.name == 'arm.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/arm.html">Arm (Ampere)</a>
+		<a [% IF template.name == 'arm.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/arm.html">Arm</a>
 	</li>
 	<li class="nav-item">
 		<a [% IF template.name == 'gpu.tt2' %]class="nav-link active" aria-current="page"[% ELSE %]class="nav-link"[% END %] href="/gpu.html">GPU</a>

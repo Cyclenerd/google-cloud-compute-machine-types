@@ -239,7 +239,7 @@ const gridOptions = {
 					columnGroupShow: 'open',
 					filterParams: filterParamsBoolean,
 					valueFormatter: booleanFormatter,
-					headerTooltip: 'Ampere Altra Arm-based CPU processors (1, 0)',
+					headerTooltip: 'Arm-based CPU processors (1, 0)',
 					width: 90
 				},
 				{

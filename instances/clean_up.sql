@@ -8,6 +8,7 @@ DELETE FROM machinetypes WHERE name LIKE 'ct4p-%';
 DELETE FROM machinetypes WHERE name LIKE 'ct5l-%';
 DELETE FROM machinetypes WHERE name LIKE 'ct5lp-%';
 DELETE FROM machinetypes WHERE name LIKE 'ct5p-%';
+DELETE FROM machinetypes WHERE name LIKE 'ct6e-%';
 
 DELETE FROM machinetypes WHERE name LIKE 'x4-%';
 

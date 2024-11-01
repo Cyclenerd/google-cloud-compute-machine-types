@@ -46,7 +46,10 @@ You can also find the average costs per GCE machine type across all Google Cloud
 </p>
 
 <p>
-You have the choice between <mark>[% intel %] machine types with <a href="/intel.html">Intel</a> CPU</mark>, <mark>[% amd %] CPU machine types with <a href="/amd.html">AMD</a> CPU</mark> and <mark>[% arm %] CPU machine types with <a href="/arm.html">Ampere Altra Arm-based</a> processors</mark>.
+You have the choice between
+<mark>[% intel %] machine types with <a href="/intel.html">Intel</a> CPU</mark>,
+<mark>[% amd %] CPU machine types with <a href="/amd.html">AMD</a> CPU</mark> and
+<mark>[% arm %] CPU machine types with <a href="/arm.html">Arm-based</a> processors</mark>.
 [% sap %] machine types are certified for <a href="/sap.html">SAP application</a> and [% hana %] machine types are certified for <a href="/hana.html">SAP HANA</a> on Google Cloud.
 </p>
 
@@ -205,6 +208,7 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c3_series" rel="nofollow">C3</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c3d_series" rel="nofollow">C3D</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c4_series" rel="nofollow">C4</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c4a_series" rel="nofollow">C4A</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines" rel="nofollow">N1</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_series" rel="nofollow">N2</a>,

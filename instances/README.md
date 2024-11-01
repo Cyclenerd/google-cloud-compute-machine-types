@@ -15,8 +15,9 @@ The SQL files are read during the [build](../build/) process.
 	* [C2](./series/c2.sql)
 	* [C2D](./series/c2d.sql)
 	* [C3](./series/c3.sql)
-        * [C3D](./series/c3d.sql)
-        * [C4](./series/c4.sql)
+	* [C3D](./series/c3d.sql)
+	* [C4](./series/c4.sql)
+	* [C4A](./series/c4a.sql)
 	* [E2](./series/e2.sql)
 	* [G2](./series/g2.sql)
 	* [M1](./series/m1.sql)
@@ -64,6 +65,7 @@ The cost per machine type in region and licenses are added with the [gcosts](htt
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c3_series" rel="nofollow">C3</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c3d_series" rel="nofollow">C3D</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c4_series" rel="nofollow">C4</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c4a_series" rel="nofollow">C4A</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines" rel="nofollow">N1</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_machines" rel="nofollow">N2</a>,
