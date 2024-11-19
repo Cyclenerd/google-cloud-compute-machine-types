@@ -160,6 +160,7 @@ Bundled with [% instance.localSsd FILTER format("%.0f") %] GB
 [%- ELSIF code == 'IT' -%]🇮🇹
 [%- ELSIF code == 'JP' -%]🇯🇵
 [%- ELSIF code == 'KR' -%]🇰🇷
+[%- ELSIF code == 'MX' -%]🇲🇽
 [%- ELSIF code == 'NL' -%]🇳🇱
 [%- ELSIF code == 'PL' -%]🇵🇱
 [%- ELSIF code == 'QA' -%]🇶🇦
@@ -191,6 +192,7 @@ Bundled with [% instance.localSsd FILTER format("%.0f") %] GB
 [%- ELSIF code == 'IT' -%]Italy
 [%- ELSIF code == 'JP' -%]Japan
 [%- ELSIF code == 'KR' -%]South Korea
+[%- ELSIF code == 'MX' -%]Mexico
 [%- ELSIF code == 'NL' -%]Netherlands
 [%- ELSIF code == 'PL' -%]Poland
 [%- ELSIF code == 'QA' -%]Qatar

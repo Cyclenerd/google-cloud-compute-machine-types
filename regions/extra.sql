@@ -29,12 +29,18 @@ Source: https://cloud.google.com/blog/products/infrastructure/new-google-cloud-r
 */
 UPDATE instances SET regionLat = "40.5195333", regionLng = "3.3409366" WHERE region LIKE "europe-southwest1";
 
+/* https://cloud.google.com/blog/products/infrastructure/expanding-cloud-infrastructure-around-the-world */
+UPDATE instances SET regionLat = "20.583333", regionLng = "-100.383333", regionLocationLong = "Querétaro, Mexico" WHERE region LIKE "northamerica-south1";
+
+
 /* https://cloud.google.com/compute/docs/regions-zones/ */
+UPDATE instances SET regionLocationLong = "Ashburn, Northern Virginia, USA"            WHERE region LIKE "us-east4";
 UPDATE instances SET regionLocationLong = "Changhua County, Taiwan, Republic of China" WHERE region LIKE "asia-east1";
 UPDATE instances SET regionLocationLong = "Jurong West, Singapore"                     WHERE region LIKE "asia-southeast1";
-UPDATE instances SET regionLocationLong = "Osasco, São Paulo, Brazil"                  WHERE region LIKE "southamerica-east1";
 UPDATE instances SET regionLocationLong = "Moncks Corner, South Carolina, USA"         WHERE region LIKE "us-east1";
-UPDATE instances SET regionLocationLong = "Ashburn, Northern Virginia, USA"            WHERE region LIKE "us-east4";
+UPDATE instances SET regionLocationLong = "Montréal, Québec, Canada"                   WHERE region LIKE "northamerica-northeast1";
+UPDATE instances SET regionLocationLong = "Osasco, São Paulo, Brazil"                  WHERE region LIKE "southamerica-east1";
+UPDATE instances SET regionLocationLong = "Toronto, Ontario, Canada"                   WHERE region LIKE "northamerica-northeast2";
 
 /*
  * europe-west9 (Paris, France) is Global Switch data center in Clichy
