@@ -9,11 +9,15 @@
 [%- END -%]
 
 [%- MACRO badgeSud(instance) BLOCK -%]
-[% IF instance.sud %]<span class="badge bg-info">SUD</span>[% END %]
+[% IF instance.sud %]<span class="badge bg-info" title="Sustained Use Discount (SUD)">SUD</span>[% END %]
 [%- END -%]
 
 [%- MACRO badgeGpu(instance) BLOCK -%]
-[% IF instance.acceleratorCount && instance.acceleratorCount > 0; %]<span class="badge bg-light text-dark">GPU</span>[% END %]
+[% IF instance.acceleratorCount && instance.acceleratorCount > 0; %]<span class="badge text-bg-dark text-light" title="Accelerator (GPU)">GPU</span>[% END %]
+[%- END -%]
+
+[%- MACRO badgeLocalSsd(instance) BLOCK -%]
+[% IF instance.localSsd %]<span class="badge bg-light text-dark">Local SSD</span>[% END %]
 [%- END -%]
 
 [%- MACRO badgeSap(instance) BLOCK -%]
@@ -52,9 +56,11 @@ title="Region: [% region.name %],
 
 [%- MACRO bundledLocalSsd(instance) BLOCK -%]
 [% IF instance.localSsd > 1 %]
-<span class="badge text-bg-danger" title="Mandatory bundled local SSD">
-Bundled with [% instance.localSsd FILTER format("%.0f") %] GB
-</span>
+<span class="badge text-bg-warning">Bundled with [% instance.localSsd FILTER format("%.0f") %] GB</span>
+[% ELSIF instance.name.search('-lssd') %]
+<span class="badge text-bg-danger">Mandatory, additional costs!</span>
+[% ELSE %]
+<span class="badge text-bg-success">Optional</span>
 [% END %]
 [%- END -%]
 

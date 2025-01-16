@@ -63,6 +63,7 @@ Not every GCE machine type with GPU is available in every Google Cloud region.
 			[% badgeCpuManufactur(instance) %]
 			[% badgeSpot(instance) %]
 			[% badgeSud(instance) %]
+			[% badgeLocalSsd(instance) %]
 		</td>
 		<!-- Regions -->
 		<td>[% instance.regionCount %]</td>

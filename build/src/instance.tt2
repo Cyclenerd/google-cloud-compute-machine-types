@@ -6,6 +6,7 @@
 		[% IF instance.family %][% instance.family %][% END %]
 		Google Compute Engine machine type [% instance.name %] with [% instance.vCpus%] vCPU and [% instance.memoryGB %] GB memory.
 		[% IF instance.localSsd > 1 %]Bundled with [% instance.localSsd FILTER format("%.0f") %] GB local SSD.[% END %]
+		[% IF instance.name.search('-lssd') %]Local SSD storage is required and automatically attached. Additional costs for Local SSD storage are charged.[% END %]
 		[%- IF instance.sap || instance.hana -%]
 			GCE machine type [% instance.name %] is certified for
 			[% IF instance.sap %]SAP applications[% END %]

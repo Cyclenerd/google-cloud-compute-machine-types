@@ -38,6 +38,7 @@
 	[% badgeHana(instance) %]
 	[% badgeSpot(instance) %]
 	[% badgeSud(instance) %]
+	[% badgeLocalSsd(instance) %]
 </td>
 <td>[% instance.regionCount %]</td>
 <!-- Costs -->
@@ -94,6 +95,7 @@
 	[% badgeHana(instance) %]
 	[% badgeSpot(instance) %]
 	[% badgeSud(instance) %]
+	[% badgeLocalSsd(instance) %]
 </td>
 <td>[% instance.regionCount %]</td>
 <!-- Costs -->

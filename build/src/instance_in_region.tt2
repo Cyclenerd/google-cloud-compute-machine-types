@@ -14,6 +14,7 @@
 		in Google Cloud region <a href="/[% instance.region %].html" title="Show all machine types in region [% instance.region %]">[% instance.region %]</a>
 		[% IF instance.regionLocationLong %]([% instance.regionLocationLong %])[% ELSIF instance.regionLocation %]([% instance.regionLocation %])[% END %].
 		[% IF instance.localSsd > 1 %]Bundled with [% instance.localSsd FILTER format("%.0f") %] GB local SSD.[% END %]
+		[% IF instance.name.search('-lssd') %]Local SSD storage is required and automatically attached. Additional costs for Local SSD storage are charged.[% END %]
 		[%- IF instance.sap || instance.hana -%]
 			GCE machine type [% instance.name %] is certified for
 			[% IF instance.sap %]SAP applications[% END %]

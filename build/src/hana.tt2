@@ -60,6 +60,7 @@ Not every certified Google Cloud VM is available in every region.
 			[% badgeCpuManufactur(instance) %]
 			[% badgeSpot(instance) %]
 			[% badgeSud(instance) %]
+			[% badgeLocalSsd(instance) %]
 		</td>
 		<td>[% instance.regionCount %]</td>
 		<!-- Costs -->

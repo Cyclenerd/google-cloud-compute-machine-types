@@ -52,6 +52,7 @@
 			[% badgeSap(instance) %]
 			[% badgeHana(instance) %]
 			[% badgeSpot(instance) %]
+			[% badgeLocalSsd(instance) %]
 		</td>
 		<!-- Hour -->
 		<td></td>
@@ -92,6 +93,7 @@
 			[% badgeSap(instance) %]
 			[% badgeHana(instance) %]
 			[% badgeSpot(instance) %]
+			[% badgeLocalSsd(instance) %]
 		</td>
 		<!-- Hour -->
 		[% tableCompareCosts(instance_a.avgHour || 0, instance.avgHour || 0) %]
