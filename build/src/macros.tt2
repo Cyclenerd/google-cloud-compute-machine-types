@@ -171,6 +171,7 @@ title="Region: [% region.name %],
 [%- ELSIF code == 'PL' -%]🇵🇱
 [%- ELSIF code == 'QA' -%]🇶🇦
 [%- ELSIF code == 'SA' -%]🇸🇦
+[%- ELSIF code == 'SE' -%]🇸🇪
 [%- ELSIF code == 'SG' -%]🇸🇬
 [%- ELSIF code == 'TW' -%]🇹🇼
 [%- ELSIF code == 'US' -%]🇺🇸
@@ -203,6 +204,7 @@ title="Region: [% region.name %],
 [%- ELSIF code == 'PL' -%]Poland
 [%- ELSIF code == 'QA' -%]Qatar
 [%- ELSIF code == 'SA' -%]Saudi Arabia
+[%- ELSIF code == 'SE' -%]Sweden
 [%- ELSIF code == 'SG' -%]Singapore
 [%- ELSIF code == 'TW' -%]Taiwan
 [%- ELSIF code == 'US' -%]United States
