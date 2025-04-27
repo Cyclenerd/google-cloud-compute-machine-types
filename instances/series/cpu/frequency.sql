@@ -41,8 +41,10 @@ UPDATE instances SET cpuBaseClock  = '1.9', cpuTurboClock  = '3.0', cpuSingleMax
 UPDATE instances SET cpuBaseClock  = '1.9', cpuTurboClock  = '3.0', cpuSingleMaxTurboClock = '3.3' WHERE availableCpuPlatform LIKE "%Sapphire Rapids%" AND series LIKE "z3";
 
 /* Intel Xeon Scalable Processor (Emerald Rapids) 5th Generation */
-UPDATE instances SET cpuBaseClock  = '2.1', cpuTurboClock  = '2.9', cpuSingleMaxTurboClock = '3.3' WHERE availableCpuPlatform LIKE "%Emerald Rapids%" AND series LIKE "n4";
 UPDATE instances SET cpuBaseClock  = '2.3', cpuTurboClock  = '3.1', cpuSingleMaxTurboClock = '4.0' WHERE availableCpuPlatform LIKE "%Emerald Rapids%" AND series LIKE "c4";
+UPDATE instances SET cpuBaseClock  = '2.1', cpuTurboClock  = '2.9', cpuSingleMaxTurboClock = '4.0' WHERE availableCpuPlatform LIKE "%Emerald Rapids%" AND series LIKE "a4";
+UPDATE instances SET cpuBaseClock  = '2.1', cpuTurboClock  = '2.9', cpuSingleMaxTurboClock = '4.0' WHERE availableCpuPlatform LIKE "%Emerald Rapids%" AND series LIKE "m4";
+UPDATE instances SET cpuBaseClock  = '2.1', cpuTurboClock  = '2.9', cpuSingleMaxTurboClock = '3.3' WHERE availableCpuPlatform LIKE "%Emerald Rapids%" AND series LIKE "n4";
 
 /* AMD */
 /* https://cloud.google.com/compute/docs/cpu-platforms#amd_processors */
@@ -55,6 +57,9 @@ UPDATE instances SET cpuBaseClock  = '2.45', cpuTurboClock  = '2.8', cpuSingleMa
 
 /* AMD EPYC Genoa 4rd Generation */
 UPDATE instances SET cpuBaseClock  = '2.6', cpuTurboClock  = '3.45', cpuSingleMaxTurboClock = '3.7' WHERE availableCpuPlatform LIKE "%Genoa%";
+
+/* AMD EPYC Turin 5th Generation */
+UPDATE instances SET cpuBaseClock  = '2.7', cpuTurboClock  = '3.5', cpuSingleMaxTurboClock = '4.1' WHERE availableCpuPlatform LIKE "%Turin%";
 
 
 /* Arm */
