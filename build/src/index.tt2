@@ -201,14 +201,16 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 			</li>
 			<li>
 				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types" rel="nofollow">M1</a>,
-				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types" rel="nofollow">M2</a> and
-				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m3_machine_types" rel="nofollow">M3</a> memory optimized machine series
+				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types" rel="nofollow">M2</a>,
+				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m3_machine_types" rel="nofollow">M3</a> and
+				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m4_machine_types" rel="nofollow">M4</a> memory optimized machine series
 			</li>
 			<li>
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c3_series" rel="nofollow">C3</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c3d_series" rel="nofollow">C3D</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c4_series" rel="nofollow">C4</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c4a_series" rel="nofollow">C4A</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c4d_series" rel="nofollow">C4D</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines" rel="nofollow">N1</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_series" rel="nofollow">N2</a>,

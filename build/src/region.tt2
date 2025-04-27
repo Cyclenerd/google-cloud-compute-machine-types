@@ -113,11 +113,11 @@ IF disk.name == 'local-ssd';  minDiskSize = 375; END;
 		<th scope="col" title="CPU Platforms">#Platf.</th>
 		<th scope="col">#</th>
 		<!-- Costs -->
-		<th scope="col">Hour</th>
-		<th scope="col">Spot</th>
-		<th scope="col">Month</th>
-		<th scope="col">1Y CUD</th>
-		<th scope="col">3Y CUD</th>
+		<th scope="col" data-sortable="true">Hour</th>
+		<th scope="col" data-sortable="true">Spot</th>
+		<th scope="col" data-sortable="true">Month</th>
+		<th scope="col" data-sortable="true">1Y CUD</th>
+		<th scope="col" data-sortable="true">3Y CUD</th>
 		<!-- OS -->
 		<th scope="col">SLES</th>
 		<th scope="col">RHEL</th>
@@ -138,40 +138,27 @@ IF disk.name == 'local-ssd';  minDiskSize = 375; END;
 		<td class="frequency" title="CPU base clock frequency: [% instance.cpuBaseClock %] GHz">[% instance.cpuBaseClock %]</td>
 		<td class="memory" title="Random-access memory: [% instance.memoryGB %] GB">[% instance.memoryGB %]</td>
 		<td>
-			[% IF instance.intel %]<span class="badge bg-primary">Intel</span>[% END %]
-			[% IF instance.amd   %]<span class="badge bg-success">AMD</span>[% END %]
-			[% IF instance.sap   %]<span class="badge bg-warning text-dark">SAP</span>[% END %]
-			[% IF instance.hana  %]<span class="badge bg-warning text-dark">HANA</span>[% END %]
+			[% badgeCpuManufactur(instance) %]
+			[% badgeGpu(instance) %]
+			[% badgeSap(instance) %]
+			[% badgeHana(instance) %]
+			[% badgeSpot(instance) %]
+			[% badgeSud(instance) %]
+			[% badgeLocalSsd(instance) %]
 		</td>
 		<td [% IF instance.availableCpuPlatformCount < instance.cpuPlatformCount %]class="table-warning"[% END%] title="Available CPU platforms for machine type [% instance.name %] in region [% region.name %]">[% IF instance.availableCpuPlatformCount %][% instance.availableCpuPlatformCount %][% ELSE %]<span class="text-muted">?</span>[% END %]</td>
 		<td title="Available in [% instance.zoneCount %] zone[% IF instance.zoneCount > 1 %]s[% END %]">[% instance.zoneCount %]</td>
 		<!-- Costs -->
-		<td
-			title="Costs per hour for machine type [% instance.name %] in region [% region.name %]: [% instance.hour %] USD">
-			<span class="currency">[% instance.hour %]</span>
-		</td>
-		<td
-			title="Costs per hour for machine type [% instance.name %] in region [% region.name %] with spot provisioning model (Spot VM): [% instance.hourSpot %] USD">
-			<span class="currency">[% instance.hourSpot %]</span>
-		</td>
-		<td
-		    class="text-nowrap"
-		    title="Costs per month for machine type [% instance.name %] in region [% region.name %]: [% instance.month %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">
-			<span class="currency">[% instance.month %]</span>
-			[% badgeSud(instance) %]
-		</td>
-		<td
-		    title="Costs per month for machine type [% instance.name %] in region [% region.name %] with 1 year commitment (CUD): [% instance.month1yCud %] USD">
-			<span class="currency">[% instance.month1yCud %]</span>
-		</td>
-		<td
-		    title="Costs per month for machine type [% instance.name %] in region [% region.name %] with 3 year commitment (CUD): [% instance.month3yCud %] USD">
-			<span class="currency">[% instance.month3yCud %]</span>
-		</td>
+		<td class="currency" title="[% instance.name %] costs per hour: [% instance.hour %] USD">[% instance.hour %]</td>
+		<td class="currency" title="[% instance.name %] costs per hour with spot provisioning model (Spot VM): [% instance.hourSpot %] USD">[% instance.hourSpot %]</td>
+		<td class="currency" title="[% instance.name %] costs per month: [% instance.month %] USD[% IF instance.sud %] with sustained use discounts (SUD) applied[% END %]">[% instance.month %]</td>
+		<td class="currency" title="[% instance.name %] costs per month w. 1Y CUD: [% instance.month1yCud %] USD">[% instance.month1yCud %]</td>
+		<td class="currency" title="[% instance.name %] costs per month w. 3Y CUD: [% instance.month3yCud %] USD">[% instance.month3yCud %]</td>
 		<!-- OS -->
-		<td class="currency" title="SUSE Linux Enterprise Server: [% instance.monthSles %] USD">[% instance.monthSles %]</td>
-		<td class="currency" title="Red Hat Enterprise Linux: [% instance.monthRhel %] USD">[% instance.monthRhel %]</td>
-		<td class="currency" title="Microsoft Windows Server: [% instance.monthWindows %] USD">[% instance.monthWindows %]</td>
+		<td class="currency" title="[% instance.name %] license costs for SUSE Linux Enterprise Server: [% instance.monthSles %] USD">[% instance.monthSles %]</td>
+		<td class="currency" title="[% instance.name %] license costs for Red Hat Enterprise Linux: [% instance.monthRhel %] USD">[% instance.monthRhel %]</td>
+		<td class="currency" title="[% instance.name %] license costs for Microsoft Windows Server: [% instance.monthWindows %] USD">[% instance.monthWindows %]</td>
+</tr>
 	</tr>
 	[% END %]
 </tbody>
