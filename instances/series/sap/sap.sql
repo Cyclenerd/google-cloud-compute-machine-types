@@ -23,6 +23,30 @@ UPDATE instances SET sap = '1', saps = '41580'  WHERE name LIKE 'c3-highmem-22' 
 UPDATE instances SET sap = '1', saps = '76150'  WHERE name LIKE 'c3-highmem-44'   AND availableCpuPlatform LIKE "%Sapphire Rapids%";
 UPDATE instances SET sap = '1', saps = '142420' WHERE name LIKE 'c3-highmem-88'   AND availableCpuPlatform LIKE "%Sapphire Rapids%";
 UPDATE instances SET sap = '1', saps = '271550' WHERE name LIKE 'c3-highmem-176'  AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+/* TODO: Add SAPS */
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3-standard-192-metal' AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3-highmem-192-metal' AND availableCpuPlatform LIKE "%Sapphire Rapids%";
+
+
+/* C4 */
+/* Intel Emerald Rapids */
+/* TODO: Add SAPS */
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-highmem-2' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-highmem-4' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-highmem-8' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-highmem-16' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-highmem-32' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-highmem-48' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-highmem-96' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-highmem-192' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-standard-2' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-standard-4' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-standard-8' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-standard-16' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-standard-32' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-standard-48' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-standard-96' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'c4-standard-192' AND availableCpuPlatform LIKE "%Emerald Rapids%";
 
 /* C2D */
 /* AMD EPYC Milan */
@@ -40,6 +64,24 @@ UPDATE instances SET sap = '1', saps = '28357'  WHERE name LIKE 'c2d-standard-16
 UPDATE instances SET sap = '1', saps = '56714'  WHERE name LIKE 'c2d-standard-32'  AND availableCpuPlatform LIKE "%Milan%";
 UPDATE instances SET sap = '1', saps = '99250'  WHERE name LIKE 'c2d-standard-56'  AND availableCpuPlatform LIKE "%Milan%";
 UPDATE instances SET sap = '1', saps = '189400' WHERE name LIKE 'c2d-standard-112' AND availableCpuPlatform LIKE "%Milan%";
+
+/* C3D */
+/* AMD EPYC Genoa */
+/* TODO: Add SAPS */
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-highmem-4';
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-highmem-8';
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-highmem-16';
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-highmem-30';
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-highmem-60';
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-highmem-90';
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-highmem-180';
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-standard-4';
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-standard-8';
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-standard-16';
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-standard-30';
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-standard-60';
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-standard-90';
+UPDATE instances SET sap = '1' WHERE name LIKE 'c3d-standard-180';
 
 /* N2 */
 /* Intel Cascade Lake */
@@ -176,3 +218,14 @@ UPDATE instances SET sap = '1', saps = '95670'  WHERE name LIKE 'm3-ultramem-64'
 UPDATE instances SET sap = '1', saps = '184800' WHERE name LIKE 'm3-ultramem-128' AND availableCpuPlatform LIKE "%Ice Lake%";
 UPDATE instances SET sap = '1', saps = '99170'  WHERE name LIKE 'm3-megamem-64'   AND availableCpuPlatform LIKE "%Ice Lake%";
 UPDATE instances SET sap = '1', saps = '187620' WHERE name LIKE 'm3-megamem-128'  AND availableCpuPlatform LIKE "%Ice Lake%";
+
+/* M4 */
+/* Intel Emerald Rapids */
+/* TODO: Add SAPS */
+UPDATE instances SET sap = '1' WHERE name LIKE 'm4-megamem-28' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'm4-megamem-56' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'm4-megamem-112' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'm4-megamem-224' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'm4-ultramem-56' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'm4-ultramem-112' AND availableCpuPlatform LIKE "%Emerald Rapids%";
+UPDATE instances SET sap = '1' WHERE name LIKE 'm4-ultramem-224' AND availableCpuPlatform LIKE "%Emerald Rapids%";
