@@ -24,3 +24,5 @@ UPDATE instances SET tier1 = '75'  WHERE name LIKE 'c4d-%-64%';
 UPDATE instances SET tier1 = '100' WHERE name LIKE 'c4d-%-96%';
 UPDATE instances SET tier1 = '150' WHERE name LIKE 'c4d-%-192%';
 UPDATE instances SET tier1 = '200' WHERE name LIKE 'c4d-%-384%';
+
+UPDATE instances SET localSsd = '1' WHERE name LIKE 'c4d-%-lssd';
