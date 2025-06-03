@@ -125,20 +125,23 @@ title="Region: [% region.name %],
 [%- MACRO imageProjectName(project) BLOCK -%]
 [%- IF    project == 'almalinux-cloud'               -%]AlmaLinux
 [%- ELSIF project == 'centos-cloud'                  -%]CentOS
+[%- ELSIF project == 'cloud-hpc-image-public'        -%]HPC
 [%- ELSIF project == 'cos-cloud'                     -%]Container-Optimized OS
 [%- ELSIF project == 'debian-cloud'                  -%]Debian GNU/Linux
 [%- ELSIF project == 'deeplearning-platform-release' -%]Deep Learning
-[%- ELSIF project == 'cloud-hpc-image-public'        -%]HPC
 [%- ELSIF project == 'fedora-cloud'                  -%]Fedora
 [%- ELSIF project == 'fedora-coreos-cloud'           -%]Fedora CoreOS
 [%- ELSIF project == 'freebsd-org-cloud-dev'         -%]FreeBSD
 [%- ELSIF project == 'ml-images'                     -%]Machine Learning
 [%- ELSIF project == 'opensuse-cloud'                -%]openSUSE
+[%- ELSIF project == 'oracle-linux-cloud'            -%]Oracle Linux
 [%- ELSIF project == 'rhel-cloud'                    -%]Red Hat Enterprise Linux
 [%- ELSIF project == 'rhel-sap-cloud'                -%]Red Hat Enterprise Linux for SAP
+[%- ELSIF project == 'rocky-linux-accelerator-cloud' -%]Rocky Linux (NVIDIA)
 [%- ELSIF project == 'rocky-linux-cloud'             -%]Rocky Linux
 [%- ELSIF project == 'suse-cloud'                    -%]SUSE Linux Enterprise Server
 [%- ELSIF project == 'suse-sap-cloud'                -%]SUSE Linux Enterprise Server for SAP
+[%- ELSIF project == 'ubuntu-os-accelerator-images'  -%]Ubuntu (NVIDIA)
 [%- ELSIF project == 'ubuntu-os-cloud'               -%]Ubuntu
 [%- ELSIF project == 'ubuntu-os-pro-cloud'           -%]Ubuntu Pro
 [%- ELSIF project == 'windows-cloud'                 -%]Microsoft Windows Server
