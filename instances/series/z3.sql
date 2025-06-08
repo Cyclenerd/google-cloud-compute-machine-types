@@ -8,5 +8,5 @@ localSsd    = '36000',
 spot        = '1'
 WHERE name LIKE 'z3-%';
 
-UPDATE instances SET bandwidth = '62',  tier1 = '100' WHERE name LIKE 'z3-highmem-88';
-UPDATE instances SET bandwidth = '100', tier1 = '200' WHERE name LIKE 'z3-highmem-176';
+UPDATE instances SET bandwidth = '62',  tier1 = '100' WHERE name LIKE 'z3-highmem-88%';
+UPDATE instances SET bandwidth = '100', tier1 = '200' WHERE name LIKE 'z3-highmem-176%';

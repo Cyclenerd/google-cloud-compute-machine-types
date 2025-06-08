@@ -12,7 +12,10 @@ UPDATE instances SET bandwidth = '10' WHERE name LIKE 'c4-%-2';
 UPDATE instances SET bandwidth = '10' WHERE name LIKE 'c4-%-4';
 UPDATE instances SET bandwidth = '23' WHERE name LIKE 'c4-%-8';
 UPDATE instances SET bandwidth = '23' WHERE name LIKE 'c4-%-16';
+UPDATE instances SET bandwidth = '23' WHERE name LIKE 'c4-%-24';
 UPDATE instances SET bandwidth = '23' WHERE name LIKE 'c4-%-32';
 UPDATE instances SET bandwidth = '34' WHERE name LIKE 'c4-%-48';
 UPDATE instances SET bandwidth = '67' WHERE name LIKE 'c4-%-96';
 UPDATE instances SET bandwidth = '100' WHERE name LIKE 'c4-%-192';
+
+UPDATE instances SET localSsd = '1' WHERE name LIKE 'c4-%-lssd';
