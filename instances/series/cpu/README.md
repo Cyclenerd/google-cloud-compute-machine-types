@@ -74,6 +74,13 @@ Intel Xeon processor family
 
 * Code name: Emerald Rapids
 * Release date: 2023
+* [Wikipedia](https://en.wikipedia.org/wiki/Emerald_Rapids)
+
+### Granite Rapids
+
+* Code name: Granite Rapids
+* Release date: 2024
+* [Wikipedia](https://en.wikipedia.org/wiki/Granite_Rapids)
 
 ## AMD
 

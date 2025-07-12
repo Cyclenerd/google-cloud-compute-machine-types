@@ -43,12 +43,12 @@ Not every CPU is available in all Google Cloud region and zones.
 		<th scope="col" data-sortable="true">Location</th>
 		<th scope="col" data-sortable="true" title="ISO 3166-1 alpha-2 country code">Country</th>
 		<th scope="col" data-sortable="true">#</th>
+		<th scope="col" data-sortable="true" title="Intel Xeon Scalable Processor (Granite Rapids) 6rd Generation">Granite</th>
 		<th scope="col" data-sortable="true" title="Intel Xeon Scalable Processor (Emerald Rapids) 5rd Generation">Emerald</th>
 		<th scope="col" data-sortable="true" title="Intel Xeon Scalable Processor (Sapphire Rapids) 4rd Generation">Sapphire</th>
 		<th scope="col" data-sortable="true" title="Intel Xeon Scalable Processor (Ice Lake) 3rd Generation">Ice</th>
 		<th scope="col" data-sortable="true" title="Intel Xeon Scalable Processor (Cascade Lake) 2nd Generation">Cascade</th>
-		<th scope="col" data-sortable="true" title="Intel Xeon Scalable Processor (Skylake) 1st Generation">Skylake</th>
-		<th scope="col" data-sortable="true" title="Intel Xeon E5 (Broadwell E5)">Broadwell</th>
+		<th scope="col" data-sortable="true" title="Intel Xeon Scalable Processor (Skylake) 1nd Generation">Skylake</th>
 		<th scope="col" data-sortable="true" title="AMD EPYC Turin 5rd Generation">Turin</th>
 		<th scope="col" data-sortable="true" title="AMD EPYC Genoa 4rd Generation">Genoa</th>
 		<th scope="col" data-sortable="true" title="AMD EPYC Milan 3rd Generation">Milan</th>
@@ -74,12 +74,12 @@ Not every CPU is available in all Google Cloud region and zones.
 			[% END %]
 		</td>
 		<td>[% region.zoneCount %]</td>
+		[% IF region.intelGraniteRapids  %]<td>[% region.intelGraniteRapids  %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
 		[% IF region.intelEmeraldRapids  %]<td>[% region.intelEmeraldRapids  %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
 		[% IF region.intelSapphireRapids %]<td>[% region.intelSapphireRapids %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
 		[% IF region.intelIceLake        %]<td>[% region.intelIceLake        %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
 		[% IF region.intelCascadeLake    %]<td>[% region.intelCascadeLake    %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
 		[% IF region.intelSkylake        %]<td>[% region.intelSkylake        %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
-		[% IF region.intelBroadwell      %]<td>[% region.intelBroadwell      %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
 		[% IF region.amdTurin            %]<td>[% region.amdTurin            %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
 		[% IF region.amdGenoa            %]<td>[% region.amdGenoa            %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]
 		[% IF region.amdMilan            %]<td>[% region.amdMilan            %]</td>[% ELSE %]<td class="text-muted">0</td>[% END %]

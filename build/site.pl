@@ -246,6 +246,7 @@ SELECT
 	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Ice Lake%")     AS intelIceLake,
 	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Sapphire%")     AS intelSapphireRapids,
 	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Emerald%")      AS intelEmeraldRapids,
+	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Granite%")      AS intelGraniteRapids,
 	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Rome%")         AS amdRome,
 	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Milan%")        AS amdMilan,
 	(SELECT COUNT(name) FROM instances WHERE region = I.region AND availableCpuPlatform LIKE "%Genoa%")        AS amdGenoa,
