@@ -12,7 +12,7 @@ UPDATE instances SET bandwidth = '23' WHERE name LIKE 'z3-highmem-8%';
 UPDATE instances SET bandwidth = '23' WHERE name LIKE 'z3-highmem-16%';
 UPDATE instances SET bandwidth = '23' WHERE name LIKE 'z3-highmem-22%';
 UPDATE instances SET bandwidth = '32' WHERE name LIKE 'z3-highmem-32%';
-UPDATE instances SET bandwidth = '32'   tier1 = '50'  WHERE name LIKE 'z3-highmem-44%';
+UPDATE instances SET bandwidth = '32',  tier1 = '50'  WHERE name LIKE 'z3-highmem-44%';
 UPDATE instances SET bandwidth = '62',  tier1 = '100' WHERE name LIKE 'z3-highmem-88%';
 UPDATE instances SET bandwidth = '100', tier1 = '200' WHERE name LIKE 'z3-highmem-176%';
 UPDATE instances SET bandwidth = '100', tier1 = '200' WHERE name LIKE 'z3-highmem-192%';
