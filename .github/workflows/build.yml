@@ -38,7 +38,7 @@ jobs:
 
       # https://github.com/marketplace/actions/checkout
       - name: 🛎️ Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       # Configure Workload Identity Federation via a credentials file.
       - id: auth
