@@ -61,7 +61,7 @@ jobs:
       - name: 📑 Create website
         run: |
           cd build || exit 9
-          perl site.pl || exit 9
+          perl site.pl > /dev/null || exit 9
 
       - name: 🧪 Tests
         run: |
