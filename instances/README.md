@@ -11,7 +11,9 @@ The SQL files are read during the [build](../build/) process.
 
 * [Series](./series/)
 	* [A2](./series/a2.sql)
-	* [A3](./series/a2.sql)
+	* [A3](./series/a3.sql)
+	* [A4](./series/a4.sql)
+	* [A4X](./series/a4x.sql)
 	* [C2](./series/c2.sql)
 	* [C2D](./series/c2d.sql)
 	* [C3](./series/c3.sql)
@@ -50,7 +52,10 @@ The cost per machine type in region and licenses are added with the [gcosts](htt
 		<a href="https://cloud.google.com/compute/docs/machine-types#machine_type_comparison" rel="nofollow">Machine series comparison</a>
 		<ul>
 			<li>
-				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#a2_vms" rel="nofollow">A2</a> and
+				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#a2_vms" rel="nofollow">A2</a>,
+				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#a3-vms" rel="nofollow">A3</a>,
+				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#a4-vms" rel="nofollow">A4</a>,
+				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#a4x-vms" rel="nofollow">A4X</a> and
 				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#g2-vms" rel="nofollow">G2</a> accelerator optimized machines
 			</li>
 			<li>
@@ -85,4 +90,3 @@ The cost per machine type in region and licenses are added with the [gcosts](htt
 	<li><a href="https://cloud.google.com/solutions/sap/docs/certifications-sap-apps#sap-certified-vms" rel="nofollow">Certified SAP applications on Google Cloud</a></li>
 	<li><a href="https://cloud.google.com/solutions/sap/docs/certifications-sap-hana#hana-cert-table-vms" rel="nofollow">Certified machine types for SAP HANA</a></li>
 </ul>
-
