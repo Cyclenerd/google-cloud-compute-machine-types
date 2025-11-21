@@ -214,8 +214,9 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines" rel="nofollow">N1</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_series" rel="nofollow">N2</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n4_series" rel="nofollow">N4</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2d_machines" rel="nofollow">N2D</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n4_series" rel="nofollow">N4</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n4d_series" rel="nofollow">N4D</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2d_machines" rel="nofollow">T2D</a> and
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2a_machines" rel="nofollow">T2A</a> general purpose machine series
 			</li>

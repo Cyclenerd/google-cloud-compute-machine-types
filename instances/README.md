@@ -29,6 +29,7 @@ The SQL files are read during the [build](../build/) process.
 	* [N2](./series/n2.sql)
 	* [N2D](./series/n2d.sql)
 	* [N4](./series/n4.sql)
+	* [N4D](./series/n4d.sql)
 	* [T2D](./series/t2d.sql)
 	* [T2A](./series/t2a.sql)
 	* [Z3](./series/z3.sql)
@@ -73,6 +74,7 @@ The cost per machine type in region and licenses are added with the [gcosts](htt
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_machines" rel="nofollow">N2</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2d_machines" rel="nofollow">N2D</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n4_series" rel="nofollow">N4</a>,
+				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n4d_series" rel="nofollow">N4D</a>,
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2d_machines" rel="nofollow">T2D</a> and
 				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2a_machines" rel="nofollow">T2A</a> general purpose machine series
 			</li>
