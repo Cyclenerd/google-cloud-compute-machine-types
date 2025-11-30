@@ -743,7 +743,6 @@ foreach my $image (@images) {
 
 # Favicon
 my @favicons = (
-	'ads.txt',
 	'favicon.ico',
 	'favicon-16x16.png',
 	'favicon-32x32.png',
@@ -755,5 +754,8 @@ my @favicons = (
 foreach my $favicon (@favicons) {
 	copy("./src/img/favicon/$favicon", "../site/$favicon");
 }
+
+copy("./src/ads.txt", "../site/ads.txt");
+
 
 print "DONE\n";
