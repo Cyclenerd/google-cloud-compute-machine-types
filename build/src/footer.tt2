@@ -16,6 +16,8 @@
 	Last Update: <a href=[% IF gitHubRunId %]"[% gitHubServerUrl %]/[% gitHubRepository %]/actions/runs/[% gitHubRunId %]"[% ELSE %]"#"[% END %]>[% gmtime %]</a> (GMT)
 	·
 	<a href="/imprint.html">Imprint</a>
+	·
+	<a href="https://www.nkn-it.de/dsgvo.html">Datenschutz</a>
 </p>
 </div> <!-- // container -->
 </footer>
