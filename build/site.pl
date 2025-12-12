@@ -756,6 +756,7 @@ foreach my $favicon (@favicons) {
 }
 
 copy("./src/ads.txt", "../site/ads.txt");
+copy("./src/popin-min.js", "../site/popin-min.js");
 
 
 print "DONE\n";
