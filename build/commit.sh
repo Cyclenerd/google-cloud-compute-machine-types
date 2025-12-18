@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 # GitHub Action runner
 if [ -v GITHUB_RUN_ID ]; then
@@ -12,8 +13,8 @@ date > "$MY_TXT"
 
 if ! git diff --exit-code "$MY_TXT"; then
 	git add "$MY_TXT"
-	git commit -m "Last build" || exit 9
-	git push || exit 9
+	git commit -m "Last build"
+	git push
 fi
 
 echo "DONE"

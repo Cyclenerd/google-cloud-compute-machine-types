@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
+set -e
 
 #
 # Test
 #
 
-source "00_config.sh" || exit
+source "00_config.sh"
 
 # Check TODOs
 if grep 'TODO' < "$CSV_EXPORT"; then

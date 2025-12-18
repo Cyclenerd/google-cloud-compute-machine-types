@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
+set -e
 
 #
 # Export CSV and SQL file
 #
 
-source "00_config.sh" || exit 9
+source "00_config.sh"
 
 echo "» SQL Export"
 {
@@ -14,10 +15,10 @@ echo "» SQL Export"
 	sqlite3 "$DB" '.dump disks'
 	echo 'DROP TABLE IF EXISTS "images";'
 	sqlite3 "$DB" '.dump images'
-} > "$SQL_EXPORT" || exit 9
-gzip -fk "$SQL_EXPORT" || exit 9
+} > "$SQL_EXPORT"
+gzip -fk "$SQL_EXPORT"
 
 echo "» CSV Export"
 sqlite3     \
 	-header \
-	-csv "$DB" "SELECT * FROM instances ORDER BY region, name;" > "$CSV_EXPORT" || exit 9
+	-csv "$DB" "SELECT * FROM instances ORDER BY region, name;" > "$CSV_EXPORT"
