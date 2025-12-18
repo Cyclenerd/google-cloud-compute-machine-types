@@ -1,4 +1,4 @@
-#!/usr/bin/perl
+#!/usr/bin/env perl
 
 # Copyright 2022-2025 Nils Knieling. All Rights Reserved.
 #
