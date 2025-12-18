@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# Copyright 2022 Nils Knieling. All Rights Reserved.
+# Copyright 2022-2025 Nils Knieling. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -34,5 +34,7 @@ print " */\n";
 
 my @names = keys %$regions;
 foreach my $name (sort @names) {
-	print 'UPDATE instances SET regionLocationLong = "'. $regions->{$name}->{'name'} .'", regionLat = "'. $regions->{$name}->{'latitude'} .'", regionLng = "'. $regions->{$name}->{'longitude'} .'" WHERE region LIKE "'. $name ."\";\n";
+	my $location_name = $regions->{$name}->{'name'};
+	$location_name =~ s/'/''/g; # Escape single quotes for SQL
+	print "UPDATE instances SET regionLocationLong = '". $location_name ."', regionLat = '". $regions->{$name}->{'latitude'} ."', regionLng = '". $regions->{$name}->{'longitude'} ."' WHERE region = '". $name ."';\n";
 }

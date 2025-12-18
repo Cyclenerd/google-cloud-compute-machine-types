@@ -1,4 +1,10 @@
 {
+   "africa-south1":{
+      "name":"Johannesburg, South Africa",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/a/af/Flag_of_South_Africa.svg",
+      "latitude": 26.2056,
+      "longitude": 28.0337
+   },
    "asia-east1":{
       "name":"Taiwan, Republic of China",
       "flag": "https://upload.wikimedia.org/wikipedia/commons/7/72/Flag_of_the_Republic_of_China.svg",
@@ -124,6 +130,37 @@
       "flag": "https://upload.wikimedia.org/wikipedia/en/c/c3/Flag_of_France.svg",
       "latitude": 48.8566,
       "longitude": 2.3522
+   },
+   "europe-west10":{
+      "name":"Berlin, Germany",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/b/ba/Flag_of_Germany.svg",
+      "latitude": 52.5200,
+      "longitude": 13.4050
+   },
+   "europe-west12":{
+      "name":"Turin, Italy",
+      "flag": "https://upload.wikimedia.org/wikipedia/en/0/03/Flag_of_Italy.svg",
+      "latitude": 45.0703,
+      "longitude": 7.6869
+   },
+   "me-west1":{
+      "name":"Tel Aviv, Israel",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Flag_of_Israel.svg",
+      "latitude": 32.0853,
+      "longitude": 34.7818
+   },
+   "me-central1":{
+      "name":"Doha, Qatar",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/6/65/Flag_of_Qatar.svg",
+      "latitude": 25.2854,
+      "longitude": 51.5310,
+      "gCO2_kWh": 471
+   },
+   "me-central2":{
+      "name":"Dammam, Kingdom of Saudi Arabia",
+      "flag": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Flag_of_Saudi_Arabia.svg",
+      "latitude": 26.4207,
+      "longitude": 50.0888
    },
    "northamerica-northeast1":{
       "name":"Montréal, Canada",
