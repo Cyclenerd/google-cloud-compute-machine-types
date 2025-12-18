@@ -1,41 +1,45 @@
 Google Cloud Region,Location,Google CFE,Grid carbon intensity (gCO2eq / kWh)
-africa-south1,Johannesburg,0.16,646
-asia-east1,Taiwan,0.18,451
-asia-east2,Hong Kong,0.28,360
-asia-northeast1,Tokyo,0.16,459
-asia-northeast2,Osaka,0.30,385
-asia-northeast3,Seoul,0.35,378
-asia-south1,Mumbai,0.14,648
-asia-south2,Delhi,0.29,529
-asia-southeast1,Singapore,0.04,369
-asia-southeast2,Jakarta,0.13,580
-australia-southeast1,Sydney,0.33,501
-australia-southeast2,Melbourne,0.40,456
-europe-central2,Warsaw,0.31,723
-europe-north1,Finland,0.98,46
-europe-southwest1,Madrid,0.76,131
-europe-west1,Belgium,0.82,122
-europe-west2,London,0.92,136
-europe-west3,Frankfurt,0.90,345
-europe-west4,Netherlands,0.80,236
-europe-west6,Zurich,0.92,59
-europe-west8,Milan,0.52,249
-europe-west9,Paris,0.94,34
-europe-west10,Berlin,0.90,345
-europe-west12,Turin,0.52,249
-me-central1,Doha,0.00,575
-me-central2,Dammam,0.00,569
-me-west1,Tel Aviv,0.05,463
-northamerica-northeast1,Montréal,1.00,2
-northamerica-northeast2,Toronto,0.87,47
-southamerica-east1,Sāo Paulo,0.90,56
-southamerica-west1,Santiago,0.91,138
-us-central1,Iowa,0.95,430
-us-east1,South Carolina,0.29,560
-us-east5,Columbus,0.52,322
-us-east4,Northern Virginia,0.52,322
-us-south1,Dallas,0.79,321
-us-west1,Oregon,0.84,94
-us-west2,Los Angeles,0.55,198
-us-west3,Salt Lake City,0.29,588
-us-west4,Las Vegas,0.26,373
+africa-south1,Johannesburg,0.15,656.85
+asia-east1,Taiwan,0.17,439.29
+asia-east2,Hong Kong,0.01,505.02
+asia-northeast1,Tokyo,0.17,452.85
+asia-northeast2,Osaka,0.46,296.19
+asia-northeast3,Seoul,0.37,356.57
+asia-south1,Mumbai,0.09,678.76
+asia-south2,Delhi,0.29,531.83
+asia-southeast1,Singapore,0.04,366.85
+asia-southeast2,Jakarta,0.18,560.55
+australia-southeast1,Sydney,0.34,497.50
+australia-southeast2,Melbourne,0.39,454.37
+europe-central2,Warsaw,0.40,642.88
+europe-north1,Finland,0.98,39.32
+europe-north2,Stockholm,1.00,2.73
+europe-southwest1,Madrid,0.87,89.04
+europe-west1,Belgium,0.84,103.37
+europe-west2,London,0.79,105.94
+europe-west3,Frankfurt,0.68,275.82
+europe-west4,Eemshaven,0.83,208.81
+europe-west6,Zürich,0.98,15.05
+europe-west8,Milan,0.73,201.69
+europe-west9,Paris,0.96,16.30
+europe-west10,Berlin,0.68,275.82
+europe-west12,Turin,0.73,201.69
+me-central1,Doha,0.01,366
+me-central2,Dammam,0.01,382.23
+me-west1,Tel Aviv,0.07,433.75
+northamerica-northeast1,Montréal,0.99,5.48
+northamerica-northeast2,Toronto,0.84,58.56
+northamerica-south1,Mexico,0.19,305.00
+southamerica-east1,Sāo Paulo,0.88,67.32
+southamerica-west1,Santiago,0.92,238.00
+us-central1,Iowa,0.87,412.72
+us-central2,Oklahoma,0.88,372.23
+us-east1,South Carolina,0.31,575.77
+us-east2,Georgia,0.42,340.42
+us-east4,Northern Virginia,0.62,323.05
+us-east5,Columbus,0.62,323.05
+us-south1,Dallas,0.94,302.95
+us-west1,Oregon,0.87,79.23
+us-west2,Los Angeles,0.63,169.28
+us-west3,Salt Lake City,0.33,555.17
+us-west4,Las Vegas,0.64,357.30

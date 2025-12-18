@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# Copyright 2022-2024 Nils Knieling. All Rights Reserved.
+# Copyright 2022-2025 Nils Knieling. All Rights Reserved.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -47,11 +47,13 @@ while ($sth->fetch) {
 			$cfe = "";
 		}
 		# Grid carbon intensity (gCO2eq/kWh)
-		if ($co2_kwh =~ /^(\d+)$/) {
+		if ($co2_kwh =~ /^(\d+(\.\d+)?)$/) {
 			$co2_kwh = $1;
 		} else {
 			$co2_kwh = "";
 		}
+		# https://cloud.google.com/sustainability/region-carbon#region-picker
+		# 18.12.2025: https://archive.is/HKHtV
 		# For a location to be considered "low carbon",
 		# it must belong to a region with a Google CFE% of at least 75%,
 		my $low_co2 = "0";
@@ -62,7 +64,7 @@ while ($sth->fetch) {
 		} elsif (!$cfe && $co2_kwh <= "200") {
 			$low_co2 = "1";
 		}
-		print "UPDATE instances SET regionCfe = '$cfe', regionCo2Kwh = '$co2_kwh', regionLowCo2 = '$low_co2' WHERE region LIKE '$region';\n";
+		print "UPDATE instances SET regionCfe = '$cfe', regionCo2Kwh = '$co2_kwh', regionLowCo2 = '$low_co2' WHERE region = '$region';\n";
 	}
 }
 $dbh->disconnect;
