@@ -3,6 +3,7 @@
 UPDATE instances SET regionLocationLong = 'Doha, Qatar',          regionLat = '25.2409741', regionLng = '51.5126395' WHERE region LIKE 'me-central1';
 UPDATE instances SET regionLocationLong = 'Dammam, Saudi Arabia', regionLat = '26.3622236', regionLng = '49.6807149' WHERE region LIKE 'me-central2';
 UPDATE instances SET regionLocationLong = 'Tel Aviv, Israel',     regionLat = '32.0858103', regionLng = '34.7697987' WHERE region LIKE 'me-west1';
+UPDATE instances SET regionLocationLong = 'Bangkok, Thailand'     regionLat = '13.7525',    regionLng = '100.494167' WHERE region LIKE 'asia-southeast3';
 
 /* https://www.domstol.se/mark--och-miljodomstolen-vid-nacka-tingsratt/nyheter/2021/06/mark--och-miljodomstolen-lamnar-tillstand-till-datacenter-i-horndal-avesta-kommun/ */
 UPDATE instances SET regionLocationLong = 'Stockholm, Sweden', regionLat = '60.2936275', regionLng = '16.3941995' WHERE region LIKE 'europe-north2';
