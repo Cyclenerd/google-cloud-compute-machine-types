@@ -31,7 +31,7 @@ UPDATE instances SET regionLocationLong = 'Turin, Italy', regionLat = '45.146729
 Source: https://cloud.google.com/blog/products/infrastructure/new-google-cloud-region-in-madrid-spain-now-open
 [...] Built in partnership with Telefónica [...]
 */
-UPDATE instances SET regionLat = '40.5195333', regionLng = '3.3409366' WHERE region LIKE 'europe-southwest1';
+UPDATE instances SET regionLat = '40.5195333', regionLng = '-3.3409366' WHERE region LIKE 'europe-southwest1';
 
 /* https://cloud.google.com/blog/products/infrastructure/expanding-cloud-infrastructure-around-the-world */
 UPDATE instances SET regionLat = '20.583333', regionLng = '-100.383333', regionLocationLong = 'Querétaro, Mexico' WHERE region LIKE 'northamerica-south1';
