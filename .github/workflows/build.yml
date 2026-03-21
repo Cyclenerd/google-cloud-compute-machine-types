@@ -5,11 +5,6 @@ on:
   schedule:
     - cron: '45 3 * * 5' # At 03:45 on Friday
 
-env:
-  R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
-  R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
-  R2_API_ENDPOINT: ${{ secrets.R2_API_ENDPOINT }}
-
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub
 permissions:
   contents: write
@@ -81,21 +76,33 @@ jobs:
           cat "site/europe-west4/n2-standard-8.html" | grep '249' || exit 9
           jq -e '.[] | .name' "site/instance_in_region.json" | grep '"n2-standard-8"' || exit 9
 
-      - name: 🪣 Publish website
-        #run: gcloud storage cp --gzip-in-flight=html,js,css,txt,json --recursive site/* gs://gcloud-compute.com || exit 9
-        run: |
-          mkdir -p "$HOME/.config/rclone" || exit 9
-          echo "[r2]"                                       > "$HOME/.config/rclone/rclone.conf" || exit 9
-          echo "type = s3"                                 >> "$HOME/.config/rclone/rclone.conf"
-          echo "provider = Cloudflare"                     >> "$HOME/.config/rclone/rclone.conf"
-          echo "access_key_id = $R2_ACCESS_KEY_ID"         >> "$HOME/.config/rclone/rclone.conf"
-          echo "secret_access_key = $R2_SECRET_ACCESS_KEY" >> "$HOME/.config/rclone/rclone.conf"
-          echo "endpoint = $R2_API_ENDPOINT"               >> "$HOME/.config/rclone/rclone.conf"
-          echo "acl = private"                             >> "$HOME/.config/rclone/rclone.conf"
-          echo "no_check_bucket = true"                    >> "$HOME/.config/rclone/rclone.conf"
-          rclone copy --transfers 32 --checkers 64 --fast-list "site/" "r2:gcloud-compute/" || exit 9
-
-      - name: Commit last build
+      - name: 💾 Commit last build
         run: |
           cd build || exit 9
           bash commit.sh || exit 9
+
+      - name: 🚀 Publish website
+        env:
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+          SSH_SERVER: ${{ secrets.SSH_SERVER }}
+          SSH_PORT: ${{ secrets.SSH_PORT }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+        run: |
+          mkdir -p "$HOME/.ssh" || exit 9
+          echo "$SSH_KEY" > "$HOME/.ssh/deploy.key" || exit 9
+          chmod 600 "$HOME/.ssh/deploy.key" || exit 9
+          ssh-keyscan -p "$SSH_PORT" "$SSH_SERVER" >> "$HOME/.ssh/known_hosts" || exit 9
+          rclone copy "web/" ":sftp:/var/www/gcloud-compute.com" \
+            --sftp-host "$SSH_SERVER" \
+            --sftp-port "$SSH_PORT" \
+            --sftp-user "$SSH_USER" \
+            --sftp-key-file "$HOME/.ssh/deploy.key" \
+            --sftp-known-hosts-file "$HOME/.ssh/known_hosts" \
+            --transfers 4 \
+            --checkers 4 \
+            --sftp-concurrency 128 \
+            --sftp-disable-hashcheck \
+            --ignore-checksum \
+            --sftp-set-modtime=false \
+            --ignore-times \
+            --use-mmap || exit 9
