@@ -92,7 +92,7 @@ jobs:
           echo "$SSH_KEY" > "$HOME/.ssh/deploy.key" || exit 9
           chmod 600 "$HOME/.ssh/deploy.key" || exit 9
           ssh-keyscan -p "$SSH_PORT" "$SSH_SERVER" >> "$HOME/.ssh/known_hosts" || exit 9
-          rclone copy "web/" ":sftp:/var/www/gcloud-compute.com" \
+          rclone copy "site/" ":sftp:/var/www/gcloud-compute.com" \
             --sftp-host "$SSH_SERVER" \
             --sftp-port "$SSH_PORT" \
             --sftp-user "$SSH_USER" \
