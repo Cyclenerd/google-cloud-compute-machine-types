@@ -87,11 +87,8 @@ my $template = Template->new(
 	INCLUDE_PATH => './src',
 	PRE_PROCESS  => 'config.tt2',
 	VARIABLES => {
-		'gmtime'          => $gmtime,
-		'timestamp'        => $timestamp,
-		'gitHubServerUrl'  => $ENV{'GITHUB_SERVER_URL'} || '',
-		'gitHubRepository' => $ENV{'GITHUB_REPOSITORY'} || '',
-		'gitHubRunId'      => $ENV{'GITHUB_RUN_ID'}     || '',
+		'gmtime'    => $gmtime,
+		'timestamp' => $timestamp,
 	}
 );
 my @files = ();

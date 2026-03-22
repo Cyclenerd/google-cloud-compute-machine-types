@@ -1,8 +1,7 @@
 # Google Cloud Compute Comparison
 
 [![Badge: Google Cloud](https://img.shields.io/badge/Google%20Cloud-%234285F4.svg?logo=google-cloud&logoColor=white)](#readme)
-[![Badge: CI](https://github.com/Cyclenerd/google-cloud-compute-machine-types/actions/workflows/build.yml/badge.svg)](https://github.com/Cyclenerd/google-cloud-compute-machine-types/actions/workflows/build.yml)
-[![Badge: GitHub](https://img.shields.io/github/license/cyclenerd/google-cloud-compute-machine-types)](https://github.com/Cyclenerd/google-cloud-compute-machine-types/blob/master/LICENSE)
+[![Badge: LICENSE](https://img.shields.io/github/license/cyclenerd/google-cloud-compute-machine-types)](https://github.com/Cyclenerd/google-cloud-compute-machine-types/blob/master/LICENSE)
 
 This Google Compute Engine machine type comparison [webapp](https://gcloud-compute.com/) helps to find the optimal GCE machine type or instance in the many Google Cloud Platform (GCP) regions. A lot of information has been collected from various Google Cloud websites and different sources.
 

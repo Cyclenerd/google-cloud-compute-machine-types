@@ -1,6 +1,5 @@
 # Build
 
-This project uses GitHub Actions for automated builds and deployments.
 Ready to tweak and test this webapp locally?
 Follow these instructions:
 
