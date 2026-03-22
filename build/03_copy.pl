@@ -188,7 +188,7 @@ print "Images\n";
 $db->do("DELETE FROM images") or die "ERROR: Cannot delete table $DBI::errstr\n";
 
 my $insert_images = qq ~
-INSERT INTO images (
+REPLACE INTO images (
 	'name',
 	'description',
 	'diskSizeGb',
