@@ -48,6 +48,11 @@ use App::Options (
 			default     => '',
 			description => "Create comparison websites only for this machine type"
 		},
+		site_folder => {
+			required    => '0',
+			default     => '../site/',
+			description => "Site storage folder path"
+		},
 	},
 );
 
@@ -55,6 +60,10 @@ my $create_region     = $App::options{region};
 my $limit_region      = $App::options{limit_region};
 my $create_comparison = $App::options{comparison};
 my $limit_comparison  = $App::options{limit_comparison};
+my $site_folder       = $App::options{site_folder};
+
+# Ensure site_folder ends with a slash
+$site_folder .= '/' unless $site_folder =~ /\/$/;
 
 my $db_file  = 'gce.db';
 
@@ -144,22 +153,22 @@ while (my $instance = $sth->fetchrow_hashref) {
 }
 $sth->finish;
 push(@files, 'instances.html');
-$template->process('instances.tt2', { 'instances' => \@instances }, '../site/instances.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('instances.tt2', { 'instances' => \@instances }, "${site_folder}instances.html") || die "Template process failed: ", $template->error(), "\n";
 
 # CPU
 push(@files, 'intel.html');
-$template->process('intel.tt2', { 'instances' => \@instances }, '../site/intel.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('intel.tt2', { 'instances' => \@instances }, "${site_folder}intel.html") || die "Template process failed: ", $template->error(), "\n";
 push(@files, 'amd.html');
-$template->process('amd.tt2', { 'instances' => \@instances }, '../site/amd.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('amd.tt2', { 'instances' => \@instances }, "${site_folder}amd.html") || die "Template process failed: ", $template->error(), "\n";
 push(@files, 'arm.html');
-$template->process('arm.tt2', { 'instances' => \@instances }, '../site/arm.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('arm.tt2', { 'instances' => \@instances }, "${site_folder}arm.html") || die "Template process failed: ", $template->error(), "\n";
 push(@files, 'gpu.html');
-$template->process('gpu.tt2', { 'instances' => \@instances }, '../site/gpu.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('gpu.tt2', { 'instances' => \@instances }, "${site_folder}gpu.html") || die "Template process failed: ", $template->error(), "\n";
 # SAP
 push(@files, 'sap.html');
-$template->process('sap.tt2', { 'instances' => \@instances }, '../site/sap.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('sap.tt2', { 'instances' => \@instances }, "${site_folder}sap.html") || die "Template process failed: ", $template->error(), "\n";
 push(@files, 'hana.html');
-$template->process('hana.tt2', { 'instances' => \@instances }, '../site/hana.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('hana.tt2', { 'instances' => \@instances }, "${site_folder}hana.html") || die "Template process failed: ", $template->error(), "\n";
 
 ###############################################################################
 # DISKS
@@ -188,8 +197,8 @@ while (my $disk = $sth->fetchrow_hashref) {
 }
 $sth->finish;
 push(@files, 'disks.html');
-$template->process('disks.tt2', { 'disks' => \@disks }, '../site/disks.html') || die "Template process failed: ", $template->error(), "\n";
-$template->process('disks.js', {}, '../site/disks.js') || die "Template process failed: ", $template->error(), "\n";
+$template->process('disks.tt2', { 'disks' => \@disks }, "${site_folder}disks.html") || die "Template process failed: ", $template->error(), "\n";
+$template->process('disks.js', {}, "${site_folder}disks.js") || die "Template process failed: ", $template->error(), "\n";
 
 
 ###############################################################################
@@ -219,7 +228,7 @@ while (my $region = $sth->fetchrow_hashref) {
 $sth->finish;
 # Regions
 push(@files, 'diskpricing.html');
-$template->process('diskpricing.tt2', { 'disks_regions' => \@disks_regions }, '../site/diskpricing.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('diskpricing.tt2', { 'disks_regions' => \@disks_regions }, "${site_folder}diskpricing.html") || die "Template process failed: ", $template->error(), "\n";
 
 
 ###############################################################################
@@ -278,13 +287,13 @@ while (my $region = $sth->fetchrow_hashref) {
 $sth->finish;
 # Regions
 push(@files, 'regions.html');
-$template->process('regions.tt2', { 'regions' => \@regions }, '../site/regions.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('regions.tt2', { 'regions' => \@regions }, "${site_folder}regions.html") || die "Template process failed: ", $template->error(), "\n";
 # Map with regions
 push(@files, 'map.html');
-$template->process('map.tt2', { 'regions' => \@regions }, '../site/map.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('map.tt2', { 'regions' => \@regions }, "${site_folder}map.html") || die "Template process failed: ", $template->error(), "\n";
 # CPU platforms in regions
 push(@files, 'platforms.html');
-$template->process('platforms.tt2', { 'regions' => \@regions }, '../site/platforms.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('platforms.tt2', { 'regions' => \@regions }, "${site_folder}platforms.html") || die "Template process failed: ", $template->error(), "\n";
 
 
 ###############################################################################
@@ -355,7 +364,7 @@ foreach my $region (@regions) {
 		push(@disks_in_region, $disk);
 		$id++;
 	}
-	my $html_file = '../site/'."$name".'.html';
+	my $html_file = "${site_folder}$name.html";
 	print "$html_file\n";
 	push(@files, "$name".'.html');
 	$template->process('region.tt2', {
@@ -415,7 +424,7 @@ foreach my $instance (@instances) {
 		$id++;
 	}
 	$sth->finish;
-	my $html_file = '../site/'."$name".'.html';
+	my $html_file = "${site_folder}$name.html";
 	print "$html_file\n";
 	push(@files, "$name".'.html');
 	$template->process('instance.tt2', {
@@ -453,7 +462,7 @@ foreach my $disk (@disks) {
 		$id++;
 	}
 	$sth->finish;
-	my $html_file = '../site/'."$name".'.html';
+	my $html_file = "${site_folder}$name.html";
 	print "$html_file\n";
 	push(@files, "$name".'.html');
 	$template->process('disk.tt2', {
@@ -535,7 +544,7 @@ while (my $instance = $sth->fetchrow_hashref) {
 	$instance->{'id'} = $id;
 	push(@instances_in_regions, $instance);
 	if ($create_region) {
-		my $html_file = '../site/'."$region/$name".'.html';
+		my $html_file = "${site_folder}$region/$name.html";
 		print "$id : $html_file\n";
 		$template->process('instance_in_region.tt2', {
 			'instance' => $instance,
@@ -560,7 +569,7 @@ if ($create_comparison) {
 		$template->process('vs.tt2', {
 			'instance_a' => $instance_a,
 			'instances'  => \@instances
-		}, '../site/comparison/'."$name_a".'/vs.html') || die "Template process failed: ", $template->error(), "\n";
+		}, "${site_folder}comparison/$name_a/vs.html") || die "Template process failed: ", $template->error(), "\n";
 		foreach my $instance_b (@instances) {
 			my $name_b = $instance_b->{'name'} || 'missing';
 			next if ($name_a eq $name_b);
@@ -618,7 +627,7 @@ if ($create_comparison) {
 				push(@regions_b, $region);
 			}
 			$sth->finish;
-			my $html_file = '../site/comparison/'."$name_a".'/vs/'."$name_b".'.html';
+			my $html_file = "${site_folder}comparison/$name_a/vs/$name_b.html";
 			print "$id : $html_file\n";
 			$template->process('comparison.tt2', {
 				'instances'  => \@instances,
@@ -673,7 +682,7 @@ push(@files, 'images.html');
 $template->process('images.tt2', {
 	'image_projects' => \@image_projects,
 	'image_famlies'  => \@image_families
-}, '../site/images.html') || die "Template process failed: ", $template->error(), "\n";
+}, "${site_folder}images.html") || die "Template process failed: ", $template->error(), "\n";
 
 
 ###############################################################################
@@ -686,47 +695,47 @@ $template->process('index.tt2', {
 	'disks'                => \@disks,
 	'regions'              => \@regions,
 	'instances_in_regions' => \@instances_in_regions
-}, '../site/index.html') || die "Template process failed: ", $template->error(), "\n";
+}, "${site_folder}index.html") || die "Template process failed: ", $template->error(), "\n";
 
 # Grid
 push(@files, 'grid.html');
 my $json = encode_json \@instances_in_regions;
 $json    = decode('UTF-8', $json); # force UTF-8
-$template->process('main.js',                 {},                  '../site/main.js')                 || die "Template process failed: ", $template->error(), "\n";
-$template->process('grid.tt2',                {},                  '../site/grid.html')               || die "Template process failed: ", $template->error(), "\n";
-$template->process('instance_in_region.json', { 'json' => $json }, '../site/instance_in_region.json') || die "Template process failed: ", $template->error(), "\n";
+$template->process('main.js',                 {},                  "${site_folder}main.js")                 || die "Template process failed: ", $template->error(), "\n";
+$template->process('grid.tt2',                {},                  "${site_folder}grid.html")               || die "Template process failed: ", $template->error(), "\n";
+$template->process('instance_in_region.json', { 'json' => $json }, "${site_folder}instance_in_region.json") || die "Template process failed: ", $template->error(), "\n";
 
 # Download
 push(@files, 'download.html');
 $template->process('download.tt2', {
 	'csvFileSize' => $filesize_csv_export,
 	'sqlFileSize' => $filesize_sql_export,
-}, '../site/download.html') || die "Template process failed: ", $template->error(), "\n";
+}, "${site_folder}download.html") || die "Template process failed: ", $template->error(), "\n";
 
 # gcosts
 push(@files, 'gcosts.html');
-$template->process('gcosts.tt2', {}, '../site/gcosts.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('gcosts.tt2', {}, "${site_folder}gcosts.html") || die "Template process failed: ", $template->error(), "\n";
 
 # Imprint
-$template->process('imprint.tt2', {}, '../site/imprint.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('imprint.tt2', {}, "${site_folder}imprint.html") || die "Template process failed: ", $template->error(), "\n";
 
 # 404
-$template->process('404.tt2', {}, '../site/404.html') || die "Template process failed: ", $template->error(), "\n";
+$template->process('404.tt2', {}, "${site_folder}404.html") || die "Template process failed: ", $template->error(), "\n";
 
 # Sitemap
-$template->process('sitemap.tt2', { 'files' => \@files }, '../site/sitemap.txt') || die "Template process failed: ", $template->error(), "\n";
+$template->process('sitemap.tt2', { 'files' => \@files }, "${site_folder}sitemap.txt") || die "Template process failed: ", $template->error(), "\n";
 
 # Robots.txt
 $template->process('robots.txt', {
 	'regions' => \@regions
-}, '../site/robots.txt') || die "Template process failed: ", $template->error(), "\n";
+}, "${site_folder}robots.txt") || die "Template process failed: ", $template->error(), "\n";
 
 # SQL and CSV Export
-copy("$sql_export", '../site/machine-types-regions.sql.gz');
-copy("$csv_export", '../site/machine-types-regions.csv');
+copy("$sql_export", "${site_folder}machine-types-regions.sql.gz");
+copy("$csv_export", "${site_folder}machine-types-regions.csv");
 
 # Images
-mkdir('../site/img/');
+mkdir("${site_folder}img/");
 my @images = (
 	'combine-filter.png',
 	'csv.png',
@@ -738,7 +747,7 @@ my @images = (
 	'usage.png',
 );
 foreach my $image (@images) {
-	copy("./src/img/$image", "../site/img/$image");
+	copy("./src/img/$image", "${site_folder}img/$image");
 }
 
 # Favicon
@@ -752,11 +761,11 @@ my @favicons = (
 	'site.webmanifest',
 );
 foreach my $favicon (@favicons) {
-	copy("./src/img/favicon/$favicon", "../site/$favicon");
+	copy("./src/img/favicon/$favicon", "${site_folder}$favicon");
 }
 
-copy("./src/ads.txt", "../site/ads.txt");
-copy("./src/popin-min.js", "../site/popin-min.js");
+copy("./src/ads.txt", "${site_folder}ads.txt");
+copy("./src/popin-min.js", "${site_folder}popin-min.js");
 
 
 print "DONE\n";
