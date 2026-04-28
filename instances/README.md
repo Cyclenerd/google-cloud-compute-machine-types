@@ -21,6 +21,7 @@ The SQL files are read during the [build](../build/) process.
 	* [C4D](./series/c4d.sql)
 	* [E2](./series/e2.sql)
 	* [G2](./series/g2.sql)
+	* [G4](./series/g4.sql)
 	* [M1](./series/m1.sql)
 	* [M2](./series/m2.sql)
 	* [M3](./series/m3.sql)
