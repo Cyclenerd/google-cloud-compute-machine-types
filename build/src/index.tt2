@@ -184,42 +184,43 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 <div class="col-xl-6">
 <ul>
 	<li>
-		<a href="https://cloud.google.com/compute/docs/machine-types#machine_type_comparison" rel="nofollow">Machine series comparison</a>
+		<a href="https://docs.cloud.google.com/compute/docs/machine-types#machine_type_comparison" rel="nofollow">Machine series comparison</a>
 		<ul>
 			<li>
-				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#a2-vms" rel="nofollow">A2</a>,
-				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#a3-vms" rel="nofollow">A3</a> and
-				<a href="https://cloud.google.com/compute/docs/accelerator-optimized-machines#g2-vms" rel="nofollow">G2</a> accelerator optimized machines
+				<a href="https://docs.docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a2-vms" rel="nofollow">A2</a>,
+				<a href="https://docs.docs.cloud.google.com/compute/docs/accelerator-optimized-machines#a3-vms" rel="nofollow">A3</a>,
+				<a href="https://docs.docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g2-vms" rel="nofollow">G2</a> and
+				<a href="https://docs.docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g4-series" rel="nofollow">G4</a> accelerator optimized machines
 			</li>
 			<li>
-				<a href="https://cloud.google.com/compute/docs/storage-optimized-machines#z3_series" rel="nofollow">Z3</a> storage optimized machines
+				<a href="https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z3_series" rel="nofollow">Z3</a> storage optimized machines
 			</li>
 			<li>
-				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types" rel="nofollow">C2</a>,
-				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#c2d_machine_types" rel="nofollow">C2D</a> and
-				<a href="https://cloud.google.com/compute/docs/compute-optimized-machines#h3_series" rel="nofollow">H3</a> compute optimized machine series
+				<a href="https://docs.cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types" rel="nofollow">C2</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/compute-optimized-machines#c2d_machine_types" rel="nofollow">C2D</a> and
+				<a href="https://docs.cloud.google.com/compute/docs/compute-optimized-machines#h3_series" rel="nofollow">H3</a> compute optimized machine series
 			</li>
 			<li>
-				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types" rel="nofollow">M1</a>,
-				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types" rel="nofollow">M2</a>,
-				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m3_machine_types" rel="nofollow">M3</a> and
-				<a href="https://cloud.google.com/compute/docs/memory-optimized-machines#m4_machine_types" rel="nofollow">M4</a> memory optimized machine series
+				<a href="https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m1_machine_types" rel="nofollow">M1</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m2_machine_types" rel="nofollow">M2</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m3_machine_types" rel="nofollow">M3</a> and
+				<a href="https://docs.cloud.google.com/compute/docs/memory-optimized-machines#m4_machine_types" rel="nofollow">M4</a> memory optimized machine series
 			</li>
 			<li>
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c3_series" rel="nofollow">C3</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c3d_series" rel="nofollow">C3D</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c4_series" rel="nofollow">C4</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c4a_series" rel="nofollow">C4A</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#c4d_series" rel="nofollow">C4D</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n1_machines" rel="nofollow">N1</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2_series" rel="nofollow">N2</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n2d_machines" rel="nofollow">N2D</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n4_series" rel="nofollow">N4</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n4a_series" rel="nofollow">N4A</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#n4d_series" rel="nofollow">N4D</a>,
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2d_machines" rel="nofollow">T2D</a> and
-				<a href="https://cloud.google.com/compute/docs/general-purpose-machines#t2a_machines" rel="nofollow">T2A</a> general purpose machine series
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3_series" rel="nofollow">C3</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#c3d_series" rel="nofollow">C3D</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4_series" rel="nofollow">C4</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4a_series" rel="nofollow">C4A</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#c4d_series" rel="nofollow">C4D</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#e2_machine_types" rel="nofollow">E2</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#n1_machines" rel="nofollow">N1</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#n2_series" rel="nofollow">N2</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#n2d_machines" rel="nofollow">N2D</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#n4_series" rel="nofollow">N4</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#n4a_series" rel="nofollow">N4A</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#n4d_series" rel="nofollow">N4D</a>,
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#t2d_machines" rel="nofollow">T2D</a> and
+				<a href="https://docs.cloud.google.com/compute/docs/general-purpose-machines#t2a_machines" rel="nofollow">T2A</a> general purpose machine series
 			</li>
 		</ul>
 	</li>
@@ -227,11 +228,11 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 </div>
 <div class="col-xl-6">
 <ul>
-	<li><a href="https://cloud.google.com/compute/docs/regions-zones#available" rel="nofollow">Available regions and zones</a></li>
-	<li><a href="https://cloud.google.com/compute/docs/cpu-platforms" rel="nofollow">CPU Platform</a></li>
-	<li><a href="https://cloud.google.com/compute/docs/benchmarks-linux" rel="nofollow">Benchmarks for Linux VM instances</a></li>
-	<li><a href="https://cloud.google.com/solutions/sap/docs/certifications-sap-apps#sap-certified-vms" rel="nofollow">Certified SAP applications on Google Cloud</a></li>
-	<li><a href="https://cloud.google.com/solutions/sap/docs/certifications-sap-hana#hana-cert-table-vms" rel="nofollow">Certified machine types for SAP HANA</a></li>
+	<li><a href="https://docs.cloud.google.com/compute/docs/regions-zones#available" rel="nofollow">Available regions and zones</a></li>
+	<li><a href="https://docs.cloud.google.com/compute/docs/cpu-platforms" rel="nofollow">CPU Platform</a></li>
+	<li><a href="https://docs.cloud.google.com/compute/docs/benchmarks-linux" rel="nofollow">Benchmarks for Linux VM instances</a></li>
+	<li><a href="https://docs.cloud.google.com/solutions/sap/docs/certifications-sap-apps#sap-certified-vms" rel="nofollow">Certified SAP applications on Google Cloud</a></li>
+	<li><a href="https://docs.cloud.google.com/solutions/sap/docs/certifications-sap-hana#hana-cert-table-vms" rel="nofollow">Certified machine types for SAP HANA</a></li>
 </ul>
 </div> <!-- // col -->
 </div> <!-- // row -->
