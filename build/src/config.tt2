@@ -17,8 +17,8 @@ site = {
 		js  => 'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js'
 	},
 	bootstrap = {
-		css  => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/css/bootstrap.min.css'
-		js   => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.2.3/js/bootstrap.bundle.min.js'
+		css  => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css'
+		js   => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js'
 	},
 	bootstrapTable = {
 		css  => 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap-table/1.22.2/bootstrap-table.min.css'
