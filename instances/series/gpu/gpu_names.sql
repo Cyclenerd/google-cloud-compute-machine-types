@@ -3,6 +3,8 @@
  * https://cloud.google.com/compute/docs/gpus#gpus-list
  */
 
+UPDATE instances SET acceleratorType = 'NVIDIA RTX PRO 6000' WHERE acceleratorType LIKE 'nvidia-rtx-pro-6000';
+
 UPDATE instances SET acceleratorType = 'NVIDIA L4 vWS'     WHERE acceleratorType LIKE 'nvidia-l4-vws';
 UPDATE instances SET acceleratorType = 'NVIDIA L4'         WHERE acceleratorType LIKE 'nvidia-l4';
 
