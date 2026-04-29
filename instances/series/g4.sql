@@ -4,7 +4,7 @@
 UPDATE instances SET
 series      = 'g4',
 family      = 'Accelerator-optimized',
-cpuPlatform = 'Genoa',
+cpuPlatform = 'Turin',
 localSsd    = '1',
 spot        = '1'
 WHERE name LIKE 'g4-%';
