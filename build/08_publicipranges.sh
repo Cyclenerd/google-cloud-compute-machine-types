@@ -8,7 +8,7 @@ set -e
 source "00_config.sh"
 
 echo "Get public IP ranges"
-curl -o "publicipranges.json" "https://www.gstatic.com/ipranges/cloud.json"
+curl -fsSL -o "publicipranges.json" "https://www.gstatic.com/ipranges/cloud.json"
 
 echo "Calculate public IP addresses"
 perl "08_publicipranges.pl" > "publicipaddresses.sql"

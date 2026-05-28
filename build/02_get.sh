@@ -9,8 +9,7 @@ set -e
 source "00_config.sh"
 
 echo "Download pricing..."
-curl -OL "https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator/raw/master/pricing.yml"
-echo
+curl -fsSL -O "https://github.com/Cyclenerd/google-cloud-pricing-cost-calculator/raw/master/pricing.yml"
 
 # Create CSV file with machine types
 echo "Executing: 'gcloud compute machine-types list', please wait..."
