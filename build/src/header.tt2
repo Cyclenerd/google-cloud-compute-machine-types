@@ -32,6 +32,8 @@
 						<li><hr class="dropdown-divider"></li>
 						<li><a class="dropdown-item" href="https://aws-pricing.com/">Amazon EC2 Instance Type Comparison</a></li>
 						<li><a class="dropdown-item" href="https://ami.nkn-it.de/">Amazon Machine Images (AMIs)</a></li>
+						<li><hr class="dropdown-divider"></li>
+						<li><a class="dropdown-item" href="https://stackit.nkn-it.de/">STACKIT Compute Engine Pricing</a></li>
 					</ul>
 				</li>
 			</ul>
