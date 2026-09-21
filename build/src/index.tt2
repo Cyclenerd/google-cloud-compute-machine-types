@@ -193,7 +193,8 @@ Use the arrow keys (<kbd>←</kbd> <kbd>↑</kbd> <kbd>→</kbd> <kbd>↓</kbd>)
 				<a href="https://docs.docs.cloud.google.com/compute/docs/accelerator-optimized-machines#g4-series" rel="nofollow">G4</a> accelerator optimized machines
 			</li>
 			<li>
-				<a href="https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z3_series" rel="nofollow">Z3</a> storage optimized machines
+				<a href="https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z3_series" rel="nofollow">Z3</a> and
+				<a href="https://docs.cloud.google.com/compute/docs/storage-optimized-machines#z4d_series" rel="nofollow">Z4D</a> storage optimized machines
 			</li>
 			<li>
 				<a href="https://docs.cloud.google.com/compute/docs/compute-optimized-machines#c2_machine_types" rel="nofollow">C2</a>,
