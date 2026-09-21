@@ -365,7 +365,7 @@ function copy[% zone.remove('-') %]() {
 <pre class="bg-light"><code id="cli[% zone.remove('-') %]"><span class="text-muted"># Create Google Compute Engine virtual machine instance</span>
 <span class="text-muted"># called '[% instance.name%]-[% zone %]'</span>
 <span class="text-muted"># in the '[% zone %]' zone</span>
-<span class="text-muted"># with the latest 'Ubuntu 22.04 LTS' image available.</span>
+<span class="text-muted"># with the latest 'Ubuntu 26.04 LTS' image available.</span>
 [% # do not remove this line %]
 [%- IF instance.sharedCpu < 1 && !instance.arm -%]
 <span class="text-muted"># To specify minimum CPU platform replace min-cpu-platform:</span>
