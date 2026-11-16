@@ -111,16 +111,17 @@ title="Region: [% region.name %],
 [%- END; END; -%]
 
 [%- MACRO tableCompareCosts(a, b) BLOCK -%]
-[%- 
-	difference = b - a;
--%]
+[%- IF !a.defined || !b.defined || a.length == 0 || b.length == 0 -%]
+	<td>N/A</td>
+[%- ELSE -%]
+[%- difference = b - a; -%]
 [%- IF b == a -%]
 	<td class="table-primary">=</td>
 [%- ELSIF b < a -%]
 	<td class="table-success">[% difference FILTER format("%.4f") %]</td>
 [%- ELSE -%]
 	<td class="table-danger">+[% difference FILTER format("%.4f") %]</td>
-[%- END; END; -%]
+[%- END; END; END; -%]
 
 [%- MACRO imageProjectName(project) BLOCK -%]
 [%- IF    project == 'almalinux-cloud'               -%]AlmaLinux

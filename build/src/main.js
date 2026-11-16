@@ -56,6 +56,14 @@ function nullFormatter(params) {
 	return (params.value >= 0.01) ? params.value : '?';
 }
 
+function currencyClass(params) {
+	return params.value == null ? '' : 'currency';
+}
+
+function currencyFormatter(params) {
+	return params.value == null ? 'N/A' : params.value;
+}
+
 /*
  * GRID
  */
@@ -404,7 +412,8 @@ const gridOptions = {
 					headerName: 'Spot',
 					field: 'hourSpot',
 					width: 90,
-					cellClass: 'currency',
+					cellClass: currencyClass,
+					valueFormatter: currencyFormatter,
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
 					headerTooltip: 'Costs per hour spot provisioning model (Spot VM)'
@@ -477,7 +486,8 @@ const gridOptions = {
 					headerName: 'Spot',
 					field: 'monthSpot',
 					width: 120,
-					cellClass: 'currency',
+					cellClass: currencyClass,
+					valueFormatter: currencyFormatter,
 					filter: 'agNumberColumnFilter',
 					filterParams: filterParamsNumber,
 					columnGroupShow: 'open',
@@ -501,7 +511,7 @@ const gridOptions = {
 				{ headerName: 'RHEL',                   field: 'monthRhel',         width: 100, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Red Hat Enterprise Linux (cost per month)' },
 				{ headerName: 'RHEL w. 1Y CUD',         field: 'monthRhel1yCud',    width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Red Hat Enterprise Linux with 1 year CUD (cost per month)' },
 				{ headerName: 'RHEL w. 3Y CUD',         field: 'monthRhel3yCud',    width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Red Hat Enterprise Linux with 3 year CUD (cost per month)' },
-				{ headerName: 'Windows',                field: 'monthWindows',      width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Microsoft Windows Server (cost per month)' },
+				{ headerName: 'Windows',                field: 'monthWindows',      width: 120, cellClass: currencyClass, valueFormatter: currencyFormatter, filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'Microsoft Windows Server (cost per month)' },
 				{ headerName: 'SLES for SAP',           field: 'monthSlesSap',      width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'SUSE Linux Enterprise Server for SAP (cost per month)' },
 				{ headerName: 'SLES for SAP w. 1Y CUD', field: 'monthSlesSap1yCud', width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'SUSE Linux Enterprise Server for SAP with 1 year CUD (cost per month)' },
 				{ headerName: 'SLES for SAP w. 3Y CUD', field: 'monthSlesSap3yCud', width: 120, cellClass: 'currency', filter: 'agNumberColumnFilter', filterParams: filterParamsNumber, columnGroupShow: 'open',  headerTooltip: 'SUSE Linux Enterprise Server for SAP with 3 year CUD (cost per month)' },
