@@ -95,6 +95,20 @@ bash build.sh
 1. Export CSV and SQL file
 1. Test
 
+## Offline tests
+
+Test Z4M hardware metadata, bare-metal Spot exclusion, and idempotency without cloud access:
+
+```bash
+bash test_z4m.sh
+perl test_z4m_pricing.t
+```
+
+The second test uses the Perl dependencies above and synthetic prices to exercise
+pricing ingestion, SQL enrichment, and the real site renderer. Unsupported Z4M
+Windows and bare-metal Spot prices remain NULL and display as unavailable instead
+of inheriting regular prices or appearing free.
+
 ## Websites
 
 Create:

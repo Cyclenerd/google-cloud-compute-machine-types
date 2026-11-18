@@ -9,6 +9,7 @@
 <style>
 .frequency::after { content: " GHz"; }
 .currency::before { content: "$"; }
+.currency:empty::before { content: "N/A"; }
 .bandwidth::after { content: " Gbps"; }
 .diskSize::after  { content: " TB"; }
 .memory::after    { content: " GB"; }

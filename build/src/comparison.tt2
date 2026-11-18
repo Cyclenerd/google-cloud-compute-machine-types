@@ -219,7 +219,7 @@
 	<tr>
 		<th>Spot provisioning model (Spot VM)</th>
 		<td class="currency table-active">[% instance_a.avgHourSpot %]</td>
-		[% tableCompareCosts(instance_a.avgHourSpot || 0, instance_b.avgHourSpot || 0) %]
+		[% tableCompareCosts(instance_a.avgHourSpot, instance_b.avgHourSpot) %]
 		<td class="currency">[% instance_b.avgHourSpot %]</td>
 	</tr>
 </tbody>
@@ -253,7 +253,7 @@
 	<tr>
 		<th>Spot provisioning model (Spot VM)</th>
 		<td class="currency table-active">[% instance_a.avgMonthSpot %]</td>
-		[% tableCompareCosts(instance_a.avgMonthSpot || 0, instance_b.avgMonthSpot || 0) %]
+		[% tableCompareCosts(instance_a.avgMonthSpot, instance_b.avgMonthSpot) %]
 		<td class="currency">[% instance_b.avgMonthSpot %]</td>
 	</tr>
 	<tr>
@@ -288,7 +288,7 @@
 	<tr>
 		<th>Microsoft Windows Server</th>
 		<td class="currency table-active">[% instance_a.monthWindows %]</td>
-		[% tableCompareCosts(instance_a.monthWindows || 0, instance_b.monthWindows || 0) %]
+		[% tableCompareCosts(instance_a.monthWindows, instance_b.monthWindows) %]
 		<td class="currency">[% instance_b.monthWindows %]</td>
 	</tr>
 	<tr>
