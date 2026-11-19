@@ -1,6 +1,6 @@
 # CPU Platforms
 
-* Google documentation: <https://cloud.google.com/compute/docs/cpu-platforms>
+* Google documentation: <https://docs.cloud.google.com/compute/docs/cpu-platforms>
 * Wikipedia
 	* Intel: <https://en.wikipedia.org/wiki/Xeon>
 	* AMD: <https://en.wikipedia.org/wiki/Epyc>
